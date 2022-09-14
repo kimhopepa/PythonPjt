@@ -40,5 +40,6 @@ def rsp_game(my_rsp):
     print("나 = " + my_rsp + ", 컴퓨터 = " + computer_rsp)
     print("결과는 " + game_result)
 
+print("게임을 시작합니다.")
 my_rsp = input("가위 바위 보 \n")
 rsp_game(my_rsp)
