@@ -5,6 +5,8 @@ from PyQt5.QtWidgets import *
 from PyQt5 import uic
 import sys
 import os
+from ConfigManager import ConfigClass
+from CrawlManager import CrawlClass
 
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
@@ -20,16 +22,51 @@ form_class = uic.loadUiType(form)[0]
 class WindowClass(QMainWindow, form_class) :
     def __init__(self) :
         super().__init__()
+        
+        #1. UI 이벤트 초기화
         self.setupUi(self)
+        self.pushButton_Connect.clicked.connect(self.btn_Login)
 
-        self.pushButton_Connect.clicked.connect(self.btn_clicked)
+        #2. 클래스 초기화
+        self._config = ConfigClass()
+        self._crawl = CrawlClass()
+        self.loadConfig()
 
-    def btn_clicked(self):
-        site = self.textEdit_Site.toPlainText()
-        id = self.textEdit_ID.toPlainText()
-        pw = self.textEdit_PW.toPlainText()
-        msg_info = "site = {0}, id = {1}, pw = {2}".format(site, id, pw)
-        QMessageBox.about(self, "message", msg_info)
+    def loadConfig(self):
+        try:
+
+            config_site = self._config.GetConfigData(self._config.section_main, self._config.key_site)
+            config_id = self._config.GetConfigData(self._config.section_main, self._config.key_id)
+            config_pw = self._config.GetConfigData(self._config.section_main, self._config.key_pw)
+
+            self.lineEdit_SITE.setText(config_site)
+            self.lineEdit_ID.setText(config_id)
+            self.lineEdit_PW.setText(config_pw)
+
+            print(config_site, config_id, config_pw )
+
+
+        except Exception as e:
+            print("loadConfig()", e)
+
+    def btn_Login(self):
+        try :
+            site = self.lineEdit_SITE.text()
+            id_text = self.lineEdit_ID.text()
+            pw = self.lineEdit_PW.text()
+            msg_info = "site = {0}, id = {1}, pw = {2}".format(site, id_text, pw)
+            QMessageBox.about(self, "message", msg_info)
+
+            self._config.SaveConfig(self._config.section_main, self._config.key_site, site)
+            self._config.SaveConfig(self._config.section_main, self._config.key_id, id_text)
+            self._config.SaveConfig(self._config.section_main, self._config.key_pw, pw)
+
+            self._config.WriteConfig()
+        except Exception as e:
+            print("btn_Login()", e)
+
+
+
 
 
 
