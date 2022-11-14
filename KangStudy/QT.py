@@ -10,10 +10,10 @@
 #1) 라이브러리 import
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
-from PyQt5 import QtWidgets
 import sys
 import os
-import NaverCrawling as crawler
+from ConfigManager import ConfigClass
+from NaverCrawling import crawling
 
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
@@ -24,15 +24,15 @@ def resource_path(relative_path):
 form = resource_path("NaverCrawling.ui")
 form_class = uic.loadUiType(form)[0]
 
-
 #3) 화면을 띄우는 클래스 선언
 class WindowClass(QMainWindow, form_class) :
+    def ID(self):
+        return id
+
     def __init__(self) :
         super().__init__()
         self.setupUi(self)
-        self.lineEdit_ID.setPlaceholderText("Enter ID Here")
-        self.lineEdit_PWD.setPlaceholderText("Enter Password Here")
-        self.lineEdit_PWD.setEchoMode(QtWidgets.QLineEdit.Password)
+        self._config = ConfigClass()
 
     # 버튼 이벤트
         self.btn_login.clicked.connect(self.button2Function)
@@ -44,22 +44,24 @@ class WindowClass(QMainWindow, form_class) :
         pwd = self.lineEdit_PWD.text()
 
     # TableWidget에 크롤링 내용 연동하기
+        url_list, title_list = crawling()
+        crawl_cnt = len(url_list)
 
-        for row,title,url in zip(range(10), crawler.title_list, crawler.url_list):
-            self.tableWidget_contents.setItem(row, 0, QTableWidgetItem(title))
-            self.tableWidget_contents.setItem(row, 1, QTableWidgetItem(url))
+        print("url_list", url_list)
+        print("title_list", title_list)
+        # for i in range(crawl_cnt):
+        #     # self.tableWidget_contents.setItem(i, 0, QTableWidgetItem(title_list[i]))
+        #     # self.tableWidget_contents.setItem(i, 1, QTableWidgetItem(url_list[i]))
 
-
-#btn_1이 눌리면 작동할 함수
-    def button1Function(self) :
+    # btn_1이 눌리면 작동할 함수
+    def button1Function(self):
         print("btn Clicked")
-#btn_2가 눌리면 작동할 함수
-    def button2Function(self) :
+
+    # btn_2가 눌리면 작동할 함수
+    def button2Function(self):
         print("btn Clicked")
-        print(self.lineEdit_ID.text()) # Lineedit에 있는 글자를 가져오는 메서드
+        print(self.lineEdit_ID.text())  # Lineedit에 있는 글자를 가져오는 메서드
         print(self.lineEdit_PWD.text())
-
-
 
 
 #4) 위에서 선언한 클래스를 실행 : QMainWindow 부모 클래스의 show 함수 실행
@@ -69,9 +71,6 @@ if __name__ == '__main__':
 
     # WindowClass의 인스턴스 생성
     myWindow = WindowClass()
-    # pw = QtGui.QLineEdit()
-    # pw.setEchoMode(QtGui.QLineEdit.Password)
-    # pw.show()
 
     # 프로그램 화면을 보여주는 코드
     myWindow.show()

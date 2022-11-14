@@ -26,6 +26,7 @@ class WindowClass(QMainWindow, form_class) :
         #1. UI 이벤트 초기화
         self.setupUi(self)
         self.pushButton_Connect.clicked.connect(self.btn_Login)
+        self.pushButton_Search.clicked.connect(self.btn_Search)
 
         #2. 클래스 초기화
         self._config = ConfigClass()
@@ -34,7 +35,6 @@ class WindowClass(QMainWindow, form_class) :
 
     def loadConfig(self):
         try:
-
             config_site = self._config.GetConfigData(self._config.section_main, self._config.key_site)
             config_id = self._config.GetConfigData(self._config.section_main, self._config.key_id)
             config_pw = self._config.GetConfigData(self._config.section_main, self._config.key_pw)
@@ -43,7 +43,9 @@ class WindowClass(QMainWindow, form_class) :
             self.lineEdit_ID.setText(config_id)
             self.lineEdit_PW.setText(config_pw)
 
-            print(config_site, config_id, config_pw )
+            print(config_site, config_id, config_pw)
+
+
 
 
         except Exception as e:
@@ -54,7 +56,7 @@ class WindowClass(QMainWindow, form_class) :
             site = self.lineEdit_SITE.text()
             id_text = self.lineEdit_ID.text()
             pw = self.lineEdit_PW.text()
-            msg_info = "site = {0}, id = {1}, pw = {2}".format(site, id_text, pw)
+            msg_info = "site = {0}, id = {1}, pw = xxxx".format(site, id_text, pw)
             QMessageBox.about(self, "message", msg_info)
 
             self._config.SaveConfig(self._config.section_main, self._config.key_site, site)
@@ -62,13 +64,25 @@ class WindowClass(QMainWindow, form_class) :
             self._config.SaveConfig(self._config.section_main, self._config.key_pw, pw)
 
             self._config.WriteConfig()
+
+            self._crawl.initialize(site, id_text, pw)
         except Exception as e:
             print("btn_Login()", e)
 
+    def btn_Search(self):
+        try:
 
+            news_url = "https://media.naver.com/press/015?sid=101"
 
-
-
+            url_list, title_list = self._crawl.search(news_url)
+            crawl_cnt = len(url_list)
+            print("url_list", url_list)
+            print("title_list", title_list)
+            for i in range(crawl_cnt):
+                self.tableWidget.setItem(i, 0, QTableWidgetItem(title_list[i]))
+                self.tableWidget.setItem(i, 1, QTableWidgetItem(url_list[i]))
+        except Exception as e:
+            print("btn_Search()", e)
 
 #4) 위에서 선언한 클래스를 실행 : QMainWindow 부모 클래스의 show 함수 실행
 if __name__ == '__main__':

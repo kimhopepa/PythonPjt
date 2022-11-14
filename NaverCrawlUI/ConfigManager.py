@@ -40,14 +40,11 @@ class ConfigClass :
             # 1. section 있는지 확인
             if section in self._config:
                 self._config[section][key] = text
-                print("save", section, key, text)
+
             else:
                 self._config[section] = {}
                 self._config[section][key] = text
-                print("save2", section, key, text)
 
-
-            print("save3",self._config)
         except Exception as e:
             print("SaverConfig()", e)
     def WriteConfig(self):
@@ -55,7 +52,6 @@ class ConfigClass :
             with open(self._fileName, 'w', encoding='utf-8') as configfile:
                 self._config.write(configfile)
 
-            print("save3",_config, configfile)
         except Exception as e:
             print("SaverConfig()", e)
 
