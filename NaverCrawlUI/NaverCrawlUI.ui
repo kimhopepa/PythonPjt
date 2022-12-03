@@ -135,19 +135,6 @@
       <string/>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_Search">
-     <property name="geometry">
-      <rect>
-       <x>420</x>
-       <y>120</y>
-       <width>151</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>검색</string>
-     </property>
-    </widget>
     <widget class="QLineEdit" name="lineEdit_URL">
      <property name="geometry">
       <rect>
@@ -177,6 +164,15 @@
       <height>281</height>
      </rect>
     </property>
+    <property name="lineWidth">
+     <number>10</number>
+    </property>
+    <attribute name="horizontalHeaderCascadingSectionResizes">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>true</bool>
+    </attribute>
     <column>
      <property name="text">
       <string>타이틀</string>
@@ -188,9 +184,23 @@
      </property>
     </column>
    </widget>
+   <widget class="QPushButton" name="pushButton_Search">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>90</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>검색</string>
+    </property>
+   </widget>
    <zorder>groupBox</zorder>
    <zorder>pushButton_Connect</zorder>
    <zorder>tableWidget</zorder>
+   <zorder>pushButton_Search</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

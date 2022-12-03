@@ -78,9 +78,13 @@ class WindowClass(QMainWindow, form_class) :
             crawl_cnt = len(url_list)
             print("url_list", url_list)
             print("title_list", title_list)
+            self.tableWidget.setRowCount(crawl_cnt)
+            # self.tableWidget.setColumnCount(2)
+
             for i in range(crawl_cnt):
                 self.tableWidget.setItem(i, 0, QTableWidgetItem(title_list[i]))
                 self.tableWidget.setItem(i, 1, QTableWidgetItem(url_list[i]))
+
         except Exception as e:
             print("btn_Search()", e)
 

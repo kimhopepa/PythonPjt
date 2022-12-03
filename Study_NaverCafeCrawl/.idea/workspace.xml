@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bd06f8b-5fc6-46f6-892c-48a42b6ffd64" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/../KangStudy/NaverCrawling.py" beforeDir="false" afterPath="$PROJECT_DIR$/../KangStudy/NaverCrawling.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../KangStudy/QT.py" beforeDir="false" afterPath="$PROJECT_DIR$/../KangStudy/QT.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NaverCrawlUI/ConfigManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/../NaverCrawlUI/ConfigManager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NaverCrawlUI/CrawlManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/../NaverCrawlUI/CrawlManager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../NaverCrawlUI/NaverCrawlUI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/../NaverCrawlUI/NaverCrawlUI.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NaverCrawlUI/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../NaverCrawlUI/config.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../NaverCrawlUI/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../NaverCrawlUI/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -43,7 +39,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/HopeRacer/Documents/GitHub/PythonPjt/NaverCrawlUI"
+    "last_opened_file_path": "C:/Users/HopeRacer/Documents/GitHub/PythonPjt/KangStudy"
   }
 }]]></component>
   <component name="RunManager">

@@ -49,6 +49,10 @@ class WindowClass(QMainWindow, form_class) :
 
         print("url_list", url_list)
         print("title_list", title_list)
+
+        for i in range (crawl_cnt) :
+            self.tableWidget.setItem(i, 0, QTableWidgetItem(title_list[i]))
+            self.tableWidget.setItem(i, 1, QTableWidgetItem(title_list[i]))
         # for i in range(crawl_cnt):
         #     # self.tableWidget_contents.setItem(i, 0, QTableWidgetItem(title_list[i]))
         #     # self.tableWidget_contents.setItem(i, 1, QTableWidgetItem(url_list[i]))
