@@ -14,6 +14,7 @@ class ConfigClass :
     key_pw = "pw"
     key_id = "id"
     key_site = "site"
+    key_move_url = "move_url"
 
     def __init__(self):
         self._fileName = "config.ini"

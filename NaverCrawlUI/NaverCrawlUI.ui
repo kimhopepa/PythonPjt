@@ -139,7 +139,7 @@
      <property name="geometry">
       <rect>
        <x>110</x>
-       <y>130</y>
+       <y>110</y>
        <width>301</width>
        <height>31</height>
       </rect>
@@ -188,7 +188,7 @@
     <property name="geometry">
      <rect>
       <x>620</x>
-      <y>90</y>
+      <y>440</y>
       <width>151</width>
       <height>51</height>
      </rect>
@@ -197,10 +197,24 @@
      <string>검색</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_Move">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>80</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>사이트이동</string>
+    </property>
+   </widget>
    <zorder>groupBox</zorder>
    <zorder>pushButton_Connect</zorder>
    <zorder>tableWidget</zorder>
    <zorder>pushButton_Search</zorder>
+   <zorder>pushButton_Move</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -208,7 +222,7 @@
      <x>0</x>
      <y>0</y>
      <width>802</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

@@ -39,6 +39,7 @@ class CrawlClass :
 
         except Exception as e:
             print("Exception : initialize()", e)
+
     def search(self, search_text):
         url_list = []  # url저장 리스트
         title_list = []  # 뉴스 제목 리스트
@@ -64,10 +65,11 @@ class CrawlClass :
             print("CrawlClass.Exception()", e)
 
         return url_list, title_list
+
     def move(self, url):
         try :
             self.browser.get(url)
             self.browser.implicitly_wait(2)
         except Exception as e:
-            print("Exception : initialize()", e)
+            print("Exception : CrawlClass.move()", e)
 
