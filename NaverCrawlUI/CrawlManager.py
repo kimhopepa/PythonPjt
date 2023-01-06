@@ -38,7 +38,7 @@ class CrawlClass :
             self.browser.find_element_by_id('log.login').click()
 
         except Exception as e:
-            print("Exception : initialize()", e)
+            print("Exception : CrawlClass.initialize()", e)
     def search(self, search_text):
         url_list = []  # url저장 리스트
         title_list = []  # 뉴스 제목 리스트
@@ -61,7 +61,7 @@ class CrawlClass :
                 title_list.append(title.text)
             print("5. CrawlClass.search() - end")
         except Exception as e:
-            print("CrawlClass.Exception()", e)
+            print("Exception : CrawlClass.search", e)
 
         return url_list, title_list
     def move(self, url):
@@ -69,5 +69,5 @@ class CrawlClass :
             self.browser.get(url)
             self.browser.implicitly_wait(2)
         except Exception as e:
-            print("Exception : initialize()", e)
+            print("Exception : CrawlClass.move()", e)
 
