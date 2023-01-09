@@ -18,7 +18,8 @@ class CrawlClass :
             self.browser.get(site_text)
 
             print("3. CrawlClass().initialize : find_element")
-            elem = self.browser.find_element(By.CLASS_NAME, 'link_login')
+            # elem = self.browser.find_element(By.CLASS_NAME, 'link_login')
+            elem = self.browser.find_element_by_xpath('//*[@id="gnb_login_button"]/span[3]')
             elem.click()
 
             # 3. id 복사 붙여넣기
@@ -66,10 +67,13 @@ class CrawlClass :
 
         return url_list, title_list
 
-    def move(self, url):
+    def move(self):
         try :
-            self.browser.get(url)
-            self.browser.implicitly_wait(2)
+            #1. 경기 출석 메뉴 이동
+            xpath = '//*[@id="menuLink2"]'
+            elem = self.browser.find_element_by_xpath(xpath)
+            elem.click()
+
         except Exception as e:
             print("Exception : CrawlClass.move()", e)
 

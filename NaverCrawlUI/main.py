@@ -57,17 +57,18 @@ class WindowClass(QMainWindow, form_class) :
     def btn_Login(self):
         # 로그인 버튼 선택
         try :
+            #1. lineEdit UI에서 데이터 가져오기
             site = self.lineEdit_SITE.text()
             id_text = self.lineEdit_ID.text()
             pw = self.lineEdit_PW.text()
             msg_info = "site = {0}, id = {1}, pw = xxxx".format(site, id_text, pw)
             QMessageBox.about(self, "message", msg_info)
-
+            
+            
+            #2. 로그인 이벤트시 config 파일 저장
             self._config.SaveConfig(self._config.section_main, self._config.key_site, site)
             self._config.SaveConfig(self._config.section_main, self._config.key_id, id_text)
             self._config.SaveConfig(self._config.section_main, self._config.key_pw, pw)
-
-            self._config.WriteConfig()
 
             self._crawl.initialize(site, id_text, pw)
         except Exception as e:
@@ -94,11 +95,13 @@ class WindowClass(QMainWindow, form_class) :
 
     def btn_Move(self):
         try:
-            input_url = self.lineEdit_URL.text()
-            self._crawl.move(input_url)
-            self._config.SaveConfig(self._config.section_main, self._config.key_move_url, input_url)
-
-            self._config.WriteConfig()
+            #1. 메뉴 페이지 이동
+            self._crawl.move()
+            # input_url = self.lineEdit_URL.text()
+            # self._crawl.move(input_url)
+            # self._config.SaveConfig(self._config.section_main, self._config.key_move_url, input_url)
+            #
+            # self._config.WriteConfig()
 
         except Exception as e:
             print("btn_Search()", e)
