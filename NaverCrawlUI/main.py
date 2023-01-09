@@ -27,6 +27,7 @@ class WindowClass(QMainWindow, form_class) :
         self.setupUi(self)
         self.pushButton_Connect.clicked.connect(self.btn_Login)
         self.pushButton_Search.clicked.connect(self.btn_Search)
+        self.pushButton_Move.clicked.connect(self.btn_Move)
 
         #2. 클래스 초기화
         self._config = ConfigClass()
@@ -38,12 +39,14 @@ class WindowClass(QMainWindow, form_class) :
             config_site = self._config.GetConfigData(self._config.section_main, self._config.key_site)
             config_id = self._config.GetConfigData(self._config.section_main, self._config.key_id)
             config_pw = self._config.GetConfigData(self._config.section_main, self._config.key_pw)
+            config_move_url = self._config.GetConfigData(self._config.section_main, self._config.key_move_url)
 
             self.lineEdit_SITE.setText(config_site)
             self.lineEdit_ID.setText(config_id)
             self.lineEdit_PW.setText(config_pw)
+            self.lineEdit_URL.setText(config_move_url)
 
-            print(config_site, config_id, config_pw)
+            print(config_site, config_id, config_pw, config_move_url)
 
 
 
@@ -52,6 +55,7 @@ class WindowClass(QMainWindow, form_class) :
             print("loadConfig()", e)
 
     def btn_Login(self):
+        # 로그인 버튼 선택
         try :
             site = self.lineEdit_SITE.text()
             id_text = self.lineEdit_ID.text()
@@ -88,6 +92,16 @@ class WindowClass(QMainWindow, form_class) :
         except Exception as e:
             print("btn_Search()", e)
 
+    def btn_Move(self):
+        try:
+            input_url = self.lineEdit_URL.text()
+            self._crawl.move(input_url)
+            self._config.SaveConfig(self._config.section_main, self._config.key_move_url, input_url)
+
+            self._config.WriteConfig()
+
+        except Exception as e:
+            print("btn_Search()", e)
 #4) 위에서 선언한 클래스를 실행 : QMainWindow 부모 클래스의 show 함수 실행
 if __name__ == '__main__':
     # QApplication : 프로그램을 실행시켜주는 클래스
