@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>744</width>
-    <height>572</height>
+    <height>805</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -109,6 +109,16 @@
     </property>
     <property name="text">
      <string>실행</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>550</y>
+      <width>531</width>
+      <height>211</height>
+     </rect>
     </property>
    </widget>
   </widget>
