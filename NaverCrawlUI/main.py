@@ -22,6 +22,7 @@ form_class = uic.loadUiType(form)[0]
 class WindowClass(QMainWindow, form_class) :
     def __init__(self) :
         super().__init__()
+
         
         #1. UI 이벤트 초기화
         self.setupUi(self)
