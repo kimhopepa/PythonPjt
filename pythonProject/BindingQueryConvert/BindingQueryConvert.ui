@@ -6,40 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>744</width>
-    <height>805</height>
+    <width>741</width>
+    <height>699</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>바인딩쿼리변환</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLineEdit" name="lineEdit_bindingQuery">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>50</y>
-      <width>531</width>
-      <height>171</height>
-     </rect>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_Parameter">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>260</y>
-      <width>531</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-    </property>
-   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
@@ -70,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>320</y>
+      <y>450</y>
       <width>131</width>
       <height>16</height>
      </rect>
@@ -79,24 +53,11 @@
      <string>리터럴 쿼리 결과</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_literalQuery">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>350</y>
-      <width>531</width>
-      <height>171</height>
-     </rect>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_Convert">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>50</y>
+      <x>560</x>
+      <y>40</y>
       <width>151</width>
       <height>71</height>
      </rect>
@@ -111,28 +72,38 @@
      <string>실행</string>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit">
+   <widget class="QPlainTextEdit" name="plainTextEdit_BindingQuery">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>550</y>
+      <y>40</y>
       <width>531</width>
-      <height>211</height>
+      <height>181</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit_BindingParameter">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>250</y>
+      <width>531</width>
+      <height>181</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit_literalQuery">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>480</y>
+      <width>531</width>
+      <height>181</height>
      </rect>
     </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>744</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
  </widget>
  <resources/>
  <connections/>
