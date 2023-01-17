@@ -9,3 +9,4 @@ TensorFlowStudy/.idea/modules.xml
 TensorFlowStudy/.idea/misc.xml
 TensorFlowStudy/.idea/inspectionProfiles/Project_Default.xml
 TensorFlowStudy/.idea/inspectionProfiles/profiles_settings.xml
+*.csv
