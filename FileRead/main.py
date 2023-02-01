@@ -22,12 +22,13 @@ class WindowClass(QMainWindow, form_class) :
 
         #1. UI 이벤트 초기화
         self.setupUi(self)
-        self.pushButtonOpen_csv.clicked.connect(self.CsvFileOpen)
+        # self.pushButtonOpen_csv.clicked.connect(self.CsvFileOpen)
 
         self._filer = FileManager()
+        print("literalConvert()")
 
 
-    def CsvFileOpen(self):
+    # def CsvFileOpen(self):
         #1. csv 파일 Read
 
 
@@ -48,4 +49,3 @@ if __name__ == '__main__':
 
     # 프로그램을 이벤트루프로 진입시키는(프로그램을 작동시키는) 코드
     app.exec_()
-

@@ -1,9 +1,9 @@
 import configparser
-from time import strftime
+# from time import strftime
 import os
 
 # ConfigParser 클래스
-from attr import _config
+# from attr import _config
 
 
 class ConfigManager:

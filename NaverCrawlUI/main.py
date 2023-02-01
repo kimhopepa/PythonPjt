@@ -49,6 +49,7 @@ class WindowClass(QMainWindow, form_class) :
 
             print(config_site, config_id, config_pw, config_move_url)
 
+
         except Exception as e:
             print("loadConfig()", e)
 

@@ -9,6 +9,7 @@ from libConvert import *
 from libConfig import *
 
 def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
     base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base_path, relative_path)
 
@@ -50,9 +51,6 @@ class WindowClass(QMainWindow, form_class) :
             text_bindingQuery = self.plainTextEdit_BindingQuery.toPlainText()
             text_bindingParameter = self.plainTextEdit_BindingParameter.toPlainText()
 
-            # text_bindingQuery =  r"INSERT /*hanwha.convergence-PMModeLogic(IDX_PM_INSERT) 2022.12.21*/ INTO TN_CM_PM_APPR  (EQP_NO, START_DATE, END_DATE, ACTN_REASON_CONT, APPR_STATUS_CODE, REQ_DATE, REQ_USER_ID, APPR_DATE, APPR_USER_ID  , PM_START_YN, PM_END_YN, PM_EXT_NOTIFY_YN, EXT_DATE, PM_EXT_YN, MOD_DATE, MOD_USER_ID, REG_DATE, REG_USER_ID)  VALUES(:eqp_no, TO_TIMESTAMP(:start_date, 'YYYY.MM.DD HH24:MI:SS.FF3'), TO_TIMESTAMP(:end_date, 'YYYY.MM.DD HH24:MI:SS.FF3') + 8 /24, :actn_reason_cont, :appr_status_code, TO_TIMESTAMP(:req_date, 'YYYY.MM.DD HH24:MI:SS.FF3'), :req_user_id, TO_TIMESTAMP(:appr_date, 'YYYY.MM.DD HH24:MI:SS.FF3'), :appr_user_id  , :pm_start_yn, :pm_end_yn, :pm_ext_notify_yn, NULL, :pm_ext_yn, TO_TIMESTAMP(:mod_date, 'YYYY.MM.DD HH24:MI:SS.FF3'), :mod_user_id, TO_TIMESTAMP(:reg_date, 'YYYY.MM.DD HH24:MI:SS.FF3'), :reg_user_id )"
-            # text_bindingParameter = r"3651139 | 2023.01.12 14:50:56.032 | 2023.01.12 14:50:56.032 | SS_LOGIC | APPR_A | 2023.01.12 14:50:56.032 | PM_LOGIC | 2023.01.12 14:50:56.032 | INNO_TEAM | N | N | Y | N | 2023.01.12 14:50:56.032 | PM_LOGIC | 2023.01.12 14:50:56.032 | PM_LOGIC"
-
             #1. Literal Query 생성
             text_literal_query = self._converter.makeLiteralQuery(text_bindingQuery, text_bindingParameter)
             
@@ -62,14 +60,6 @@ class WindowClass(QMainWindow, form_class) :
 
             self._configer.SaveConfig(self._configer.section_main, self._configer.key_binding_query, text_bindingQuery)
             self._configer.SaveConfig(self._configer.section_main, self._configer.key_binding_parameter, text_bindingParameter)
-
-            #
-            # QMessageBox.about(self, "message", text_bindingQuery + ", " + text_bindingParameter)
-            # reply = QMessageBox.question(self, 'Message', 'Are you sure to quit?',
-            #                              QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
-            # self._converter.
-            # self.lineEdit_bindingQuery.
-            # 1. csv 파일 Read
 
         except Exception as e:
             print("literalConvert()", e)
@@ -88,10 +78,3 @@ if __name__ == '__main__':
 
     # 프로그램을 이벤트루프로 진입시키는(프로그램을 작동시키는) 코드
     app.exec_()
-
-# bind_query = r"INSERT /*hanwha.convergence-PMModeLogic(IDX_PM_INSERT) 2022.12.21*/ INTO TN_CM_PM_APPR  (EQP_NO, START_DATE, END_DATE, ACTN_REASON_CONT, APPR_STATUS_CODE, REQ_DATE, REQ_USER_ID, APPR_DATE, APPR_USER_ID  , PM_START_YN, PM_END_YN, PM_EXT_NOTIFY_YN, EXT_DATE, PM_EXT_YN, MOD_DATE, MOD_USER_ID, REG_DATE, REG_USER_ID)  VALUES(:eqp_no, TO_TIMESTAMP(:start_date, 'YYYY.MM.DD HH24:MI:SS.FF3'), TO_TIMESTAMP(:end_date, 'YYYY.MM.DD HH24:MI:SS.FF3') + 8 /24, :actn_reason_cont, :appr_status_code, TO_TIMESTAMP(:req_date, 'YYYY.MM.DD HH24:MI:SS.FF3'), :req_user_id, TO_TIMESTAMP(:appr_date, 'YYYY.MM.DD HH24:MI:SS.FF3'), :appr_user_id  , :pm_start_yn, :pm_end_yn, :pm_ext_notify_yn, NULL, :pm_ext_yn, TO_TIMESTAMP(:mod_date, 'YYYY.MM.DD HH24:MI:SS.FF3'), :mod_user_id, TO_TIMESTAMP(:reg_date, 'YYYY.MM.DD HH24:MI:SS.FF3'), :reg_user_id )"
-# bind_var = r"3651139 | 2023.01.12 14:50:56.032 | 2023.01.12 14:50:56.032 | SS_LOGIC | APPR_A | 2023.01.12 14:50:56.032 | PM_LOGIC | 2023.01.12 14:50:56.032 | INNO_TEAM | N | N | Y | N | 2023.01.12 14:50:56.032 | PM_LOGIC | 2023.01.12 14:50:56.032 | PM_LOGIC"
-#
-# _convert_manager = ConvertManager()
-#
-# _convert_manager.makeLiteralQuery(bind_query, bind_var)
