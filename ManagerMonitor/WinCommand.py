@@ -63,8 +63,7 @@ class WinCommand:
 
     # wmic Win32 명령어 실행 : PID별 CPU 부하 및 메모리 조회
     def win32Command(self):
-        command_wmic = 'wmic path Win32_PerfFormattedData_PerfProc_Process where "name like \'WCC%\'" get idprocess, ' \
-                       'name,  PercentProcessorTime, workingset '
+        command_wmic = 'wmic path Win32_PerfFormattedData_PerfProc_Process where "name like \'WCC%\'" get idprocess, name,  PercentProcessorTime, workingset '
         command_column_list = ['PID', 'name', 'PercentProcessorTime', 'workingset']
 
         command_result = os.popen(command_wmic)

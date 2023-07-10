@@ -54,7 +54,7 @@ class ConvertManager:
         try:
             print("ConvertManager.get_bind_var_list() - query : " + bind_query)
             start_index = -1
-            bind_end_statement = "()+/*=, "
+            bind_end_statement = "()+/*=, \n"
             bind_flag = True
             bind_var = ""
             for i in range(len(bind_query)):
@@ -105,6 +105,7 @@ class ConvertManager:
                 bind_parameter = "'" + bind_para_list[i] + "'"
                 result_literal_query = result_literal_query.replace(bind_var, bind_parameter, 1)
                 print("ConvertManager.get_literal_query()", result_literal_query)
+
         except Exception as e:
             print("ConvertManager.get_literal_query() - Exception", e)
 
