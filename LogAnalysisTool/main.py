@@ -16,7 +16,7 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 # #2) UI 파일 연결 -> 같은 경로에 위치
-form = resource_path("ScriptSummary_UI.ui")
+form = resource_path("LogCheck.ui")
 form_class = uic.loadUiType(form)[0]
 
 # #3) 화면을 띄우는 클래스 선언
@@ -34,7 +34,7 @@ class WindowClass(QMainWindow, form_class):
 
         # 2. 버튼 이벤트 작성
         self.pushButton_path.clicked.connect(self.set_path)
-        self.pushButton_summery.clicked.connect(self.summery_csv)
+        self.pushButton_Log.clicked.connect(self.summery_csv)
 
         # 3. 초기화 실행 함수
         self.loadConfig()
@@ -68,7 +68,8 @@ class WindowClass(QMainWindow, form_class):
         except Exception as e:
             print("set_path()", e)
 
-    def summery_csv(self):
+    # def summery_csv(self):
+    def log_check(self):
         try:
             # 1. 경로 가져오기
             folder_path = self.textEdit_Path.toPlainText()

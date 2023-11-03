@@ -51,22 +51,29 @@ class FileManager:
         try:
             col_Server = "Server"
             col_Script = "Script"
+            col_path = "path"
+            ctrl_path = ""
             columns = [col_Server, col_Script]
             df = pd.DataFrame(columns=columns)
 
             for server_name, progs_path in file_info.items():
                 with open(progs_path, 'r') as file :
                     file_text = file.readlines()
+                    ctrl_path = progs_path
+                    ctrl_path = ctrl_path.replace("progs", "")
+                    ctrl_path = ctrl_path.replace("config/", "")
+                    print("path", ctrl_path)
 
                 for line in file_text :
                     if line.find("WCCOActrl") >= 0 and line.find(".ctl") >= 0 :
                         text_list = line.split(" ")
                         script_name = text_list[len(text_list) - 1].replace("\n", "")
-                        new_row = {col_Server : server_name, col_Script : script_name}
+                        script_path = ctrl_path + "scripts\\"+script_name
+                        new_row = {col_Server : server_name, col_Script : script_name, col_path : script_path}
 
                         df = df._append(new_row, ignore_index = True)
             csv_file_name = folder_path + "/output_summery_" + datetime.datetime.now().strftime("%Y%m%d%H%M%S")+ ".csv"
-            df.to_csv(csv_file_name)
+            df.to_csv(csv_file_name, encoding='cp949')
         except Exception as e:
             print("progs_save()", e)
 

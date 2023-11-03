@@ -1,0 +1,118 @@
+[2023-11-02 15:04:20,222][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-02 15:04:20,223][INFO|library_log.py:24] >> my INFO log
+[2023-11-02 15:04:20,223][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-02 15:04:20,223][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-02 15:04:20,223][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-02 15:04:52,237][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-02 15:04:52,238][INFO|library_log.py:24] >> my INFO log
+[2023-11-02 15:04:52,238][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-02 15:04:52,238][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-02 15:04:52,238][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-02 15:05:00,068][DEBUG|main.py:39] >> debug text
+[2023-11-02 15:05:00,068][INFO|main.py:40] >> information text
+[2023-11-02 15:05:00,069][WARNING|main.py:41] >> warning text
+[2023-11-02 15:05:01,268][DEBUG|main.py:39] >> debug text
+[2023-11-02 15:05:01,268][INFO|main.py:40] >> information text
+[2023-11-02 15:05:01,268][WARNING|main.py:41] >> warning text
+[2023-11-02 15:05:01,476][DEBUG|main.py:39] >> debug text
+[2023-11-02 15:05:01,476][INFO|main.py:40] >> information text
+[2023-11-02 15:05:01,476][WARNING|main.py:41] >> warning text
+[2023-11-02 15:05:01,659][DEBUG|main.py:39] >> debug text
+[2023-11-02 15:05:01,660][INFO|main.py:40] >> information text
+[2023-11-02 15:05:01,660][WARNING|main.py:41] >> warning text
+[2023-11-02 15:05:01,852][DEBUG|main.py:39] >> debug text
+[2023-11-02 15:05:01,852][INFO|main.py:40] >> information text
+[2023-11-02 15:05:01,852][WARNING|main.py:41] >> warning text
+[2023-11-02 15:05:03,492][DEBUG|main.py:39] >> debug text
+[2023-11-02 15:05:03,493][INFO|main.py:40] >> information text
+[2023-11-02 15:05:03,493][WARNING|main.py:41] >> warning text
+[2023-11-02 15:05:04,484][DEBUG|main.py:39] >> debug text
+[2023-11-02 15:05:04,484][INFO|main.py:40] >> information text
+[2023-11-02 15:05:04,484][WARNING|main.py:41] >> warning text
+[2023-11-02 16:46:05,737][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-02 16:46:05,738][INFO|library_log.py:24] >> my INFO log
+[2023-11-02 16:46:05,738][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-02 16:46:05,738][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-02 16:46:05,738][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-02 17:20:45,439][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-02 17:20:45,439][INFO|library_log.py:24] >> my INFO log
+[2023-11-02 17:20:45,439][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-02 17:20:45,439][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-02 17:20:45,440][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-02 17:21:28,771][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-02 17:21:28,771][INFO|library_log.py:24] >> my INFO log
+[2023-11-02 17:21:28,772][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-02 17:21:28,772][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-02 17:21:28,772][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-02 17:22:36,615][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-02 17:22:36,615][INFO|library_log.py:24] >> my INFO log
+[2023-11-02 17:22:36,616][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-02 17:22:36,616][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-02 17:22:36,616][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-02 17:25:18,785][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-02 17:25:18,785][INFO|library_log.py:24] >> my INFO log
+[2023-11-02 17:25:18,785][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-02 17:25:18,785][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-02 17:25:18,785][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-02 17:42:30,871][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-02 17:42:30,871][INFO|library_log.py:24] >> my INFO log
+[2023-11-02 17:42:30,871][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-02 17:42:30,871][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-02 17:42:30,871][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-02 17:42:54,342][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-02 17:42:54,343][INFO|library_log.py:24] >> my INFO log
+[2023-11-02 17:42:54,343][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-02 17:42:54,343][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-02 17:42:54,344][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-02 17:44:31,336][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-02 17:44:31,337][INFO|library_log.py:24] >> my INFO log
+[2023-11-02 17:44:31,337][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-02 17:44:31,337][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-02 17:44:31,337][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-02 17:44:41,705][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-02 17:44:41,705][INFO|library_log.py:24] >> my INFO log
+[2023-11-02 17:44:41,705][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-02 17:44:41,705][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-02 17:44:41,705][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-02 17:44:48,491][INFO|main.py:48] >> cpu info =Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
+[2023-11-02 17:45:26,247][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-02 17:45:26,247][INFO|library_log.py:24] >> my INFO log
+[2023-11-02 17:45:26,247][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-02 17:45:26,247][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-02 17:45:26,248][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-02 17:45:34,651][INFO|main.py:48] >> cpu info =Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
+[2023-11-02 17:46:18,012][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-02 17:46:18,012][INFO|library_log.py:24] >> my INFO log
+[2023-11-02 17:46:18,013][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-02 17:46:18,013][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-02 17:46:18,013][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-02 18:40:20,309][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-02 18:40:20,309][INFO|library_log.py:24] >> my INFO log
+[2023-11-02 18:40:20,309][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-02 18:40:20,309][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-02 18:40:20,309][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-02 18:40:27,578][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-02 18:40:27,578][INFO|library_log.py:24] >> my INFO log
+[2023-11-02 18:40:27,578][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-02 18:40:27,579][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-02 18:40:27,579][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-02 18:40:38,174][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-02 18:40:38,174][INFO|library_log.py:24] >> my INFO log
+[2023-11-02 18:40:38,174][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-02 18:40:38,174][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-02 18:40:38,174][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-02 18:40:45,483][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-02 18:40:45,484][INFO|library_log.py:24] >> my INFO log
+[2023-11-02 18:40:45,484][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-02 18:40:45,484][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-02 18:40:45,484][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-03 15:10:22,722][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-03 15:10:22,722][INFO|library_log.py:24] >> my INFO log
+[2023-11-03 15:10:22,722][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-03 15:10:22,722][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-03 15:10:22,722][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-03 15:10:53,714][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-03 15:10:53,714][INFO|library_log.py:24] >> my INFO log
+[2023-11-03 15:10:53,714][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-03 15:10:53,715][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-03 15:10:53,715][CRITICAL|library_log.py:27] >> my CRITICAL log
