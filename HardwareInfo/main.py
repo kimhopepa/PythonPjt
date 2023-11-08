@@ -36,26 +36,31 @@ class WindowClass(QMainWindow, form_class):
         # 2. 버튼 이벤트
         self.pushButton_HardwareInfo.clicked.connect(self.get_hardwareInfo)
 
+    # 버튼 이벤트
     def get_hardwareInfo(self):
         try:
             data = cpuinfo.get_cpu_info()
             cpu_info = data['brand_raw']
-            cpu_info_cores = data['brand_raw']
+            logical_process_count = data['count']   # 논리 프로세스 수량
+            cpu_info_cores = data['family']         # 코어 수량
 
+            v_memory = psutil.virtual_memory()      # 메모리
 
-            # CPU 프로세스 = data.brand_raw
-            # Memory =virtual_memory.total
-            # CPU Core = data.b
 
             virtual_memory = psutil.virtual_memory()
+            str_cpu_info ="cpu info =" + data['brand_raw'] + ", Core = " +  str(cpu_info_cores) + ", Logical Count = " + str(logical_process_count)
+            str_memory_info = "memory = " + str(v_memory.total)
 
-            logger.info("cpu info =" + data['brand_raw'] + "Core = "  )
-            # logger.info("memory info =" + virtual_memory.total)
-            # self.plainTextEdit.setPlainText("cpu info =" + (str)data.brand_raw)
+            logger.info(str_cpu_info)
+            logger.info(str_memory_info)
+
+
+            self.plainTextEdit.setPlainText(str_cpu_info)
+            self.plainTextEdit.appendPlainText(str_memory_info)
 
 
         except Exception as e:
-            print("set_path()", e)
+            print("get_hardwareInfo()", e)
 
 
 # 5) 위에서 선언한 클래스를 실행 : QMainWindow 부모 클래스의 show 함수 실행
