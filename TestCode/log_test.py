@@ -27,3 +27,5 @@ def log_test2():
     logger.addHandler(handler)
 
 log_test2()
+
+log_test1()

@@ -6,7 +6,7 @@ import configparser
 def config_read_test():
     config = configparser.ConfigParser()
     print(os.path.isfile('config.ini'))
-    config.read('config.ini', encoding='utf-8')
+    config.read('config.ini', encoding ='utf-8')
     config.sections()
     print(config['system']['version'])
     exit()

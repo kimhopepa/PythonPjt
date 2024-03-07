@@ -5,7 +5,7 @@ import configparser
 
 print(os.getcwd())
 
-path = os.getcwd() + "\config.ini"
+path = os.getcwd() + "\\config.ini"
 
 print(path)
 
