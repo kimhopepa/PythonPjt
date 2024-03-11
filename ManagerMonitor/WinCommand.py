@@ -4,7 +4,7 @@ import re
 import datetime
 import threading
 import time
-
+import traceback
 
 class WinCommand:
     _command_process = "wmic process where \"name like 'WCC%'\" get commandline, name, parentprocessid, processid, WorkingSetSize"
@@ -43,8 +43,9 @@ class WinCommand:
                 self._df_total_info.to_csv("_df_total_info.csv")
 
 
-            except:
-                print("initThread except")
+            except Exception  as e:
+                print("initThread except", e)
+                traceback.print_exc()
             finally:
                 time.sleep(1)
 

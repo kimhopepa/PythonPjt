@@ -221,3 +221,19 @@
 [2023-11-06 11:27:00,274][INFO|main.py:55] >> memory = 34167218176
 [2023-11-06 11:27:58,429][INFO|main.py:54] >> cpu info =Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz, Core = 6, Logical Count = 12
 [2023-11-06 11:27:58,429][INFO|main.py:55] >> memory = 34167218176
+[2023-11-28 09:10:22,712][DEBUG|library_log.py:23] >> my DEBUG log
+[2023-11-28 09:10:22,713][INFO|library_log.py:24] >> my INFO log
+[2023-11-28 09:10:22,713][WARNING|library_log.py:25] >> my WARNING log
+[2023-11-28 09:10:22,713][ERROR|library_log.py:26] >> my ERROR log
+[2023-11-28 09:10:22,713][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2023-11-28 09:10:30,213][INFO|main.py:54] >> cpu info =Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz, Core = 6, Logical Count = 12
+[2023-11-28 09:10:30,213][INFO|main.py:55] >> memory = 34167218176
+[2024-01-22 15:34:44,696][DEBUG|library_log.py:23] >> my DEBUG log
+[2024-01-22 15:34:44,697][INFO|library_log.py:24] >> my INFO log
+[2024-01-22 15:34:44,697][WARNING|library_log.py:25] >> my WARNING log
+[2024-01-22 15:34:44,697][ERROR|library_log.py:26] >> my ERROR log
+[2024-01-22 15:34:44,697][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2024-01-22 15:34:50,399][INFO|main.py:53] >> cpu info =Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz, Core = 6, Logical Count = 12
+[2024-01-22 15:34:50,399][INFO|main.py:54] >> memory = 34167218176
+[2024-01-22 15:34:53,763][INFO|main.py:53] >> cpu info =Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz, Core = 6, Logical Count = 12
+[2024-01-22 15:34:53,763][INFO|main.py:54] >> memory = 34167218176
