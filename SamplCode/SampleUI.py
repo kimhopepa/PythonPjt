@@ -5,6 +5,10 @@ import sys
 import os
 from lib.libConfig import *
 from lib.libLog import *
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem
+import pandas as pd
+
+
 
 def resource_path(relative_path):
     base_path = getattr(sys, '_MEIPASS', os.path.dirname(   os.path.abspath(__file__)))
@@ -28,6 +32,42 @@ class WindowClass(QMainWindow, form_class) :
 
         # 2. UI 객체 연결하기 : 객체 이름 -> pushButton
         self.pushButton_OpenPath.clicked.connect(self.OpenPathEvent)
+
+
+        # 3. TableWidget 초기화
+        print("TableWidget1 test")
+        self.setDataFrame()
+
+    def setDataFrame(self):
+        try:
+            # Create a Pandas DataFrame
+            data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+                    'Age': [25, 30, 35, 40],
+                    'City': ['New York', 'Los Angeles', 'Chicago', 'Houston']}
+            df = pd.DataFrame(data)
+
+            self.tableWidget.setRowCount(df.shape[0])
+            self.tableWidget.setColumnCount(df.shape[1])
+
+            # Set column headers
+            self.tableWidget.setHorizontalHeaderLabels(df.columns)
+
+            # Insert data into the table
+            for i in range(df.shape[0]):
+                for j in range(df.shape[1]):
+                    item = QTableWidgetItem(str(df.iloc[i, j]))
+                    self.tableWidget.setItem(i, j, item)
+
+            # Resize the TableWidget based on content
+            self.tableWidget.resizeColumnsToContents()
+            self.tableWidget.resizeRowsToContents()
+
+            # Set TableWidget as central widget of the window
+            # self.setCentralWidget(self.tableWidget)
+
+        except Exception as e:
+            print("setDataFrame", e)
+
 
     def init(self):
         self.orgin_path = self._configer.GetConfigData(self._configer.section_main, self._configer.key_last_path)
