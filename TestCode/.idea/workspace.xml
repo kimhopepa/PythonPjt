@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c03cf0c1-cf2f-40ec-aa2e-2536166b52a6" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/File" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FileTest/FileReadTest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HardwareInfo/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../HardwareInfo/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HardwareInfo/test.log" beforeDir="false" afterPath="$PROJECT_DIR$/../HardwareInfo/test.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ManagerMonitor/WinCommand.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ManagerMonitor/WinCommand.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoldUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/FoldUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Folder_UI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Folder_UI.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +57,7 @@
       <recent name="C:\Users\KIMJH\Documents\GitHub\PythonPjt\TestCode\FileTest" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.FoldUI">
+  <component name="RunManager" selected="Python.FileReadTest">
     <configuration name="ChartTest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -190,9 +194,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.FoldUI" />
         <item itemvalue="Python.FileReadTest" />
         <item itemvalue="Python.ChartTest" />
+        <item itemvalue="Python.FoldUI" />
         <item itemvalue="Python.TypeConvert" />
         <item itemvalue="Python.log_test" />
       </list>
