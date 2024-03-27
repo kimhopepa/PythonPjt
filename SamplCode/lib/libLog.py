@@ -2,9 +2,12 @@ import logging
 
 
 class Logger:
-    def __init__(self, log_file="logfile.log", log_level=logging.INFO):
+    def __init__(self, log_file="logfile.log", config_level = 1):
+    # def __init__(self, log_file="logfile.log", log_level=logging.INFO):
         self.log_file = log_file
-        self.log_level = log_level
+        # self.log_level = config_level
+        self.log_level = self.get_level(int(config_level))
+        print(self.log_level)
 
         # 로그 출력 포맷 정의
         self.log_format = "%(asctime)s - %(levelname)s - %(message)s"
@@ -25,6 +28,14 @@ class Logger:
         console_handler.setFormatter(logging.Formatter(self.log_format))
         self.logger.addHandler(console_handler)
 
+    def get_level(self, config_number : int):
+        return {
+            1: logging.DEBUG,
+            2: logging.INFO,
+            3: logging.WARNING,
+            4: logging.ERROR,
+            5: logging.CRITICAL,
+        }.get(config_number, -1)
     def debug(self, message):
         self.logger.debug(message)
 

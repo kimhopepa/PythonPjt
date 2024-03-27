@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c03cf0c1-cf2f-40ec-aa2e-2536166b52a6" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/File" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileTest/FileReadTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HardwareInfo/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../HardwareInfo/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HardwareInfo/test.log" beforeDir="false" afterPath="$PROJECT_DIR$/../HardwareInfo/test.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ManagerMonitor/WinCommand.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ManagerMonitor/WinCommand.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SamplCode/function_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SamplCode/lib/libFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SamplCode/.idea/SamplCode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../SamplCode/.idea/SamplCode.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SamplCode/SampleMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/../SamplCode/SampleMain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SamplCode/SampleUI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/../SamplCode/SampleUI.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SamplCode/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../SamplCode/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SamplCode/lib/libConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/../SamplCode/lib/libConfig.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SamplCode/lib/libLog.py" beforeDir="false" afterPath="$PROJECT_DIR$/../SamplCode/lib/libLog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SamplCode/logfile.log" beforeDir="false" afterPath="$PROJECT_DIR$/../SamplCode/logfile.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SamplCode/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../SamplCode/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,13 +49,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "F:/GitHub/PythonPjt/TestCode"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\KIMJH\Documents\GitHub\PythonPjt\pythonProject\testCode" />

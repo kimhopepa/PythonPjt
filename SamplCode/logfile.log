@@ -1,32 +1,67 @@
-2024-03-27 13:50:01,413 - INFO - Info 메시지
-2024-03-27 13:50:01,422 - WARNING - Warning 메시지
-2024-03-27 13:50:01,422 - ERROR - Error 메시지
-2024-03-27 13:50:01,422 - CRITICAL - Critical 메시지
-2024-03-27 13:50:14,413 - INFO - Info 메시지
-2024-03-27 13:50:14,413 - WARNING - Warning 메시지
-2024-03-27 13:50:14,413 - ERROR - Error 메시지
-2024-03-27 13:50:14,413 - CRITICAL - Critical 메시지
-2024-03-27 14:02:43,249 - INFO - Info 메시지
-2024-03-27 14:02:43,250 - WARNING - Warning 메시지
-2024-03-27 14:02:43,250 - ERROR - Error 메시지
-2024-03-27 14:02:43,250 - CRITICAL - Critical 메시지
-2024-03-27 14:02:56,188 - INFO - Info 메시지
-2024-03-27 14:02:56,188 - WARNING - Warning 메시지
-2024-03-27 14:02:56,188 - ERROR - Error 메시지
-2024-03-27 14:02:56,188 - CRITICAL - Critical 메시지
-2024-03-27 14:03:40,934 - INFO - Info 메시지
-2024-03-27 14:03:40,934 - WARNING - Warning 메시지
-2024-03-27 14:03:40,934 - ERROR - Error 메시지
-2024-03-27 14:03:40,935 - CRITICAL - Critical 메시지
-2024-03-27 14:04:03,657 - INFO - Info 메시지
-2024-03-27 14:04:03,657 - WARNING - Warning 메시지
-2024-03-27 14:04:03,657 - ERROR - Error 메시지
-2024-03-27 14:04:03,657 - CRITICAL - Critical 메시지
-2024-03-27 14:04:42,555 - INFO - Info 메시지
-2024-03-27 14:04:42,555 - WARNING - Warning 메시지
-2024-03-27 14:04:42,555 - ERROR - Error 메시지
-2024-03-27 14:04:42,555 - CRITICAL - Critical 메시지
-2024-03-27 14:14:10,973 - INFO - Info 메시지
-2024-03-27 14:14:10,974 - WARNING - Warning 메시지
-2024-03-27 14:14:10,974 - ERROR - Error 메시지
-2024-03-27 14:14:10,974 - CRITICAL - Critical 메시지
+2024-03-27 21:47:18,388 - INFO - WindowClass init start
+2024-03-27 21:49:52,322 - INFO - WindowClass init start
+2024-03-27 21:49:56,227 - INFO - UI_Open Start
+2024-03-27 21:49:57,703 - INFO - UI_Open Start
+2024-03-27 21:49:57,919 - INFO - UI_Open Start
+2024-03-27 21:49:58,108 - INFO - UI_Open Start
+2024-03-27 21:49:58,276 - INFO - UI_Open Start
+2024-03-27 21:49:58,446 - INFO - UI_Open Start
+2024-03-27 21:50:32,383 - INFO - WindowClass init start
+2024-03-27 21:50:42,892 - INFO - WindowClass init start
+2024-03-27 21:50:54,787 - INFO - WindowClass init start
+2024-03-27 21:58:21,779 - INFO - {'system': {'log_level': '', 'title': 'Neural Networks', 'version': '1.2.42'}}
+2024-03-27 21:58:28,636 - INFO - {'system': {'log_level': '', 'title': 'Neural Networks', 'version': '1.2.42'}}
+2024-03-27 21:58:28,652 - INFO - WindowClass init start
+2024-03-27 21:59:16,551 - INFO - {'system': {'log_level': '', 'title': 'Neural Networks', 'version': '1.2.42'}}
+2024-03-27 21:59:16,566 - INFO - WindowClass init start
+2024-03-27 21:59:28,216 - INFO - {'system': {'log_level': '1', 'title': 'Neural Networks', 'version': '1.2.42'}}
+2024-03-27 21:59:28,231 - INFO - WindowClass init start
+2024-03-27 22:02:24,242 - INFO - {'system': {'log_level': '1', 'title': 'Neural Networks', 'version': '1.2.42'}}
+2024-03-27 22:02:24,259 - INFO - WindowClass init start
+2024-03-27 22:09:53,229 - INFO - {'system': {'log_level': '1', 'title': 'Neural Networks', 'version': '1.2.42'}}
+2024-03-27 22:09:53,250 - INFO - WindowClass init start
+2024-03-27 22:19:27,500 - INFO - {'system': {'log_level': '1', 'title': 'Neural Networks', 'version': '1.2.42'}}
+2024-03-27 22:19:27,518 - INFO - WindowClass init start
+2024-03-27 22:20:56,377 - INFO - {'system': {'log_level': '1', 'title': 'Neural Networks', 'version': '1.2.42'}}
+2024-03-27 22:20:56,399 - INFO - WindowClass init start
+2024-03-27 22:21:46,983 - INFO - {'system': {'log_level': '1', 'title': 'Neural Networks', 'version': '1.2.42'}}
+2024-03-27 22:21:47,002 - INFO - WindowClass init start
+2024-03-27 22:27:00,223 - INFO - {'system': {'log_level': '1', 'title': 'Neural Networks', 'version': '1.2.42'}}
+2024-03-27 22:27:00,240 - INFO - WindowClass init start
+2024-03-27 22:27:18,825 - INFO - {'system': {'log_level': '1', 'title': 'Neural Networks', 'version': '1.2.42'}}
+2024-03-27 22:27:18,841 - INFO - WindowClass init start
+2024-03-27 22:28:05,447 - INFO - {'system': {'log_level': '1', 'title': 'Neural Networks', 'version': '1.2.42'}}
+2024-03-27 22:28:05,464 - INFO - WindowClass init start
+2024-03-27 22:28:14,253 - INFO - {'system': {'log_level': '1', 'title': 'Neural Networks', 'version': '1.2.42'}}
+2024-03-27 22:28:14,270 - INFO - WindowClass init start
+2024-03-27 22:30:23,017 - INFO - WindowClass init start
+2024-03-27 22:31:37,402 - INFO - WindowClass init start
+2024-03-27 22:31:39,294 - INFO - UI_Open Start
+2024-03-27 22:31:42,108 - DEBUG - UI_Open path = F:/GitHub/PythonPjt/SamplCode
+2024-03-27 22:37:34,971 - INFO - WindowClass init start
+2024-03-27 22:38:09,050 - INFO - WindowClass init start
+2024-03-27 22:38:10,473 - DEBUG - UI_Open Start
+2024-03-27 22:38:14,534 - DEBUG - UI_Open path = 
+2024-03-27 22:43:19,177 - INFO - WindowClass init start
+2024-03-27 22:43:20,836 - DEBUG - UI_Open Start
+2024-03-27 22:43:22,263 - DEBUG - UI_Open path = 
+2024-03-27 22:47:33,552 - INFO - WindowClass init start
+2024-03-27 22:51:30,579 - INFO - WindowClass init start
+2024-03-27 22:52:21,641 - INFO - WindowClass init start
+2024-03-27 22:52:22,672 - DEBUG - UI_Open Start
+2024-03-27 22:52:24,722 - ERROR - UI_Open 'path'
+2024-03-27 22:53:07,311 - INFO - WindowClass init start
+2024-03-27 22:53:08,693 - DEBUG - UI_Open Start
+2024-03-27 22:53:10,674 - ERROR - UI_Open Exception'path'
+2024-03-27 22:54:00,162 - INFO - WindowClass init start
+2024-03-27 22:54:01,900 - DEBUG - UI_Open Start
+2024-03-27 22:54:03,689 - ERROR - UI_Open Exception'path'
+2024-03-27 23:09:28,041 - INFO - WindowClass init start
+2024-03-27 23:09:29,464 - DEBUG - UI_Open Start
+2024-03-27 23:09:31,223 - ERROR - UI_Open Exception'ConfigHandler' object has no attribute 'write_config'
+2024-03-27 23:11:16,148 - INFO - WindowClass init start
+2024-03-27 23:11:19,902 - DEBUG - UI_Open Start
+2024-03-27 23:11:25,632 - DEBUG - UI_Open path = F:/GitHub
+2024-03-27 23:11:33,993 - INFO - WindowClass init start
+2024-03-27 23:11:35,171 - DEBUG - UI_Open Start
+2024-03-27 23:11:39,287 - DEBUG - UI_Open path = 
