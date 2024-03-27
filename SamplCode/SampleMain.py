@@ -34,12 +34,22 @@ class WindowClass(QMainWindow, form_class):
         logger.info("WindowClass init start")
         super().__init__()
 
-        #
+
         # 1. UI 이벤트 초기화
         self.setupUi(self)
-
         self.pushButton_Open.clicked.connect(self.UI_Open)
         self.pushButton_Search.clicked.connect(self.UI_Search)
+
+        self.init_UI()
+
+    def init_UI(self):
+        try :
+            self.folder_path = config_handler.config_dict["Path"]["last_path"]
+            self.lineEdit_Path.setText(self.folder_path)
+            logger.info(self.folder_path)
+
+        except Exception as e:
+            logger.error("init_UI Exception" + str(e))
     def UI_Open(self):
         try:
             logger.debug("UI_Open Start")
@@ -50,7 +60,6 @@ class WindowClass(QMainWindow, form_class):
 
             logger.debug("UI_Open path = " + self.folder_path)
 
-
         except Exception as e:
             print("UI_Open Exception", e)
             logger.error("UI_Open Exception" + str(e))
@@ -58,9 +67,24 @@ class WindowClass(QMainWindow, form_class):
         try:
             logger.debug("UI_Open UI_Search")
             file_df = get_folder_file_list_dataframe(self.folder_path)
+            print(file_df)
+
+            # 1. 행, 열 크기 설정
+            self.tableWidget.setRowCount(file_df.shape[0])
+            self.tableWidget.setColumnCount(file_df.shape[1])
+
+            # 2. 테이블 컬럼 이름 설정
+            self.tableWidget.setHorizontalHeaderLabels(file_df.columns)
+
+            for i in range(file_df.shape[0]):
+                for j in range(file_df.shape[1]):
+                    self.tableWidget.setItem(i, j, QTableWidgetItem(str(file_df.iat[i, j])))
+
+            #self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+            self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
         except Exception as e:
-            logger.error("UI_Search Exception" + str(e))
+            logger.error("UI_Search Exception " + str(e))
 
 
 

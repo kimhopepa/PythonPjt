@@ -65,3 +65,112 @@
 2024-03-27 23:11:33,993 - INFO - WindowClass init start
 2024-03-27 23:11:35,171 - DEBUG - UI_Open Start
 2024-03-27 23:11:39,287 - DEBUG - UI_Open path = 
+2024-03-27 23:24:49,501 - INFO - WindowClass init start
+2024-03-27 23:24:51,948 - DEBUG - UI_Open Start
+2024-03-27 23:24:59,160 - DEBUG - UI_Open path = G:/OneDrive/문서
+2024-03-27 23:25:01,536 - DEBUG - UI_Open UI_Search
+2024-03-27 23:25:27,945 - INFO - WindowClass init start
+2024-03-28 00:55:25,931 - INFO - WindowClass init start
+2024-03-28 00:57:58,034 - INFO - WindowClass init start
+2024-03-28 00:58:00,813 - DEBUG - UI_Open Start
+2024-03-28 00:58:02,990 - DEBUG - UI_Open path = G:/OneDrive/문서
+2024-03-28 00:58:08,684 - INFO - WindowClass init start
+2024-03-28 00:59:02,319 - INFO - WindowClass init start
+2024-03-28 00:59:08,755 - INFO - WindowClass init start
+2024-03-28 00:59:08,756 - ERROR - init_UI Exception'WindowClass' object has no attribute 'lineEdit_Path'
+2024-03-28 00:59:46,842 - INFO - WindowClass init start
+2024-03-28 01:37:32,509 - INFO - WindowClass init start
+2024-03-28 01:37:35,312 - DEBUG - UI_Open UI_Search
+2024-03-28 01:37:36,809 - DEBUG - UI_Open UI_Search
+2024-03-28 01:37:36,974 - DEBUG - UI_Open UI_Search
+2024-03-28 01:37:37,153 - DEBUG - UI_Open UI_Search
+2024-03-28 01:37:37,371 - DEBUG - UI_Open UI_Search
+2024-03-28 01:40:40,491 - INFO - WindowClass init start
+2024-03-28 01:44:24,305 - DEBUG - UI_Open UI_Search
+2024-03-28 01:44:24,471 - DEBUG - UI_Open UI_Search
+2024-03-28 01:44:24,694 - DEBUG - UI_Open UI_Search
+2024-03-28 01:48:34,897 - INFO - WindowClass init start
+2024-03-28 01:48:37,336 - DEBUG - UI_Open UI_Search
+2024-03-28 01:49:01,898 - INFO - WindowClass init start
+2024-03-28 01:49:04,203 - DEBUG - UI_Open UI_Search
+2024-03-28 01:49:04,210 - ERROR - UI_Search Exceptionname 'df' is not defined
+2024-03-28 01:49:20,444 - INFO - WindowClass init start
+2024-03-28 01:49:22,189 - DEBUG - UI_Open UI_Search
+2024-03-28 01:51:38,025 - INFO - WindowClass init start
+2024-03-28 01:51:41,647 - DEBUG - UI_Open UI_Search
+2024-03-28 01:51:44,709 - DEBUG - UI_Open UI_Search
+2024-03-28 01:51:46,095 - DEBUG - UI_Open UI_Search
+2024-03-28 01:51:48,132 - DEBUG - UI_Open Start
+2024-03-28 01:51:52,390 - DEBUG - UI_Open path = G:/OneDrive/3_프로그래밍
+2024-03-28 01:51:54,112 - DEBUG - UI_Open UI_Search
+2024-03-28 01:56:09,589 - INFO - WindowClass init start
+2024-03-28 01:56:13,850 - DEBUG - UI_Open Start
+2024-03-28 01:56:25,901 - DEBUG - UI_Open path = Z:/HDD1
+2024-03-28 01:56:27,794 - DEBUG - UI_Open UI_Search
+2024-03-28 01:56:49,882 - INFO - WindowClass init start
+2024-03-28 01:57:17,671 - INFO - WindowClass init start
+2024-03-28 01:57:49,956 - INFO - WindowClass init start
+2024-03-28 01:57:49,988 - INFO - Z:/HDD1
+2024-03-28 01:58:19,579 - INFO - WindowClass init start
+2024-03-28 01:58:19,607 - INFO - Z:/HDD1
+2024-03-28 01:58:22,605 - DEBUG - UI_Open Start
+2024-03-28 01:58:24,952 - DEBUG - UI_Open path = Z:/HDD1
+2024-03-28 01:59:19,931 - INFO - WindowClass init start
+2024-03-28 01:59:19,964 - INFO - Z:/HDD1
+2024-03-28 01:59:23,771 - DEBUG - UI_Open Start
+2024-03-28 01:59:31,206 - DEBUG - UI_Open path = G:/OneDrive/2_회사문서
+2024-03-28 01:59:33,205 - DEBUG - UI_Open UI_Search
+2024-03-28 02:02:41,750 - INFO - WindowClass init start
+2024-03-28 02:02:41,784 - INFO - G:/OneDrive/2_회사문서
+2024-03-28 02:02:43,565 - DEBUG - UI_Open Start
+2024-03-28 02:02:47,525 - DEBUG - UI_Open path = G:/OneDrive/2_회사문서
+2024-03-28 02:02:49,217 - DEBUG - UI_Open UI_Search
+2024-03-28 02:05:08,828 - INFO - WindowClass init start
+2024-03-28 02:05:08,853 - INFO - G:/OneDrive/2_회사문서
+2024-03-28 02:05:17,956 - INFO - WindowClass init start
+2024-03-28 02:05:17,991 - INFO - G:/OneDrive/2_회사문서
+2024-03-28 02:05:20,111 - DEBUG - UI_Open UI_Search
+2024-03-28 02:06:44,061 - INFO - WindowClass init start
+2024-03-28 02:06:44,093 - INFO - G:/OneDrive/2_회사문서
+2024-03-28 02:06:49,727 - DEBUG - UI_Open UI_Search
+2024-03-28 02:07:12,272 - DEBUG - UI_Open Start
+2024-03-28 02:07:14,778 - DEBUG - UI_Open path = G:/OneDrive/2_회사문서
+2024-03-28 02:07:16,504 - DEBUG - UI_Open UI_Search
+2024-03-28 02:09:19,194 - INFO - WindowClass init start
+2024-03-28 02:09:19,642 - INFO - G:/OneDrive/2_회사문서
+2024-03-28 02:09:22,210 - DEBUG - UI_Open UI_Search
+2024-03-28 02:12:11,654 - INFO - WindowClass init start
+2024-03-28 02:12:12,098 - INFO - G:/OneDrive/2_회사문서
+2024-03-28 02:12:14,504 - DEBUG - UI_Open UI_Search
+2024-03-28 02:34:37,637 - INFO - WindowClass init start
+2024-03-28 02:34:38,070 - INFO - G:/OneDrive/2_회사문서
+2024-03-28 02:35:42,941 - INFO - WindowClass init start
+2024-03-28 02:35:43,353 - INFO - G:/OneDrive/2_회사문서
+2024-03-28 02:36:03,402 - INFO - WindowClass init start
+2024-03-28 02:36:03,831 - INFO - G:/OneDrive/2_회사문서
+2024-03-28 02:38:09,737 - INFO - WindowClass init start
+2024-03-28 02:38:10,177 - INFO - G:/OneDrive/2_회사문서
+2024-03-28 02:40:52,545 - INFO - WindowClass init start
+2024-03-28 02:40:52,953 - INFO - G:/OneDrive/2_회사문서
+2024-03-28 02:40:54,924 - DEBUG - UI_Open Start
+2024-03-28 02:40:57,114 - DEBUG - UI_Open path = G:/OneDrive/2_회사문서
+2024-03-28 02:40:58,264 - DEBUG - UI_Open UI_Search
+2024-03-28 02:44:25,199 - INFO - WindowClass init start
+2024-03-28 02:44:25,625 - INFO - G:/OneDrive/2_회사문서
+2024-03-28 02:44:27,472 - DEBUG - UI_Open Start
+2024-03-28 02:44:31,141 - DEBUG - UI_Open path = G:/OneDrive/2_회사문서/2023_실습과 함께하는! 데이터베이스 Oracle 12C
+2024-03-28 02:44:31,965 - DEBUG - UI_Open UI_Search
+2024-03-28 02:45:23,738 - INFO - WindowClass init start
+2024-03-28 02:45:24,138 - INFO - G:/OneDrive/2_회사문서/2023_실습과 함께하는! 데이터베이스 Oracle 12C
+2024-03-28 02:45:25,622 - DEBUG - UI_Open UI_Search
+2024-03-28 02:46:07,490 - INFO - WindowClass init start
+2024-03-28 02:46:07,909 - INFO - G:/OneDrive/2_회사문서/2023_실습과 함께하는! 데이터베이스 Oracle 12C
+2024-03-28 02:46:09,258 - DEBUG - UI_Open UI_Search
+2024-03-28 02:46:09,268 - ERROR - UI_Search Exceptiontype object 'QHeaderView' has no attribute 'StretchLastSection'
+2024-03-28 02:46:48,991 - INFO - WindowClass init start
+2024-03-28 02:46:49,402 - INFO - G:/OneDrive/2_회사문서/2023_실습과 함께하는! 데이터베이스 Oracle 12C
+2024-03-28 02:46:50,715 - DEBUG - UI_Open UI_Search
+2024-03-28 02:46:50,725 - ERROR - UI_Search Exceptionsip.enumtype object 'ResizeMode' has no member 'StretchLastSection'
+2024-03-28 02:48:45,125 - INFO - WindowClass init start
+2024-03-28 02:48:45,548 - INFO - G:/OneDrive/2_회사문서/2023_실습과 함께하는! 데이터베이스 Oracle 12C
+2024-03-28 02:48:46,973 - DEBUG - UI_Open UI_Search
