@@ -174,3 +174,612 @@
 2024-03-28 02:48:45,125 - INFO - WindowClass init start
 2024-03-28 02:48:45,548 - INFO - G:/OneDrive/2_회사문서/2023_실습과 함께하는! 데이터베이스 Oracle 12C
 2024-03-28 02:48:46,973 - DEBUG - UI_Open UI_Search
+2024-04-09 08:47:39,498 - INFO - WindowClass init start
+2024-04-09 08:47:39,856 - INFO - G:/OneDrive/2_회사문서/2023_실습과 함께하는! 데이터베이스 Oracle 12C
+2024-04-09 08:48:10,294 - INFO - WindowClass init start
+2024-04-09 08:48:10,584 - INFO - G:/OneDrive/2_회사문서/2023_실습과 함께하는! 데이터베이스 Oracle 12C
+2024-04-09 08:48:12,120 - DEBUG - UI_Open UI_Search
+2024-04-09 08:53:15,543 - INFO - WindowClass init start
+2024-04-09 08:53:15,842 - INFO - G:/OneDrive/2_회사문서/2023_실습과 함께하는! 데이터베이스 Oracle 12C
+2024-04-09 08:53:17,386 - DEBUG - UI_Open UI_Search
+2024-04-09 08:53:26,915 - DEBUG - UI_Open UI_Search
+2024-04-09 08:53:30,051 - DEBUG - UI_Open UI_Search
+2024-04-09 08:53:35,083 - DEBUG - UI_Open UI_Search
+2024-04-11 12:43:26,669 - INFO - WindowClass init start
+2024-04-11 12:43:27,035 - INFO - G:/OneDrive/2_회사문서/2023_실습과 함께하는! 데이터베이스 Oracle 12C
+2024-04-11 12:43:29,093 - DEBUG - UI_Open UI_Search
+2024-04-11 12:43:33,324 - DEBUG - UI_Open Start
+2024-04-11 12:43:45,205 - DEBUG - UI_Open path = C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea
+2024-04-11 12:43:46,308 - DEBUG - UI_Open UI_Search
+2024-04-11 12:45:32,752 - INFO - WindowClass init start
+2024-04-11 12:45:33,153 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea
+2024-04-11 12:45:34,485 - DEBUG - UI_Open UI_Search
+2024-04-11 12:46:16,319 - INFO - WindowClass init start
+2024-04-11 12:46:16,734 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea
+2024-04-11 12:46:18,094 - DEBUG - UI_Open UI_Search
+2024-04-11 12:46:33,679 - DEBUG - UI_Open UI_Search
+2024-04-11 12:50:59,729 - INFO - WindowClass init start
+2024-04-11 12:51:00,053 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea
+2024-04-11 12:51:35,649 - ERROR - init_UI Exceptionname 'self' is not defined
+2024-04-11 12:51:35,690 - INFO - WindowClass init start
+2024-04-11 12:51:37,244 - DEBUG - UI_Open Start
+2024-04-11 12:51:40,032 - DEBUG - UI_Open path = C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 12:51:41,532 - DEBUG - UI_Open UI_Search
+2024-04-11 12:52:20,329 - INFO - WindowClass init start
+2024-04-11 12:52:20,636 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 12:53:47,456 - INFO - WindowClass init start
+2024-04-11 12:53:47,775 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 12:54:03,907 - INFO - WindowClass init start
+2024-04-11 12:54:04,214 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 12:54:06,685 - DEBUG - UI_Open UI_Search
+2024-04-11 12:54:18,525 - INFO - WindowClass init start
+2024-04-11 12:54:18,821 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 12:54:19,925 - DEBUG - UI_Version_Check
+2024-04-11 12:54:20,797 - DEBUG - UI_Version_Check
+2024-04-11 12:54:20,973 - DEBUG - UI_Version_Check
+2024-04-11 12:54:21,134 - DEBUG - UI_Version_Check
+2024-04-11 12:54:21,277 - DEBUG - UI_Version_Check
+2024-04-11 13:01:05,249 - INFO - WindowClass init start
+2024-04-11 13:01:05,541 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 13:01:07,021 - DEBUG - UI_Version_Check
+2024-04-11 13:37:53,204 - INFO - WindowClass init start
+2024-04-11 13:37:53,594 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 13:56:08,559 - INFO - WindowClass init start
+2024-04-11 13:56:08,895 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 13:56:17,932 - DEBUG - UI_Version_Check
+2024-04-11 13:56:17,933 - ERROR - UI_Search Exception name 'glob' is not defined
+2024-04-11 13:56:34,611 - INFO - WindowClass init start
+2024-04-11 13:56:34,936 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 13:56:36,117 - DEBUG - UI_Version_Check
+2024-04-11 13:57:59,444 - INFO - WindowClass init start
+2024-04-11 13:57:59,769 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 13:58:01,065 - DEBUG - UI_Version_Check
+2024-04-11 13:58:55,322 - INFO - WindowClass init start
+2024-04-11 13:58:55,724 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 13:59:00,850 - DEBUG - UI_Version_Check
+2024-04-11 13:59:00,858 - ERROR - set_table_widget Exception arguments did not match any overloaded call:
+  setSectionResizeMode(self, logicalIndex: int, mode: QHeaderView.ResizeMode): argument 1 has unexpected type 'sip.enumtype'
+  setSectionResizeMode(self, mode: QHeaderView.ResizeMode): argument 1 has unexpected type 'sip.enumtype'
+2024-04-11 14:00:03,359 - INFO - WindowClass init start
+2024-04-11 14:00:03,737 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:00:04,932 - DEBUG - UI_Version_Check
+2024-04-11 14:00:36,955 - INFO - WindowClass init start
+2024-04-11 14:00:37,294 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:00:38,685 - DEBUG - UI_Version_Check
+2024-04-11 14:01:55,644 - INFO - WindowClass init start
+2024-04-11 14:01:56,026 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:01:57,140 - DEBUG - UI_Version_Check
+2024-04-11 14:02:33,503 - INFO - WindowClass init start
+2024-04-11 14:02:33,851 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:02:35,469 - DEBUG - UI_Version_Check
+2024-04-11 14:02:54,695 - INFO - WindowClass init start
+2024-04-11 14:02:54,993 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:02:56,044 - DEBUG - UI_Version_Check
+2024-04-11 14:03:59,576 - INFO - WindowClass init start
+2024-04-11 14:03:59,859 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:04:01,030 - DEBUG - UI_Version_Check
+2024-04-11 14:05:16,573 - INFO - WindowClass init start
+2024-04-11 14:05:16,863 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:05:18,198 - DEBUG - UI_Version_Check
+2024-04-11 14:06:42,030 - INFO - WindowClass init start
+2024-04-11 14:06:42,353 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:06:43,807 - DEBUG - UI_Version_Check
+2024-04-11 14:07:22,281 - INFO - WindowClass init start
+2024-04-11 14:07:22,568 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:07:23,723 - DEBUG - UI_Version_Check
+2024-04-11 14:07:37,700 - INFO - WindowClass init start
+2024-04-11 14:07:38,023 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:07:39,468 - DEBUG - UI_Version_Check
+2024-04-11 14:08:50,365 - INFO - WindowClass init start
+2024-04-11 14:08:50,691 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:08:51,868 - DEBUG - UI_Version_Check
+2024-04-11 14:09:18,542 - INFO - WindowClass init start
+2024-04-11 14:09:18,871 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:09:19,860 - DEBUG - UI_Version_Check
+2024-04-11 14:10:49,010 - INFO - WindowClass init start
+2024-04-11 14:10:49,329 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:10:58,852 - INFO - WindowClass init start
+2024-04-11 14:10:59,149 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:13:02,089 - INFO - WindowClass init start
+2024-04-11 14:13:02,393 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:13:02,496 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,545 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,567 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,575 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,582 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,591 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,598 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,607 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,615 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,623 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,631 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,639 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,647 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,655 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,662 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,671 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,679 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,687 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,695 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,704 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,711 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,719 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,726 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,734 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,742 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,750 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,759 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,768 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,775 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,784 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,791 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,800 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,815 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,823 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,895 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,902 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,918 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,926 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,934 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,942 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,950 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,958 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,967 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,983 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:05,999 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,014 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,031 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,094 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,111 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,127 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,142 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,160 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,175 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,191 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,207 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,415 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,448 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,456 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,464 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,473 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,483 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,490 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,496 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,507 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,515 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,522 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,528 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,538 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,545 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,551 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,560 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,567 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,576 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,583 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,594 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,599 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,607 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,615 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,623 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,631 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,639 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,647 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,655 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,663 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,672 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,680 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,688 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,695 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,703 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,712 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,718 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,728 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,735 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,744 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,750 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,758 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,767 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,774 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,783 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,791 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,799 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,807 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,815 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,822 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,831 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,839 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,847 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,854 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,862 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,870 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,878 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,887 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,894 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:06,927 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'central_widget'
+2024-04-11 14:13:21,790 - INFO - WindowClass init start
+2024-04-11 14:13:22,195 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:13:22,299 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:23,920 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:23,927 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:23,936 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:23,944 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:23,952 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:23,959 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:23,967 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:23,975 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:23,984 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:23,991 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:24,013 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:24,017 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:24,025 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:24,031 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:24,039 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:24,296 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:24,303 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:24,311 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:24,319 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:24,328 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:24,335 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:24,343 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:24,359 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'form'
+2024-04-11 14:13:57,925 - INFO - WindowClass init start
+2024-04-11 14:13:58,258 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:13:58,350 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,529 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,537 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,545 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,552 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,560 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,568 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,577 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,585 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,609 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,619 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,626 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,633 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,640 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,648 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,656 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,664 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,672 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,680 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,690 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,695 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,704 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,712 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,720 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,728 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,736 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,743 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,752 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,760 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,767 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,776 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,784 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,792 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,802 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,809 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,817 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,824 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,833 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,841 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,848 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,856 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,863 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,872 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,880 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,888 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,896 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,905 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,913 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,920 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,929 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:00,952 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,034 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,049 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,225 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,231 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,239 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,256 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,272 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,288 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,303 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,319 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,346 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,353 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,360 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,368 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,377 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,383 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,393 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,400 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,408 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,416 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,435 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,450 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,456 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,463 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,472 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,480 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,487 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,495 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,503 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,512 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,520 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,528 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,537 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,544 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,552 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,560 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,568 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,576 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,585 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,592 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,600 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,608 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,616 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,623 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,632 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,641 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,648 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,670 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,823 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,832 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,839 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,847 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,855 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,863 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,872 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,880 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,888 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,895 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,904 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,912 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,919 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,928 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,935 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,944 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,952 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,960 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,969 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,975 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,985 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:01,992 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,001 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,007 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,015 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,023 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,033 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,039 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,047 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,056 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,064 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,071 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,079 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,088 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,096 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,106 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,112 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,120 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,128 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,136 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,143 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,152 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,160 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,168 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,176 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,201 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,208 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,217 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,231 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,239 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,272 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,279 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,288 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,303 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,544 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,552 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,560 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,568 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,576 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,583 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,593 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,600 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,608 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,615 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,624 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,631 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,639 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,647 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,656 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,663 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,672 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,679 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,688 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,695 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,703 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,711 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,720 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,727 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,735 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,743 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,751 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,760 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,767 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,775 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,783 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,791 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,799 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,807 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,815 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,823 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,832 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,848 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,863 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,871 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,879 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,887 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,896 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,903 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,911 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,919 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,928 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,936 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,943 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,952 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,975 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,985 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:02,991 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:03,000 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:03,015 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:03,024 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:03,031 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:03,040 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:03,047 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:03,055 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,583 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,593 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,599 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,608 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,615 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,624 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,631 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,641 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,648 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,657 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,663 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,672 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,680 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,688 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,696 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,703 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,712 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,720 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,728 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,735 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,744 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,751 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,760 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,768 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,776 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,784 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,792 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,799 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,808 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,815 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,824 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,834 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,842 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,848 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,858 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,866 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,873 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,881 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,888 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,895 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,903 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,919 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,927 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,935 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,943 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,951 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,959 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,968 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,975 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,983 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,991 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:08,999 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,007 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,015 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,023 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,032 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,039 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,047 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,056 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,063 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,072 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,079 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,087 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,107 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,112 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,120 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,127 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,136 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,145 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,151 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,167 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,425 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,431 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,439 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,447 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,455 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,464 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,471 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,479 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,487 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,495 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,503 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,511 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,527 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,535 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,544 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,552 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,560 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,567 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,576 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,583 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,592 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,599 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,608 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,615 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,641 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,647 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,656 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,865 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,873 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,879 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,888 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,895 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,903 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,912 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,922 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:09,928 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:10,035 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:10,040 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:10,047 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:10,063 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:10,119 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:10,128 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:10,135 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:10,146 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:10,151 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:10,240 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:10,249 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:14:10,266 - ERROR - resizeEvent Exception'WindowClass' object has no attribute 'Form'
+2024-04-11 14:34:00,090 - INFO - WindowClass init start
+2024-04-11 14:34:00,415 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 14:34:01,571 - DEBUG - UI_Version_Check
+2024-04-11 17:13:37,541 - INFO - WindowClass init start
+2024-04-11 17:13:37,893 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 17:13:44,740 - INFO - WindowClass init start
+2024-04-11 17:13:45,068 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 17:24:24,856 - INFO - WindowClass init start
+2024-04-11 17:24:25,218 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-04-11 17:28:32,828 - INFO - WindowClass init start
+2024-04-11 17:28:32,829 - ERROR - init_UI Exception'WindowClass' object has no attribute 'lineEdit_Path'
+2024-04-11 17:30:20,519 - INFO - WindowClass init start
+2024-04-11 17:30:20,520 - ERROR - init_UI Exception'WindowClass' object has no attribute 'lineEdit_Path'
+2024-04-11 17:30:56,583 - INFO - WindowClass init start
+2024-04-11 17:30:56,585 - ERROR - init_UI Exception'WindowClass' object has no attribute 'lineEdit_Path'
+2024-04-11 17:31:18,152 - INFO - WindowClass init start
+2024-04-11 17:31:18,153 - ERROR - init_UI Exception'WindowClass' object has no attribute 'lineEdit_Path'
+2024-04-11 17:32:07,845 - INFO - WindowClass init start
+2024-04-11 17:32:07,846 - ERROR - init_UI Exception'WindowClass' object has no attribute 'lineEdit_Path'
+2024-04-11 17:33:21,788 - INFO - WindowClass init start
+2024-04-11 17:33:21,789 - ERROR - init_UI Exception'WindowClass' object has no attribute 'lineEdit_Path'
+2024-04-11 17:34:10,298 - INFO - WindowClass init start
+2024-04-11 17:34:10,299 - ERROR - init_UI Exception'WindowClass' object has no attribute 'lineEdit_Path'
+2024-04-11 17:40:15,383 - INFO - WindowClass init start
+2024-04-11 17:40:15,723 - ERROR - init_UI Exception'WindowClass' object has no attribute 'lineEdit_Path'
+2024-04-11 17:42:51,628 - INFO - WindowClass init start
+2024-04-11 17:42:51,954 - ERROR - init_UI Exception'WindowClass' object has no attribute 'lineEdit_Path'

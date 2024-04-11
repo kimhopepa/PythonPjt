@@ -59,7 +59,13 @@
    <property name="autoFillBackground">
     <bool>true</bool>
    </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustToContents</enum>
+   </property>
    <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderCascadingSectionResizes">
     <bool>true</bool>
    </attribute>
   </widget>
@@ -87,6 +93,19 @@
    </property>
    <property name="text">
     <string>경로열기</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_Version">
+   <property name="geometry">
+    <rect>
+     <x>880</x>
+     <y>90</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>버전체크</string>
    </property>
   </widget>
  </widget>

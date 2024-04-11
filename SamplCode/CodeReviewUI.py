@@ -25,7 +25,7 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 # 3) UI 파일 연결 -> 같은 경로에 위치
-form = resource_path("SampleUI.ui")
+form = resource_path("CodeReviewCheckTool.ui")
 form_class = uic.loadUiType(form)[0]
 
 
@@ -38,9 +38,6 @@ class WindowClass(QMainWindow, form_class):
 
         # 1. UI 이벤트 초기화
         self.setupUi(self)
-        self.pushButton_Open.clicked.connect(self.UI_Open)
-        self.pushButton_Search.clicked.connect(self.UI_Search)
-        self.pushButton_Version.clicked.connect(self.UI_Version_Check)
 
         self.init_UI()
 
@@ -52,53 +49,6 @@ class WindowClass(QMainWindow, form_class):
         except Exception as e:
             logger.error("init_UI Exception" + str(e))
 
-    def UI_Open(self):
-        try:
-            logger.debug("UI_Open Start")
-
-            self.folder_path = QFileDialog.getExistingDirectory(self, '폴더 선택', config_handler.config_dict["Path"]["last_path"])
-            self.lineEdit_Path.setText(self.folder_path)
-            config_handler.chagned_config("Path", "last_path", self.folder_path)
-
-            logger.debug("UI_Open path = " + self.folder_path)
-
-        except Exception as e:
-            print("UI_Open Exception", e)
-            logger.error("UI_Open Exception" + str(e))
-
-    def UI_Search(self):
-        try:
-            logger.debug("UI_Open UI_Search")
-            file_df = get_folder_file_list_dataframe(self.folder_path)
-            print(file_df)
-
-            # 1. 행, 열 크기 설정
-            self.tableWidget.setRowCount(file_df.shape[0])
-            self.tableWidget.setColumnCount(file_df.shape[1])
-
-            # 2. 테이블 컬럼 이름 설정
-            self.tableWidget.setHorizontalHeaderLabels(file_df.columns)
-
-            for i in range(file_df.shape[0]):
-                for j in range(file_df.shape[1]):
-                    self.tableWidget.setItem(i, j, QTableWidgetItem(str(file_df.iat[i, j])))
-
-            #self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-            self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-
-        except Exception as e:
-            logger.error("UI_Search Exception " + str(e))
-
-    def UI_Version_Check(self):
-        try:
-            pass
-            logger.debug("UI_Version_Check")
-            winccoa_path = "C:\Siemens\Automation\WinCC_OA"
-            file_df = get_Winccoa_version(winccoa_path)
-            self.set_table_widget(file_df)
-
-        except Exception as e:
-            logger.error("UI_Search Exception " + str(e))
 
     def set_table_widget(self, dt_data):
         try:
