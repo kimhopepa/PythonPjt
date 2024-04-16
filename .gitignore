@@ -12,3 +12,4 @@ TensorFlowStudy/.idea/inspectionProfiles/profiles_settings.xml
 *.csv
 SamplCode/.idea/inspectionProfiles/Project_Default.xml
 *.xml
+*.log

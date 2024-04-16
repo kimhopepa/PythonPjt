@@ -70,8 +70,8 @@ class WindowClass(QMainWindow, form_class):
             # last_col = self.tableWidget.columnCount() - 1
             # self.tableWidget.horizontalHeader().setSectionResizeMode(last_col, QHeaderView.Stretch)
 
-            # self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
-            self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Interactive)
+            self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+            # self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Interactive)
             self.tableWidget.horizontalHeader().setStretchLastSection(True)
         except Exception as e:
             logger.error("set_table_widget Exception " + str(e))
