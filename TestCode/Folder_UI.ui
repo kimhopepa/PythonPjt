@@ -6,58 +6,45 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>873</width>
-    <height>233</height>
+    <width>1238</width>
+    <height>744</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>FolderUI</string>
   </property>
-  <widget class="QLineEdit" name="lineEdit_Path">
+  <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>741</width>
-     <height>41</height>
+     <x>0</x>
+     <y>0</y>
+     <width>1241</width>
+     <height>741</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_Path">
-   <property name="geometry">
-    <rect>
-     <x>760</x>
-     <y>10</y>
-     <width>101</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>경로열기</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_FileList">
-   <property name="geometry">
-    <rect>
-     <x>760</x>
-     <y>60</y>
-     <width>101</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>파일리스트</string>
-   </property>
-  </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit_FileList">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>60</y>
-     <width>741</width>
-     <height>151</height>
-    </rect>
-   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLineEdit" name="lineEdit_Path_3"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_Path_2">
+          <property name="text">
+           <string>경로열기</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QPlainTextEdit" name="plainTextEdit_FileList_2"/>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>
