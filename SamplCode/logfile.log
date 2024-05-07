@@ -783,3 +783,34 @@
 2024-04-11 17:40:15,723 - ERROR - init_UI Exception'WindowClass' object has no attribute 'lineEdit_Path'
 2024-04-11 17:42:51,628 - INFO - WindowClass init start
 2024-04-11 17:42:51,954 - ERROR - init_UI Exception'WindowClass' object has no attribute 'lineEdit_Path'
+2024-05-01 11:14:38,038 - INFO - WindowClass init start
+2024-05-01 11:16:17,567 - INFO - WindowClass init start
+2024-05-01 11:17:44,801 - INFO - WindowClass init start
+2024-05-01 11:17:45,232 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-05-01 11:55:20,316 - INFO - WindowClass init start
+2024-05-01 11:55:20,691 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-05-01 11:56:29,616 - INFO - WindowClass init start
+2024-05-01 11:56:54,590 - INFO - WindowClass init start
+2024-05-01 11:57:47,100 - INFO - WindowClass init start
+2024-05-01 11:57:48,361 - INFO - UI_Progs Start
+2024-05-01 11:57:48,544 - INFO - UI_Progs Start
+2024-05-01 11:57:48,721 - INFO - UI_Progs Start
+2024-05-01 11:58:37,497 - INFO - WindowClass init start
+2024-05-01 11:58:38,553 - INFO - UI_Progs Start
+2024-05-01 11:58:41,223 - ERROR - UI_Open Exception'WindowClass' object has no attribute 'lineEdit_Path'
+2024-05-01 11:59:15,712 - INFO - WindowClass init start
+2024-05-01 11:59:17,762 - INFO - UI_Progs Start
+2024-05-01 11:59:19,980 - ERROR - UI_Open Exception'WindowClass' object has no attribute 'lineEdit_Path'
+2024-05-01 11:59:42,583 - INFO - WindowClass init start
+2024-05-01 11:59:43,788 - INFO - UI_Progs Start
+2024-05-03 14:56:33,300 - INFO - WindowClass init start
+2024-05-03 14:56:33,659 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/.idea/inspectionProfiles
+2024-05-03 14:56:34,876 - DEBUG - UI_Version_Check
+2024-05-03 14:56:42,923 - DEBUG - UI_Open UI_Search
+2024-05-03 14:56:48,218 - DEBUG - UI_Open UI_Search
+2024-05-03 14:56:48,643 - DEBUG - UI_Version_Check
+2024-05-03 14:56:50,618 - DEBUG - UI_Open UI_Search
+2024-05-03 14:56:51,772 - DEBUG - UI_Version_Check
+2024-05-03 14:56:53,602 - DEBUG - UI_Open Start
+2024-05-03 14:56:57,075 - DEBUG - UI_Open path = C:/Users/KIMJH/Documents/GitHub/PythonPjt
+2024-05-03 14:56:58,091 - DEBUG - UI_Version_Check
