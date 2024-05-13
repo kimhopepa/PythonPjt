@@ -25,7 +25,7 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 # 3) UI 파일 연결 -> 같은 경로에 위치
-form = resource_path("CodeReviewCheckTool.ui")
+form = resource_path("CodeReviewUI.ui")
 form_class = uic.loadUiType(form)[0]
 
 
@@ -38,8 +38,12 @@ class WindowClass(QMainWindow, form_class):
 
         # 1. UI 이벤트 초기화
         self.setupUi(self)
-
         self.init_UI()
+        self.set_table_widget()
+
+        self.pushButton_Open.clicked.connect(self.UI_OpenPath)
+
+
 
     def init_UI(self):
         try :
@@ -48,6 +52,30 @@ class WindowClass(QMainWindow, form_class):
             logger.info(self.folder_path)
         except Exception as e:
             logger.error("init_UI Exception" + str(e))
+
+    def UI_OpenPath(self):
+        try:
+            logger.debug("UI_OpenPath")
+
+            #1. 파일 선택 -> selected_files 여기 저장
+            file_dialog = QFileDialog();
+            file_dialog.setFileMode(QFileDialog.ExistingFiles)
+            file_dialog.exec_()
+            selected_files = file_dialog.selectedFiles()
+
+            #2. 리스트 저장
+            for file_name in selected_files :
+                base_name = os.path.basename(file_name)
+                self.listWidget_file.addItem(base_name)
+            
+            self.folder_path = QFileDialog.getExistingDirectory(self, '폴더 선택',
+                                                                config_handler.config_dict["Path"]["last_path"])
+            self.lineEdit_Path.setText(self.folder_path)
+            config_handler.chagned_config("Path", "last_path", self.folder_path)
+
+        except Exception as e:
+            logger.error("init_UI Exception" + str(e))
+
 
 
     def set_table_widget(self, dt_data):

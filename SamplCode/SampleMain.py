@@ -55,8 +55,18 @@ class WindowClass(QMainWindow, form_class):
     def UI_Open(self):
         try:
             logger.debug("UI_Open Start")
+            # 폴더 선택
+            #self.folder_path = QFileDialog.getExistingDirectory(self, '폴더 선택', config_handler.config_dict["Path"]["last_path"])
 
-            self.folder_path = QFileDialog.getExistingDirectory(self, '폴더 선택', config_handler.config_dict["Path"]["last_path"])
+            file_dialog = QFileDialog();
+            file_dialog.setFileMode(QFileDialog.ExistingFiles)
+
+            file_dialog.exec_()
+            selected_files = file_dialog.selectedFiles()
+
+            for file_name in selected_files :
+                print("file name = " + os.path.basename(file_name))
+
             self.lineEdit_Path.setText(self.folder_path)
             config_handler.chagned_config("Path", "last_path", self.folder_path)
 

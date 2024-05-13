@@ -814,3 +814,61 @@
 2024-05-03 14:56:53,602 - DEBUG - UI_Open Start
 2024-05-03 14:56:57,075 - DEBUG - UI_Open path = C:/Users/KIMJH/Documents/GitHub/PythonPjt
 2024-05-03 14:56:58,091 - DEBUG - UI_Version_Check
+2024-05-10 17:33:23,028 - INFO - WindowClass init start
+2024-05-10 17:33:23,375 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt
+2024-05-10 18:03:41,389 - INFO - WindowClass init start
+2024-05-10 18:03:41,703 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt
+2024-05-10 18:08:40,056 - INFO - WindowClass init start
+2024-05-10 18:08:40,370 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt
+2024-05-10 18:08:41,631 - DEBUG - UI_Open Start
+2024-05-10 18:08:43,025 - DEBUG - UI_Open path = 
+2024-05-10 18:11:11,467 - INFO - WindowClass init start
+2024-05-10 18:11:11,499 - INFO - 
+2024-05-10 18:11:23,751 - INFO - WindowClass init start
+2024-05-10 18:11:24,073 - INFO - 
+2024-05-10 18:11:25,270 - DEBUG - UI_OpenPath
+2024-05-13 13:37:36,713 - INFO - WindowClass init start
+2024-05-13 13:37:37,083 - INFO - 
+2024-05-13 13:37:41,629 - INFO - WindowClass init start
+2024-05-13 13:37:41,917 - INFO - 
+2024-05-13 13:37:43,261 - DEBUG - UI_OpenPath
+2024-05-13 13:48:59,003 - INFO - WindowClass init start
+2024-05-13 13:48:59,348 - INFO - 
+2024-05-13 13:49:01,146 - DEBUG - UI_OpenPath
+2024-05-13 13:49:20,077 - INFO - WindowClass init start
+2024-05-13 13:49:20,102 - INFO - 
+2024-05-13 13:49:21,650 - DEBUG - UI_Open Start
+2024-05-13 13:49:25,942 - DEBUG - UI_Open path = 
+2024-05-13 13:49:44,877 - INFO - WindowClass init start
+2024-05-13 13:49:44,902 - INFO - 
+2024-05-13 13:49:46,163 - DEBUG - UI_Open Start
+2024-05-13 13:49:48,972 - DEBUG - UI_Open path = 
+2024-05-13 13:53:11,589 - INFO - WindowClass init start
+2024-05-13 13:53:11,613 - INFO - 
+2024-05-13 13:53:13,196 - DEBUG - UI_Open Start
+2024-05-13 13:53:15,839 - DEBUG - UI_Open path = 
+2024-05-13 13:53:43,226 - INFO - WindowClass init start
+2024-05-13 13:53:43,251 - INFO - 
+2024-05-13 13:53:44,581 - DEBUG - UI_Open Start
+2024-05-13 13:53:47,487 - DEBUG - UI_Open path = 
+2024-05-13 13:54:04,039 - INFO - WindowClass init start
+2024-05-13 13:54:04,333 - INFO - 
+2024-05-13 13:54:05,773 - DEBUG - UI_OpenPath
+2024-05-13 14:27:43,214 - INFO - WindowClass init start
+2024-05-13 14:27:43,560 - INFO - 
+2024-05-13 14:36:28,296 - INFO - WindowClass init start
+2024-05-13 14:36:28,704 - INFO - 
+2024-05-13 14:36:30,640 - DEBUG - UI_OpenPath
+2024-05-13 15:50:31,751 - INFO - WindowClass init start
+2024-05-13 15:50:32,160 - INFO - 
+2024-05-13 15:50:33,824 - DEBUG - UI_OpenPath
+2024-05-13 15:50:37,057 - ERROR - init_UI Exceptionname 'listWidget_file' is not defined
+2024-05-13 15:50:50,374 - INFO - WindowClass init start
+2024-05-13 15:50:50,703 - INFO - 
+2024-05-13 15:50:52,073 - DEBUG - UI_OpenPath
+2024-05-13 15:52:25,877 - INFO - WindowClass init start
+2024-05-13 15:52:26,321 - INFO - 
+2024-05-13 15:53:22,092 - INFO - WindowClass init start
+2024-05-13 15:53:22,421 - INFO - 
+2024-05-13 15:53:43,418 - INFO - WindowClass init start
+2024-05-13 15:53:43,446 - INFO - 
