@@ -3,11 +3,11 @@ import configparser
 import sys
 
 # import lib
-from lib import libLog
+from lib import libLog2
 from lib import libConfig
 
-# DEBUG 레벨의 로그를 출력하는 Logger 인스턴스 생성
-logger = libLog.Logger(log_level=libLog.logging.INFO)
+# DEBUG 레벨의 로그를 출력하는 Logger.logger 인스턴스 생성
+Logger.logger = libLog.Logger.logger(log_level=libLog.logging.INFO)
 
 
 
@@ -22,11 +22,11 @@ def config_read_test1():
 
 def log_test():
     # 로그 출력
-    logger.debug("Debug 메시지")
-    logger.info("Info 메시지")
-    logger.warning("Warning 메시지")
-    logger.error("Error 메시지")
-    logger.critical("Critical 메시지")
+    Logger.logger.debug("Debug 메시지")
+    Logger.logger.info("Info 메시지")
+    Logger.logger.warning("Warning 메시지")
+    Logger.logger.error("Error 메시지")
+    Logger.logger.critical("Critical 메시지")
 
 def config_read_test2():
     # ConfigHandler 인스턴스 생성

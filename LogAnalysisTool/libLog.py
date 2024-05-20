@@ -2,7 +2,7 @@ import logging
 
 
 class LogManager :
-    logger = logging.getLogger()
+    Logger.logger = logging.getLogger.logger()
     def __init__(self):
         print("LogManager Start")
 

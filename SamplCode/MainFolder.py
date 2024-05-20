@@ -5,18 +5,18 @@ import sys
 import os
 
 # import lib
-from lib import libLog
+from lib import libLog2
 from lib import libConfig
 from lib.libFile import *
 
-# DEBUG 레벨의 로그를 출력하는 Logger 인스턴스 생성
+# DEBUG 레벨의 로그를 출력하는 Logger.logger 인스턴스 생성
 
 #1. config 파일 조회
 config_handler = libConfig.ConfigHandler('config.ini')
 #2. config 데이터 변수 저장
 # config_handler.read_config()
 #3. 로그 등급 확인하여 로거 객체 생성
-logger = libLog.Logger(config_level= config_handler.config_dict["system"]["log_level"])
+Logger.logger = libLog.Logger.logger(config_level= config_handler.config_dict["system"]["log_level"])
 
 
 def resource_path(relative_path):
@@ -32,7 +32,7 @@ form_class = uic.loadUiType(form)[0]
 # 4) 화면을 띄우는 클래스 선언
 class WindowClass(QWidget, form_class):
     def __init__(self):
-        logger.info("WindowClass init start")
+        Logger.logger.info("WindowClass init start")
         super().__init__()
 
 # 5) 위에서 선언한 클래스를 실행 : QMainWindow 부모 클래스의 show 함수 실행

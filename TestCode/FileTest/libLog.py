@@ -13,6 +13,7 @@ class Logger:
     @staticmethod
     def init(log_file="logfile.log", config_level=1):
         log_format = "%(asctime)s - %(levelname)s - %(message)s"
+        print("test", config_level)
         # 1. 로거 설정
         Logger.logger.setLevel(config_level)
 

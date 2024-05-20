@@ -5,18 +5,18 @@ import sys
 import os
 
 # import lib
-from lib import libLog
+from lib import libLog2
 from lib import libConfig
 from lib.libFile import *
 
-# DEBUG 레벨의 로그를 출력하는 Logger 인스턴스 생성
+# DEBUG 레벨의 로그를 출력하는 Logger.logger 인스턴스 생성
 
 #1. config 파일 조회
 config_handler = libConfig.ConfigHandler('config.ini')
 #2. config 데이터 변수 저장
 # config_handler.read_config()
 #3. 로그 등급 확인하여 로거 객체 생성
-logger = libLog.Logger(config_level= config_handler.config_dict["system"]["log_level"])
+Logger.logger = libLog.Logger.logger(config_level= config_handler.config_dict["system"]["log_level"])
 
 
 def resource_path(relative_path):
@@ -32,7 +32,7 @@ form_class = uic.loadUiType(form)[0]
 # 4) 화면을 띄우는 클래스 선언
 class WindowClass(QMainWindow, form_class):
     def __init__(self):
-        logger.info("WindowClass init start")
+        Logger.logger.info("WindowClass init start")
         super().__init__()
 
 
@@ -48,13 +48,13 @@ class WindowClass(QMainWindow, form_class):
         try :
             self.folder_path = config_handler.config_dict["Path"]["last_path"]
             self.lineEdit_Path.setText(self.folder_path)
-            logger.info(self.folder_path)
+            Logger.logger.info(self.folder_path)
         except Exception as e:
-            logger.error("init_UI Exception" + str(e))
+            Logger.logger.error("init_UI Exception" + str(e))
 
     def UI_Open(self):
         try:
-            logger.debug("UI_Open Start")
+            Logger.logger.debug("UI_Open Start")
             # 폴더 선택
             #self.folder_path = QFileDialog.getExistingDirectory(self, '폴더 선택', config_handler.config_dict["Path"]["last_path"])
 
@@ -68,17 +68,17 @@ class WindowClass(QMainWindow, form_class):
                 print("file name = " + os.path.basename(file_name))
 
             self.lineEdit_Path.setText(self.folder_path)
-            config_handler.chagned_config("Path", "last_path", self.folder_path)
+            config_handler.changed_config("Path", "last_path", self.folder_path)
 
-            logger.debug("UI_Open path = " + self.folder_path)
+            Logger.logger.debug("UI_Open path = " + self.folder_path)
 
         except Exception as e:
             print("UI_Open Exception", e)
-            logger.error("UI_Open Exception" + str(e))
+            Logger.logger.error("UI_Open Exception" + str(e))
 
     def UI_Search(self):
         try:
-            logger.debug("UI_Open UI_Search")
+            Logger.logger.debug("UI_Open UI_Search")
             file_df = get_folder_file_list_dataframe(self.folder_path)
             print(file_df)
 
@@ -97,18 +97,18 @@ class WindowClass(QMainWindow, form_class):
             self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
         except Exception as e:
-            logger.error("UI_Search Exception " + str(e))
+            Logger.logger.error("UI_Search Exception " + str(e))
 
     def UI_Version_Check(self):
         try:
             pass
-            logger.debug("UI_Version_Check")
+            Logger.logger.debug("UI_Version_Check")
             winccoa_path = "C:\Siemens\Automation\WinCC_OA"
             file_df = get_Winccoa_version(winccoa_path)
             self.set_table_widget(file_df)
 
         except Exception as e:
-            logger.error("UI_Search Exception " + str(e))
+            Logger.logger.error("UI_Search Exception " + str(e))
 
     def set_table_widget(self, dt_data):
         try:
@@ -134,7 +134,7 @@ class WindowClass(QMainWindow, form_class):
             self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Interactive)
             self.tableWidget.horizontalHeader().setStretchLastSection(True)
         except Exception as e:
-            logger.error("set_table_widget Exception " + str(e))
+            Logger.logger.error("set_table_widget Exception " + str(e))
 
 
 # 5) 위에서 선언한 클래스를 실행 : QMainWindow 부모 클래스의 show 함수 실행

@@ -5,18 +5,18 @@ import sys
 import os
 
 # import lib
-from lib import libLog
+from lib import libLog2
 from lib import libConfig
 from lib.libFile import *
 
-# DEBUG 레벨의 로그를 출력하는 Logger 인스턴스 생성
+# DEBUG 레벨의 로그를 출력하는 Logger.logger 인스턴스 생성
 
 #1. config 파일 조회
 config_handler = libConfig.ConfigHandler('config.ini')
 #2. config 데이터 변수 저장
 # config_handler.read_config()
 #3. 로그 등급 확인하여 로거 객체 생성
-logger = libLog.Logger(config_level= config_handler.config_dict["system"]["log_level"])
+Logger.logger = libLog.Logger.logger(config_level= config_handler.config_dict["system"]["log_level"])
 
 
 def resource_path(relative_path):
@@ -32,7 +32,7 @@ form_class = uic.loadUiType(form)[0]
 # 4) 화면을 띄우는 클래스 선언
 class WindowClass(QWidget, form_class):
     def __init__(self):
-        logger.info("WindowClass init start")
+        Logger.logger.info("WindowClass init start")
         super().__init__()
         self.setupUi(self)
 
@@ -40,13 +40,13 @@ class WindowClass(QWidget, form_class):
 
     def UI_Progs(self):
         try :
-            logger.info("UI_Progs Start")
+            Logger.logger.info("UI_Progs Start")
 
 
             #1. 현재 경로 가져오기
             self.folder_path = QFileDialog.getExistingDirectory(self, '폴더 선택', config_handler.config_dict["Path"]["last_path"])
             self.lineEdit_Path.setText(self.folder_path)
-            config_handler.chagned_config("Path", "last_path", self.folder_path)
+            config_handler.changed_config("Path", "last_path", self.folder_path)
 
             #2. 파일 읽기
 
@@ -54,7 +54,7 @@ class WindowClass(QWidget, form_class):
 
 
         except Exception as e :
-            logger.error("UI_Open Exception" + str(e))
+            Logger.logger.error("UI_Open Exception" + str(e))
 
 
 

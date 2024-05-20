@@ -50,8 +50,8 @@ class WindowClass(QMainWindow, form_class):
             str_cpu_info ="cpu info =" + data['brand_raw'] + ", Core = " +  str(cpu_info_cores) + ", Logical Count = " + str(logical_process_count)
             str_memory_info = "memory = " + str(v_memory.total)
 
-            logger.info(str_cpu_info)
-            logger.info(str_memory_info)
+            Logger.logger.info(str_cpu_info)
+            Logger.logger.info(str_memory_info)
 
             self.plainTextEdit.setPlainText(str_cpu_info)
             self.plainTextEdit.appendPlainText(str_memory_info)

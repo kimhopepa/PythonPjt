@@ -872,3 +872,548 @@
 2024-05-13 15:53:22,421 - INFO - 
 2024-05-13 15:53:43,418 - INFO - WindowClass init start
 2024-05-13 15:53:43,446 - INFO - 
+2024-05-14 08:34:45,954 - INFO - WindowClass init start
+2024-05-14 08:34:46,334 - INFO - 
+2024-05-14 08:35:30,678 - INFO - WindowClass init start
+2024-05-14 08:35:31,004 - INFO - 
+2024-05-14 08:40:52,819 - INFO - WindowClass init start
+2024-05-14 08:40:53,126 - INFO - 
+2024-05-14 08:41:01,384 - INFO - WindowClass init start
+2024-05-14 08:41:01,690 - INFO - 
+2024-05-14 08:41:03,097 - DEBUG - UI_OpenPath
+2024-05-14 08:41:11,869 - DEBUG - UI_OpenPath - File Path = 
+2024-05-14 08:41:11,870 - ERROR - init_UI Exceptioncan only concatenate str (not "list") to str
+2024-05-14 08:45:06,757 - INFO - WindowClass init start
+2024-05-14 08:45:07,119 - INFO - 
+2024-05-14 08:45:10,373 - DEBUG - UI_OpenPath
+2024-05-14 08:45:14,735 - DEBUG - UI_OpenPath - File Path = 
+2024-05-14 08:45:14,735 - ERROR - init_UI Exceptioncan only concatenate str (not "list") to str
+2024-05-14 09:56:55,468 - DEBUG - UI_OpenPath
+2024-05-14 09:56:59,944 - DEBUG - UI_OpenPath - File Path = 
+2024-05-14 09:56:59,944 - ERROR - init_UI Exceptioncan only concatenate str (not "list") to str
+2024-05-14 09:57:41,680 - INFO - WindowClass init start
+2024-05-14 09:57:42,031 - INFO - 
+2024-05-14 09:57:43,212 - DEBUG - UI_OpenPath
+2024-05-14 09:57:46,040 - ERROR - init_UI Exceptioncan only concatenate str (not "list") to str
+2024-05-14 09:58:11,926 - INFO - WindowClass init start
+2024-05-14 09:58:12,288 - INFO - 
+2024-05-14 09:58:21,422 - INFO - WindowClass init start
+2024-05-14 09:58:21,765 - INFO - 
+2024-05-14 09:58:26,116 - DEBUG - UI_OpenPath
+2024-05-14 09:58:28,875 - DEBUG - UI_OpenPath - File List = ['C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/BoxLayOutUI.py', 'C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/BoxTest.ui', 'C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/BoxTestUI.py']
+2024-05-14 09:59:10,096 - INFO - WindowClass init start
+2024-05-14 09:59:10,476 - INFO - 
+2024-05-14 09:59:14,997 - DEBUG - UI_OpenPath
+2024-05-14 09:59:19,307 - DEBUG - UI_OpenPath - File Path = 
+2024-05-14 09:59:19,307 - DEBUG - UI_OpenPath - File List = ['C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/BoxLayOutUI.py', 'C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/BoxTest.ui', 'C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/BoxTestUI.py']
+2024-05-14 10:13:42,256 - INFO - WindowClass init start
+2024-05-14 10:13:42,560 - INFO - 
+2024-05-14 10:13:47,913 - DEBUG - UI_OpenPath
+2024-05-14 10:17:28,227 - INFO - WindowClass init start
+2024-05-14 10:17:28,607 - INFO - 
+2024-05-14 10:19:48,712 - INFO - WindowClass init start
+2024-05-14 10:19:49,050 - INFO - 
+2024-05-14 10:20:02,058 - INFO - WindowClass init start
+2024-05-14 10:20:02,372 - INFO - 
+2024-05-14 10:20:03,864 - DEBUG - UI_OpenPath
+2024-05-14 10:20:06,902 - DEBUG - UI_OpenPath - File List = ['C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/BoxLayOutUI.py', 'C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/BoxTest.ui', 'C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/BoxTestUI.py']
+2024-05-14 10:26:24,213 - INFO - WindowClass init start
+2024-05-14 10:26:26,849 - INFO - WindowClass init start
+2024-05-14 10:26:27,193 - INFO - 
+2024-05-14 10:26:28,758 - DEBUG - UI_OpenPath
+2024-05-14 10:26:31,568 - DEBUG - UI_OpenPath - File List = ['C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/BoxLayOutUI.py', 'C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/BoxTest.ui', 'C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/BoxTestUI.py']
+2024-05-14 10:26:57,794 - INFO - WindowClass init start
+2024-05-14 10:26:58,135 - INFO - 
+2024-05-14 10:27:03,462 - INFO - WindowClass init start
+2024-05-14 10:27:03,758 - INFO - 
+2024-05-14 11:31:59,350 - INFO - WindowClass init start
+2024-05-14 11:31:59,685 - INFO - 
+2024-05-14 13:21:47,960 - INFO - WindowClass init start
+2024-05-14 13:21:48,424 - INFO - 
+2024-05-14 13:21:50,251 - DEBUG - UI_OpenPath
+2024-05-14 13:22:03,812 - DEBUG - UI_OpenPath - File List = ['C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/BoxLayOutUI.py', 'C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/BoxTest.ui', 'C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/BoxTestUI.py']
+2024-05-14 13:36:41,047 - INFO - WindowClass init start
+2024-05-14 13:36:41,363 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/
+2024-05-14 13:58:17,106 - INFO - WindowClass init start
+2024-05-14 13:58:17,545 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/
+2024-05-14 14:26:14,222 - INFO - WindowClass init start
+2024-05-14 14:26:14,565 - INFO - C:/Users/KIMJH/Documents/GitHub/PythonPjt/SamplCode/
+2024-05-14 14:26:15,932 - DEBUG - UI_OpenPath
+2024-05-14 14:26:28,489 - DEBUG - UI_OpenPath - File List = ['D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/SmartIO_DI.ctl', 'D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/SmartIO_DI_old.ctl']
+2024-05-14 14:26:31,476 - DEBUG - UI_OpenPath
+2024-05-14 14:26:33,382 - DEBUG - UI_OpenPath - File List = []
+2024-05-14 14:26:37,190 - INFO - WindowClass init start
+2024-05-14 14:26:37,527 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 14:26:38,981 - DEBUG - UI_OpenPath
+2024-05-14 14:26:42,312 - DEBUG - UI_OpenPath - File List = []
+2024-05-14 15:06:05,637 - INFO - WindowClass init start
+2024-05-14 15:06:05,997 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:19:44,119 - INFO - WindowClass init start
+2024-05-14 15:19:44,119 - INFO - WindowClass init start
+2024-05-14 15:19:44,119 - INFO - WindowClass init start
+2024-05-14 15:19:44,462 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:19:44,462 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:19:44,462 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:20:04,133 - INFO - WindowClass init start
+2024-05-14 15:20:04,133 - INFO - WindowClass init start
+2024-05-14 15:20:04,133 - INFO - WindowClass init start
+2024-05-14 15:20:04,498 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:20:04,498 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:20:04,498 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:20:31,313 - INFO - WindowClass init start
+2024-05-14 15:20:31,313 - INFO - WindowClass init start
+2024-05-14 15:20:31,313 - INFO - WindowClass init start
+2024-05-14 15:20:31,652 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:20:31,652 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:20:31,652 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:20:50,096 - INFO - WindowClass init start
+2024-05-14 15:20:50,096 - INFO - WindowClass init start
+2024-05-14 15:20:50,096 - INFO - WindowClass init start
+2024-05-14 15:20:50,540 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:20:50,540 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:20:50,540 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:21:54,411 - INFO - WindowClass init start
+2024-05-14 15:21:54,411 - INFO - WindowClass init start
+2024-05-14 15:21:54,411 - INFO - WindowClass init start
+2024-05-14 15:21:54,769 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:21:54,769 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:21:54,769 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:22:17,336 - INFO - WindowClass init start
+2024-05-14 15:22:17,336 - INFO - WindowClass init start
+2024-05-14 15:22:17,336 - INFO - WindowClass init start
+2024-05-14 15:22:17,674 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:22:17,674 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:22:17,674 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:22:28,966 - INFO - WindowClass init start
+2024-05-14 15:22:28,966 - INFO - WindowClass init start
+2024-05-14 15:22:28,966 - INFO - WindowClass init start
+2024-05-14 15:22:29,282 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:22:29,282 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:22:29,282 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:23:14,558 - INFO - WindowClass init start
+2024-05-14 15:23:14,558 - INFO - WindowClass init start
+2024-05-14 15:23:14,558 - INFO - WindowClass init start
+2024-05-14 15:23:14,919 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:23:14,919 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:23:14,919 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:23:14,921 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:23:14,921 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:23:14,921 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:25:53,527 - INFO - WindowClass init start
+2024-05-14 15:25:53,527 - INFO - WindowClass init start
+2024-05-14 15:25:53,853 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:25:53,853 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:25:53,853 - ERROR - init_UI Exceptionname 'CodeReviewCheck' is not defined
+2024-05-14 15:25:53,853 - ERROR - init_UI Exceptionname 'CodeReviewCheck' is not defined
+2024-05-14 15:32:55,053 - INFO - WindowClass init start
+2024-05-14 15:32:55,053 - INFO - WindowClass init start
+2024-05-14 15:32:55,391 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:32:55,391 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:32:55,393 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:32:55,393 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:33:12,223 - INFO - WindowClass init start
+2024-05-14 15:33:12,223 - INFO - WindowClass init start
+2024-05-14 15:33:12,591 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:33:12,591 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:33:12,591 - ERROR - init_UI Exception'WindowClass' object has no attribute 'codechcker'
+2024-05-14 15:33:12,591 - ERROR - init_UI Exception'WindowClass' object has no attribute 'codechcker'
+2024-05-14 15:33:12,591 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:33:12,591 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:33:46,255 - INFO - WindowClass init start
+2024-05-14 15:33:46,255 - INFO - WindowClass init start
+2024-05-14 15:33:46,620 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:33:46,620 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:33:46,620 - ERROR - init_UI Exception'WindowClass' object has no attribute 'codechcker'
+2024-05-14 15:33:46,620 - ERROR - init_UI Exception'WindowClass' object has no attribute 'codechcker'
+2024-05-14 15:33:46,620 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:33:46,620 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:36:36,060 - INFO - WindowClass init start
+2024-05-14 15:36:36,060 - INFO - WindowClass init start
+2024-05-14 15:36:36,410 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:36:36,410 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:36:36,410 - ERROR - init_UI Exception'WindowClass' object has no attribute 'checker'
+2024-05-14 15:36:36,410 - ERROR - init_UI Exception'WindowClass' object has no attribute 'checker'
+2024-05-14 15:37:13,689 - INFO - WindowClass init start
+2024-05-14 15:37:13,689 - INFO - WindowClass init start
+2024-05-14 15:37:14,054 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:37:14,054 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:37:14,054 - ERROR - init_UI Exception'WindowClass' object has no attribute 'checker'
+2024-05-14 15:37:14,054 - ERROR - init_UI Exception'WindowClass' object has no attribute 'checker'
+2024-05-14 15:37:47,024 - INFO - WindowClass init start
+2024-05-14 15:37:47,024 - INFO - WindowClass init start
+2024-05-14 15:37:47,430 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:37:47,430 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:37:47,430 - ERROR - init_UI Exception'WindowClass' object has no attribute 'checker'
+2024-05-14 15:37:47,430 - ERROR - init_UI Exception'WindowClass' object has no attribute 'checker'
+2024-05-14 15:37:47,431 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:37:47,431 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:46:41,012 - INFO - WindowClass init start
+2024-05-14 15:46:41,012 - INFO - WindowClass init start
+2024-05-14 15:46:41,015 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:46:41,015 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:46:41,359 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:46:41,359 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:47:22,835 - INFO - WindowClass init start
+2024-05-14 15:47:22,835 - INFO - WindowClass init start
+2024-05-14 15:47:22,837 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:47:22,837 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:47:23,183 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:47:23,183 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:47:45,458 - INFO - WindowClass init start
+2024-05-14 15:47:45,458 - INFO - WindowClass init start
+2024-05-14 15:47:45,460 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:47:45,460 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:47:45,821 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:47:45,821 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:48:14,839 - INFO - WindowClass init start
+2024-05-14 15:48:14,839 - INFO - WindowClass init start
+2024-05-14 15:48:14,841 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:48:14,841 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:48:15,192 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:48:15,192 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:48:44,088 - INFO - WindowClass init start
+2024-05-14 15:48:44,088 - INFO - WindowClass init start
+2024-05-14 15:48:44,090 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:48:44,090 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:48:44,456 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:48:44,456 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:49:00,048 - INFO - WindowClass init start
+2024-05-14 15:49:00,048 - INFO - WindowClass init start
+2024-05-14 15:49:00,049 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:49:00,049 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:49:00,391 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:49:00,391 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:49:08,026 - INFO - WindowClass init start
+2024-05-14 15:49:08,026 - INFO - WindowClass init start
+2024-05-14 15:49:08,028 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:49:08,028 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:49:08,497 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:49:08,497 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:49:08,503 - ERROR - set_table_widget Exception name 'last_col' is not defined
+2024-05-14 15:49:08,503 - ERROR - set_table_widget Exception name 'last_col' is not defined
+2024-05-14 15:49:15,250 - INFO - WindowClass init start
+2024-05-14 15:49:15,250 - INFO - WindowClass init start
+2024-05-14 15:49:15,251 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:49:15,251 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:49:15,649 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:49:15,649 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:49:15,654 - ERROR - set_table_widget Exception name 'last_col' is not defined
+2024-05-14 15:49:15,654 - ERROR - set_table_widget Exception name 'last_col' is not defined
+2024-05-14 15:50:36,691 - INFO - WindowClass init start
+2024-05-14 15:50:36,691 - INFO - WindowClass init start
+2024-05-14 15:50:36,693 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:50:36,693 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 15:50:37,053 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 15:50:37,053 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:10:03,073 - INFO - WindowClass init start
+2024-05-14 16:10:03,073 - INFO - WindowClass init start
+2024-05-14 16:10:03,074 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:10:03,074 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:10:03,484 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:10:03,484 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:10:53,335 - INFO - WindowClass init start
+2024-05-14 16:10:53,335 - INFO - WindowClass init start
+2024-05-14 16:10:53,337 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:10:53,337 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:10:53,743 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:10:53,743 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:11:43,016 - INFO - WindowClass init start
+2024-05-14 16:11:43,016 - INFO - WindowClass init start
+2024-05-14 16:11:43,019 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:11:43,019 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:11:43,485 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:11:43,485 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:11:55,341 - INFO - WindowClass init start
+2024-05-14 16:11:55,341 - INFO - WindowClass init start
+2024-05-14 16:11:55,342 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:11:55,342 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:11:55,706 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:11:55,706 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:12:03,561 - INFO - WindowClass init start
+2024-05-14 16:12:03,561 - INFO - WindowClass init start
+2024-05-14 16:12:03,563 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:12:03,563 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:12:03,920 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:12:03,920 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:12:12,239 - INFO - WindowClass init start
+2024-05-14 16:12:12,239 - INFO - WindowClass init start
+2024-05-14 16:12:12,241 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:12:12,241 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:12:12,576 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:12:12,576 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:12:42,321 - INFO - WindowClass init start
+2024-05-14 16:12:42,321 - INFO - WindowClass init start
+2024-05-14 16:12:42,323 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:12:42,323 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:12:42,681 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:12:42,681 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:15:31,013 - INFO - WindowClass init start
+2024-05-14 16:15:31,013 - INFO - WindowClass init start
+2024-05-14 16:15:31,015 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:15:31,015 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:15:31,351 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:15:31,351 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:15:38,966 - INFO - WindowClass init start
+2024-05-14 16:15:38,966 - INFO - WindowClass init start
+2024-05-14 16:15:38,967 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:15:38,967 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:15:39,326 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:15:39,326 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:17:14,626 - INFO - WindowClass init start
+2024-05-14 16:17:14,626 - INFO - WindowClass init start
+2024-05-14 16:17:14,627 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:17:14,627 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:17:15,007 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:17:15,007 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:17:27,255 - INFO - WindowClass init start
+2024-05-14 16:17:27,255 - INFO - WindowClass init start
+2024-05-14 16:17:27,258 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:17:27,258 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:17:27,708 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:17:27,708 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:18:36,753 - INFO - WindowClass init start
+2024-05-14 16:18:36,753 - INFO - WindowClass init start
+2024-05-14 16:18:36,755 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:18:36,755 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:18:37,157 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:18:37,157 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:19:03,377 - INFO - WindowClass init start
+2024-05-14 16:19:03,377 - INFO - WindowClass init start
+2024-05-14 16:19:03,378 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:19:03,378 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:19:03,728 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:19:03,728 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:19:19,502 - INFO - WindowClass init start
+2024-05-14 16:19:19,502 - INFO - WindowClass init start
+2024-05-14 16:19:19,504 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:19:19,504 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:19:19,839 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:19:19,839 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:19:32,304 - INFO - WindowClass init start
+2024-05-14 16:19:32,304 - INFO - WindowClass init start
+2024-05-14 16:19:32,306 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:19:32,306 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:19:32,671 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:19:32,671 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:19:38,712 - INFO - WindowClass init start
+2024-05-14 16:19:38,712 - INFO - WindowClass init start
+2024-05-14 16:19:38,714 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:19:38,714 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:19:39,087 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:19:39,087 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:19:50,874 - INFO - WindowClass init start
+2024-05-14 16:19:50,874 - INFO - WindowClass init start
+2024-05-14 16:19:50,876 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:19:50,876 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:19:51,376 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:19:51,376 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:19:51,383 - ERROR - set_table_widget Exception arguments did not match any overloaded call:
+  setSectionResizeMode(self, logicalIndex: int, mode: QHeaderView.ResizeMode): argument 1 has unexpected type 'float'
+  setSectionResizeMode(self, mode: QHeaderView.ResizeMode): argument 1 has unexpected type 'float'
+2024-05-14 16:19:51,383 - ERROR - set_table_widget Exception arguments did not match any overloaded call:
+  setSectionResizeMode(self, logicalIndex: int, mode: QHeaderView.ResizeMode): argument 1 has unexpected type 'float'
+  setSectionResizeMode(self, mode: QHeaderView.ResizeMode): argument 1 has unexpected type 'float'
+2024-05-14 16:19:56,697 - INFO - WindowClass init start
+2024-05-14 16:19:56,697 - INFO - WindowClass init start
+2024-05-14 16:19:56,699 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:19:56,699 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:19:57,122 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:19:57,122 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:20:30,063 - INFO - WindowClass init start
+2024-05-14 16:20:30,063 - INFO - WindowClass init start
+2024-05-14 16:20:30,065 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:20:30,065 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:20:30,419 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:20:30,419 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:20:46,790 - INFO - WindowClass init start
+2024-05-14 16:20:46,790 - INFO - WindowClass init start
+2024-05-14 16:20:46,792 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:20:46,792 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:20:47,151 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:20:47,151 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:20:57,560 - INFO - WindowClass init start
+2024-05-14 16:20:57,560 - INFO - WindowClass init start
+2024-05-14 16:20:57,562 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:20:57,562 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:20:58,006 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:20:58,006 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:21:13,047 - INFO - WindowClass init start
+2024-05-14 16:21:13,047 - INFO - WindowClass init start
+2024-05-14 16:21:13,050 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:21:13,050 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:21:13,569 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:21:13,569 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:21:25,763 - INFO - WindowClass init start
+2024-05-14 16:21:25,763 - INFO - WindowClass init start
+2024-05-14 16:21:25,765 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:21:25,765 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:21:26,173 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:21:26,173 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:23:03,294 - INFO - WindowClass init start
+2024-05-14 16:23:03,294 - INFO - WindowClass init start
+2024-05-14 16:23:03,295 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:23:03,295 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:23:03,625 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:23:03,625 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:23:30,553 - INFO - WindowClass init start
+2024-05-14 16:23:30,553 - INFO - WindowClass init start
+2024-05-14 16:23:30,555 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:23:30,555 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:23:30,947 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:23:30,947 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:25:20,067 - INFO - WindowClass init start
+2024-05-14 16:25:20,067 - INFO - WindowClass init start
+2024-05-14 16:25:20,070 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:25:20,070 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:25:20,507 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:25:20,507 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:25:20,513 - ERROR - set_table_widget Exception setColumnWidth(self, column: int, width: int): not enough arguments
+2024-05-14 16:25:20,513 - ERROR - set_table_widget Exception setColumnWidth(self, column: int, width: int): not enough arguments
+2024-05-14 16:27:32,957 - INFO - WindowClass init start
+2024-05-14 16:27:32,957 - INFO - WindowClass init start
+2024-05-14 16:27:32,958 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:27:32,958 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:27:33,344 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:27:33,344 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:27:33,350 - ERROR - set_table_widget Exception setColumnWidth(self, column: int, width: int): argument 2 has unexpected type 'float'
+2024-05-14 16:27:33,350 - ERROR - set_table_widget Exception setColumnWidth(self, column: int, width: int): argument 2 has unexpected type 'float'
+2024-05-14 16:27:56,064 - INFO - WindowClass init start
+2024-05-14 16:27:56,064 - INFO - WindowClass init start
+2024-05-14 16:27:56,066 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:27:56,066 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:27:56,459 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:27:56,459 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:27:56,467 - ERROR - set_table_widget Exception setColumnWidth(self, column: int, width: int): argument 2 has unexpected type 'float'
+2024-05-14 16:27:56,467 - ERROR - set_table_widget Exception setColumnWidth(self, column: int, width: int): argument 2 has unexpected type 'float'
+2024-05-14 16:29:28,648 - INFO - WindowClass init start
+2024-05-14 16:29:28,648 - INFO - WindowClass init start
+2024-05-14 16:29:28,650 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:29:28,650 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:29:28,995 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:29:28,995 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:29:29,000 - ERROR - set_table_widget Exception setColumnWidth(self, column: int, width: int): argument 2 has unexpected type 'float'
+2024-05-14 16:29:29,000 - ERROR - set_table_widget Exception setColumnWidth(self, column: int, width: int): argument 2 has unexpected type 'float'
+2024-05-14 16:31:05,533 - INFO - WindowClass init start
+2024-05-14 16:31:05,533 - INFO - WindowClass init start
+2024-05-14 16:31:05,534 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:31:05,534 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:31:05,901 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:31:05,901 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:31:05,905 - ERROR - set_table_widget Exception setColumnWidth(self, column: int, width: int): argument 2 has unexpected type 'float'
+2024-05-14 16:31:05,905 - ERROR - set_table_widget Exception setColumnWidth(self, column: int, width: int): argument 2 has unexpected type 'float'
+2024-05-14 16:31:40,875 - INFO - WindowClass init start
+2024-05-14 16:31:40,875 - INFO - WindowClass init start
+2024-05-14 16:31:40,876 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:31:40,876 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:31:41,192 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:31:41,192 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:31:41,198 - ERROR - set_table_widget Exception setColumnWidth(self, column: int, width: int): argument 2 has unexpected type 'float'
+2024-05-14 16:31:41,198 - ERROR - set_table_widget Exception setColumnWidth(self, column: int, width: int): argument 2 has unexpected type 'float'
+2024-05-14 16:32:10,801 - INFO - WindowClass init start
+2024-05-14 16:32:10,801 - INFO - WindowClass init start
+2024-05-14 16:32:10,803 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:32:10,803 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:32:11,224 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:32:11,224 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:40:12,652 - INFO - WindowClass init start
+2024-05-14 16:40:12,652 - INFO - WindowClass init start
+2024-05-14 16:40:12,654 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:40:12,654 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 16:40:13,021 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:40:13,021 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 16:40:15,323 - DEBUG - UI_OpenPath
+2024-05-14 16:40:15,323 - DEBUG - UI_OpenPath
+2024-05-14 16:40:17,116 - DEBUG - UI_OpenPath - File List = []
+2024-05-14 16:40:17,116 - DEBUG - UI_OpenPath - File List = []
+2024-05-14 16:40:19,412 - DEBUG - UI_OpenPath
+2024-05-14 16:40:19,412 - DEBUG - UI_OpenPath
+2024-05-14 16:40:21,896 - DEBUG - UI_OpenPath - File List = ['D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/SmartIO_DI.ctl', 'D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/SmartIO_DI_old.ctl']
+2024-05-14 16:40:21,896 - DEBUG - UI_OpenPath - File List = ['D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/SmartIO_DI.ctl', 'D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/SmartIO_DI_old.ctl']
+2024-05-14 17:46:52,280 - INFO - WindowClass init start
+2024-05-14 17:46:52,280 - INFO - WindowClass init start
+2024-05-14 17:46:52,283 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:46:52,283 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:46:52,283 - ERROR - init_UI Exception'DataFrame' object has no attribute 'append'
+2024-05-14 17:46:52,283 - ERROR - init_UI Exception'DataFrame' object has no attribute 'append'
+2024-05-14 17:46:52,717 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:46:52,717 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:47:20,137 - INFO - WindowClass init start
+2024-05-14 17:47:20,137 - INFO - WindowClass init start
+2024-05-14 17:47:20,139 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:47:20,139 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:47:20,139 - ERROR - init_UI Exception'DataFrame' object has no attribute 'append'
+2024-05-14 17:47:20,139 - ERROR - init_UI Exception'DataFrame' object has no attribute 'append'
+2024-05-14 17:47:20,494 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:47:20,494 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:47:55,487 - INFO - WindowClass init start
+2024-05-14 17:47:55,487 - INFO - WindowClass init start
+2024-05-14 17:47:55,489 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:47:55,489 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:47:55,489 - ERROR - init_UI Exception'DataFrame' object has no attribute 'append'
+2024-05-14 17:47:55,489 - ERROR - init_UI Exception'DataFrame' object has no attribute 'append'
+2024-05-14 17:47:55,853 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:47:55,853 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:50:37,676 - INFO - WindowClass init start
+2024-05-14 17:50:37,676 - INFO - WindowClass init start
+2024-05-14 17:50:37,679 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:50:37,679 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:50:37,679 - ERROR - init_UI Exception'DataFrame' object has no attribute 'append'
+2024-05-14 17:50:37,679 - ERROR - init_UI Exception'DataFrame' object has no attribute 'append'
+2024-05-14 17:50:38,035 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:50:38,035 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:52:39,016 - INFO - WindowClass init start
+2024-05-14 17:52:39,016 - INFO - WindowClass init start
+2024-05-14 17:52:39,019 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:52:39,019 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:52:39,019 - ERROR - CodeReviewCheck - init_UI Exception'DataFrame' object has no attribute 'append'
+2024-05-14 17:52:39,019 - ERROR - CodeReviewCheck - init_UI Exception'DataFrame' object has no attribute 'append'
+2024-05-14 17:52:39,368 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:52:39,368 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:52:51,837 - INFO - WindowClass init start
+2024-05-14 17:52:51,837 - INFO - WindowClass init start
+2024-05-14 17:52:51,839 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:52:51,839 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:52:52,213 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:52:52,213 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:53:25,691 - INFO - WindowClass init start
+2024-05-14 17:53:25,691 - INFO - WindowClass init start
+2024-05-14 17:53:25,693 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:53:25,693 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:53:25,694 - ERROR - CodeReviewCheck - init_UI Exception'DataFrame' object has no attribute 'append'
+2024-05-14 17:53:25,694 - ERROR - CodeReviewCheck - init_UI Exception'DataFrame' object has no attribute 'append'
+2024-05-14 17:53:26,071 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:53:26,071 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:55:05,769 - INFO - WindowClass init start
+2024-05-14 17:55:05,769 - INFO - WindowClass init start
+2024-05-14 17:55:05,771 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:55:05,771 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:55:05,771 - ERROR - CodeReviewCheck - init_UI Exception'DataFrame' object has no attribute 'append'1
+2024-05-14 17:55:05,771 - ERROR - CodeReviewCheck - init_UI Exception'DataFrame' object has no attribute 'append'1
+2024-05-14 17:55:06,133 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:55:06,133 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:55:35,014 - INFO - WindowClass init start
+2024-05-14 17:55:35,014 - INFO - WindowClass init start
+2024-05-14 17:55:35,015 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:55:35,015 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:55:35,016 - ERROR - CodeReviewCheck - init_UI2 Exception'DataFrame' object has no attribute 'append'1
+2024-05-14 17:55:35,016 - ERROR - CodeReviewCheck - init_UI2 Exception'DataFrame' object has no attribute 'append'1
+2024-05-14 17:55:35,431 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:55:35,431 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:57:28,887 - INFO - WindowClass init start
+2024-05-14 17:57:28,887 - INFO - WindowClass init start
+2024-05-14 17:58:27,107 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:58:27,107 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-14 17:58:37,991 - ERROR - CodeReviewCheck - init_UI2 Exception'DataFrame' object has no attribute 'append'1
+2024-05-14 17:58:37,991 - ERROR - CodeReviewCheck - init_UI2 Exception'DataFrame' object has no attribute 'append'1
+2024-05-14 17:58:57,012 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-14 17:58:57,012 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-15 02:16:15,232 - INFO - WindowClass init start
+2024-05-15 02:17:03,513 - INFO - WindowClass init start
+2024-05-15 02:17:03,515 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-15 02:17:03,523 - ERROR - CodeReviewCheck - init_UI2 Exception'DataFrame' object has no attribute 'append'1
+2024-05-15 02:17:03,926 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-15 03:04:31,526 - INFO - WindowClass init start
+2024-05-15 03:04:31,527 - DEBUG - CodeReviewCheck.init_check_list Start
+2024-05-15 03:04:31,528 - ERROR - CodeReviewCheck - init_UI2 Exception'DataFrame' object has no attribute 'append'
+2024-05-15 03:04:31,902 - INFO - D:/1_±â¼úÇõ½ÅÆÀ/5_½ºÅ©¸³Æ®°ü¸®/5_11_SEC ÄÚµå ¸®ºä/20240514_SmartIO(STS, DI) ±è¿íÈñ ÄÚµå¸®ºä/SmartIO_DI_v1.0_20240510/
+2024-05-15 03:06:10,037 - INFO - WindowClass init start

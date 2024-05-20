@@ -3,12 +3,11 @@
 
 block_cipher = None
 
-added_files = [ ('CodeReviewUI.ui', '.') ,  ('folder_icon.png', '.') ]
-
+added_files = [ ('CodeReviewUI.ui', '.'), ('CodeReviewUI_Detail.ui', '.'), ('folder_icon.png', '.'), ('folder_icon.png', '.') ]
 
 a = Analysis(
     ['CodeReviewUI.py'],
-    pathex=['C:\\Users\\KIMJH\\Documents\\GitHub\\PythonPjt\\CodeReviewUI'],
+    pathex=['C:\\Users\\KIMJH\\Documents\\GitHub\\PythonPjt\\CodeReviewTool'],
     binaries=[],
     datas= added_files,
     hiddenimports=[],

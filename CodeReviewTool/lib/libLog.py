@@ -5,7 +5,6 @@ class Logger:
     # Class 정적 변수 선언
     log_file = None
     log_level = None
-    logger = None
 
     # 로거 생성
     logger = logging.getLogger(__name__)
