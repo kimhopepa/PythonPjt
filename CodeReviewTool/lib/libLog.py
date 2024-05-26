@@ -1,5 +1,5 @@
 import logging
-
+import traceback
 
 class Logger:
     # Class 정적 변수 선언
@@ -56,6 +56,8 @@ class Logger:
     @staticmethod
     def error( message):
         Logger.logger.error(message)
+        trace_msg = traceback.format_exc()
+        Logger.logger.error(trace_msg)
 
     @staticmethod
     def critical( message):

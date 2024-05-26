@@ -69,3 +69,4 @@ SamplCode/lib/__pycache__/libLog.cpython-310.pyc
 SamplCode/lib/__pycache__/libLog.cpython-311.pyc
 SamplCode/lib/__pycache__/libLog.cpython-312.pyc
 *.pyc
+*.xlsx

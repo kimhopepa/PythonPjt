@@ -3,7 +3,7 @@
 
 block_cipher = None
 
-added_files = [ ('CodeReviewUI.ui', '.'), ('CodeReviewUI_Detail.ui', '.'), ('folder_icon.png', '.'), ('hw_main_form.png', '.') ]
+added_files = [ ('CodeReviewUI.ui', '.'), ('CodeReviewUI_Detail.ui', '.'), ('folder_icon.png', '.'), ('folder_icon.png', '.') ]
 
 a = Analysis(
     ['CodeReviewUI.py'],
@@ -42,5 +42,4 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-	icon='hw_main_form.ico',
 )

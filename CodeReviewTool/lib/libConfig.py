@@ -1,6 +1,7 @@
 import configparser
 #from libLog import Logger
 from lib.libLog import Logger
+import json
 
 class ConfigHandler:
     config_dict={}
@@ -28,6 +29,8 @@ class ConfigHandler:
             cls.configer.read(cls.file_path, encoding='utf-8')
             for section in cls.configer.sections():
                 cls.config_dict[section] = dict(cls.configer[section])
+
+            print()
         except Exception as e:
             Logger.error("ConfigHandler.read_config Exception" + str(e))
 
@@ -54,3 +57,30 @@ class ConfigHandler:
 
         except Exception as e:
             Logger.error("ConfigHandler.load_config Exception" + str(e))
+
+    @staticmethod
+    def changed_config_list(section, key, text_list):
+        try:
+            ConfigHandler.configer.remove_option(section, key)
+
+            if section not in ConfigHandler.configer.sections():
+                ConfigHandler.configer.add_section(section)
+
+            ConfigHandler.configer.set(section, key, json.dumps(text_list))
+
+            ConfigHandler.write_config()
+            ConfigHandler.read_config()
+
+        except Exception as e:
+            Logger.error("ConfigHandler.save_list_to_ini Exception" + str(e))
+
+    @staticmethod
+    def get_config_list(section, key):
+        try:
+
+            if ConfigHandler.configer.has_section(section) and ConfigHandler.configer.has_option(section, key):
+                value = ConfigHandler.configer.get(section, key)
+                return json.loads(value)
+            return []
+        except Exception as e:
+            Logger.error("ConfigHandler.read_config Exception" + str(e))

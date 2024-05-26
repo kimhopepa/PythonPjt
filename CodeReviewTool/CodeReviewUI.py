@@ -2,6 +2,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
 from PyQt5.QtCore import Qt
+from datetime import datetime
 
 import sys
 import re
@@ -51,6 +52,7 @@ class WindowClass(QMainWindow, main_form_class):
         # 2-1 UI 버튼 이벤트
         self.pushButton_Open.clicked.connect(self.UI_FileOpen)
         self.pushButton_Start.clicked.connect(self.UI_Start)
+        self.pushButton_Export.clicked.connect(self.UI_Export)
 
 
         # 2-2 UI Table Widget 더블 클릭 이벤트
@@ -62,17 +64,28 @@ class WindowClass(QMainWindow, main_form_class):
             #1. config 파일 조회
             self.folder_path = ConfigHandler.config_dict["Path"]["last_path"]
 
+            #1-1. 마지막 파일 경로 UI에 표시
             if os.path.exists(self.folder_path):
                 self.lineEdit_Path.setText(self.folder_path)  # 마지막 파일 선택 경로
-                
+            
+            #1-2. 마지막 파일 리스트 UI 리스트 추가
+            last_file_list = ConfigHandler.get_config_list("Path", "last_file_list")
+            self.listWidget_file.clear()
+            CodeReviewCheck.init_file_list(last_file_list)
+            print("last_file_list", last_file_list)
+
+            for index, row in CodeReviewCheck.df_crc_info.iterrows():
+                file_name = row[COL_FILE_NAME]
+                self.listWidget_file.addItem(file_name)
+
             Logger.info(self.folder_path)
-            Logger.info
+
             #2. 테이블widget에 코드 리뷰 조건 리스트 표시
             CodeReviewCheck.init_check_list()
             table_df = CodeReviewCheck.get_table_df()
             Logger.debug("WindowClass.init_UI - Column info = " + (str)(table_df.columns.tolist()))
-
-
+            
+            #3. UI 업데이트
             self.set_table_widget(table_df)
 
             # 창 크기 고정
@@ -99,10 +112,14 @@ class WindowClass(QMainWindow, main_form_class):
 
             #3-1. 선택한 파일들 리스트로 저장
             selected_files = file_dialog.selectedFiles()
+            #ini 파일에 저장
+            ConfigHandler.changed_config_list("Path", "last_file_list", selected_files)
             Logger.debug("UI_OpenPath - File List = " + (str)(selected_files))
 
             #4. 선택한 파일 이름 리스트 UI(listWidget_file)에 저장
             self.listWidget_file.clear()
+            
+            #4-1. 선택한 파일 리스트 CodeReviewCheck -> DataFrame에 저장
             CodeReviewCheck.init_file_list(selected_files)
 
             for index, row in CodeReviewCheck.df_crc_info.iterrows():
@@ -112,13 +129,6 @@ class WindowClass(QMainWindow, main_form_class):
                     file_path = row[COL_FILE_PATH]
                     self.folder_path = re.sub( file_name, "", file_path)
 
-            # for index, file_name in enumerate(selected_files) :
-            #     base_name = os.path.basename(file_name)
-            #     self.listWidget_file.addItem(base_name)
-            #     if index == 0 :
-            #         last_path = file_name
-            #         self.folder_path = re.sub( base_name, "", file_name)
-                    
             #5. 디렉토리 경로 UI에 저장
             self.lineEdit_Path.setText(self.folder_path)
 
@@ -132,16 +142,57 @@ class WindowClass(QMainWindow, main_form_class):
     # UI - Start
     def UI_Start(self):
         try :
+            select_file_name = None
             Logger.debug("UI_Start")
+            select_item = self.listWidget_file.currentItem()
 
+            if select_item is not None:
+                select_file_name = select_item.text()
+                CodeReviewCheck.check_code(select_file_name)
+            else :
+                QMessageBox.information(self, "Warning", "코드 리뷰 파일을 선택하지 않았습니다.")
+
+            print("select file name", select_file_name)
             #1. 현재 선택한 파일 경로 조회
-            # file_name =
-
 
 
         except Exception as e:
             Logger.error("WindowClass.UI_Start Exception" + str(e))
 
+    # UI - Export
+    def UI_Export(self):
+        try :
+            Logger.debug("UI_Export")
+            #1. 선택한 파일 가져 오기 (QListWidget)
+            select_item = self.listWidget_file.currentItem()
+
+            if select_item is not None :
+                #2. Export 파일 이름 생성
+                #2.1 선택한 파일 이름 조회
+                select_file_name = select_item.text()
+                # 파일 확장자에서 확장자 제거 -> get_remove_extension
+                select_file_name = CodeReviewCheck.get_remove_extension(select_file_name)
+                format_time = datetime.now().strftime("%Y%m%d%H%M%S")
+                select_file_name = select_file_name + "_" + "CodeReivewResult_" + format_time
+
+                options = QFileDialog.Options()
+                # options |= QFileDialog.DontUseNativeDialog  # 네이티브 대화 상자 사용 안 함
+
+                #3. 저장 파일 경로 가져오기 - file_path
+                file_path, _ = QFileDialog.getSaveFileName(self, "코드 리뷰 결과 저장", select_file_name, "Excel Files (*.xlsx)",
+                                                           options=options)
+
+                #4. TableWidget 데이터 Dataframe 변환
+                export_df = CodeReviewCheck.get_df_to_tablewidget(self.tableWidget)
+                
+                #5. 엑셀 파일로 저장
+                CodeReviewCheck.excel_save(file_path, export_df)
+                
+                print(file_path)
+            else :
+                QMessageBox.information(self, "Warning", "코드 리뷰 파일을 선택하지 않았습니다.")
+        except Exception as e:
+            Logger.error("WindowClass.UI_Export Exception" + str(e))
 
     # table Widget 업데이트
     def set_table_widget(self, dt_data):
@@ -157,7 +208,7 @@ class WindowClass(QMainWindow, main_form_class):
             for i in range(dt_data.shape[0]):
                 for j in range(dt_data.shape[1]):
                     item = QTableWidgetItem(str(dt_data.iloc[i, j]))
-                    if j == 0:  # 첫 번째 열의 경우에만 가운데 정렬로 설정
+                    if j == 0 or j == 2:  # 첫 번째 열의 경우에만 가운데 정렬로 설정
                         item.setTextAlignment(Qt.AlignCenter)
                     self.tableWidget.setItem(i, j, item)
 
@@ -167,8 +218,12 @@ class WindowClass(QMainWindow, main_form_class):
             header.setDefaultAlignment(Qt.AlignCenter)
 
             # Apply style sheet to add horizontal line between header and data
-            self.tableWidget.setStyleSheet("QTableView::item { border-Top: 1px solid black; }")
-            self.tableWidget.setStyleSheet("QTableWidget::item:selected { background-color: #f27900; }")
+            # self.tableWidget.setStyleSheet("QTableWidget::item:selected { background-color: #f27900; }")
+            # self.tableWidget.setStyleSheet("QTableView::item { border-Top: 1px solid black; }")
+            self.tableWidget.setStyleSheet("""
+                QTableWidget::item:selected { background-color: #f27900; }
+                QTableView::item { border-top: 1px solid black; }
+            """)
 
             # 크기 조절 정책 설정
             column_ratios = [0.3, 0.5, 0.2]  # 각 컬럼의 비율을 입력 하세요.

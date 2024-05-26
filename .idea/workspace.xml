@@ -2,35 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab578b2e-5571-49b8-a5de-ab8f300b92b9" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/CodeReviewTool/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeReviewTool/.idea/CodeReviewTool.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeReviewTool/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SamplCode/lib/libLog2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestCode/MainClass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/PythonPjt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PythonPjt.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestCode/CPU_Info.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestCode/LogTest/LogFileCheck.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestCode/TEST_CParser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestCode/TEST_EXCEL.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestCode/test_antlr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestCode/test_clang.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestCode/test_ini.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestCode/test_tree.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileRead/build/main/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/FileRead/build/main/Analysis-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileRead/build/main/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/FileRead/build/main/PYZ-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileRead/build/main/xref-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/FileRead/build/main/xref-main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HardwareInfo/library_log.py" beforeDir="false" afterPath="$PROJECT_DIR$/HardwareInfo/library_log.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HardwareInfo/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/HardwareInfo/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LogAnalysisTool/libLog.py" beforeDir="false" afterPath="$PROJECT_DIR$/LogAnalysisTool/libLog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplCode/BoxTestUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/SamplCode/BoxTestUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplCode/CodeReviewUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/SamplCode/CodeReviewUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplCode/CodeReviewUI.spec" beforeDir="false" afterPath="$PROJECT_DIR$/SamplCode/CodeReviewUI.spec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplCode/CodeReviewUI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/SamplCode/CodeReviewUI.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplCode/MainFolder.py" beforeDir="false" afterPath="$PROJECT_DIR$/SamplCode/MainFolder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplCode/SampleMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/SamplCode/SampleMain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplCode/WOA_FileConvert.py" beforeDir="false" afterPath="$PROJECT_DIR$/SamplCode/WOA_FileConvert.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplCode/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/SamplCode/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplCode/dist/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/SamplCode/dist/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplCode/lib/libCodeReviewCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/SamplCode/lib/libCodeReviewCheck.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplCode/lib/libConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/SamplCode/lib/libConfig.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplCode/lib/libLog.py" beforeDir="false" afterPath="$PROJECT_DIR$/SamplCode/lib/libLog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplCode/logfile.log" beforeDir="false" afterPath="$PROJECT_DIR$/SamplCode/logfile.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplCode/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/SamplCode/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/log_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/log_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.spec" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.spec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeReviewTool/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeReviewTool/lib/libCodeReviewCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/lib/libCodeReviewCheck.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeReviewTool/lib/libConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/lib/libConfig.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeReviewTool/lib/libLog.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/lib/libLog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCode/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/config.ini" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,28 +55,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.CodeReviewUI (1)">
-    <configuration name="CodeReviewUI (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="PythonPjt" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeReviewTool" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\KIMJH\Documents\GitHub\PythonPjt\TestCode\CodeCheckTest" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.test_code_check1 (1)">
     <configuration name="CodeReviewUI" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PythonPjt" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -109,7 +82,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="MainClass" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="LogFileCheck" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PythonPjt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TestCode/LogTest" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestCode/LogTest/LogFileCheck.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_clang" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonPjt" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -121,7 +115,70 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestCode/MainClass.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestCode/test_clang.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_code_check1 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PythonPjt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TestCode/CodeCheckTest" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_code_check1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PythonPjt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TestCode" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\KIMJH\Documents\GitHub\PythonPjt\TestCode\CodeCheckTest\test_code_check1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_tree" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PythonPjt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TestCode" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestCode/test_tree.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -132,8 +189,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.CodeReviewUI (1)" />
-        <item itemvalue="Python.MainClass" />
+        <item itemvalue="Python.test_code_check1 (1)" />
+        <item itemvalue="Python.LogFileCheck" />
+        <item itemvalue="Python.test_code_check1" />
+        <item itemvalue="Python.test_tree" />
+        <item itemvalue="Python.test_clang" />
       </list>
     </recent_temporary>
   </component>
@@ -163,19 +223,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.py</url>
-          <line>203</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.py</url>
-          <line>146</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.py</url>
-          <line>132</line>
-          <option name="timeStamp" value="25" />
+          <url>file://$PROJECT_DIR$/TestCode/TEST_CParser.py</url>
+          <line>67</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
