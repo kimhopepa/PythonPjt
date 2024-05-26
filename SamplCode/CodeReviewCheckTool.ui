@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>801</width>
-    <height>363</height>
+    <width>808</width>
+    <height>403</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <rect>
      <x>20</x>
      <y>10</y>
-     <width>711</width>
+     <width>631</width>
      <height>31</height>
     </rect>
    </property>
@@ -44,7 +44,7 @@
   <widget class="QPushButton" name="pushButton_Open">
    <property name="geometry">
     <rect>
-     <x>740</x>
+     <x>660</x>
      <y>10</y>
      <width>41</width>
      <height>31</height>
@@ -61,9 +61,9 @@
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>190</x>
      <y>90</y>
-     <width>771</width>
+     <width>601</width>
      <height>261</height>
     </rect>
    </property>
@@ -160,8 +160,8 @@
   <widget class="QPushButton" name="pushButton_Open_2">
    <property name="geometry">
     <rect>
-     <x>620</x>
-     <y>50</y>
+     <x>710</x>
+     <y>10</y>
      <width>81</width>
      <height>31</height>
     </rect>
@@ -173,8 +173,8 @@
   <widget class="QPushButton" name="pushButton_Open_3">
    <property name="geometry">
     <rect>
-     <x>700</x>
-     <y>50</y>
+     <x>710</x>
+     <y>360</y>
      <width>81</width>
      <height>31</height>
     </rect>
@@ -186,7 +186,7 @@
   <widget class="QRadioButton" name="radioButton">
    <property name="geometry">
     <rect>
-     <x>520</x>
+     <x>710</x>
      <y>60</y>
      <width>90</width>
      <height>16</height>
@@ -199,7 +199,7 @@
   <widget class="QRadioButton" name="radioButton_2">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>610</x>
      <y>60</y>
      <width>90</width>
      <height>16</height>
@@ -208,6 +208,19 @@
    <property name="text">
     <string>Script</string>
    </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>90</y>
+     <width>151</width>
+     <height>261</height>
+    </rect>
+   </property>
+   <attribute name="verticalHeaderCascadingSectionResizes">
+    <bool>true</bool>
+   </attribute>
   </widget>
  </widget>
  <resources/>

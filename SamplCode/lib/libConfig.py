@@ -20,7 +20,7 @@ class ConfigHandler:
     #     with open(self.config_file, 'w') as configfile:
     #         config.write(configfile)
 
-    def chagned_config(self, section,  key, text):
+    def changed_config(self, section, key, text):
         # 1. section 있는지 확인
         if section in self._config:
             self._config[section][key] = text

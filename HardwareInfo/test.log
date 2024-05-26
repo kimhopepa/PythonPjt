@@ -237,3 +237,10 @@
 [2024-01-22 15:34:50,399][INFO|main.py:54] >> memory = 34167218176
 [2024-01-22 15:34:53,763][INFO|main.py:53] >> cpu info =Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz, Core = 6, Logical Count = 12
 [2024-01-22 15:34:53,763][INFO|main.py:54] >> memory = 34167218176
+[2024-04-26 16:17:59,024][DEBUG|library_log.py:23] >> my DEBUG log
+[2024-04-26 16:17:59,025][INFO|library_log.py:24] >> my INFO log
+[2024-04-26 16:17:59,025][WARNING|library_log.py:25] >> my WARNING log
+[2024-04-26 16:17:59,025][ERROR|library_log.py:26] >> my ERROR log
+[2024-04-26 16:17:59,025][CRITICAL|library_log.py:27] >> my CRITICAL log
+[2024-04-26 16:18:07,113][INFO|main.py:53] >> cpu info =Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz, Core = 6, Logical Count = 12
+[2024-04-26 16:18:07,113][INFO|main.py:54] >> memory = 34167218176
