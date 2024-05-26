@@ -15,3 +15,5 @@ SamplCode/.idea/inspectionProfiles/Project_Default.xml
 *.log
 SamplCode/logfile.log
 SamplCode/logfile.log
+*.log
+*.pyc
