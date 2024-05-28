@@ -2,11 +2,10 @@ import os.path
 
 import pandas as pd
 from lib.libLog import Logger
-from PyQt5.QtWidgets import QApplication, QTableWidget, QTableWidgetItem
+#from PyQt5.QtWidgets import QApplication, QTableWidget, QTableWidgetItem
 from openpyxl import Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
 from openpyxl.styles import Alignment
-from pycparser import parse_file, c_ast
 from openpyxl.utils import get_column_letter
 
 import re
@@ -60,7 +59,12 @@ ROW_CR_ITEM_UNNECESSARY_CODE = '불필요한 코드 지양'
 
 
 class CodeReviewCheck :
+
+    #df_crc_info 컬럼 명 : 파일 이름 | 파일 Full Path
     df_crc_info = pd.DataFrame(columns=[COL_FILE_NAME, COL_FILE_PATH])
+
+
+    #df_crc_result 컬럼 명 : 구분 | 코드 리뷰 항목 | 코드 리뷰 결과 | 코드 리뷰 결과 상세 내용
     df_crc_result = pd.DataFrame(columns=[COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT, COL_CR_RESULT_DETAIL])
 
     @staticmethod
@@ -82,7 +86,7 @@ class CodeReviewCheck :
             CodeReviewCheck.df_crc_result = CodeReviewCheck.df_concat(CodeReviewCheck.df_crc_result, {COL_CR_CLASS:ROW_CR_CLASS_STANDARD, COL_CR_ITEM: ROW_CR_ITEM_CONSTRAINTS, COL_CR_RESULT: ROW_CR_RESULT_NONE})
             CodeReviewCheck.df_crc_result = CodeReviewCheck.df_concat(CodeReviewCheck.df_crc_result, {COL_CR_CLASS:ROW_CR_CLASS_STANDARD, COL_CR_ITEM: ROW_CR_ITEM_UNNECESSARY_CODE, COL_CR_RESULT: ROW_CR_RESULT_NONE})
         except Exception as e:
-            Logger.error("CodeReviewCheck.init_check_list - init_UI2 Exception" + str(e))
+            Logger.error("CodeReviewCheck.init_check_list - Exception" + str(e))
 
     @staticmethod
     def get_table_df():
@@ -261,20 +265,10 @@ class CodeReviewCheck :
             #1. 파일 이름으로 Full Path 가져오기
             file_path = CodeReviewCheck.get_file_path(file_name)
             file_path = os.path.normpath(file_path)
-            print("test- df_crc_info", CodeReviewCheck.df_crc_info)
-            print("test-file_path", file_path)
-            ast = parse_file(file_path, use_cpp=True)
 
-            # C 코드 파싱
-            # ast = parse_file(filename=file_path,
-            #                  use_cpp=True,
-            #                  cpp_args=['-E', '-Iutils/fake_libc_include'])
-            ast.show()
-            print(ast)
-            # AST 노드 순회
-            # visitor = FuncCallVisitor()
-            # visitor.visit(ast)
-            # ast_CallVistor()
+            #2. 파일에서 코드 Read
+
+
         except Exception as e:
             Logger.error("CodeReviewCheck.check_version - Exception" + str(e))
 
@@ -321,6 +315,4 @@ class CodeReviewCheck :
         except Exception as e:
             Logger.error("CodeReviewCheck.add_crc_info -  Exception" + str(e))
 
-class FuncCallVisitor(c_ast.NodeVisitor):
-    def visit_FuncCall(self, node):
-        print(f'Function call: {node.name.name}')
+

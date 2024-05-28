@@ -119,9 +119,10 @@ class WindowClass(QMainWindow, main_form_class):
             #4. 선택한 파일 이름 리스트 UI(listWidget_file)에 저장
             self.listWidget_file.clear()
             
-            #4-1. 선택한 파일 리스트 CodeReviewCheck -> DataFrame에 저장
+            #4-1. 선택한 파일 리스트 CodeReviewCheck -> DataFrame(df_crc_info)에 저장
             CodeReviewCheck.init_file_list(selected_files)
 
+            #4-2 선택한 파일들 리스트에 저장 -> self.listWidget_file
             for index, row in CodeReviewCheck.df_crc_info.iterrows():
                 file_name = row[COL_FILE_NAME]
                 self.listWidget_file.addItem(file_name)
