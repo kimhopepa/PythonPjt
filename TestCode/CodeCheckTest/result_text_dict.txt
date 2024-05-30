@@ -1,0 +1,25 @@
+Function Name: main
+Function Body:
+init_lib_Commmon();	
+	writeLog(g_script_name, "0. Script Start! Release Version = " + g_script_release_version + ", Date = " + g_script_release_date, LV_INFO);
+	writeLog(g_script_name, "		          lib_standard Version = " + g_lib_standard_version + ", Date = " + g_lib_standard_release_date, LV_INFO);
+
+Function Name: unused_function
+Function Body:
+int a;
+	int b;
+	int c = a + b;
+	if(a == true)
+	{
+		anytype b ;
+		DebugTN();
+	}
+	DebugTN("test code");
+
+Function Name: used_function
+Function Body:
+int a1;
+	int b1;
+	int c1 = a1 + b1;
+	dpSet("test1", c1);
+

@@ -155,6 +155,10 @@ def extract_declared_variables2(code):
     return variables
 
 def remove_comments(code):
+
+    # print("test1", code)
+    code = code.replace("\n", "")
+    print("test2", code)
     # 한 줄 주석 제거
     code = re.sub(r'//.*', '', code)
 
@@ -200,7 +204,7 @@ def split_code_by_functions(code):
     return functions
 
 
-
+# 파일 읽어서 text로 리턴
 def read_file_and_return_text(file_path):
     try:
         with open(file_path, 'r') as file:
@@ -221,6 +225,8 @@ def extract_functions(file_content):
     current_function_name = None
     current_function_body = []
 
+    print("extract_functions", type(file_content))
+    # print("test", file_content.split('\n'))
     for line in file_content.split('\n'):
         # 소괄호() 다음에 중괄호{}가 있으면 함수로 간주
         if '(' in line and ')' in line :
@@ -250,14 +256,14 @@ text = read_file_and_return_text(file_path)
 
 #2. 주석 제거
 text = remove_comments(text)
-
+print(type(text), text)
 #3.
-functions = extract_functions(text)
+# functions = extract_functions(text)
 
 
 # 결과 출력
-for function_name, function_body in functions.items():
-    print(f"Function Name: {function_name}")
-    print("Function Body:")
-    print(function_body)
-    print()
+# for function_name, function_body in functions.items():
+#     print(f"Function Name: {function_name}")
+#     print("Function Body:")
+#     print(function_body)
+#     print()
