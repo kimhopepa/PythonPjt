@@ -48,8 +48,8 @@ ROW_CR_CLASS_STANDARD = '코드 표준'
 ROW_CR_ITEM_ACTIVE = [ROW_CR_CLASS_PERFORMANCE, '서버 스크립트 Active 감시' , ROW_CR_RESULT_NONE, '', COL_CR_CHECK_Y, COL_CR_CHECK_N]
 ROW_CR_ITEM_LOOP = [ROW_CR_CLASS_PERFORMANCE, 'Loop문내 처리 조건' , ROW_CR_RESULT_NONE, '', COL_CR_CHECK_Y, COL_CR_CHECK_N]
 ROW_CR_ITEM_EVENT_CHANGE = [ROW_CR_CLASS_PERFORMANCE, 'Event 교환 횟수 최소화' , ROW_CR_RESULT_NONE, '', COL_CR_CHECK_Y, COL_CR_CHECK_Y]
-ROW_CR_ITEM_PROPER_DP_FCT = [ROW_CR_CLASS_PERFORMANCE, '적절한 DP 처리 함수' , ROW_CR_RESULT_NONE, '', COL_CR_CHECK_Y, COL_CR_CHECK_Y]
-ROW_CR_ITEM_DP_QUERY_OPT = [ROW_CR_CLASS_PERFORMANCE, 'DP Query 최적화 구현' , ROW_CR_RESULT_NONE, '', COL_CR_CHECK_Y, COL_CR_CHECK_Y]
+ROW_CR_ITEM_PROPER_DP_FCT = [ROW_CR_CLASS_PERFORMANCE, '적절한 DP 처리 함수' , ROW_CR_RESULT_NONE, '', COL_CR_CHECK_N, COL_CR_CHECK_N]
+ROW_CR_ITEM_DP_QUERY_OPT = [ROW_CR_CLASS_PERFORMANCE, 'DP Query 최적화 구현' , ROW_CR_RESULT_NONE, '', d, COL_CR_CHECK_Y]
 ROW_CR_ITEM_RAIMA_UP = [ROW_CR_CLASS_PERFORMANCE, 'RAIMA DB 증가' , ROW_CR_RESULT_NONE, '', COL_CR_CHECK_Y, COL_CR_CHECK_Y]
 
 #[DB]
@@ -393,6 +393,7 @@ class CodeReviewCheck:
         def code_check_(text_code):
             try:
                 # 1. 미사용 코드 삭제 확인
+                pass
             except Exception as e:
                 Logger.error("CodeReviewCheck.test_check_code - Exception" + str(e))
                 return None
