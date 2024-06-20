@@ -1,5 +1,9 @@
 import re
 
+
+
+
+
 # 파일 읽어서 text로 리턴
 def read_file_and_return_text(file_path):
     # test_list = []
@@ -27,11 +31,11 @@ def read_file_empry_lines(file_path):
         with open(file_path, 'r') as file:
             lines = file.readlines()
 
-
         # 공백, 탭, 개행 문자만 포함된 줄을 제외하고 나머지 라인들을 다시 합칩니다.
         non_empty_lines = [line for line in lines if line.strip() != ""]
+
         result_text =''.join(non_empty_lines)
-        # print("read_file_empry_lines \n", result_text)
+
 
         return result_text
     except Exception as e:
@@ -65,13 +69,16 @@ def remove_comments(code):
     return result_text
 
 
-def extract_functions_from_code(code):
+def extract_functions_from_code(code : str):
     function_dict = {}
+
     # 함수 이름과 본문을 찾는 정규 표현식
     pattern = re.compile(r'(\w+)\(\)\s*\{\n(.*?)\n\}', re.DOTALL)
 
     matches = pattern.findall(code)
+    print("matches type", type(matches), matches)
     for match in matches:
+        print("매치 성공", type(match), match)
         function_name = match[0]
         function_body = match[1]
         function_dict[function_name] = function_body.strip()
@@ -100,7 +107,7 @@ file_path = r'D:\1_기술혁신팀\9_SVN_DATA\4_코드리뷰점검Tool\ELEC\1_Ch
 
 # 파일 읽어서 텍스트 반환
 
-#1. 파일 읽기 - 행 삭제
+'''#1. 파일 읽기 - 행 삭제
 text = read_file_empry_lines(file_path)
 
 #2. 주석 삭제
@@ -109,6 +116,34 @@ result_text = remove_comments(text)
 #3. 함수 & Body 분리
 func_dict = extract_functions_from_code(result_text)
 save_dict_to_file("result_text_dict.txt", func_dict)
+
+'''#4. 선언된 변수 찾기
+
+def init_file(file_path):
+    try:
+        pass
+        # 1. 파일 읽기
+        file_text = read_file_empry_lines(file_path)
+
+        # 2. 주석 삭제
+        file_text2 = remove_comments(file_text)
+
+        # 3. 함수, Body dictionary 저장
+        file_dict = extract_functions_from_code(file_text2)
+        save_dict_to_file("result_text_dict.txt", file_dict)
+
+        # 4. DataFrame 형태로 저장
+        print("# 4. DataFrame 형태로 저장")
+        for fun_name, body_code in file_dict.items() :
+            print("key = " + fun_name)
+            print("body = " + body_code)
+
+        # Last. dict 파일 저장
+        save_dict_to_file("result_text_dict.txt", file_dict)
+    except Exception as e:
+        print("exception : ", e)
+
+init_file(file_path)
 
 # save_text = "[Before]\n" + text + "\n[After]\n" + result_text
 

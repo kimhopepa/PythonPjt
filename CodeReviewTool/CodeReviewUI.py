@@ -82,7 +82,6 @@ class WindowClass(QMainWindow, main_form_class):
             Logger.debug("WindowClass.init_UI - Column info = " + (str)(table_df.columns.tolist()))
 
             # 3. UI 업데이트
-            print("test - df_file", type(df_file), df_file)
             self.set_table_widget(table_df)         # tablewidget -> 코드 리뷰 항목
             self.set_table_widget_file(df_file)    # tableWidget_File -> 선택한 파일 리스트
 

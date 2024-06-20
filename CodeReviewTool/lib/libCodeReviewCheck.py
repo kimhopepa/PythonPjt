@@ -49,7 +49,7 @@ ROW_CR_ITEM_ACTIVE = [ROW_CR_CLASS_PERFORMANCE, '서버 스크립트 Active 감�
 ROW_CR_ITEM_LOOP = [ROW_CR_CLASS_PERFORMANCE, 'Loop문내 처리 조건' , ROW_CR_RESULT_NONE, '', COL_CR_CHECK_Y, COL_CR_CHECK_N]
 ROW_CR_ITEM_EVENT_CHANGE = [ROW_CR_CLASS_PERFORMANCE, 'Event 교환 횟수 최소화' , ROW_CR_RESULT_NONE, '', COL_CR_CHECK_Y, COL_CR_CHECK_Y]
 ROW_CR_ITEM_PROPER_DP_FCT = [ROW_CR_CLASS_PERFORMANCE, '적절한 DP 처리 함수' , ROW_CR_RESULT_NONE, '', COL_CR_CHECK_N, COL_CR_CHECK_N]
-ROW_CR_ITEM_DP_QUERY_OPT = [ROW_CR_CLASS_PERFORMANCE, 'DP Query 최적화 구현' , ROW_CR_RESULT_NONE, '', d, COL_CR_CHECK_Y]
+ROW_CR_ITEM_DP_QUERY_OPT = [ROW_CR_CLASS_PERFORMANCE, 'DP Query 최적화 구현' , ROW_CR_RESULT_NONE, '', COL_CR_CHECK_N, COL_CR_CHECK_Y]
 ROW_CR_ITEM_RAIMA_UP = [ROW_CR_CLASS_PERFORMANCE, 'RAIMA DB 증가' , ROW_CR_RESULT_NONE, '', COL_CR_CHECK_Y, COL_CR_CHECK_Y]
 
 #[DB]
@@ -397,6 +397,7 @@ class CodeReviewCheck:
             except Exception as e:
                 Logger.error("CodeReviewCheck.test_check_code - Exception" + str(e))
                 return None
+
         @staticmethod
         def code_check_UNUSED(text_code):
             try:
@@ -404,6 +405,14 @@ class CodeReviewCheck:
 
                 #0. 주석 코드 삭제
                 text_code = CodeReviewCheck.CodeCheck.removde_comments(text_code)
+                
+                #1. 함수이름, Body 부분을 분리하여 Dictionary에 저장 : key -> Function 이름, value -> body
+                code_dict = CodeReviewCheck.CodeCheck.extract_functions_from_code(text_code)
+                
+                #2. Global 변수 저장
+                global_vars = CodeReviewCheck.CodeCheck.extract_global_variables(text_code)
+
+                #3. Global 변수 사용 체크
 
 
                 #1. 미사용 변수 찾기
@@ -416,6 +425,86 @@ class CodeReviewCheck:
 
             except Exception as e:
                 Logger.error("CodeReviewCheck.test_check_code - Exception" + str(e))
+
+            return
+
+        @classmethod
+        def extract_functions_from_code(cls, file_code):
+            try:
+                function_dict = {}
+
+                # 함수 이름과 본문을 찾는 정규 표현식
+                pattern = re.compile(r'(\w+)\(\)\s*\{\n(.*?)\n\}', re.DOTALL)
+
+                matches = pattern.findall(file_code)
+                # print("matches type", type(matches), matches)
+                for match in matches:
+                    # print("매치 성공", type(match), match)
+                    function_name = match[0]
+                    function_body = match[1]
+                    function_dict[function_name] = function_body.strip()
+
+                return function_dict
+            except Exception as e:
+                Logger.error("CodeReviewCheck.test_check_code - Exception" + str(e))
+
+        @classmethod
+        def remove_comments(cls, code: str) -> str:
+            try :
+                # 라인 주석 제거
+                code = re.sub(r'//.*', '', code)
+                # 블록 주석 제거
+                code = re.sub(r'/\*.*?\*/', '', code, flags=re.DOTALL)
+
+                return code
+            except Exception as e :
+                Logger.error("CodeReviewCheck.remove_comments - Exception" + str(e))
+
+        # 전역 변수 찾기
+        @classmethod
+        def extract_global_variables(code: str) -> list:
+            try:
+
+                #. 중괄호 내용(함수 정의 등)을 제외하고 전역 영역의 코드만 추출
+                #1. 주석 삭제
+                code = __class__.remove_comments(code)
+                
+                #2. 함수 영여 제거
+                code_without_braces = __class__.extract_global_scope_code(code)
+                # code_without_braces = re.sub(r'{[^{}]*}', '', code_without_braces)
+
+                #3. 라인 별로 처리하여 주석 제거
+                lines = code_without_braces.split('\n')
+                lines_without_comments = [re.sub(r'//.*', '', line).strip() for line in lines if
+                                          '//' in line or line.strip() != '']
+                # print("lines_without_comments", lines_without_comments)
+
+                # 전역 변수를 찾기 위한 정규식 패턴: 세미콜론으로 끝나는 모든 선언 찾기
+                pattern = re.compile(r'\b(\w+)\s*([^;]+);')
+
+                global_variables = []
+
+                for line in lines_without_comments:
+                    matches = pattern.finditer(line)
+                    for match in matches:
+                        # 변수 이름만 추출
+                        variables_part = match.group(2)
+                        # 쉼표로 구분된 여러 변수 처리
+                        variables = [var.split('=')[0].strip() for var in variables_part.split(',')]
+                        global_variables.extend(variables)
+
+                return global_variables
+            except Exception as e:
+                Logger.error("CodeReviewCheck.extract_global_variables - Exception" + str(e))
+                
+        # 전역 코드 영역만 찾기
+        @classmethod
+        def extract_global_scope_code(code: str) -> str:
+            # 괄호 안의 내용(지역 영역)을 제외하고 전역 영역의 코드만을 추출
+            nested_braces_pattern = re.compile(r'{[^{}]*}')
+            while re.search(nested_braces_pattern, code):
+                code = re.sub(nested_braces_pattern, '', code)
+            return code
 
         @staticmethod
         def test_check_code(file_name):

@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab578b2e-5571-49b8-a5de-ab8f300b92b9" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/find_global_variables_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/main_test_code.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/test1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/test2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check5.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeReviewTool/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CodeReviewTool/lib/libCodeReviewCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/lib/libCodeReviewCheck.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeReviewTool/lib/libLog.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/lib/libLog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCode/CodeCheckTest/result_text_dict.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/result_text_dict.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check1.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check2.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check4.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_node1.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_node1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +56,8 @@
       <recent name="C:\Users\KIMJH\Documents\GitHub\PythonPjt\TestCode\CodeCheckTest" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test_code_check4">
-    <configuration name="61850_Server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.CodeReviewUI (1)">
+    <configuration name="CodeReviewUI (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonPjt" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -55,11 +65,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TestCode/WoaTest" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeReviewTool" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestCode/WoaTest/61850_Server.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -89,7 +99,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="psutil_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="libCodeReviewCheck" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonPjt" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -97,11 +107,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TestCode/ProcessTest" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeReviewTool/lib" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestCode/ProcessTest/psutil_test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeReviewTool/lib/libCodeReviewCheck.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main_test_code" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PythonPjt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TestCode/CodeCheckTest" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestCode/CodeCheckTest/main_test_code.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -131,7 +162,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_code_check3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test_code_check5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonPjt" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -143,28 +174,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check3.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test_code_check4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="PythonPjt" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TestCode/CodeCheckTest" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check4.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check5.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -175,11 +185,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test_code_check4" />
-        <item itemvalue="Python.test_code_check3" />
+        <item itemvalue="Python.CodeReviewUI (1)" />
+        <item itemvalue="Python.libCodeReviewCheck" />
+        <item itemvalue="Python.main_test_code" />
+        <item itemvalue="Python.test_code_check5" />
         <item itemvalue="Python.test_code_check2" />
-        <item itemvalue="Python.61850_Server" />
-        <item itemvalue="Python.psutil_test" />
       </list>
     </recent_temporary>
   </component>
@@ -227,6 +237,26 @@
           <url>file://$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check3.py</url>
           <line>233</line>
           <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/TestCode/CodeCheckTest/main_test_code.py</url>
+          <line>240</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/TestCode/CodeCheckTest/main_test_code.py</url>
+          <line>49</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check5.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/TestCode/CodeCheckTest/main_test_code.py</url>
+          <line>139</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

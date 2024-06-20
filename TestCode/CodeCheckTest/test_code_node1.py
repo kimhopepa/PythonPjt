@@ -1,120 +1,81 @@
-import re
 
-class Node:
-    def __init__(self, line):
-        self.line = line.strip()
-        self.next = None
-
-    def add_next(self, node):
-        self.next = node
-
-    def __str__(self):
-        return self.line
-
-def parse_functions(c_code):
-    functions = {}
+def read_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            file_text = file.read()
+            # file_text = file.readlines()
+        return file_text
+    except Exception as e :
+        print(f"An error occurred: {e}")
+def split_code_by_braces(c_code):
     lines = c_code.split('\n')
-    func_pattern = re.compile(r'\b(\w+)\s*\([^)]*\)\s*{')
-    current_func = None
-    current_func_lines = []
+    level = 0
+    code_by_level = {}
+    current_code = []
 
     for line in lines:
         stripped_line = line.strip()
-        if not stripped_line or stripped_line.startswith('//'):
+
+        if stripped_line == '':
             continue
 
-        func_match = func_pattern.match(stripped_line)
-        if func_match:
-            if current_func:
-                functions[current_func] = current_func_lines
-            current_func = func_match.group(1)
-            current_func_lines = [line]
-        elif current_func:
-            current_func_lines.append(line)
-            if stripped_line == '}':
-                functions[current_func] = current_func_lines
-                current_func = None
+        if stripped_line.startswith('}') and level > 0:
+            if level in code_by_level:
+                code_by_level[level].append('\n'.join(current_code))
+            else:
+                code_by_level[level] = ['\n'.join(current_code)]
+            current_code = []
+            level -= 1
 
-    if current_func:
-        functions[current_func] = current_func_lines
+        if level not in code_by_level:
+            code_by_level[level] = []
 
-    return functions
+        current_code.append(line)
 
-def parse_function_body(func_lines):
-    nodes = []
-    current_node = None
+        if stripped_line.endswith('{'):
+            if level in code_by_level:
+                code_by_level[level].append('\n'.join(current_code))
+            else:
+                code_by_level[level] = ['\n'.join(current_code)]
+            current_code = []
+            level += 1
 
-    for line in func_lines:
-        stripped_line = line.strip()
-        if stripped_line == '{' or stripped_line == '}':
-            continue
+    if current_code:
+        if level in code_by_level:
+            code_by_level[level].append('\n'.join(current_code))
+        else:
+            code_by_level[level] = ['\n'.join(current_code)]
 
-        if stripped_line.endswith(';'):
-            node = Node(line)
-            nodes.append(node)
-            if current_node:
-                current_node.add_next(node)
-            current_node = node
+    return code_by_level
 
-    return nodes
 
-def parse_main_function(functions):
-    nodes = []
-    main_lines = functions.get('main', [])
-    current_node = None
-
-    for line in main_lines:
-        stripped_line = line.strip()
-        if stripped_line == '{' or stripped_line == '}':
-            continue
-
-        if stripped_line.endswith(';'):
-            node = Node(line)
-            nodes.append(node)
-            if current_node:
-                current_node.add_next(node)
-            current_node = node
-
-            func_call_match = re.match(r'(\w+)\s*\([^)]*\)\s*;', stripped_line)
-            if func_call_match:
-                func_name = func_call_match.group(1)
-                if func_name in functions:
-                    func_nodes = parse_function_body(functions[func_name])
-                    if func_nodes:
-                        current_node.add_next(func_nodes[0])
-                        current_node = func_nodes[-1]
-                        nodes.extend(func_nodes)
-
-    return nodes
-
-def print_nodes(nodes):
-    visited = set()
-    def dfs(node):
-        if not node or node in visited:
-            return
-        visited.add(node)
-        print(node)
-        dfs(node.next)
-
-    if nodes:
-        dfs(nodes[0])
-
+# 테스트용 C 코드
+file_path = r'D:\1_기술혁신팀\9_SVN_DATA\4_코드리뷰점검Tool\ELEC\1_Check_Unused_Code.ctl'
 c_code = """
 #include <stdio.h>
 
-void foo() {
-    printf("In foo\\n");
-}
-
 int main() {
-    printf("Start\\n");
-    foo();
-    printf("In main\\n");
-    printf("End\\n");
+    printf("Hello, World!\\n");
+
+    if (1) {
+        printf("Inside if block\\n");
+
+        while (1) {
+            printf("Inside while loop\\n");
+            break;
+        }
+    }
+
     return 0;
 }
 """
 
-functions = parse_functions(c_code)
-nodes = parse_main_function(functions)
-print_nodes(nodes)
+c_code = read_file(file_path)
+
+# 함수 호출 및 결과 출력
+split_code = split_code_by_braces(c_code)
+for level, codes in split_code.items():
+    print(f"Level {level}:")
+    for code in codes:
+        print(code)
+        print("-----------")

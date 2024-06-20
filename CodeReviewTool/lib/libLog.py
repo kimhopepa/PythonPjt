@@ -12,7 +12,8 @@ class Logger:
     @staticmethod
     def init(log_file="logfile.log", config_level=1):
         log_format = "%(asctime)s - %(levelname)s - %(message)s"
-        # 1. 로거 설정
+
+        # 1. Logger 설정
         Logger.logger.setLevel(config_level)
 
         # 2. 파일 햄들러 설정
