@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab578b2e-5571-49b8-a5de-ab8f300b92b9" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/find_global_variables_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/main_test_code.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/test1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/test2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check5.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI_Detail.ui" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI_Detail.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeReviewTool/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/config.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CodeReviewTool/lib/libCodeReviewCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/lib/libCodeReviewCheck.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeReviewTool/lib/libLog.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/lib/libLog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/CodeCheckTest/result_text_dict.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/result_text_dict.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check1.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check2.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check4.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_node1.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_node1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +22,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/PyCharmCE2021.3/python_stubs/-2097731677/PyQt5/QtWidgets/QHeaderView.py" root0="SKIP_INSPECTION" />
@@ -258,11 +257,16 @@
           <line>139</line>
           <option name="timeStamp" value="54" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.py</url>
+          <line>341</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="line" language="Python" />
+        <watch expression="self" />
       </configuration>
     </watches-manager>
   </component>

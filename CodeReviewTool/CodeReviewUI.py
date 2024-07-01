@@ -57,7 +57,7 @@ class WindowClass(QMainWindow, main_form_class):
         # 2-2 UI Table Widget 더블 클릭 이벤트
         self.tableWidget.cellDoubleClicked.connect(self.on_cell_double_clicked)
 
-    # 클래스 초기화
+    # 클래스 UI 초기화
     def init_UI(self):
         try:
             # 1. config 파일 조회
@@ -339,7 +339,8 @@ class WindowClass(QMainWindow, main_form_class):
     # table Widget 더블클릭 이벤트
     def on_cell_double_clicked(self, row, col):
         try:
-            item = self.tableWidget.item(row, col)
+            cell_data = self.tableWidget.item(row, col).text()
+            print(cell_data)
 
             # Detail Form 열기
             if self.second_form is None:
@@ -352,11 +353,50 @@ class WindowClass(QMainWindow, main_form_class):
 
 # 6. Sub Fomr 화면 클래스 - Detail Form
 class WindowClass_Detail(QDialog, detail_form_class):
-    def __init__(self):
+
+    def __init__(self, name):
         super().__init__()
         self.setupUi(self)
+        self.cr_item = name     # Code Review item 이름 전달
+
+        #1. Detail 이벤트 초기화
+        self.init_UI()
+
         Logger.info("WindowClass_Detail init start")
 
+    # 클래스 Detail UI 초기화
+    def init_UI(self):
+        try:
+            # 1. config 파일 조회
+            self.folder_path = ConfigHandler.config_dict["Path"]["last_path"]
+
+            # 1-1. 마지막 파일 경로 UI에 표시
+            if os.path.exists(self.folder_path):
+                self.lineEdit_Path.setText(self.folder_path)  # 마지막 파일 선택 경로
+            Logger.info(self.folder_path)
+
+            # 1-2. 마지막 파일 리스트 UI 리스트 추가
+            last_file_list = ConfigHandler.get_config_list("Path", "last_file_list")
+            CodeReviewCheck.CodeData.init_file_list(last_file_list)
+            df_file = CodeReviewCheck.df_crc_info[[COL_FILE_NAME]]
+
+            #2-1. Table Widget 삭제
+            self.tableWidget_File.clearContents()
+
+            #2-2. 테이블widget에 코드 리뷰 항목 DataTable 초기화
+            CodeReviewCheck.CodeData.init_check_list()
+            table_df = CodeReviewCheck.CodeData.get_table_df()
+            Logger.debug("WindowClass.init_UI - Column info = " + (str)(table_df.columns.tolist()))
+
+            # 3. UI 업데이트
+            self.set_table_widget(table_df)         # tablewidget -> 코드 리뷰 항목
+            self.set_table_widget_file(df_file)    # tableWidget_File -> 선택한 파일 리스트
+
+            # 창 크기 고정
+            self.setFixedSize(self.width(), self.height())
+
+        except Exception as e:
+            Logger.error("WindowClass.init_UI Exception" + str(e))
 
 # 5) 위에서 선언한 클래스를 실행 : QMainWindow 부모 클래스의 show 함수 실행
 if __name__ == '__main__':

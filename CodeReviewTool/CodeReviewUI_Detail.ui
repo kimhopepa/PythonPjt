@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>코드 리뷰 항목 - 상세 내용</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>hw_main_form.png</normaloff>hw_main_form.png</iconset>
   </property>
   <widget class="QPlainTextEdit" name="plainTextEdit">
    <property name="geometry">
