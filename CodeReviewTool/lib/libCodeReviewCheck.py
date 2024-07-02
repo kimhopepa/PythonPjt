@@ -27,15 +27,16 @@ COL_CR_ITEM = '코드 리뷰 항목'
 COL_CR_RESULT = '코드 리뷰 결과'
 COL_CR_LINE = 'Line'
 COL_CR_RESULT_DETAIL = '상세 내용'
-COL_CR_CLI_YN = 'CLI_YN'
-COL_CR_SVR_YN= 'SVR_YN'
-
+COL_CR_YN = 'Y/N'
 
 ROW_CR_RESULT_OK = 'OK'
 ROW_CR_RESULT_NG = 'NG'
 ROW_CR_RESULT_NONE = 'N/A'
-COL_CR_CHECK_Y = 'Y'
-COL_CR_CHECK_N = 'N'
+
+ROW_CR_CHECK_ALL = 'ALL'
+ROW_CR_CHECK_SVR = 'SVR'
+ROW_CR_CHECK_CLI = 'CLI'
+ROW_CR_CHECK_NONE = 'NONE'
 
 # class COL(Enum) :
 #     FileName = 1
@@ -45,27 +46,27 @@ ROW_CR_CLASS_PERFORMANCE = '성능'
 ROW_CR_CLASS_DB = 'DB'
 ROW_CR_CLASS_STANDARD = '코드 표준'
 
-#[성능]
+# [성능]
 # COL_CR_CLASS(분류) | COL_CR_ITEM(코드 리뷰 항목) | COL_CR_RESULT(결과) | COL_CR_LINE(Line) | COL_CR_RESULT_DETAIL(상세 내용) |
-ROW_CR_ITEM_ACTIVE = [ROW_CR_CLASS_PERFORMANCE, '서버 스크립트 Active 감시' , ROW_CR_RESULT_NONE, '', '', COL_CR_CHECK_Y, COL_CR_CHECK_N]
-ROW_CR_ITEM_LOOP = [ROW_CR_CLASS_PERFORMANCE, 'Loop문내 처리 조건' , ROW_CR_RESULT_NONE, '', '', COL_CR_CHECK_Y, COL_CR_CHECK_N]
-ROW_CR_ITEM_EVENT_CHANGE = [ROW_CR_CLASS_PERFORMANCE, 'Event 교환 횟수 최소화' , ROW_CR_RESULT_NONE, '', '', COL_CR_CHECK_Y, COL_CR_CHECK_Y]
-ROW_CR_ITEM_PROPER_DP_FCT = [ROW_CR_CLASS_PERFORMANCE, '적절한 DP 처리 함수' , ROW_CR_RESULT_NONE, '', '', COL_CR_CHECK_N, COL_CR_CHECK_N]
-ROW_CR_ITEM_DP_QUERY_OPT = [ROW_CR_CLASS_PERFORMANCE, 'DP Query 최적화 구현' , ROW_CR_RESULT_NONE, '', '', COL_CR_CHECK_N, COL_CR_CHECK_Y]
-ROW_CR_ITEM_RAIMA_UP = [ROW_CR_CLASS_PERFORMANCE, 'RAIMA DB 증가' , ROW_CR_RESULT_NONE, '', '', COL_CR_CHECK_Y, COL_CR_CHECK_Y]
+ROW_CR_ITEM_ACTIVE = [ROW_CR_CLASS_PERFORMANCE, '서버 스크립트 Active 감시', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_SVR]
+ROW_CR_ITEM_LOOP = [ROW_CR_CLASS_PERFORMANCE, 'Loop문내 처리 조건', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_EVENT_CHANGE = [ROW_CR_CLASS_PERFORMANCE, 'Event 교환 횟수 최소화', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_PROPER_DP_FCT = [ROW_CR_CLASS_PERFORMANCE, '적절한 DP 처리 함수', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_NONE]
+ROW_CR_ITEM_DP_QUERY_OPT = [ROW_CR_CLASS_PERFORMANCE, 'DP Query 최적화 구현', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_RAIMA_UP = [ROW_CR_CLASS_PERFORMANCE, 'RAIMA DB 증가', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
 
-#[DB]
-ROW_CR_ITEM_DB_BIND = [ROW_CR_CLASS_DB, 'DB Query 바인딩 처리' , ROW_CR_RESULT_NONE, '', '', COL_CR_CHECK_Y, COL_CR_CHECK_Y]
-ROW_CR_ITEM_DB_COMMENT = [ROW_CR_CLASS_DB, 'Query 주석 작성' , ROW_CR_RESULT_NONE, '', '', COL_CR_CHECK_Y, COL_CR_CHECK_Y]
-ROW_CR_ITEM_DB_EXCEPTION = [ROW_CR_CLASS_DB, 'DB Query 예외 처리' , ROW_CR_RESULT_NONE, '', '', COL_CR_CHECK_Y, COL_CR_CHECK_Y]
+# [DB]
+ROW_CR_ITEM_DB_BIND = [ROW_CR_CLASS_DB, 'DB Query 바인딩 처리', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_DB_COMMENT = [ROW_CR_CLASS_DB, 'Query 주석 작성', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_DB_EXCEPTION = [ROW_CR_CLASS_DB, 'DB Query 예외 처리', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
 
-#[코드 표준]
-ROW_CR_ITEM_DP_EXCEPTION = [ROW_CR_CLASS_STANDARD, 'DP 함수 예외 처리' , ROW_CR_RESULT_NONE, '', '', COL_CR_CHECK_Y, COL_CR_CHECK_Y]
-ROW_CR_ITEM_TRY_EXCEPTION = [ROW_CR_CLASS_STANDARD, 'Try/Catch 예외처리' , ROW_CR_RESULT_NONE, '', '', COL_CR_CHECK_Y, COL_CR_CHECK_Y]
-ROW_CR_ITEM_VERSION = [ROW_CR_CLASS_STANDARD, '스크립트 이력 관리' , ROW_CR_RESULT_NONE, '', '', COL_CR_CHECK_Y, COL_CR_CHECK_N]
-ROW_CR_ITEM_CONSTRAINTS = [ROW_CR_CLASS_STANDARD, '제약 조건 확인' , ROW_CR_RESULT_NONE, '', '', COL_CR_CHECK_Y, COL_CR_CHECK_N]
-ROW_CR_ITEM_HARD_CODE = [ROW_CR_CLASS_STANDARD, '하드코딩 지양' , ROW_CR_RESULT_NONE, '', '', COL_CR_CHECK_Y, COL_CR_CHECK_Y]
-ROW_CR_ITEM_UNNECESSARY_CODE = [ROW_CR_CLASS_STANDARD, '불필요한 코드 지양' , ROW_CR_RESULT_NONE, '', '', COL_CR_CHECK_Y, COL_CR_CHECK_Y]
+# [코드 표준]
+ROW_CR_ITEM_DP_EXCEPTION = [ROW_CR_CLASS_STANDARD, 'DP 함수 예외 처리', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_TRY_EXCEPTION = [ROW_CR_CLASS_STANDARD, 'Try/Catch 예외처리', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_VERSION = [ROW_CR_CLASS_STANDARD, '스크립트 이력 관리', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_SVR]
+ROW_CR_ITEM_CONSTRAINTS = [ROW_CR_CLASS_STANDARD, '제약 조건 확인', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_NONE]
+ROW_CR_ITEM_HARD_CODE = [ROW_CR_CLASS_STANDARD, '하드코딩 지양', ROW_CR_RESULT_NONE, '', '', COL_CR_YN]
+ROW_CR_ITEM_UNNECESSARY_CODE = [ROW_CR_CLASS_STANDARD, '불필요한 코드 지양', ROW_CR_RESULT_NONE, '', '', COL_CR_YN]
 
 '''
 ROW_CR_ITEM_LOOP = 'Loop문내 처리 조건'
@@ -90,8 +91,9 @@ class CodeReviewCheck:
     # df_crc_info 컬럼 명 : 파일 이름 | 파일 Full Path
     df_crc_info = pd.DataFrame(columns=[COL_FILE_NAME, COL_FILE_PATH])
 
-    # df_crc_result 컬럼 명 : 구분 | 코드 리뷰 항목 | 코드 리뷰 결과 | 코드 리뷰 결과 상세 내용
-    df_crc_result = pd.DataFrame(columns=[COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT, COL_CR_LINE, COL_CR_RESULT_DETAIL, COL_CR_SVR_YN, COL_CR_CLI_YN])
+    # df_crc_result 컬럼 명 : 구분 | 코드 리뷰 항목 | 코드 리뷰 결과 | Line | 상세 내용 | YN
+    df_crc_result = pd.DataFrame(
+        columns=[COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT, COL_CR_LINE, COL_CR_RESULT_DETAIL, COL_CR_YN])
 
     # Data Table 처리 동작
     class CodeData:
@@ -100,53 +102,50 @@ class CodeReviewCheck:
         def init_check_list():
             try:
                 Logger.debug("CodeReviewCheck.init_check_list Start")
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result,
-                                                                                   ROW_CR_ITEM_ACTIVE)
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result,
-                                                                                   ROW_CR_ITEM_LOOP)
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result,
-                                                                                   ROW_CR_ITEM_EVENT_CHANGE)
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result,
-                                                                                   ROW_CR_ITEM_PROPER_DP_FCT)
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result,
-                                                                                   ROW_CR_ITEM_DP_QUERY_OPT)
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result,
-                                                                                   ROW_CR_ITEM_RAIMA_UP)
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result,
-                                                                                   ROW_CR_ITEM_DB_BIND)
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result,
-                                                                                   ROW_CR_ITEM_DB_COMMENT)
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result,
-                                                                                   ROW_CR_ITEM_DP_EXCEPTION)
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result,
-                                                                                   ROW_CR_ITEM_TRY_EXCEPTION)
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result,
-                                                                                   ROW_CR_ITEM_VERSION)
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result,
-                                                                                   ROW_CR_ITEM_CONSTRAINTS)
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result,
-                                                                                   ROW_CR_ITEM_HARD_CODE)
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result,
-                                                                                   ROW_CR_ITEM_UNNECESSARY_CODE)
+                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_ACTIVE)
+                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_LOOP)
+                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_EVENT_CHANGE)
+                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_PROPER_DP_FCT)
+                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_DP_QUERY_OPT)
+                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_RAIMA_UP)
+                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_DB_BIND)
+                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_DB_COMMENT)
+                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_DP_EXCEPTION)
+                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_TRY_EXCEPTION)
+                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_VERSION)
+                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_CONSTRAINTS)
+                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_HARD_CODE)
+                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_UNNECESSARY_CODE)
+
             except Exception as e:
                 Logger.error("CodeReviewCheck.init_check_list - Exception" + str(e))
 
         # Data Table에서 특정 컬럼 데이터만 가져오기 -> df_crc_result ("분류", "코드 리뷰 항목", 코드 리뷰 결과")
         @staticmethod
-        def get_table_df():
+        def get_tablewidget_df():
             try:
-                Logger.debug("CodeReviewCheck.get_table_df Start")
+                Logger.debug("CodeReviewCheck.get_tablewidget_df Start")
                 return CodeReviewCheck.df_crc_result[[COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT]]
             except Exception as e:
-                Logger.error("CodeReviewCheck.get_table_df - Exception" + str(e))
+                Logger.error("CodeReviewCheck.get_tablewidget_df - Exception" + str(e))
 
         @staticmethod
-        def get_dict_from_list( input_list, key = "선택한 파일 리스트"):
+        def get_tablewidget_detail_df(cr_item_name):
+            try:
+                Logger.debug("CodeReviewCheck.get_tablewidget_detail_df Start")
+                return CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item_name,
+                                                         [COL_CR_ITEM, COL_CR_RESULT, COL_CR_LINE,
+                                                          COL_CR_RESULT_DETAIL]]
+            except Exception as e:
+                Logger.error("CodeReviewCheck.get_tablewidget_detail_df - Exception" + str(e))
+
+        @staticmethod
+        def get_dict_from_list(input_list, key="선택한 파일 리스트"):
             try:
                 Logger.debug("CodeReviewCheck.get_dict_from_list Start")
                 result_dict = {}
 
-                for item in input_list :
+                for item in input_list:
                     result_dict[key] = item
 
                 return result_dict
@@ -344,7 +343,7 @@ class CodeReviewCheck:
                 return code
             except Exception as e:
                 Logger.error("CodeReviewCheck.test_check_code - Exception" + str(e))
-                
+
         # 파일을 읽어서 텍스트 반환
         @staticmethod
         def get_file_to_text(file_path):
@@ -378,23 +377,20 @@ class CodeReviewCheck:
             try:
                 Logger.debug("CodeCheck.code_check_UNUSED - Start")
 
-                #0. 주석 코드 삭제
+                # 0. 주석 코드 삭제
                 text_code = CodeReviewCheck.CodeCheck.removde_comments(text_code)
-                
-                #1. 함수이름, Body 부분을 분리하여 Dictionary에 저장 : key -> Function 이름, value -> body
+
+                # 1. 함수이름, Body 부분을 분리하여 Dictionary에 저장 : key -> Function 이름, value -> body
                 code_dict = CodeReviewCheck.CodeCheck.extract_functions_from_code(text_code)
-                
-                #2. Global 변수 저장
+
+                # 2. Global 변수 저장
                 global_vars = CodeReviewCheck.CodeCheck.extract_global_variables(text_code)
 
-                #3. Global 변수 사용 체크
+                # 3. Global 변수 사용 체크
 
+                # 1. 미사용 변수 찾기
 
-                #1. 미사용 변수 찾기
-
-
-
-                #2. 미사용 함수 찾기
+                # 2. 미사용 함수 찾기
 
 
 
@@ -425,14 +421,14 @@ class CodeReviewCheck:
 
         @classmethod
         def remove_comments(cls, code: str) -> str:
-            try :
+            try:
                 # 라인 주석 제거
                 code = re.sub(r'//.*', '', code)
                 # 블록 주석 제거
                 code = re.sub(r'/\*.*?\*/', '', code, flags=re.DOTALL)
 
                 return code
-            except Exception as e :
+            except Exception as e:
                 Logger.error("CodeReviewCheck.remove_comments - Exception" + str(e))
 
         # 전역 변수 찾기
@@ -440,15 +436,15 @@ class CodeReviewCheck:
         def extract_global_variables(code: str) -> list:
             try:
 
-                #. 중괄호 내용(함수 정의 등)을 제외하고 전역 영역의 코드만 추출
-                #1. 주석 삭제
+                # . 중괄호 내용(함수 정의 등)을 제외하고 전역 영역의 코드만 추출
+                # 1. 주석 삭제
                 code = __class__.remove_comments(code)
-                
-                #2. 함수 영여 제거
+
+                # 2. 함수 영여 제거
                 code_without_braces = __class__.extract_global_scope_code(code)
                 # code_without_braces = re.sub(r'{[^{}]*}', '', code_without_braces)
 
-                #3. 라인 별로 처리하여 주석 제거
+                # 3. 라인 별로 처리하여 주석 제거
                 lines = code_without_braces.split('\n')
                 lines_without_comments = [re.sub(r'//.*', '', line).strip() for line in lines if
                                           '//' in line or line.strip() != '']
@@ -471,7 +467,7 @@ class CodeReviewCheck:
                 return global_variables
             except Exception as e:
                 Logger.error("CodeReviewCheck.extract_global_variables - Exception" + str(e))
-                
+
         # 전역 코드 영역만 찾기
         @classmethod
         def extract_global_scope_code(code: str) -> str:

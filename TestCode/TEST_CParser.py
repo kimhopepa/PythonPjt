@@ -65,7 +65,7 @@ with open('test.c', 'r') as f:
 cleaned_code = remove_comments(c_code)
 # C 코드를 파싱하여 AST(Abstract Syntax Tree) 생성
 parser = c_parser.CParser()
-ast = parser.parse(cleaned_code)
+st = parser.parse(cleaned_code)
 
 
 # 전역 변수 찾기

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1083</width>
-    <height>520</height>
+    <width>627</width>
+    <height>359</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,13 +17,26 @@
    <iconset>
     <normaloff>hw_main_form.png</normaloff>hw_main_form.png</iconset>
   </property>
+  <widget class="QPushButton" name="pushButton_Open_4">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>320</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string extracomment="sdfasf">Export</string>
+   </property>
+  </widget>
   <widget class="QTableWidget" name="tableWidget_detail">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>1061</width>
-     <height>501</height>
+     <width>611</width>
+     <height>301</height>
     </rect>
    </property>
    <property name="frameShape">

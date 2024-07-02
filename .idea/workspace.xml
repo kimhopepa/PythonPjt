@@ -5,8 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI_Detail.ui" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/CodeReviewUI_Detail.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeReviewTool/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/config.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CodeReviewTool/lib/libCodeReviewCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeReviewTool/lib/libCodeReviewCheck.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCode/TEST_CParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCode/TEST_CParser.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,49 +218,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/TestCode/TEST_CParser.py</url>
-          <line>67</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/TestCode/ProcessTest/psutil_test.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check3.py</url>
-          <line>222</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check3.py</url>
-          <line>233</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/TestCode/CodeCheckTest/main_test_code.py</url>
-          <line>240</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/TestCode/CodeCheckTest/main_test_code.py</url>
-          <line>49</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/TestCode/CodeCheckTest/test_code_check5.py</url>
-          <line>28</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/TestCode/CodeCheckTest/main_test_code.py</url>
-          <line>139</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/CodeReviewTool/CodeReviewUI.py</url>
-          <line>341</line>
-          <option name="timeStamp" value="60" />
+          <line>353</line>
+          <option name="timeStamp" value="69" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
