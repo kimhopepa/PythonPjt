@@ -55,6 +55,7 @@ class WindowClass(QMainWindow, main_form_class):
 
         # 2-2 UI Table Widget 더블 클릭 이벤트
         self.tableWidget.cellDoubleClicked.connect(self.on_cell_double_clicked)
+        self.tableWidget_File.cellClicked.connect(self.on_cell_clicked_File)
 
     # 클래스 UI 초기화
     def init_UI(self):
@@ -86,48 +87,11 @@ class WindowClass(QMainWindow, main_form_class):
             self.set_table_widget(table_df)         # tablewidget -> 코드 리뷰 항목
             self.set_table_widget_file(df_file)     # tableWidget_File -> 선택한 파일 리스트
 
-
-
             # 창 크기 고정
             self.setFixedSize(self.width(), self.height())
 
         except Exception as e:
             Logger.error("WindowClass.init_UI Exception" + str(e))
-
-    '''def init_UI(self):
-        try:
-            # 1. config 파일 조회
-            self.folder_path = ConfigHandler.config_dict["Path"]["last_path"]
-
-            # 1-1. 마지막 파일 경로 UI에 표시
-            if os.path.exists(self.folder_path):
-                self.lineEdit_Path.setText(self.folder_path)  # 마지막 파일 선택 경로
-
-            # 1-2. 마지막 파일 리스트 UI 리스트 추가
-            last_file_list = ConfigHandler.get_config_list("Path", "last_file_list")
-            self.listWidget_file.clear()
-            CodeReviewCheck.CodeData.init_file_list(last_file_list)
-            print("last_file_list", last_file_list)
-
-            for index, row in CodeReviewCheck.df_crc_info.iterrows():
-                file_name = row[COL_FILE_NAME]
-                self.listWidget_file.addItem(file_name)
-
-            Logger.info(self.folder_path)
-
-            # 2. 테이블widget에 코드 리뷰 조건 리스트 표시
-            CodeReviewCheck.CodeData.init_check_list()
-            table_df = CodeReviewCheck.CodeData.get_table_df()
-            Logger.debug("WindowClass.init_UI - Column info = " + (str)(table_df.columns.tolist()))
-
-            # 3. UI 업데이트
-            self.set_table_widget(table_df)
-
-            # 창 크기 고정
-            self.setFixedSize(self.width(), self.height())
-
-        except Exception as e:
-            Logger.error("WindowClass.init_UI Exception" + str(e))'''
 
     # UI - FileOpen
     def UI_FileOpen(self):
@@ -147,22 +111,25 @@ class WindowClass(QMainWindow, main_form_class):
 
             # 3-1. 선택한 파일들 리스트로 저장
             selected_files = file_dialog.selectedFiles()
+            if selected_files :
+                self.folder_path = os.path.dirname(selected_files[0])
+
             # ini 파일에 저장
-            ConfigHandler.changed_config_list("Path", "last_file_list", selected_files)
+            ConfigHandler.changed_config_list("Path", "last_file_list", selected_files)      # config 파일 저장
             Logger.debug("UI_OpenPath - File List = " + (str)(selected_files))
 
             # 4-1. 선택한 파일 리스트 CodeReviewCheck -> DataFrame(df_crc_info)에 저장
             CodeReviewCheck.CodeData.init_file_list(selected_files)
             df_file = CodeReviewCheck.df_crc_info[[COL_FILE_NAME]]
-            self.tableWidget_File.clearContents()
-            self.set_table_widget_file(df_file)  # tableWidget_File -> 선택한 파일 리스트
+            self.tableWidget_File.clearContents()           # tableWidget_File -> Clear
+            self.set_table_widget_file(df_file)             # tableWidget_File -> 선택한 파일 리스트
 
             # 5. 디렉토리 경로 UI에 저장
-            self.lineEdit_Path.setText(self.folder_path)
+            self.lineEdit_Path.setText(self.folder_path)  # UI 업데이트
+            ConfigHandler.changed_config("Path", "last_path", self.folder_path)                        # config 파일 저장
 
             # 6. 마지막 사용 디텍토리 config 저장
-            ConfigHandler.changed_config("Path", "last_path", self.folder_path)
-            Logger.debug(CodeReviewCheck.df_crc_result)
+            Logger.debug("UI_FileOpen - Last\n" + str(CodeReviewCheck.df_crc_result))
 
         except Exception as e:
             Logger.error("WindowClass.UI_OpenPath Exception" + str(e))
@@ -171,24 +138,28 @@ class WindowClass(QMainWindow, main_form_class):
     def UI_Start(self):
         try:
             Logger.info("UI_Start")
-            #1. TableWidget에서 선택한 레코드 가져오기
-            selected_row = self.tableWidget_File.currentRow()
-            if selected_row == -1 :
-                QMessageBox.information(self, "Warning", "파일을 선택 해주세요. (리뷰 파일을 선택하지 않았습니다.)")
-            else :
-                selected_file_name = self.tableWidget_File.item(selected_row, 0).text()
+
+            # #1. TableWidget에서 선택한 레코드 가져오기
+            # selected_row = self.tableWidget_File.currentRow()
+            # if selected_row == -1 :
+            #     QMessageBox.information(self, "Warning", "파일을 선택 해주세요. (리뷰 파일을 선택하지 않았습니다.)")
+            # else :
+            #     selected_file_name = self.tableWidget_File.item(selected_row, 0).text()
 
             #2. 선택한 파일 이름의 Full 경로 가져오기
-            selectced_file_path = CodeReviewCheck.CodeData.get_file_path(selected_file_name)
-            Logger.debug("UI_Start - selected file name = " + selected_file_name + ", path = " + selectced_file_path)
+            selectced_file_path = CodeReviewCheck.CodeData.get_file_path(self.selected_file_name)
+            Logger.debug("UI_Start - selected file name = " + self.selected_file_name + ", path = " + selectced_file_path)
 
             #3. code 문자열로 저장
             text_code = CodeReviewCheck.CodeCheck.get_file_to_text(selectced_file_path)
 
-            #Code(text_code) + Check(SVR, CLI) 정보를 전달하여 코드 리뷰 점검 시작!!!!
+            #Code(text_code) + Check(SVR, CLI) 정보를 전달하여 코드 리뷰 점검 시작!
+            # text_code, daframe
+
 
             #4. Code Check 실행
             # SVR | CLI 확인하여 코드 리뷰 항목 리스트 가져 오기
+
 
 
             #5. Code 검증 결과 TableWidget 업데이트
@@ -200,34 +171,33 @@ class WindowClass(QMainWindow, main_form_class):
     # UI - Export
     def UI_Export(self):
         try:
-            Logger.debug("UI_Export")
+            Logger.debug("UI_Export. file name = " + self.selected_file_name)
             # 1. 선택한 파일 가져 오기 (QListWidget)
-            select_item = self.listWidget_file.currentItem()
+            # select_item = self.listWidget_file.currentItem()
 
-            if select_item is not None:
+            if self.selected_file_name is not None:
                 # 2. Export 파일 이름 생성
                 # 2.1 선택한 파일 이름 조회
-                select_file_name = select_item.text()
-                # 파일 확장자에서 확장자 제거 -> get_remove_extension
-                select_file_name = CodeReviewCheck.CodeData.get_remove_extension(select_file_name)
+
+
+                export_file_name = CodeReviewCheck.CodeData.get_remove_extension(self.selected_file_name)   # 파일 확장자에서 확장자 제거 -> get_remove_extension
                 format_time = datetime.now().strftime("%Y%m%d%H%M%S")
-                select_file_name = select_file_name + "_" + "CodeReivewResult_" + format_time
+                export_file_name = export_file_name + "_" + "CodeReivewResult_" + format_time
 
                 options = QFileDialog.Options()
                 # options |= QFileDialog.DontUseNativeDialog  # 네이티브 대화 상자 사용 안 함
 
                 # 3. 저장 파일 경로 가져오기 - file_path
-                file_path, _ = QFileDialog.getSaveFileName(self, "코드 리뷰 결과 저장", select_file_name,
+                file_path, file_type = QFileDialog.getSaveFileName(self, "코드 리뷰 결과 저장", export_file_name,
                                                            "Excel Files (*.xlsx)",
                                                            options=options)
 
                 # 4. TableWidget 데이터 Dataframe 변환
-                export_df = CodeReviewCheck.CodeUI.get_df_to_tablewidget(self.tableWidget)
+
+                # export_df = CodeReviewCheck.CodeUI.get_df_to_tablewidget(self.tableWidget)
 
                 # 5. 엑셀 파일로 저장
-                CodeReviewCheck.CodeUI.excel_save(file_path, export_df)
-
-                print(file_path)
+                CodeReviewCheck.CodeUI.excel_save(file_path, CodeReviewCheck.df_crc_result)
             else:
                 QMessageBox.information(self, "Warning", "코드 리뷰 파일을 선택하지 않았습니다.")
         except Exception as e:
@@ -298,6 +268,7 @@ class WindowClass(QMainWindow, main_form_class):
 
             header = self.tableWidget_File.horizontalHeader()
             header.setSectionResizeMode(QHeaderView.Stretch)
+
         except Exception as e:
             Logger.error("WindowClass.set_table_widget_file Exception " + str(e))
 
@@ -343,21 +314,35 @@ class WindowClass(QMainWindow, main_form_class):
         except Exception as e:
             Logger.error("WindowClass.set_table_merge Exception " + str(e))
 
-    # table Widget 더블 클릭 이벤트
+    # table Widget : 코드 리뷰 결과 화면 더블 클릭 이벤트
     def on_cell_double_clicked(self, row, col):
         try:
             col_item_index = 1
             cell_data = self.tableWidget.item(row, col_item_index).text()
 
+            Logger.debug("on_cell_double_clicked : " + str(row) + ", " + str(col))
+            if col == 0 :
+                QMessageBox.information(self, "Warning", "코드 리뷰 항목을 선택해주세요.")
+                return
             # Detail Form 열기
             if self.second_form is None:
                 self.second_form = WindowClass_Detail()
-
 
             self.second_form.exec(cell_data)
             # self.second_form.exec()
         except Exception as e:
             Logger.error("WindowClass.on_cell_double_clicked Exception " + str(e))
+
+    # tableWidget_File Clieck 업데이트 이벤트
+    def on_cell_clicked_File(self, row, col):
+        try:
+            self.selected_file_name = self.tableWidget_File.item(row, col).text()
+            self.label_selected_file_name.setText(self.selected_file_name)
+
+            Logger.debug("on_cell_clicked_File : " + str(row) + ", " + str(col) + ", file name = " + self.selected_file_name)
+
+        except Exception as e :
+            Logger.error("WindowClass.on_cell_double_clicked_File Exception " + str(e))
 
 
 # 6. Sub Fomr 화면 클래스 - Detail Form
@@ -380,33 +365,30 @@ class WindowClass_Detail(QDialog, detail_form_class):
             self.cr_item = name
             self.setWindowTitle(self.cr_item + "-상세 내용")
 
-
             #2. 코드 리뷰 항목에 대한 결과 내용 테이블에 업데이트
             self.tableWidget_detail.clearContents()
             dt_data = CodeReviewCheck.CodeData.get_tablewidget_detail_df(self.cr_item)
-
-            self.set_table_wdgiet_detail(dt_data)
+            self.set_table_widget_detail(dt_data)
 
             super().exec()
 
         except Exception as e:
             Logger.error("WindowClass.exec Exception" + str(e))
 
-    def set_table_wdgiet_detail(self, dt_data):
+    def set_table_widget_detail(self, dt_data):
         try:
             Logger.info("WindowClass_Detail set_table_wdgiet_detail()")
-            print(dt_data.shape[0], dt_data.shape[1])
+
             # 1. 행, 열 크기 설정
             self.tableWidget_detail.setRowCount(dt_data.shape[0])
             self.tableWidget_detail.setColumnCount(dt_data.shape[1])
-
 
             # 2. 테이블 컬럼 이름 설정 : '코드 리뷰 항목' | '코드 리뷰 결과' | 'Line' | '상세 내용'
             self.tableWidget_detail.setHorizontalHeaderLabels(dt_data.columns)
             for i in range(dt_data.shape[0]):
                 for j in range(dt_data.shape[1]):
                     item = QTableWidgetItem(str(dt_data.iloc[i, j]))
-                    if j < 2:  # 첫 번째 열의 경우에만 가운데 정렬로 설정
+                    if j != 1:  # 첫 번째 열의 경우에만 가운데 정렬로 설정
                         item.setTextAlignment(Qt.AlignCenter)
                     self.tableWidget_detail.setItem(i, j, item)
 
@@ -416,7 +398,7 @@ class WindowClass_Detail(QDialog, detail_form_class):
                 """)
 
            # 크기 조절 정책 설정
-            column_ratios = [0.3, 0.1, 0.2, 0.4]  # 각 컬럼의 비율을 입력 하세요.
+            column_ratios = [0.2, 0.3, 0.1, 0.1]  # 각 컬럼의 비율을 입력 하세요.
             total_ratio = sum(column_ratios)
             total_width = self.tableWidget_detail.width()
 

@@ -47,26 +47,27 @@ ROW_CR_CLASS_DB = 'DB'
 ROW_CR_CLASS_STANDARD = '코드 표준'
 
 # [성능]
-# COL_CR_CLASS(분류) | COL_CR_ITEM(코드 리뷰 항목) | COL_CR_RESULT(결과) | COL_CR_LINE(Line) | COL_CR_RESULT_DETAIL(상세 내용) |
-ROW_CR_ITEM_ACTIVE = [ROW_CR_CLASS_PERFORMANCE, '서버 스크립트 Active 감시', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_SVR]
-ROW_CR_ITEM_LOOP = [ROW_CR_CLASS_PERFORMANCE, 'Loop문내 처리 조건', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
-ROW_CR_ITEM_EVENT_CHANGE = [ROW_CR_CLASS_PERFORMANCE, 'Event 교환 횟수 최소화', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
-ROW_CR_ITEM_PROPER_DP_FCT = [ROW_CR_CLASS_PERFORMANCE, '적절한 DP 처리 함수', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_NONE]
-ROW_CR_ITEM_DP_QUERY_OPT = [ROW_CR_CLASS_PERFORMANCE, 'DP Query 최적화 구현', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
-ROW_CR_ITEM_RAIMA_UP = [ROW_CR_CLASS_PERFORMANCE, 'RAIMA DB 증가', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
+# COL_CR_CLASS(분류) | COL_CR_ITEM(코드 리뷰 항목) | COL_CR_RESULT(결과) | COL_CR_LINE(Line) | COL_CR_RESULT_DETAIL(상세 내용) | SVR/CLI
+CR_ITEM_IDX = 1
+ROW_CR_ITEM_ACTIVE = [ROW_CR_CLASS_PERFORMANCE, '서버 스크립트 Active 감시', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_SVR]
+ROW_CR_ITEM_LOOP = [ROW_CR_CLASS_PERFORMANCE, 'Loop문내 처리 조건',  '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_EVENT_CHANGE = [ROW_CR_CLASS_PERFORMANCE, 'Event 교환 횟수 최소화', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_PROPER_DP_FCT = [ROW_CR_CLASS_PERFORMANCE, '적절한 DP 처리 함수','', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_NONE]
+ROW_CR_ITEM_DP_QUERY_OPT = [ROW_CR_CLASS_PERFORMANCE, 'DP Query 최적화 구현', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_NONE]
+ROW_CR_ITEM_RAIMA_UP = [ROW_CR_CLASS_PERFORMANCE, 'RAIMA DB 증가','', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
 
 # [DB]
-ROW_CR_ITEM_DB_BIND = [ROW_CR_CLASS_DB, 'DB Query 바인딩 처리', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
-ROW_CR_ITEM_DB_COMMENT = [ROW_CR_CLASS_DB, 'Query 주석 작성', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
-ROW_CR_ITEM_DB_EXCEPTION = [ROW_CR_CLASS_DB, 'DB Query 예외 처리', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_DB_BIND = [ROW_CR_CLASS_DB, 'DB Query 바인딩 처리', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_DB_COMMENT = [ROW_CR_CLASS_DB, 'Query 주석 작성', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_DB_EXCEPTION = [ROW_CR_CLASS_DB, 'DB Query 예외 처리', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
 
 # [코드 표준]
-ROW_CR_ITEM_DP_EXCEPTION = [ROW_CR_CLASS_STANDARD, 'DP 함수 예외 처리', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
-ROW_CR_ITEM_TRY_EXCEPTION = [ROW_CR_CLASS_STANDARD, 'Try/Catch 예외처리', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_ALL]
-ROW_CR_ITEM_VERSION = [ROW_CR_CLASS_STANDARD, '스크립트 이력 관리', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_SVR]
-ROW_CR_ITEM_CONSTRAINTS = [ROW_CR_CLASS_STANDARD, '제약 조건 확인', ROW_CR_RESULT_NONE, '', '', ROW_CR_CHECK_NONE]
-ROW_CR_ITEM_HARD_CODE = [ROW_CR_CLASS_STANDARD, '하드코딩 지양', ROW_CR_RESULT_NONE, '', '', COL_CR_YN]
-ROW_CR_ITEM_UNNECESSARY_CODE = [ROW_CR_CLASS_STANDARD, '불필요한 코드 지양', ROW_CR_RESULT_NONE, '', '', COL_CR_YN]
+ROW_CR_ITEM_DP_EXCEPTION = [ROW_CR_CLASS_STANDARD, 'DP 함수 예외 처리', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_SVR]
+ROW_CR_ITEM_TRY_EXCEPTION = [ROW_CR_CLASS_STANDARD, 'Try/Catch 예외처리', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_VERSION = [ROW_CR_CLASS_STANDARD, '스크립트 이력 관리', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_SVR]
+ROW_CR_ITEM_CONSTRAINTS = [ROW_CR_CLASS_STANDARD, '제약 조건 확인', R'', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_NONE]
+ROW_CR_ITEM_HARD_CODE = [ROW_CR_CLASS_STANDARD, '하드코딩 지양', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_UNNECESSARY_CODE = [ROW_CR_CLASS_STANDARD, '불필요한 코드 지양', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
 
 '''
 ROW_CR_ITEM_LOOP = 'Loop문내 처리 조건'
@@ -93,7 +94,7 @@ class CodeReviewCheck:
 
     # df_crc_result 컬럼 명 : 구분 | 코드 리뷰 항목 | 코드 리뷰 결과 | Line | 상세 내용 | YN
     df_crc_result = pd.DataFrame(
-        columns=[COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT, COL_CR_LINE, COL_CR_RESULT_DETAIL, COL_CR_YN])
+        columns=[COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT_DETAIL , COL_CR_LINE, COL_CR_RESULT, COL_CR_YN])
 
     # Data Table 처리 동작
     class CodeData:
@@ -129,18 +130,18 @@ class CodeReviewCheck:
             except Exception as e:
                 Logger.error("CodeReviewCheck.get_tablewidget_df - Exception" + str(e))
 
+        # Data Table에서 특정 컬럼 데이터만 가져오기 + 조건("코드 리뷰 항목" == cr_item_name) -> df_crc_result ("코드 리뷰 항목","상세 내용", "코드 리뷰 결과", "위치")
         @staticmethod
         def get_tablewidget_detail_df(cr_item_name):
             try:
                 Logger.debug("CodeReviewCheck.get_tablewidget_detail_df Start")
                 return CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item_name,
-                                                         [COL_CR_ITEM, COL_CR_RESULT, COL_CR_LINE,
-                                                          COL_CR_RESULT_DETAIL]]
+                                                         [COL_CR_ITEM, COL_CR_RESULT_DETAIL, COL_CR_LINE, COL_CR_RESULT]]
             except Exception as e:
                 Logger.error("CodeReviewCheck.get_tablewidget_detail_df - Exception" + str(e))
 
         @staticmethod
-        def get_dict_from_list(input_list, key="선택한 파일 리스트"):
+        def get_dict_from_list(input_list, key="selectedList"):
             try:
                 Logger.debug("CodeReviewCheck.get_dict_from_list Start")
                 result_dict = {}
@@ -151,6 +152,8 @@ class CodeReviewCheck:
                 return result_dict
             except Exception as e:
                 Logger.error("CodeReviewCheck.get_dict_from_list - Exception" + str(e))
+
+
 
         '''
         function : init_file_list
@@ -269,9 +272,9 @@ class CodeReviewCheck:
                     for cell in row:
                         cell.alignment = Alignment(horizontal='center', vertical='center')
 
-                CodeReviewCheck.excel_merge_cell(ws, 'A2', 'A7')
-                CodeReviewCheck.excel_merge_cell(ws, 'A8', 'A10')
-                CodeReviewCheck.excel_merge_cell(ws, 'A11', 'A15')
+                # CodeReviewCheck.excel_merge_cell(ws, 'A2', 'A7')
+                # CodeReviewCheck.excel_merge_cell(ws, 'A8', 'A10')
+                # CodeReviewCheck.excel_merge_cell(ws, 'A11', 'A15')
 
                 CodeReviewCheck.set_column_width(ws, 1, 20)
                 CodeReviewCheck.set_column_width(ws, 2, 40)
@@ -329,7 +332,7 @@ class CodeReviewCheck:
     # 코드 리뷰 검증 기능 구현
     class CodeCheck:
         @classmethod
-        def removde_comments(cls, code):
+        def removed_comments(cls, code):
             try:
                 # 한 줄 주석 제거
                 code = re.sub(r'//.*', '', code)
@@ -364,33 +367,43 @@ class CodeReviewCheck:
                 return None
 
         @staticmethod
-        def code_check_(text_code):
+        def code_check_start(text_code, svr_cli_check):
             try:
-                # 1. 미사용 코드 삭제 확인
+
+                # 1. 불필요한 코드 지양 : 스크립트 파일 + 체크 ITEM
+                new_code_check_df = CodeReviewCheck.CodeCheck.code_check_UNUSED(text_code, ROW_CR_ITEM_UNNECESSARY_CODE[CR_ITEM_IDX])
+
+                # 2. 하드코딩 지양
+
+
+                #  결과
+
+
+
                 pass
             except Exception as e:
                 Logger.error("CodeReviewCheck.test_check_code - Exception" + str(e))
                 return None
 
         @staticmethod
-        def code_check_UNUSED(text_code):
+        def code_check_UNUSED(text_code, cr_item):
             try:
                 Logger.debug("CodeCheck.code_check_UNUSED - Start")
 
                 # 0. 주석 코드 삭제
-                text_code = CodeReviewCheck.CodeCheck.removde_comments(text_code)
+                new_text_code = CodeReviewCheck.CodeCheck.removed_comments(text_code)
 
                 # 1. 함수이름, Body 부분을 분리하여 Dictionary에 저장 : key -> Function 이름, value -> body
-                code_dict = CodeReviewCheck.CodeCheck.extract_functions_from_code(text_code)
+                code_dict = CodeReviewCheck.CodeCheck.extract_functions_from_code(new_text_code)
 
                 # 2. Global 변수 저장
-                global_vars = CodeReviewCheck.CodeCheck.extract_global_variables(text_code)
+                global_vars = CodeReviewCheck.CodeCheck.extract_global_variables(new_text_code)
 
                 # 3. Global 변수 사용 체크
 
-                # 1. 미사용 변수 찾기
+                # 3-1. 미사용 변수 찾기
 
-                # 2. 미사용 함수 찾기
+                # 3-2. 미사용 함수 찾기
 
 
 
