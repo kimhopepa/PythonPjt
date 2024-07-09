@@ -168,11 +168,10 @@ class CodeReviewCheck:
             try:
                 Logger.debug("CodeReviewCheck.init_file_list Start")
                 CodeReviewCheck.df_crc_info = CodeReviewCheck.df_crc_info.drop(CodeReviewCheck.df_crc_info.index)
+
                 for index, file_name in enumerate(selected_files):
                     base_name = os.path.basename(file_name)
-                    CodeReviewCheck.df_crc_info = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_info,
-                                                                                     {COL_FILE_NAME: base_name,
-                                                                                      COL_FILE_PATH: file_name})
+                    CodeReviewCheck.df_crc_info = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_info,{COL_FILE_NAME: base_name, COL_FILE_PATH: file_name})
 
             except Exception as e:
                 Logger.error("CodeReviewCheck.init_file_list - Exception" + str(e))
@@ -213,8 +212,7 @@ class CodeReviewCheck:
             file_path = None
             try:
                 Logger.debug("CodeReviewCheck - get_file_path start")
-                file_path = CodeReviewCheck.df_crc_info[CodeReviewCheck.df_crc_info[COL_FILE_NAME] == file_name][
-                    COL_FILE_PATH].iloc[0]
+                file_path = CodeReviewCheck.df_crc_info[CodeReviewCheck.df_crc_info[COL_FILE_NAME] == file_name][COL_FILE_PATH].iloc[0]
                 return file_path
 
             except Exception as e:
@@ -272,13 +270,13 @@ class CodeReviewCheck:
                     for cell in row:
                         cell.alignment = Alignment(horizontal='center', vertical='center')
 
-                # CodeReviewCheck.excel_merge_cell(ws, 'A2', 'A7')
-                # CodeReviewCheck.excel_merge_cell(ws, 'A8', 'A10')
-                # CodeReviewCheck.excel_merge_cell(ws, 'A11', 'A15')
+                CodeReviewCheck.CodeUI.excel_merge_cell(ws, 'A2', 'A7')
+                CodeReviewCheck.CodeUI.excel_merge_cell(ws, 'A8', 'A9')
+                CodeReviewCheck.CodeUI.excel_merge_cell(ws, 'A10', 'A15')
 
-                CodeReviewCheck.set_column_width(ws, 1, 20)
-                CodeReviewCheck.set_column_width(ws, 2, 40)
-                CodeReviewCheck.set_column_width(ws, 3, 30)
+                CodeReviewCheck.CodeUI.set_column_width(ws, 1, 20)
+                CodeReviewCheck.CodeUI.set_column_width(ws, 2, 40)
+                CodeReviewCheck.CodeUI.set_column_width(ws, 3, 30)
 
                 # 3-1 Cell 병합
                 # 병합할 셀 영역
@@ -329,6 +327,16 @@ class CodeReviewCheck:
             except Exception as e:
                 Logger.error("CodeReviewCheck.set_column_width - Exception" + str(e))
 
+        @classmethod
+        def get_export_df(cls):
+            try :
+                Logger.debug("CodeReviewCheck.get_export_df Call")
+                export_df = CodeReviewCheck.df_crc_result[
+                    [COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT, COL_CR_LINE, COL_CR_RESULT_DETAIL]]
+                return export_df
+            except Exception as e:
+                Logger.error("CodeReviewCheck.set_column_width - Exception" + str(e))
+
     # 코드 리뷰 검증 기능 구현
     class CodeCheck:
         @classmethod
@@ -367,10 +375,10 @@ class CodeReviewCheck:
                 return None
 
         @staticmethod
-        def code_check_start(text_code, svr_cli_check):
+        def code_check_start(file_path:str , row_check:str) -> pd.DataFrame :
             try:
-
                 # 1. 불필요한 코드 지양 : 스크립트 파일 + 체크 ITEM
+                cr_check_df = CodeReviewCheck.CodeCheck
                 new_code_check_df = CodeReviewCheck.CodeCheck.code_check_UNUSED(text_code, ROW_CR_ITEM_UNNECESSARY_CODE[CR_ITEM_IDX])
 
                 # 2. 하드코딩 지양
@@ -400,6 +408,7 @@ class CodeReviewCheck:
                 global_vars = CodeReviewCheck.CodeCheck.extract_global_variables(new_text_code)
 
                 # 3. Global 변수 사용 체크
+
 
                 # 3-1. 미사용 변수 찾기
 
@@ -498,12 +507,14 @@ class CodeReviewCheck:
                 Logger.error("CodeReviewCheck.test_check_code - Exception" + str(e))
 
         @staticmethod
-        def check_code(file_name):
+        def code_check_start( file_name:str,  check_mode:bool) -> pd.DataFrame :
             try:
                 # 1. 파일 이름으로 Full Path 가져오기
                 file_path = CodeReviewCheck.CodeData.get_file_path(file_name)
-                print("check_code - file_path", file_path)
-                # file_path = os.path.normpath(file_path)
+                Logger.info("CodeCheck.code_check_start Path = " + file_path)
+
+                # 2. 텍스트 코드 가져오기
+                text_code = CodeReviewCheck.CodeCheck.get_file_to_text(file_path)
 
                 # 2. 파일에서 코드 Read
 

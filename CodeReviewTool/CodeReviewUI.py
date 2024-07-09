@@ -47,6 +47,7 @@ class WindowClass(QMainWindow, main_form_class):
         self.setupUi(self)
         self.init_UI()
         self.second_form = None
+        self.selected_file_name = None
 
         # 2-1 UI 버튼 이벤트
         self.pushButton_Open.clicked.connect(self.UI_FileOpen)
@@ -62,29 +63,31 @@ class WindowClass(QMainWindow, main_form_class):
         try:
             # 1. config 파일 조회
             self.folder_path = ConfigHandler.config_dict["Path"]["last_path"]
+            self.radioButton_SVR.setChecked(True)
 
             # 1-1. 마지막 파일 경로 UI에 표시
             if os.path.exists(self.folder_path):
                 self.lineEdit_Path.setText(self.folder_path)  # 마지막 파일 선택 경로
-            Logger.info(self.folder_path)
+            Logger.info("[config] 마지막 파일 경로 = " + self.folder_path)
 
             # 1-2. 마지막 파일 리스트 UI 리스트 추가
             last_file_list = ConfigHandler.get_config_list("Path", "last_file_list")
             CodeReviewCheck.CodeData.init_file_list(last_file_list)
             df_file = CodeReviewCheck.df_crc_info[[COL_FILE_NAME]]
+            Logger.info("[config] 설정된 파일 리스트 \n" + str(df_file))
 
             #2-1. Table Widget 삭제
             self.tableWidget_File.clearContents()
 
-            #2-2. 테이블widget에 코드 리뷰 항목 DataTable 초기화
+            #2-2. 테이블 widget에 코드 리뷰 결과 DataTable 초기화
             CodeReviewCheck.CodeData.init_check_list()
 
             # COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT 컬럼 정보만 저장 -> table_df
-            table_df = CodeReviewCheck.CodeData.get_tablewidget_df()
-            Logger.debug("WindowClass.init_UI - Column info = " + (str)(table_df.columns.tolist()))
+            df_result = CodeReviewCheck.CodeData.get_tablewidget_df()
+            Logger.debug("WindowClass.init_UI - Column info = " + (str)(df_result.columns.tolist()))
 
             # 3. UI 업데이트
-            self.set_table_widget(table_df)         # tablewidget -> 코드 리뷰 항목
+            self.set_table_widget(df_result)         # tablewidget -> 코드 리뷰 항목
             self.set_table_widget_file(df_file)     # tableWidget_File -> 선택한 파일 리스트
 
             # 창 크기 고정
@@ -138,66 +141,73 @@ class WindowClass(QMainWindow, main_form_class):
     def UI_Start(self):
         try:
             Logger.info("UI_Start")
+            
+            #1. 코드 리뷰 실행 정보 전달하여 실행
+            # (1)파일 이름 (2) 코드 리뷰 모드(SVR OR CLI)
+            check_svr = None
 
-            # #1. TableWidget에서 선택한 레코드 가져오기
-            # selected_row = self.tableWidget_File.currentRow()
-            # if selected_row == -1 :
-            #     QMessageBox.information(self, "Warning", "파일을 선택 해주세요. (리뷰 파일을 선택하지 않았습니다.)")
-            # else :
-            #     selected_file_name = self.tableWidget_File.item(selected_row, 0).text()
+            if self.radioButton_SVR.isChecked() :
+                check_svr = ROW_CR_CHECK_SVR
+            else :
+                check_svr = ROW_CR_CHECK_CLI
 
-            #2. 선택한 파일 이름의 Full 경로 가져오기
-            selectced_file_path = CodeReviewCheck.CodeData.get_file_path(self.selected_file_name)
-            Logger.debug("UI_Start - selected file name = " + self.selected_file_name + ", path = " + selectced_file_path)
+            code_review_result = CodeReviewCheck.CodeCheck.code_check_start(self.selected_file_name, check_svr)
 
-            #3. code 문자열로 저장
-            text_code = CodeReviewCheck.CodeCheck.get_file_to_text(selectced_file_path)
+            #
+            # #1. 선택한 파일 이름의 Full 경로 가져오기
+            # selectced_file_path = CodeReviewCheck.CodeData.get_file_path(self.selected_file_name)
+            # Logger.debug("UI_Start - selected file name = " + self.selected_file_name + ", path = " + selectced_file_path)
+            #
+            # #2. code 문자열로 저장
+            # text_code = CodeReviewCheck.CodeCheck.get_file_to_text(selectced_file_path)
+            #
+            # #3. Code(text_code) + Check(SVR, CLI) 정보를 전달하여 코드 리뷰 점검 시작!
+            # # text_code, daframe, check_svr
+            #
+            #
+            # #4. Code Check 실행
+            # # SVR | CLI 확인하여 코드 리뷰 항목 리스트 가져 오기
+            #
+            #
+            #
+            # #5. Code 검증 결과 TableWidget 업데이트
 
-            #Code(text_code) + Check(SVR, CLI) 정보를 전달하여 코드 리뷰 점검 시작!
-            # text_code, daframe
-
-
-            #4. Code Check 실행
-            # SVR | CLI 확인하여 코드 리뷰 항목 리스트 가져 오기
-
-
-
-            #5. Code 검증 결과 TableWidget 업데이트
-
-            print(text_code)
+            # print(text_code)
         except Exception as e:
             Logger.error("WindowClass.UI_Start Exception" + str(e))
 
     # UI - Export
     def UI_Export(self):
         try:
-            Logger.debug("UI_Export. file name = " + self.selected_file_name)
-            # 1. 선택한 파일 가져 오기 (QListWidget)
-            # select_item = self.listWidget_file.currentItem()
 
+            print(self.selected_file_name == None)
             if self.selected_file_name is not None:
+                Logger.debug("UI_Export. file name = " + self.selected_file_name)
                 # 2. Export 파일 이름 생성
                 # 2.1 선택한 파일 이름 조회
 
 
-                export_file_name = CodeReviewCheck.CodeData.get_remove_extension(self.selected_file_name)   # 파일 확장자에서 확장자 제거 -> get_remove_extension
                 format_time = datetime.now().strftime("%Y%m%d%H%M%S")
+                export_file_name = CodeReviewCheck.CodeData.get_remove_extension(self.selected_file_name)  # 파일 확장자에서 확장자 제거 -> get_remove_extension
                 export_file_name = export_file_name + "_" + "CodeReivewResult_" + format_time
 
                 options = QFileDialog.Options()
                 # options |= QFileDialog.DontUseNativeDialog  # 네이티브 대화 상자 사용 안 함
 
                 # 3. 저장 파일 경로 가져오기 - file_path
+                export_file_name = self.folder_path + "/" + export_file_name
                 file_path, file_type = QFileDialog.getSaveFileName(self, "코드 리뷰 결과 저장", export_file_name,
                                                            "Excel Files (*.xlsx)",
                                                            options=options)
 
                 # 4. TableWidget 데이터 Dataframe 변환
-
+                print(file_path, file_type)
                 # export_df = CodeReviewCheck.CodeUI.get_df_to_tablewidget(self.tableWidget)
 
                 # 5. 엑셀 파일로 저장
-                CodeReviewCheck.CodeUI.excel_save(file_path, CodeReviewCheck.df_crc_result)
+                if(len(file_path) > 0 ) :
+                    export_df = CodeReviewCheck.CodeUI.get_export_df()
+                    CodeReviewCheck.CodeUI.excel_save(file_path, export_df)
             else:
                 QMessageBox.information(self, "Warning", "코드 리뷰 파일을 선택하지 않았습니다.")
         except Exception as e:
