@@ -2,6 +2,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import Qt
 from PyQt5 import uic
+from PyQt5.QtGui import QColor, QBrush
 from datetime import datetime
 
 import sys
@@ -61,6 +62,12 @@ class WindowClass(QMainWindow, main_form_class):
     # 클래스 UI 초기화
     def init_UI(self):
         try:
+            
+            # 초기화 실행
+            self.second_form = None
+            self.selected_file_name = None
+            CodeReviewCheck.CodeData.init_check_list()
+            
             # 1. config 파일 조회
             self.folder_path = ConfigHandler.config_dict["Path"]["last_path"]
             self.radioButton_SVR.setChecked(True)
@@ -79,15 +86,11 @@ class WindowClass(QMainWindow, main_form_class):
             #2-1. Table Widget 삭제
             self.tableWidget_File.clearContents()
 
-            #2-2. 테이블 widget에 코드 리뷰 결과 DataTable 초기화
-            CodeReviewCheck.CodeData.init_check_list()
-
-            # COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT 컬럼 정보만 저장 -> table_df
+            # 3. UI 업데이트 - COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT 컬럼 정보만 저장 -> table_df
             df_result = CodeReviewCheck.CodeData.get_tablewidget_df()
-            Logger.debug("WindowClass.init_UI - Column info = " + (str)(df_result.columns.tolist()))
-
-            # 3. UI 업데이트
+            Logger.debug("WindowClass.init_UI - Column info = " + str(df_result.columns.tolist()))
             self.set_table_widget(df_result)         # tablewidget -> 코드 리뷰 항목
+
             self.set_table_widget_file(df_file)     # tableWidget_File -> 선택한 파일 리스트
 
             # 창 크기 고정
@@ -100,6 +103,8 @@ class WindowClass(QMainWindow, main_form_class):
     def UI_FileOpen(self):
         try:
             Logger.debug("UI_OpenPath")
+            self.init_UI()
+            self.label_selected_file_name.clear()
 
             # 1. 파일 선택 -> selected_files 여기 저장
             file_dialog = QFileDialog()
@@ -110,16 +115,18 @@ class WindowClass(QMainWindow, main_form_class):
 
             # 3. 선택한 파일 리스트 조회
             file_dialog.setFileMode(QFileDialog.ExistingFiles)  # 선택한 파일 리스트 조회
-            file_dialog.exec_()
-
-            # 3-1. 선택한 파일들 리스트로 저장
-            selected_files = file_dialog.selectedFiles()
-            if selected_files :
-                self.folder_path = os.path.dirname(selected_files[0])
+            if file_dialog.exec_() == QFileDialog.Accepted :
+                # 3-1. 선택한 파일들 리스트로 저장
+                selected_files = file_dialog.selectedFiles()
+                if selected_files:
+                    self.folder_path = os.path.dirname(selected_files[0])
+            else:
+                Logger.info("확인을 선택하지 않았습니다.")
+                return
 
             # ini 파일에 저장
             ConfigHandler.changed_config_list("Path", "last_file_list", selected_files)      # config 파일 저장
-            Logger.debug("UI_OpenPath - File List = " + (str)(selected_files))
+            Logger.debug("UI_OpenPath - File List = " + str(selected_files))
 
             # 4-1. 선택한 파일 리스트 CodeReviewCheck -> DataFrame(df_crc_info)에 저장
             CodeReviewCheck.CodeData.init_file_list(selected_files)
@@ -137,46 +144,33 @@ class WindowClass(QMainWindow, main_form_class):
         except Exception as e:
             Logger.error("WindowClass.UI_OpenPath Exception" + str(e))
 
-    # UI - Start
+    # UI - Start 버튼
     def UI_Start(self):
         try:
             Logger.info("UI_Start")
-            
+            #TODO : 파일 선택 messgae 팝업 실행
+            if self.selected_file_name is None :
+                QMessageBox.information(self, "Warning", "코드 리뷰 파일을 선택해주세요.")
+                return
+
             #1. 코드 리뷰 실행 정보 전달하여 실행
             # (1)파일 이름 (2) 코드 리뷰 모드(SVR OR CLI)
-            check_svr = None
-
             if self.radioButton_SVR.isChecked() :
-                check_svr = ROW_CR_CHECK_SVR
+                check_svr = bool(ROW_CR_CHECK_SVR)
             else :
-                check_svr = ROW_CR_CHECK_CLI
+                check_svr = bool(ROW_CR_CHECK_CLI)
+                
+            #2. 코드 리뷰 점검 실행 
+            CodeReviewCheck.CodeCheck.code_check_start(self.selected_file_name, check_svr)
+            
+            #3. 코드 리뷰 결과 UI 표시 데이터 가져오기 ->  결과 UI 업데이트
+            df_result = CodeReviewCheck.CodeData.get_tablewidget_df()
+            self.set_table_widget(df_result)        
 
-            code_review_result = CodeReviewCheck.CodeCheck.code_check_start(self.selected_file_name, check_svr)
-
-            #
-            # #1. 선택한 파일 이름의 Full 경로 가져오기
-            # selectced_file_path = CodeReviewCheck.CodeData.get_file_path(self.selected_file_name)
-            # Logger.debug("UI_Start - selected file name = " + self.selected_file_name + ", path = " + selectced_file_path)
-            #
-            # #2. code 문자열로 저장
-            # text_code = CodeReviewCheck.CodeCheck.get_file_to_text(selectced_file_path)
-            #
-            # #3. Code(text_code) + Check(SVR, CLI) 정보를 전달하여 코드 리뷰 점검 시작!
-            # # text_code, daframe, check_svr
-            #
-            #
-            # #4. Code Check 실행
-            # # SVR | CLI 확인하여 코드 리뷰 항목 리스트 가져 오기
-            #
-            #
-            #
-            # #5. Code 검증 결과 TableWidget 업데이트
-
-            # print(text_code)
         except Exception as e:
             Logger.error("WindowClass.UI_Start Exception" + str(e))
 
-    # UI - Export
+    # UI - Export 버튼
     def UI_Export(self):
         try:
 
@@ -214,9 +208,25 @@ class WindowClass(QMainWindow, main_form_class):
             Logger.error("WindowClass.UI_Export Exception" + str(e))
 
     # table Widget 업데이트
+    def set_table_highlight(self, highlight_keyword = ROW_CR_RESULT_NG):
+        try:
+            col_result_index = 2
+            for row in range(self.tableWidget.rowCount()):
+                item = self.tableWidget.item(row, col_result_index)
+                if(item.text() == highlight_keyword) :
+                    print("test - red", str(item.text()))
+                    # item.setForeground(QBrush(QColor('white')))
+                    item.setBackground(QBrush(QColor('#FF5B36')))
+                    item2 = self.tableWidget.item(row, col_result_index-1)
+                    # item2.setForeground(QBrush(QColor('white')))
+                    item2.setBackground(QBrush(QColor('#FF5B36')))
+
+        except Exception as e:
+            Logger.error("WindowClass.set_table_highlight Exception " + str(e))
+
     def set_table_widget(self, dt_data):
         try:
-            Logger.debug("WindowClass.set_table_widget : " + dt_data)
+            Logger.debug("WindowClass.set_table_widget : \n" + str(dt_data))
 
             # 1. 행, 열 크기 설정
             self.tableWidget.setRowCount(dt_data.shape[0])
@@ -240,10 +250,11 @@ class WindowClass(QMainWindow, main_form_class):
             # Apply style sheet to add horizontal line between header and data
             # self.tableWidget.setStyleSheet("QTableWidget::item:selected { background-color: #f27900; }")
             # self.tableWidget.setStyleSheet("QTableView::item { border-Top: 1px solid black; }")
-            self.tableWidget.setStyleSheet("""
-                    QTableWidget::item:selected { background-color: #f27900; }
-                    QTableView::item { border-top: 1px solid black; }
-                """)
+
+            # self.tableWidget.setStyleSheet("""
+            #         QTableWidget::item:selected { background-color: #f27900; }
+            #         QTableView::item { border-top: 1px solid black; }
+            #     """)
 
             # 크기 조절 정책 설정
             column_ratios = [0.3, 0.5, 0.2]  # 각 컬럼의 비율을 입력 하세요.
@@ -254,12 +265,13 @@ class WindowClass(QMainWindow, main_form_class):
                 new_width = (int)(total_width * ratio / total_ratio)
                 self.tableWidget.setColumnWidth(i, new_width)
 
+            self.set_table_highlight()
         except Exception as e:
             Logger.error("WindowClass.set_table_widget Exception " + str(e))
 
     def set_table_widget_file(self, df):
         try:
-            Logger.debug("WindowClass.set_table_widget_file : " + df)
+            Logger.debug("WindowClass.set_table_widget_file \n " + str(df))
             # DataFrame의 행과 열 개수 가져오기
             num_rows, num_cols = df.shape
 
@@ -285,7 +297,7 @@ class WindowClass(QMainWindow, main_form_class):
     # table widget에 Dictionary 데이터 넣기
     def set_table_from_dict(self, table_widget, data):
         try:
-            Logger.debug("WindowClass.set_table_from_dict : " + data)
+            Logger.debug("WindowClass.set_table_from_dict \n" + str(data))
             #1. 데이터의 키 목록을 가져와서 열 개수 설정
             column_count = len(data.keys())
             table_widget.setColumnCount(column_count)
@@ -387,7 +399,7 @@ class WindowClass_Detail(QDialog, detail_form_class):
 
     def set_table_widget_detail(self, dt_data):
         try:
-            Logger.info("WindowClass_Detail set_table_wdgiet_detail()")
+            Logger.info("WindowClass_Detail set_table_widget_detail()")
 
             # 1. 행, 열 크기 설정
             self.tableWidget_detail.setRowCount(dt_data.shape[0])
@@ -416,7 +428,7 @@ class WindowClass_Detail(QDialog, detail_form_class):
                 new_width = (int)(total_width * ratio / total_ratio)
                 self.tableWidget_detail.setColumnWidth(i, new_width)
         except Exception as e:
-            Logger.error("WindowClass.exec Exception" + str(e))
+            Logger.error("WindowClass.set_table_widget_detail Exception" + str(e))
 
     # 클래스 Detail UI 초기화
     def init_UI(self):

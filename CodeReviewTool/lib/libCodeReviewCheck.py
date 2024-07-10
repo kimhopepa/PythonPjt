@@ -102,7 +102,12 @@ class CodeReviewCheck:
         @staticmethod
         def init_check_list():
             try:
-                Logger.debug("CodeReviewCheck.init_check_list Start")
+                Logger.debug("CodeReviewCheck.init_check_list Call")
+
+                #1. Data 모두 삭제
+                CodeReviewCheck.df_crc_result.drop(CodeReviewCheck.df_crc_result.index, inplace=True)
+
+                #2. Data 기본 데이터로 저장
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_ACTIVE)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_LOOP)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_EVENT_CHANGE)
@@ -120,6 +125,21 @@ class CodeReviewCheck:
 
             except Exception as e:
                 Logger.error("CodeReviewCheck.init_check_list - Exception" + str(e))
+
+        # 선택한 파일 리스트를 df 저장 -> df_crc_info ("파일 이름", "파일 전체 경로")
+        @staticmethod
+        def init_file_list(selected_files):
+            try:
+                Logger.debug("CodeReviewCheck.init_file_list Start")
+                CodeReviewCheck.df_crc_info.drop(CodeReviewCheck.df_crc_info.index, inplace=True)
+
+                for index, file_name in enumerate(selected_files):
+                    base_name = os.path.basename(file_name)
+                    CodeReviewCheck.df_crc_info = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_info, {COL_FILE_NAME: base_name, COL_FILE_PATH: file_name})
+
+
+            except Exception as e:
+                Logger.error("CodeReviewCheck.init_file_list - Exception" + str(e))
 
         # Data Table에서 특정 컬럼 데이터만 가져오기 -> df_crc_result ("분류", "코드 리뷰 항목", 코드 리뷰 결과")
         @staticmethod
@@ -153,41 +173,14 @@ class CodeReviewCheck:
             except Exception as e:
                 Logger.error("CodeReviewCheck.get_dict_from_list - Exception" + str(e))
 
+        
 
-
-        '''
-        function : init_file_list
-        args : file_list(UI에서 선택한 파일 리스트)
-        detail : UI에서 선택한 파일 정보 클래스 변수에 저장
-        return : 없음
-        '''
-
-        @staticmethod
-        # 선택한 파일 리스트를 df 저장 -> df_crc_info ("파일 이름", "파일 전체 경로")
-        def init_file_list(selected_files):
-            try:
-                Logger.debug("CodeReviewCheck.init_file_list Start")
-                CodeReviewCheck.df_crc_info = CodeReviewCheck.df_crc_info.drop(CodeReviewCheck.df_crc_info.index)
-
-                for index, file_name in enumerate(selected_files):
-                    base_name = os.path.basename(file_name)
-                    CodeReviewCheck.df_crc_info = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_info,{COL_FILE_NAME: base_name, COL_FILE_PATH: file_name})
-
-            except Exception as e:
-                Logger.error("CodeReviewCheck.init_file_list - Exception" + str(e))
-
-        '''
-        function : df_concat
-        args : cls(클래스 인스턴스), update_df(변경될 DataFrame), new_dict(DataFrame에 추가될 Dictionary)
-        detail : Dicionary 데이터를 DataFrame 변수에 저장하여 반환 
-        return : 변경된 DataFrame을 반환
-        '''
 
         # DataFrame에서 Dictionary를 추가 하여 반환
         @classmethod
         def df_concat(cls, update_df, new_list):
             try:
-                Logger.debug("CodeReviewCheck - df_concat start")
+                Logger.debug("CodeReviewCheck - df_concat Call" + str(new_list))
                 # new_record_df = pd.DataFrame([new_dict])
                 # update_df = pd.concat([update_df, new_record_df], ignore_index=True)
                 update_df.loc[len(update_df)] = new_list
@@ -375,26 +368,40 @@ class CodeReviewCheck:
                 return None
 
         @staticmethod
-        def code_check_start(file_path:str , row_check:str) -> pd.DataFrame :
+        def code_check_start( file_name : str , check_svr : bool) -> pd.DataFrame :
             try:
+                #1. Load Code File
+                file_path = CodeReviewCheck.CodeData.get_file_path(file_name)  # 파일 Full 경로 가져오기
+                text_code = CodeReviewCheck.CodeCheck.get_file_to_text(file_path)  # 파일 코드 불러와서 문자열 변수 저장
+
+                # 모두 해당되는 코드 리뷰 항목
+                CodeReviewCheck.CodeCheck.code_check_UnnecessaryCode(text_code, ROW_CR_ITEM_UNNECESSARY_CODE[CR_ITEM_IDX])
+
+                # Code + 코드 리뷰 아이템 정보 전달 -> 코드 리뷰  진행 후 해당 DataFrame에 결과 저장하여 반환
+                if (check_svr == True):
+                    Logger.info("CodeCheck.code_check_start(SVR)")
+                    # SVR에서만 점검하는 코드 리뷰 항목
+                    # CodeReviewCheck.CodeCheck.code_check_version(text_code, ROW_CR_ITEM_VERSION[CR_ITEM_IDX])
+                    None
+                else:
+                    Logger.info("CodeCheck.code_check_start(CLI)")
+                    # Client에서만 점검하는 코드 리뷰 항목
+                    None
+
+
+
+
                 # 1. 불필요한 코드 지양 : 스크립트 파일 + 체크 ITEM
-                cr_check_df = CodeReviewCheck.CodeCheck
-                new_code_check_df = CodeReviewCheck.CodeCheck.code_check_UNUSED(text_code, ROW_CR_ITEM_UNNECESSARY_CODE[CR_ITEM_IDX])
-
                 # 2. 하드코딩 지양
-
-
                 #  결과
 
-
-
-                pass
+                # return CodeReviewCheck.df_crc_result
             except Exception as e:
                 Logger.error("CodeReviewCheck.test_check_code - Exception" + str(e))
-                return None
 
-        @staticmethod
-        def code_check_UNUSED(text_code, cr_item):
+
+        @classmethod
+        def code_check_UnnecessaryCode(cls, text_code, cr_item):
             try:
                 Logger.debug("CodeCheck.code_check_UNUSED - Start")
 
@@ -408,18 +415,26 @@ class CodeReviewCheck:
                 global_vars = CodeReviewCheck.CodeCheck.extract_global_variables(new_text_code)
 
                 # 3. Global 변수 사용 체크
-
-
                 # 3-1. 미사용 변수 찾기
-
                 # 3-2. 미사용 함수 찾기
 
-
+                
+                # [Result] 코드 리뷰 결과 DafaFrame 업데이트
 
             except Exception as e:
                 Logger.error("CodeReviewCheck.test_check_code - Exception" + str(e))
 
             return
+
+        @classmethod
+        def code_check_version(cls, text_code, cr_item):
+            try :
+                CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT] = ROW_CR_RESULT_NG
+                CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_LINE] = "-"
+                CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT_DETAIL] = "스크립트 이력이 설정되어 있지 않습니다."
+
+            except Exception as e:
+                Logger.error("CodeReviewCheck.code_check_version - Exception" + str(e))
 
         @classmethod
         def extract_functions_from_code(cls, file_code):
@@ -430,9 +445,9 @@ class CodeReviewCheck:
                 pattern = re.compile(r'(\w+)\(\)\s*\{\n(.*?)\n\}', re.DOTALL)
 
                 matches = pattern.findall(file_code)
-                # print("matches type", type(matches), matches)
+
                 for match in matches:
-                    # print("매치 성공", type(match), match)
+
                     function_name = match[0]
                     function_body = match[1]
                     function_dict[function_name] = function_body.strip()
@@ -470,7 +485,7 @@ class CodeReviewCheck:
                 lines = code_without_braces.split('\n')
                 lines_without_comments = [re.sub(r'//.*', '', line).strip() for line in lines if
                                           '//' in line or line.strip() != '']
-                # print("lines_without_comments", lines_without_comments)
+
 
                 # 전역 변수를 찾기 위한 정규식 패턴: 세미콜론으로 끝나는 모든 선언 찾기
                 pattern = re.compile(r'\b(\w+)\s*([^;]+);')
@@ -505,22 +520,6 @@ class CodeReviewCheck:
                 pass
             except Exception as e:
                 Logger.error("CodeReviewCheck.test_check_code - Exception" + str(e))
-
-        @staticmethod
-        def code_check_start( file_name:str,  check_mode:bool) -> pd.DataFrame :
-            try:
-                # 1. 파일 이름으로 Full Path 가져오기
-                file_path = CodeReviewCheck.CodeData.get_file_path(file_name)
-                Logger.info("CodeCheck.code_check_start Path = " + file_path)
-
-                # 2. 텍스트 코드 가져오기
-                text_code = CodeReviewCheck.CodeCheck.get_file_to_text(file_path)
-
-                # 2. 파일에서 코드 Read
-
-
-            except Exception as e:
-                Logger.error("CodeReviewCheck.check_version - Exception" + str(e))
 
     # @classmethod
     # def convert_to_python_path(cls, path):

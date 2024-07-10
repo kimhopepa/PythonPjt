@@ -11,6 +11,12 @@ class OuterClass:
         def display_outer_value(self):
             print("Outer class value:", self.outer_instance.value)
             print("OuterClass member_value", OuterClass.member_value )
+            __class__.class_func()
+
+        @classmethod
+        def class_func(cls):
+            sum = 10 + 5
+            print(sum)
 
 
 # 사용 예시
