@@ -141,7 +141,7 @@ def global_used_check(global_vars : list, code_dict : dict ) -> dict:
     try :
         unused_var_dict = {}
         for fun_name, body_code in code_dict.items():
-            print("fun_name = ", fun_name)
+            # print("fun_name = ", fun_name)
 
             #1.1 함수 지역 변수 체크
             body_vars = extract_variables_from_declaration(body_code)
@@ -149,12 +149,12 @@ def global_used_check(global_vars : list, code_dict : dict ) -> dict:
             #1.2 지역 변수 미사용 체크
             unused_vars = check_variable_usage(body_code, body_vars)
             if len(unused_vars) > 0 :
-                print("Local unused_vars", unused_vars)
+                print("[Local] unused_vars", fun_name,unused_vars)
 
             #2. 전역 변수 함수내 미사용 체크
             unused_vars = check_variable_usage(body_code, global_vars)
             if len(unused_vars) > 0:
-                print("Global unused_vars", unused_vars)
+                print("[Global] unused_vars", unused_vars)
 
         return unused_var_dict
     except Exception as e:
@@ -218,12 +218,14 @@ if __name__ == '__main__':
         # 3. 전역 변수 리스트에 저장
         global_vars = extract_global_variables(file_code)
 
-        print("global_vars", global_vars)
+        # print("global_vars", global_vars)
 
         # 3-1. 전역 변수 사용 체크
-        g_var_dict = global_used_check(global_vars, code_dict)
 
-        print("global_used_check - end")
+        # exit()
+        g_var_dict = global_used_check(global_vars, code_dict)
+        print("g_var_dict", g_var_dict)
+        # print("global_used_check - end")
 
         # 3. 지역 변수 미사용 체크
 

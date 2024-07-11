@@ -122,6 +122,7 @@ class WindowClass(QMainWindow, main_form_class):
                     self.folder_path = os.path.dirname(selected_files[0])
             else:
                 Logger.info("확인을 선택하지 않았습니다.")
+                # self.set_table_widget_file.setRowCount(0)
                 return
 
             # ini 파일에 저장
