@@ -468,11 +468,27 @@ class CodeReviewCheck:
                 Logger.error("CodeCheck.test_check_code - Exception : " + str(e))
 
         @classmethod
-        def code_check_version(cls, text_code, cr_item) -> tuple :
+        def code_check_version(cls, text_code, cr_item)  :
             try :
-                CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT] = ROW_CR_RESULT_NG
-                CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_LINE] = "-"
-                CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT_DETAIL] = "스크립트 이력이 설정되어 있지 않습니다."
+                #1. 버전 이력 관리 변수 확인
+                version_variable_list = ["g_script_release_version", "g_script_release_date"]
+                check_result = True
+                for list_item in version_variable_list :
+                    if CodeReviewCheck.CodeCheck.is_variable_used(text_code, list_item) :
+                        Logger.info("CodeReviewCheck.code_check_version - Check OK. " + list_item)
+                    else :
+                        check_result = False
+                        Logger.error("CodeReviewCheck.code_check_version - Check NG. " + list_item)
+                        
+                # DataTable 업데이트
+                if check_result == True :
+                    CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT] = ROW_CR_RESULT_OK
+                    CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_LINE] = "-"
+                    CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT_DETAIL] = ""
+                if check_result == False :
+                    CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT] = ROW_CR_RESULT_NG
+                    CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_LINE] = "-"
+                    CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT_DETAIL] = "스크립트 이력이 설정되어 있지 않습니다."
 
             except Exception as e:
                 Logger.error("CodeReviewCheck.code_check_version - Exception : " + str(e))
@@ -554,6 +570,33 @@ class CodeReviewCheck:
             while re.search(nested_braces_pattern, code):
                 code = re.sub(nested_braces_pattern, '', code)
             return code
+
+        # 코드에서 변수 선언 확인
+        @classmethod
+        def is_variable_used(cls, script_code : str, variable_name : str) -> bool:
+            try:
+                # \b : 단어 경계, escape : 특수문자 이스케이프 처리, \s* : 변수 이름 뒤 공백, (?:=|;|,) : "=",  ";", "," 문자 포함
+                pattern = re.compile(r'\b' + re.escape(variable_name) + r'\b\s*(?:=|;|,)')
+
+                # Search for the pattern in the code
+                if re.search(pattern, script_code):
+                    return True
+                return False
+
+            except Exception as e:
+                Logger.error("CodeReviewCheck.extract_global_variables - Exception : " + str(e))
+
+        # 변수의 값 확인
+        def get_variable_value(c_code, variable_name):
+
+            #1. 전달한 변수 정규식 생성 :
+            pattern = re.compile(r'\b' + re.escape(variable_name) + r'\b\s*=\s*("[^"]*"|\d+|[^,;]+)')
+
+            # Search for the pattern in the code
+            match = re.search(pattern, c_code)
+            if match:
+                return match.group(1).strip()
+            return None 
 
     @staticmethod
     def add_crc_info(new_dict):

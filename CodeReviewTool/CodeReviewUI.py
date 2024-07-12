@@ -209,18 +209,23 @@ class WindowClass(QMainWindow, main_form_class):
             Logger.error("WindowClass.UI_Export Exception" + str(e))
 
     # table Widget 업데이트
-    def set_table_highlight(self, highlight_keyword = ROW_CR_RESULT_NG):
+    def set_table_highlight(self):
         try:
             col_result_index = 2
             for row in range(self.tableWidget.rowCount()):
                 item = self.tableWidget.item(row, col_result_index)
-                if(item.text() == highlight_keyword) :
-                    print("test - red", str(item.text()))
-                    # item.setForeground(QBrush(QColor('white')))
-                    item.setBackground(QBrush(QColor('#FF5B36')))
+                if(item.text() == ROW_CR_RESULT_OK) :
                     item2 = self.tableWidget.item(row, col_result_index-1)
-                    # item2.setForeground(QBrush(QColor('white')))
+                    item.setBackground(QBrush(QColor('#4097ED')))
+                    item2.setBackground(QBrush(QColor('#4097ED')))
+                elif(item.text() == ROW_CR_RESULT_NG) :
+                    item2 = self.tableWidget.item(row, col_result_index - 1)
+                    item.setBackground(QBrush(QColor('#FF5B36')))
                     item2.setBackground(QBrush(QColor('#FF5B36')))
+                # else :
+                #     item2 = self.tableWidget.item(row, col_result_index - 1)
+                #     item.setBackground(QBrush(QColor('gray')))
+                #     item2.setBackground(QBrush(QColor('gray')))
 
         except Exception as e:
             Logger.error("WindowClass.set_table_highlight Exception " + str(e))
