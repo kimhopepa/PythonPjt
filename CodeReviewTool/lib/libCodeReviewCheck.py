@@ -209,6 +209,7 @@ class CodeReviewCheck:
             except Exception as e:
                 Logger.error("CodeReviewCheck.get_file_path - Exception : " + str(e))
 
+
     # UI 관련 동작 구현
     class CodeUI:
         '''
@@ -369,6 +370,13 @@ class CodeReviewCheck:
         @staticmethod
         def save_to_file(content : str, file_name : str , dict_content : dict = None ):
             try :
+
+                # 최대 열 너비 설정 (기본값: 50)
+                pd.set_option('display.max_colwidth', None)
+
+                # 생략 표시 비활성화
+                pd.set_option('display.max_rows', None)  # 모든 행 출력
+                pd.set_option('display.max_columns', None)  # 모든 열 출력
                 path = os.path.join(os.getcwd(), file_name + ".txt")
                 if dict_content is not None :
                     content = json.dumps(dict_content, ensure_ascii=False, indent=4)
@@ -433,6 +441,7 @@ class CodeReviewCheck:
             except Exception as e:
                 Logger.error("CodeReviewCheck.test_check_code - Exception : " + str(e))
 
+        # [코드 표준] 불필요한 코드 지양 -> SVR
         @classmethod
         def code_check_UnnecessaryCode(cls, text_code : str, cr_item : str) -> tuple:
             try:
@@ -467,6 +476,7 @@ class CodeReviewCheck:
             except Exception as e:
                 Logger.error("CodeCheck.test_check_code - Exception : " + str(e))
 
+        # [코드 표준] 스크립트 이력 관리 -> SVR
         @classmethod
         def code_check_version(cls, text_code, cr_item)  :
             try :
@@ -479,7 +489,9 @@ class CodeReviewCheck:
                     else :
                         check_result = False
                         Logger.error("CodeReviewCheck.code_check_version - Check NG. " + list_item)
-                        
+
+                ng_detail_msg = "스크립트 이력이 설정되어 있지 않습니다. (g_script_release_version, g_script_release_date)"
+
                 # DataTable 업데이트
                 if check_result == True :
                     CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT] = ROW_CR_RESULT_OK
@@ -488,30 +500,118 @@ class CodeReviewCheck:
                 if check_result == False :
                     CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT] = ROW_CR_RESULT_NG
                     CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_LINE] = "-"
-                    CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT_DETAIL] = "스크립트 이력이 설정되어 있지 않습니다."
+                    CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT_DETAIL] = ng_detail_msg
 
             except Exception as e:
                 Logger.error("CodeReviewCheck.code_check_version - Exception : " + str(e))
 
+        # [코드 표준] 하드 코딩 지양 -> 공통
         @classmethod
-        def extract_functions_from_code(cls, file_code):
+        def code_check_hardcoding(cls, text_code):
+            try :
+                # 스크립트에서 함수 확인
+
+
+
+                None
+            except Exception as e:
+                Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
+
+        # [코드 표준] Try, Catch 예외 처리 -> 공통
+        @classmethod
+        def code_check_hardcoding(cls, text_code):
+            try:
+                None
+
+            except Exception as e:
+                Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
+
+        # [코드 표준] DP 함수 예외 처리 -> 공통
+        @classmethod
+        def code_check_hardcoding(cls, text_code):
+            try:
+                None
+
+            except Exception as e:
+                Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
+
+        # [성능] 스크립트 동작 Active 감시 적용
+        @classmethod
+        def code_check_hardcoding(cls, text_code):
+            try:
+                None
+
+            except Exception as e:
+                Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
+
+        # [성능] Loop문 내 처리조건 확인
+        @ classmethod
+        def code_check_hardcoding(cls, text_code):
+            try:
+                None
+
+            except Exception as e:
+                Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
+
+        # [성능] 이벤트 교환 횟수 최소화
+        @ classmethod
+        def code_check_eventminimize(cls, text_code):
+            try:
+                None
+
+            except Exception as e:
+                Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
+
+        # [성능] 적절한 DP 함수 사용
+        @ classmethod
+        def code_check_callback(cls, text_code):
+            try:
+                None
+
+            except Exception as e:
+                Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
+
+        # [성능] Raima DB 증가 방지
+        @ classmethod
+        def code_check_raimaDB(cls, text_code):
+            try:
+                None
+
+            except Exception as e:
+                Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
+
+        @classmethod
+        def extract_functions_from_code(cls, text):
             try:
                 function_dict = {}
 
                 # 함수 이름과 본문을 찾는 정규 표현식
-                pattern = re.compile(r'(\w+)\(\)\s*\{\n(.*?)\n\}', re.DOTALL)
+                # pattern = re.compile(r'(\w+)\(\)\s*\{\n(.*?)\n\}', re.DOTALL)
+                pattern = r'(?<!/)\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\([^)]*\)\s*\{\n(.*?)\n\}'
 
-                matches = pattern.findall(file_code)
+                # matches에서는 1번 캡처는 함수이름 2번 캠처는 body 부분입니다.
+                matches = re.finditer(pattern, text, re.DOTALL)
+                results = []
 
                 for match in matches:
-
-                    function_name = match[0]
-                    function_body = match[1]
-                    function_dict[function_name] = function_body.strip()
+                    function_name = match.group(1)
+                    function_body = match.group(2)
+                    start_pos = match.start()
+                    end_pos = match.end()
+                    start_line = __class__.calculate_line_number(text, start_pos)
+                    end_line = __class__.calculate_line_number(text, end_pos)
+                    results.append((function_name, function_body, start_line, end_line))
 
                 return function_dict
             except Exception as e:
-                Logger.error("CodeReviewCheck.test_check_code - Exception : " + str(e))
+                Logger.error("CodeReviewCheck.extract_functions_from_code - Exception : " + str(e))
+
+        @classmethod
+        def calculate_line_number(cls, text, index):
+            try :
+                return text.count('\n', 0, index) + 1
+            except Exception as e:
+                Logger.error("CodeReviewCheck.calculate_line_number - Exception : " + str(e))
 
         @classmethod
         def remove_comments(cls, code: str) -> str:
