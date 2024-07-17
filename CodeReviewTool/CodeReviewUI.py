@@ -161,14 +161,15 @@ class WindowClass(QMainWindow, main_form_class):
             else :
                 check_svr = bool(ROW_CR_CHECK_CLI)
                 
-            #2. 코드 리뷰 점검 실행 
+            #2. 코드 리뷰 점검 실행
+            CodeReviewCheck.CodeCheck.save_to_file(str(CodeReviewCheck.df_crc_result), "[Step0] df_crc_result")
             CodeReviewCheck.CodeCheck.code_check_start(self.selected_file_name, check_svr)
             
             #3. 코드 리뷰 결과 UI 표시 데이터 가져오기 ->  결과 UI 업데이트
             df_result = CodeReviewCheck.CodeData.get_tablewidget_df()
             self.set_table_widget(df_result)
             # DataFrame 최종 데이터 저장
-            CodeReviewCheck.CodeCheck.save_to_file(str(CodeReviewCheck.df_crc_result), "[Start] df_crc_result")
+
 
         except Exception as e:
             Logger.error("WindowClass.UI_Start Exception" + str(e))

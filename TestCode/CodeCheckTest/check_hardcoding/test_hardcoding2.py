@@ -1,5 +1,5 @@
 import re
-path = r'C:\Users\KIMJH\Documents\GitHub\PythonPjt\CodeReviewTool\doc\2_function_check.txt'
+path = r'C:\Users\KIMJH\Documents\GitHub\PythonPjt\CodeReviewTool\doc\3_hardcoding.txt'
 
 print(path)
 
@@ -20,10 +20,11 @@ with open(path, 'r',  encoding='utf-8') as file:
 #     matches = re.findall(pattern, text)
 #     return matches
 
-pattern = r'(?<!/)\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\([^)]*\)\s*\{\n(.*?)\n\}'
+
 
 
 def extract_function_names(text):
+    pattern = r'(?<!/)\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\([^)]*\)\s*\{\n(.*?)\n\}'
     matches = re.finditer(pattern, text, re.DOTALL)
     results = []
     for match in matches:
@@ -38,30 +39,29 @@ def extract_function_names(text):
 
 def calculate_line_number(text, index):
     return text.count('\n', 0, index) + 1
-# # 예제 텍스트
-# text = """
-# void _Func1()
-# {
-# 	DebugTN("test func1()");
-# }
-#
-# void func2(){
-# 	DebugTN("test func2()");
-# }
-#
-# void func_3(int a, int b){
-# 	DebugTN("test func3()");
-# }
-# //func_4(){
-# 	DebugTN("test func4()");
-# }
-# void func_5(int a, int b){
-# 	DebugTN("test func5()");
-# }
-# """
 
+def print_for(input_list) :
+    for item in input_list :
+        # print("item 길이 = " + str(len(item)))
+        # print("함수 이름 : " + item[0] + "body 내용 : " + item[1])
+        body_code = item[1]
+        function_line = item[2]
+        pattern_hardcoding = re.compile(r'^\s*[^/]*=\s*[^;]*(\d+|".*?")\s*[^;]*;\s*(//.*)?$')
+        pattern_hardcoding2 = re.compile(r'\b(?!Debug|Log)\w+\s*\([^)]*(\d+|".*?")[^)]*\)')
+        function_last_line = item[3]
+        print("function = " + item[0], "line = " + str(function_line))
+        for line in body_code.split('\n'):
+            line_count = function_line + 1
+            if pattern_hardcoding.search(line) or pattern_hardcoding2.search(line) :
+
+                print("Pattern matches -> OK" + line + ", " + str(line_count))
+            else:
+                print("Pattern matches -> NG" + line)
+        # print("Start line : " + str(item[2]))
+        # print("End Line: " + str(item[3]))
 # 함수 이름 추출
 function_names = extract_function_names(text)
-
+# 출력 함수
+print_for(function_names)
 # 추출된 함수 이름 출력
-print(function_names)
+# print(function_names)

@@ -1,0 +1,433 @@
+V 13
+1
+LANG:31 0 
+PANEL,-1 -1 478 163 N "_3DFace" 1
+"$DP"
+"main()
+{
+  dyn_errClass err;
+
+  dyn_string dp_split;
+
+  dp_split = strsplit($DP,\":\");
+
+  string dp, dp_ltr;
+  dp = dp_split[2];
+  dp_ltr = dp;
+
+  if(patternMatch(\"TIE*\", dp_ltr))
+  {
+    strreplace(dp_ltr, \"TIE\", \"LTR\");
+    strreplace(dp_ltr, \"_\", \"-\");
+  }
+  else
+  {
+    strreplace(dp_ltr, \"ACB\", \"LTR\");
+    strreplace(dp_ltr, \"_\", \"-\");
+  }
+
+  Line_Tag(dp);
+
+  strreplace(dp,\"_\",\"-\");
+  if(strlen(dp)> 10)
+  {
+    setMultiValue(\"TEXT\", \"text\", dp, \"TEXT_LTR\", \"text\", dp_ltr);
+  }
+  else
+  {
+    setMultiValue(\"TEXT\", \"text\", dp, \"TEXT_LTR\", \"text\", dp_ltr);
+  }
+
+  dpConnect(\"CB_TAG_ATOSET\",TAG_ATOSET);
+  dpConnect(\"CB_ATO_STATE\",TAG_ATO);
+
+  err = getLastError();
+  if (dynlen(err) > 0)
+    setValue(\"\",\"color\",\"_dpdoesnotexist\");
+}
+" 0
+ E E E E 1 -1 -1 0  51 52
+""0  1
+E "#uses \"CtrlPv2Admin\"
+
+string Q_TAG, TAGNAME, QTAG, QTAG_1_SERVER, QTAG_2_SERVER, QTAG_3_SERVER, QTAG_4_SERVER, QTAG_1_TARGET, QTAG_2_TARGET, QTAG_3_TARGET, QTAG_4_TARGET, msg;
+dyn_string SPLIT_Q_TAG, TAG_AI_PARA, TAG_ATOFAIL, TAG_ATOREADY, TAG_ATOSET, TAG_ATOTRANSFER, TAG_ATO;
+string SITE = \"P1\";
+
+//라인명으로 tag 생성
+Line_Tag(string TAG)
+{
+  int count = 1;
+  dyn_string type;
+
+  init_ato_acb();
+  
+  if(mappingHasKey(mapp_ato_acb, TAG + \"_TAG1\"))
+  {
+    type = strsplit(mapp_ato_acb[TAG + \"_TAG1\"], \",\");
+  }
+  DebugTN(\"type\", type);
+
+  if(type[4] == \"DUAL\")
+  {
+    DebugTN(\"DUAL\");
+    QTAG_1_SERVER = type[2];
+    QTAG_1_TARGET = type[3];
+
+    if(mappingHasKey(mapp_ato_acb, TAG + \"_TAG2\"))
+    {
+      Q_TAG = mapp_ato_acb[TAG + \"_TAG2\"];
+      SPLIT_Q_TAG = strsplit(Q_TAG,\",\");
+      QTAG_2_SERVER = SPLIT_Q_TAG[2];
+      QTAG_2_TARGET = SPLIT_Q_TAG[3];
+    }
+    else
+    {
+      DebugTN(\"TAG2\",TAG);
+    }
+
+    if(mappingHasKey(mapp_ato_acb, TAG + \"_TAG3\"))
+    {
+      Q_TAG = mapp_ato_acb[TAG + \"_TAG3\"];
+      SPLIT_Q_TAG = strsplit(Q_TAG,\",\");
+      QTAG_3_SERVER = SPLIT_Q_TAG[2];
+      QTAG_3_TARGET = SPLIT_Q_TAG[3];
+    }
+    else
+    {
+      DebugTN(\"TAG3\",TAG);
+    }
+
+    if(mappingHasKey(mapp_ato_acb, TAG + \"_TAG4\"))
+    {
+      Q_TAG = mapp_ato_acb[TAG + \"_TAG4\"];
+      SPLIT_Q_TAG = strsplit(Q_TAG,\",\");
+      QTAG_4_SERVER = SPLIT_Q_TAG[2];
+      QTAG_4_TARGET = SPLIT_Q_TAG[3];
+    }
+    else
+    {
+      DebugTN(\"TAG4\",TAG);
+    }
+
+    if(QTAG_1_TARGET == \"RT\" && QTAG_2_TARGET == \"RT\" && QTAG_3_TARGET == \"RT\" && QTAG_4_TARGET == \"RT\")
+    {
+      for(int i = 1; i <= 4; i++)
+      {
+        if(mappingHasKey(mapp_ato_acb, TAG + \"_TAG\" + i))
+        {
+          Q_TAG = mapp_ato_acb[TAG + \"_TAG\" + i];
+          SPLIT_Q_TAG = strsplit(Q_TAG,\",\");
+        }
+        TAG_ATOSET[i] = SITE + QTAG_1_SERVER + \"EM\" + \":\" + SPLIT_Q_TAG[1] + \"_ATOSET\" + KEEP; // ACB ATO SET
+        TAG_ATOFAIL[i] = SITE + QTAG_1_SERVER + \"EM\" + \":\" + SPLIT_Q_TAG[1] + \"_ATOFAIL\" + KEEP; // ACB ATO FAIL
+        TAG_ATOREADY[i] = SITE + QTAG_1_SERVER + \"EM\" + \":\" + SPLIT_Q_TAG[1] + \"_ATOREADY\" + KEEP; // ACB ATO READY
+        TAG_ATOTRANSFER[i] = SITE + QTAG_1_SERVER + \"EM\" + \":\" + SPLIT_Q_TAG[1] + \"_ATOTRANSFER\" + KEEP; // ACB ATO TRANSFER
+      }
+        DebugTN(\"TAG_ATO\", TAG_ATO);
+        DebugTN(\"TAG_ATOSET\", TAG_ATOSET);
+        DebugTN(\"TAG_ATOFAIL\", TAG_ATOFAIL);
+        DebugTN(\"TAG_ATOREADY\", TAG_ATOREADY);
+
+        dynAppend(TAG_ATO,TAG_ATOFAIL);
+        dynAppend(TAG_ATO,TAG_ATOREADY);
+        dynAppend(TAG_ATO,TAG_ATOTRANSFER);
+    }
+    DebugTN(\"TAG_ATOTRANSFER\", TAG_ATOTRANSFER);
+  }
+  else
+  {
+    DebugTN(\"SINGLE\");
+    if(mappingHasKey(mapp_ato_acb, TAG + \"_TAG1\"))
+    {
+      Q_TAG = mapp_ato_acb[TAG + \"_TAG1\"];
+      SPLIT_Q_TAG = strsplit(Q_TAG,\",\");
+      QTAG_1_SERVER = SPLIT_Q_TAG[2];
+      QTAG_1_TARGET = SPLIT_Q_TAG[3];
+    }
+    else
+    {
+      DebugTN(\"TAG1\",TAG);
+    }
+
+    if(mappingHasKey(mapp_ato_acb, TAG + \"_TAG2\"))
+    {
+      Q_TAG = mapp_ato_acb[TAG + \"_TAG2\"];
+      SPLIT_Q_TAG = strsplit(Q_TAG,\",\");
+      QTAG_2_SERVER = SPLIT_Q_TAG[2];
+      QTAG_2_TARGET = SPLIT_Q_TAG[3];
+    }
+    else
+    {
+      DebugTN(\"TAG2\",TAG);
+    }
+
+    if(QTAG_1_TARGET == \"RT\" && QTAG_2_TARGET == \"RT\")
+    {
+      if(mappingHasKey(mapp_ato_acb, TAG + \"_TAG1\"))
+      {
+        Q_TAG = mapp_ato_acb[TAG + \"_TAG1\"];
+        SPLIT_Q_TAG = strsplit(Q_TAG,\",\");
+        SPLIT_Q_TAG = strsplit(SPLIT_Q_TAG[1],\"_\");
+//         DebugTN(\"SPLIT_Q_TAG\", SPLIT_Q_TAG);
+      }
+      for(int i = 1; i <= 2; i++)
+      {
+        if(mappingHasKey(mapp_ato_acb, TAG + \"_TAG\" + i))
+        {
+          Q_TAG = mapp_ato_acb[TAG + \"_TAG\" + i];
+          SPLIT_Q_TAG = strsplit(Q_TAG,\",\");
+        }
+        TAG_ATOSET[i] = SITE + QTAG_1_SERVER + \"EM\" + \":\" + SPLIT_Q_TAG[1] + \"_ATOSET\" + KEEP; // ACB ATO SET
+        TAG_ATOFAIL[i] = SITE + QTAG_1_SERVER + \"EM\" + \":\" + SPLIT_Q_TAG[1] + \"_ATOFAIL\" + KEEP; // ACB ATO FAIL
+        TAG_ATOREADY[i] = SITE + QTAG_1_SERVER + \"EM\" + \":\" + SPLIT_Q_TAG[1] + \"_ATOREADY\" + KEEP; // ACB ATO READY
+        TAG_ATOTRANSFER[i] = SITE + QTAG_1_SERVER + \"EM\" + \":\" + SPLIT_Q_TAG[1] + \"_ATOTRANSFER\" + KEEP; // ACB ATO TRANSFER
+      }
+        DebugTN(\"TAG_ATOSET\", TAG_ATOSET);
+        DebugTN(\"TAG_ATOFAIL\", TAG_ATOFAIL);
+        DebugTN(\"TAG_ATOREADY\", TAG_ATOREADY);
+
+        dynAppend(TAG_ATO,TAG_ATOFAIL);
+        dynAppend(TAG_ATO,TAG_ATOREADY);
+        dynAppend(TAG_ATO,TAG_ATOTRANSFER);
+    }
+    DebugTN(\"TAG_ATOSET\", TAG_ATOSET);
+    DebugTN(\"TAG_ATOFAIL\", TAG_ATOFAIL);
+    DebugTN(\"TAG_ATOREADY\", TAG_ATOREADY);
+    DebugTN(\"TAG_ATOTRANSFER\", TAG_ATOTRANSFER);
+  }
+}
+
+CB_ATO_STATE(dyn_string dp, dyn_bool alm)
+{
+  DebugTN(\"dp\", dp, alm);
+
+  int ATOFAIL_CNT = 0;
+  int ATOREADY_CNT = 0;
+  int ATOTRANSFER_CNT = 0;
+
+  int ATOFAIL_TAG_CNT = 0;
+  int ATOREADY_TAG_CNT = 0;
+  int ATOTRANSFER_TAG_CNT = 0;
+
+
+  for(int i = 1; i <= dynlen(alm); i++)
+  {
+    if(patternMatch(\"*ATOFAIL*\", dp[i]))
+    {
+      if(alm[i] == 1)
+      {
+        ATOFAIL_CNT = ATOFAIL_CNT + 1;
+      }
+      ATOFAIL_TAG_CNT = ATOFAIL_TAG_CNT + 1;
+    }
+    else if(patternMatch(\"*ATOREADY*\", dp[i]))
+    {
+      if(alm[i] == 1)
+      {
+        ATOREADY_CNT = ATOREADY_CNT + 1;
+      }
+      ATOREADY_TAG_CNT = ATOREADY_TAG_CNT + 1;
+    }
+    else if(patternMatch(\"*ATOTRANSFER*\", dp[i]))
+    {
+      if(alm[i] == 1)
+      {
+        ATOTRANSFER_CNT = ATOTRANSFER_CNT + 1;
+      }
+      ATOTRANSFER_TAG_CNT = ATOTRANSFER_TAG_CNT + 1;
+    }
+    else
+    {
+    }
+  }
+  DebugTN(\"ATOFAIL_CNT:\", ATOFAIL_CNT, \"ATOREADY_CNT:\", ATOREADY_CNT, \"ATOTRANSFER_CNT:\", ATOTRANSFER_CNT);
+  DebugTN(\"ATOFAIL_TAG_CNT:\", ATOFAIL_TAG_CNT, \"ATOREADY_TAG_CNT:\", ATOREADY_TAG_CNT, \"ATOTRANSFER_TAG_CNT:\", ATOTRANSFER_TAG_CNT);
+
+
+  if((ATOFAIL_CNT == ATOFAIL_TAG_CNT)&&(ATOREADY_CNT == 0)&&(ATOTRANSFER_CNT == 0)) //ATO 동작실패 : yellow
+  {
+    setMultiValue(\"STATUS\",\"fill\",\"[pattern,[fit,png,ELEC/control_param/alme_on1_m.png]]\",\"TEXT\",\"color\",\"black\");
+  }
+  else if((ATOFAIL_CNT == 0)&&(ATOREADY_CNT == ATOREADY_TAG_CNT)&&(ATOTRANSFER_CNT == 0)) //ATO 정상대기 : green
+  {
+    setMultiValue(\"STATUS\",\"fill\",\"[pattern,[fit,png,ELEC/control_param/alme_on1.png]]\",\"TEXT\",\"color\",\"black\");
+  }
+  else if((ATOFAIL_CNT == 0)&&(ATOREADY_CNT == 0)&&(ATOTRANSFER_CNT == ATOTRANSFER_TAG_CNT)) //ATO 동작 : red
+  {
+    setMultiValue(\"STATUS\",\"fill\",\"[pattern,[fit,png,ELEC/control_param/alme_on.png]]\",\"TEXT\",\"color\",\"white\");
+  }
+  else //ATO 고장 : blue
+  {
+    setMultiValue(\"STATUS\",\"fill\",\"[pattern,[fit,png,ELEC/control_param/alme_on2.png]]\",\"TEXT\",\"color\",\"white\");
+  }
+}
+
+// ATO SET
+CB_TAG_ATOSET(dyn_string dp, dyn_bool alm)
+{
+  int TRUE_CNT = dynCount(alm, TRUE);
+  
+  DebugTN(\"ATO_SET_ALM_CNT\", TRUE_CNT);
+
+  if(TRUE_CNT >= 0)
+  {
+    if(TRUE_CNT == dynlen(alm))
+    {
+      setValue(\"ALM_E\",\"fill\",\"[pattern,[fit,png,ELEC/control_param/alme_off_s.png]]\");
+    }
+    else if(TRUE_CNT == 0)
+    {
+      setValue(\"ALM_E\",\"fill\",\"[pattern,[fit,png,ELEC/control_param/alme_on_s.png]]\");
+    }
+    else
+    {
+      setValue(\"ALM_E\",\"fill\",\"[pattern,[fit,png,ELEC/control_param/alme_off_m2.png]]\");
+    }
+  }
+  else
+    DebugTN(\"SYM_ATO_ACB -- CB_TAG_ATOSET() dynCount error!\",dp);
+}
+
+
+
+
+
+" 0
+ 2
+"CBRef" "1"
+"EClose" E
+0 0 0
+""
+DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+LAYER, 0 
+1
+LANG:31 0 
+6 13
+"RECTANGLE13611"
+""
+1 3880 3430 E E E 1 E 1 E N "white" E N "_Transparent" E E
+ E E
+11 0 0 0 0 0
+E E E
+0
+1
+LANG:31 0 
+
+3
+"layoutAlignment" "AlignLeft|AlignRight|AlignHCenter|AlignJustify|AlignAbsolute|AlignTop|AlignBottom|AlignVCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E 0.691228 0 0.481818 -2642.96 -1591.64 1 E 3880 3430 4450 3540
+6 11
+"STATUS"
+""
+1 5260 3360 E E E 1 E 1 E N "_Transparent" E N {255,255,255} E E
+ E E
+9 0 0 0 0 0
+E E E
+0
+1
+LANG:31 0 
+
+3
+"layoutAlignment" "AlignLeft|AlignRight|AlignHCenter|AlignJustify|AlignAbsolute|AlignTop|AlignBottom|AlignVCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E 1.43571 0 0.6 -7331.86 -1951.08 2  1 0  "pictures/ELEC/control_param/alme_on1.png" 4294967295 E 5260 3360 5400 3430
+6 12
+"ALM_E"
+""
+1 5190 3290 E E E 1 E 1 E N "_Transparent" E N {255,255,255} E E
+ E E
+10 0 0 0 0 0
+E E E
+0
+1
+LANG:31 0 
+
+3
+"layoutAlignment" "AlignLeft|AlignRight|AlignHCenter|AlignJustify|AlignAbsolute|AlignTop|AlignBottom|AlignVCenter"
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E 0.7 0 0.9313860000000001 -3260 -2991.31 2  1 0  "pictures/ELEC/control_param/alme_off_m.png" 4294967295 E 5190 3290 5240 3320
+2 14
+"TEXT_LTR"
+""
+1 -1900.953832396137 -26.46213600439369 E E E 1 E 1 E N "white" E N "_Window" E E
+ E E
+12 0 0 0 0 0
+E E E
+0
+1
+LANG:31 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E 0.594795 0 0.627148 -836.436 -13.931 0 E 1495 141.802 1751 178
+0 2 2 "0s" 0 0 0 193 0 0  1623.14 141.802 1
+3
+LANG:31 30 ���� ����,20,-1,5,75,0,0,0,0,0
+LANG:10031 39 맑은 고딕,-1,32,5,75,0,0,0,0,0,Bold
+LANG:1 25 ?? ??,7,-1,5,75,0,0,0,0,0
+0 3
+LANG:31 15 TIE-2U22ACWWT12
+LANG:10031 18 <차단기 상태>
+LANG:1 4 CWPK
+2 15
+"TEXT"
+""
+1 -1504.707497909568 -23.94330042814497 E E E 1 E 1 E N {0,0,0,230} E N "_Window" E E
+ E E
+13 0 0 0 0 0
+E E E
+0
+1
+LANG:31 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E 0.594795 0 0.627148 -668.436 -12.931 0 E 1525 141.802 1721 171
+0 2 2 "0s" 0 0 0 193 0 0  1623.14 141.802 1
+3
+LANG:31 30 ���� ����,16,-1,5,75,0,0,0,0,0
+LANG:10031 39 맑은 고딕,-1,32,5,75,0,0,0,0,0,Bold
+LANG:1 25 ?? ??,7,-1,5,75,0,0,0,0,0
+0 3
+LANG:31 15 TIE-2U22ACWWT12
+LANG:10031 18 <차단기 상태>
+LANG:1 4 CWPK
+0
+LAYER, 1 
+1
+LANG:31 0 
+0
+LAYER, 2 
+1
+LANG:31 0 
+0
+LAYER, 3 
+1
+LANG:31 0 
+0
+LAYER, 4 
+1
+LANG:31 0 
+0
+LAYER, 5 
+1
+LANG:31 0 
+0
+LAYER, 6 
+1
+LANG:31 0 
+0
+LAYER, 7 
+1
+LANG:31 0 
+0
+0

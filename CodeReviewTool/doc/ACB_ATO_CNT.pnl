@@ -1,0 +1,959 @@
+V 13
+2
+LANG:31 21 ato_fab_ph1_cnt_total
+LANG:10031 21 ato_fab_ph1_cnt_total
+PANEL,-1 -1 697 950 N "COR_COM_DARKGRAY" 0
+"main()
+{
+  //ATO_READY
+  dpQueryConnectSingle(\"ato_count\",true,\"_ATOREADY\",\"SELECT '_original.._value' FROM 'ACB_*_ATOREADY.alert.FLTKEEP*' REMOTE 'P166EM:' WHERE _DPT= \\\"VDI_TOSHIBA\\\" \");
+
+  //ATO TRANSER
+  dpQueryConnectSingle(\"ato_count\",true,\"_ATOTRANSFER\",\"SELECT '_original.._value' FROM 'ACB_*_ATOTRANSFER.alert.FLTKEEP*' REMOTE 'P166EM:' WHERE _DPT= \\\"VDI_TOSHIBA\\\" \");
+
+  //ATO FAIL
+  dpQueryConnectSingle(\"ato_count\",true,\"_ATOFAIL\",\"SELECT '_original.._value' FROM 'ACB_*_ATOFAIL.alert.FLTKEEP*' REMOTE 'P166EM:' WHERE _DPT= \\\"VDI_TOSHIBA\\\" \");
+
+  //ATO SET
+  dpQueryConnectSingle(\"ato_count\",true,\"_ATOSET\",\"SELECT '_original.._value' FROM 'ACB_*_ATOSET.alert.FLTKEEP*' REMOTE 'P166EM:' WHERE _DPT= \\\"VDI_TOSHIBA\\\" \");
+}
+
+
+
+
+
+" 0
+ E E E E 1 -1 -1 0  0 0
+""0  1
+E "mapping mapp_ato_infra_ato, mapp_ato_green_ato;
+
+ato_count(anytype userData, dyn_dyn_anytype val)
+{
+  DebugTN(\"ato_count\", userData, val);
+  dyn_anytype dyn_dp;
+  string param = userData + \".alert.FLTKEEP\";
+  
+  int ato_infra_total_cnt = 0;
+  int ato_infra_total_cnt_fault = 0;
+  int ato_green_total_cnt = 0;
+  int ato_green_total_cnt_fault = 0;
+  
+  for(int i=2;i<=dynlen(val);i++)
+  {
+    dynAppend(dyn_dp, dpSubStr(val[i][1], DPSUB_SYS_DP_EL));
+  }
+  DebugTN(\"dyn_dp\", dyn_dp);
+  for(int i=1;i<=dynlen(ato_tag_infra_total);i++)
+  {
+    string ato1_dp = \"P166EM:\" + ato_tag_infra_total[i] + \"_1\" + param;
+    string ato2_dp = \"P166EM:\" + ato_tag_infra_total[i] + \"_2\" + param;
+    
+    int atoNum1 = dynContains(dyn_dp, ato1_dp);
+    int atoNum2 = dynContains(dyn_dp, ato2_dp);
+    
+    if(atoNum1 > 0)
+    {
+      mapp_ato_infra_ato[ato1_dp] = val[atoNum1+1][2];
+    }
+    if(atoNum2 > 0)
+    {
+      mapp_ato_infra_ato[ato2_dp] = val[atoNum2+1][2];
+    }
+    
+    if(mapp_ato_infra_ato[ato1_dp] == mapp_ato_infra_ato[ato2_dp])
+    {
+      ato_infra_total_cnt = ato_infra_total_cnt + mapp_ato_infra_ato[ato1_dp];
+    }
+    else
+    {
+      ato_infra_total_cnt_fault = ato_infra_total_cnt_fault + 1;
+    }
+    delay(0, 1);
+  }
+  for(int i=1;i<=dynlen(ato_tag_green_total);i++)
+  {
+    string ato1_dp = \"P166EM:\" + ato_tag_green_total[i] + \"_1\" + param;
+    string ato2_dp = \"P166EM:\" + ato_tag_green_total[i] + \"_2\" + param;
+    
+    int atoNum1 = dynContains(dyn_dp, ato1_dp);
+    int atoNum2 = dynContains(dyn_dp, ato2_dp);
+    
+    if(atoNum1 > 0)
+    {
+      mapp_ato_green_ato[ato1_dp] = val[atoNum1+1][2];
+    }
+    if(atoNum2 > 0)
+    {
+      mapp_ato_green_ato[ato2_dp] = val[atoNum2+1][2];
+    }
+    
+    if(mapp_ato_green_ato[ato1_dp] == mapp_ato_green_ato[ato2_dp])
+    {
+      ato_green_total_cnt = ato_green_total_cnt + mapp_ato_green_ato[ato1_dp];
+    }
+    else
+    {
+      ato_green_total_cnt_fault = ato_green_total_cnt_fault + 1;
+    }
+    delay(0, 1);
+  }
+  if(userData == \"_ATOREADY\")
+    setMultiValue(\"ato_ready_infra_total_cnt\", \"text\", ato_infra_total_cnt,
+                  \"ato_ready_green_total_cnt\", \"text\", ato_green_total_cnt,
+                  \"ato_infra_total_cnt_fault\", \"text\", ato_infra_total_cnt_fault,
+                  \"ato_green_total_cnt_fault\", \"text\", ato_green_total_cnt_fault);
+  else if(userData == \"_ATOTRANSFER\")
+    setMultiValue(\"ato_transfer_infra_total_cnt\", \"text\", ato_infra_total_cnt,
+                  \"ato_transfer_green_total_cnt\", \"text\", ato_green_total_cnt);
+  else if(userData == \"_ATOFAIL\")
+    setMultiValue(\"ato_fail_infra_total_cnt\", \"text\", ato_infra_total_cnt,
+                  \"ato_fail_green_total_cnt\", \"text\", ato_green_total_cnt);
+  else if(userData == \"_ATOSET\")
+    setMultiValue(\"ato_set_infra_total_cnt\", \"text\", ato_infra_total_cnt,
+                  \"ato_set_green_total_cnt\", \"text\", ato_green_total_cnt,
+                  \"ato_infra_total_cnt_total\", \"text\", dynlen(ato_tag_infra_total),
+                  \"ato_green_total_cnt_total\", \"text\", dynlen(ato_tag_green_total));
+  else
+    DebugTN(\"SYM_ATO_CNT -- ato_count() userData Mapping NG!\");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+" 0
+ 2
+"CBRef" "1"
+"EClose" E
+0 0 0
+""
+DISPLAY_LAYER, 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+LAYER, 0 
+1
+LANG:31 0 
+6 50
+"RECTANGLE13805"
+""
+1 1180 10 E E E 1 E 1 E N "White" E N "_Transparent" E E
+ E E
+50 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+2
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E 0.2328125000000002 0 8.838518518518535 235.2812499999998 20.14814814814665 1 E 1180 10 1820 100
+6 51
+"RECTANGLE13806"
+""
+1 1180 10 E E E 1 E 1 E N "White" E N "_Transparent" E E
+ E E
+51 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+2
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E 0.2328125000000002 0 8.833333333333334 86.28124999999977 20.66666666666666 1 E 1180 10 1820 100
+6 37
+"RECTANGLE13790"
+""
+1 1180 10 E E E 1 E 1 E N "White" E N "_Transparent" E E
+ E E
+37 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+2
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E 0.9798451613437019 0 1.307037037037041 -1124.217290385569 183.9296296296296 1 E 1180 10 1820 100
+6 38
+"RECTANGLE13791"
+""
+1 1180 10 E E E 1 E 1 E N "White" E N "_Transparent" E E
+ E E
+38 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+2
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E 0.9798451613437019 0 1.307037037037041 -1124.217290385569 301.5629629629619 1 E 1180 10 1820 100
+6 39
+"RECTANGLE13792"
+""
+1 1180 10 E E E 1 E 1 E N "White" E N "_Transparent" E E
+ E E
+39 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+2
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E 0.9798451613437019 0 1.296053532524125 -1124.217290385569 419.3038904450656 1 E 1180 10 1820 100
+6 40
+"RECTANGLE13793"
+""
+1 1180 10 E E E 1 E 1 E N "White" E N "_Transparent" E E
+ E E
+40 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+2
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E 0.9798451613437019 0 1.95703703703705 -1124.217290385569 1.296296296295935 1 E 1180 10 1820 100
+6 41
+"RECTANGLE13794"
+""
+1 1180 10 E E E 1 E 1 E N "White" E N "_Transparent" E E
+ E E
+41 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+2
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E 0.9798451613437019 0 1.307037037037041 -1124.217290385569 535.9296296296296 1 E 1180 10 1820 100
+2 52
+"PRIMITIVE_TEXT11835"
+""
+1 195.8657139685447 76.70000000000005 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+52 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E "main()
+{
+  
+  DebugTN(\"mapp_ato_infra_ato\", mapp_ato_infra_ato, ato_infra_total_cnt);
+  DebugTN(\"mapp_ato_green_ato\", mapp_ato_green_ato, ato_green_total_cnt);
+}" 0
+ 0 1 1 2 1 E U  0 E 148 76.70000000000005 244 141
+0 2 2 "0s" 0 0 0 193 0 0  195.8657139685447 76.70000000000005 1
+3
+LANG:31 30 ∏º¿∫ ∞ÌµÒ,36,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,48,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 4 ±∏∫–
+LANG:10031 7 Íµ¨ Î∂Ñ
+LANG:1 5 TREND
+2 53
+"PRIMITIVE_TEXT11836"
+""
+1 195 224 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+53 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 62 224 328 288
+0 2 2 "0s" 0 0 0 193 0 0  195 224 1
+3
+LANG:31 30 ∏º¿∫ ∞ÌµÒ,36,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 9 ATO READY
+LANG:10031 9 ATO READY
+LANG:1 5 TREND
+2 54
+"PRIMITIVE_TEXT11837"
+""
+1 195 342 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+54 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 62 342 328 406
+0 2 2 "0s" 0 0 0 193 0 0  195 342 1
+3
+LANG:31 30 ∏º¿∫ ∞ÌµÒ,36,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 9 ATO TRANS
+LANG:10031 9 ATO TRANS
+LANG:1 5 TREND
+2 55
+"PRIMITIVE_TEXT11838"
+""
+1 163.9999999999991 458.6249999999984 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+55 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 62 458.6249999999984 266 523
+0 2 2 "0s" 0 0 0 193 0 0  163.9999999999991 458.6249999999984 1
+3
+LANG:31 30 ∏º¿∫ ∞ÌµÒ,36,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 8 ATO FAIL
+LANG:10031 8 ATO FAIL
+LANG:1 5 TREND
+2 56
+"PRIMITIVE_TEXT11839"
+""
+1 156.9999999999991 576.0749999999986 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+56 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 62 576.0749999999986 252 640
+0 2 2 "0s" 0 0 0 193 0 0  156.9999999999991 576.0749999999986 1
+3
+LANG:31 30 ∏º¿∫ ∞ÌµÒ,36,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 7 ATO SET
+LANG:10031 7 ATO SET
+LANG:1 5 TREND
+6 57
+"RECTANGLE13807"
+""
+1 1180 10 E E E 1 E 1 E N "White" E N "_Transparent" E E
+ E E
+57 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+2
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E 0.4658535712303432 0 0.9735004748338145 -188.707214051805 11.18328584995092 1 E 1180 10 1820 100
+6 87
+"RECTANGLE13810"
+""
+1 1180 10 E E E 1 E 1 E N "White" E N "_Transparent" E E
+ E E
+86 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+2
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E 0.9798451613437019 0 1.307037037037041 -1124.217290385569 653.9296296296296 1 E 1180 10 1820 100
+2 89
+"PRIMITIVE_TEXT11856"
+""
+1 191 693.8499999999997 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+87 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 62 693.8499999999997 320 758
+0 2 2 "0s" 0 0 0 193 0 0  191 693.8499999999997 1
+3
+LANG:31 30 ∏º¿∫ ∞ÌµÒ,36,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 11 ∞Ë¿¸±‚ ¡°∞À
+LANG:10031 16 Í≥ÑÏ†ÑÍ∏∞ Ï†êÍ≤Ä
+LANG:1 5 TREND
+2 74
+"ato_ready_infra_total_cnt"
+""
+1 437 240 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+74 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 408 240 466 271
+0 2 2 "0s" 0 0 0 193 0 0  437 240 1
+3
+LANG:31 26 Arial,20,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 3 XXX
+LANG:10031 3 xxx
+LANG:1 5 TREND
+2 75
+"ato_transfer_infra_total_cnt"
+""
+1 436.9388567622552 357.9145833333333 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+75 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 408 357.9145833333333 466 389
+0 2 2 "0s" 0 0 0 193 0 0  436.9388567622552 357.9145833333333 1
+3
+LANG:31 26 Arial,20,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 3 XXX
+LANG:10031 3 xxx
+LANG:1 5 TREND
+2 76
+"ato_fail_infra_total_cnt"
+""
+1 437 474.5833333333323 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+76 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 408 474.5833333333323 466 506
+0 2 2 "0s" 0 0 0 193 0 0  437 474.5833333333323 1
+3
+LANG:31 26 Arial,20,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 3 XXX
+LANG:10031 3 xxx
+LANG:1 5 TREND
+2 77
+"ato_set_infra_total_cnt"
+""
+1 437.292571174837 592.0291666666655 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+77 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 408 592.0291666666655 466 623
+0 2 2 "0s" 0 0 0 193 0 0  437.292571174837 592.0291666666655 1
+3
+LANG:31 26 Arial,20,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 3 XXX
+LANG:10031 3 xxx
+LANG:1 5 TREND
+2 90
+"ato_infra_total_cnt_fault"
+""
+1 437.292571174837 708.8645833333324 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+88 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 408 708.8645833333324 466 740
+0 2 2 "0s" 0 0 0 193 0 0  437.292571174837 708.8645833333324 1
+3
+LANG:31 26 Arial,20,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 3 XXX
+LANG:10031 3 xxx
+LANG:1 5 TREND
+2 100
+"ato_ready_green_total_cnt"
+""
+1 584.0851423496746 240 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+96 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 555 240 613 271
+0 2 2 "0s" 0 0 0 193 0 0  584.0851423496746 240 1
+3
+LANG:31 26 Arial,20,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 3 XXX
+LANG:10031 3 xxx
+LANG:1 5 TREND
+2 102
+"ato_transfer_green_total_cnt"
+""
+1 583.731427937093 357.9145833333333 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+98 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 555 357.9145833333333 613 389
+0 2 2 "0s" 0 0 0 193 0 0  583.731427937093 357.9145833333333 1
+3
+LANG:31 26 Arial,20,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 3 XXX
+LANG:10031 3 xxx
+LANG:1 5 TREND
+2 104
+"ato_fail_green_total_cnt"
+""
+1 583.7925711748378 474.5833333333323 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+100 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 555 474.5833333333323 613 506
+0 2 2 "0s" 0 0 0 193 0 0  583.7925711748378 474.5833333333323 1
+3
+LANG:31 26 Arial,20,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 3 XXX
+LANG:10031 3 xxx
+LANG:1 5 TREND
+2 106
+"ato_set_green_total_cnt"
+""
+1 584.0851423496748 592.0291666666653 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+102 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 555 592.0291666666653 613 623
+0 2 2 "0s" 0 0 0 193 0 0  584.0851423496748 592.0291666666653 1
+3
+LANG:31 26 Arial,20,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 3 XXX
+LANG:10031 3 xxx
+LANG:1 5 TREND
+2 108
+"ato_green_total_cnt_fault"
+""
+1 584.0851423496748 709.8645833333324 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+104 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 555 709.8645833333324 613 741
+0 2 2 "0s" 0 0 0 193 0 0  584.0851423496748 709.8645833333324 1
+3
+LANG:31 26 Arial,20,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 3 XXX
+LANG:10031 3 xxx
+LANG:1 5 TREND
+6 135
+"RECTANGLE13811"
+""
+1 1180 10 E E E 1 E 1 E N "White" E N "_Transparent" E E
+ E E
+127 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+2
+"dashclr"N "_Transparent"
+"antiAliased" "0"
+E E 0 1 1 2 1 E 0.9798451613437019 0 1.307037037037041 -1124.217290385569 771.9296296296296 1 E 1180 10 1820 100
+2 138
+"PRIMITIVE_TEXT11857"
+""
+1 62 782 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+128 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+4
+"sizePolicy" "Fixed Fixed"
+"layoutAlignment" "AlignLeft|AlignLeading"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 62 782 241 905
+0 2 2 "0s" 0 0 0 192 0 0  62 782 2
+3
+LANG:31 30 ∏º¿∫ ∞ÌµÒ,34,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 7 ATO SET
+LANG:10031 7 ATO SET
+LANG:1 5 TREND
+3
+LANG:31 30 ∏º¿∫ ∞ÌµÒ,34,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 2
+LANG:31 5 TOTAL
+LANG:10031 5 TOTAL
+2 139
+"ato_infra_total_cnt_total"
+""
+1 437 827 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+129 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 408 827 466 858
+0 2 2 "0s" 0 0 0 193 0 0  437 827 1
+3
+LANG:31 26 Arial,20,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 3 XXX
+LANG:10031 3 xxx
+LANG:1 5 TREND
+2 140
+"ato_green_total_cnt_total"
+""
+1 584.2222222222222 828 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+130 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 555 828 613 859
+0 2 2 "0s" 0 0 0 193 0 0  584.2222222222222 828 1
+3
+LANG:31 26 Arial,20,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,40,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 3 XXX
+LANG:10031 3 xxx
+LANG:1 5 TREND
+2 149
+"PRIMITIVE_TEXT11858"
+""
+1 510 37.70000000000005 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+139 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 450 37.70000000000005 570 91
+0 2 2 "0s" 0 0 0 193 0 0  510 37.70000000000005 1
+3
+LANG:31 30 ∏º¿∫ ∞ÌµÒ,30,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,48,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 6 ∫Œ¥Îµø
+LANG:10031 7 Íµ¨ Î∂Ñ
+LANG:1 5 TREND
+2 150
+"PRIMITIVE_TEXT11859"
+""
+1 436 130 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+140 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 388 130 484 174
+0 2 2 "0s" 0 0 0 193 0 0  436 130 1
+3
+LANG:31 30 ∏º¿∫ ∞ÌµÒ,24,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,48,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 6 ±‚º˙µø
+LANG:10031 7 Íµ¨ Î∂Ñ
+LANG:1 5 TREND
+2 151
+"PRIMITIVE_TEXT11860"
+""
+1 586 129.7000000000001 E E E 1 E 1 E N "White" E N "_Window" E E
+ E E
+141 0 0 0 0 0
+E E E
+0
+3
+LANG:31 0 
+LANG:10031 0 
+LANG:1 0 
+
+3
+"sizePolicy" "Fixed Fixed"
+"dashclr"N "_Transparent"
+"antiAliased" "1"
+E E 0 1 1 2 1 E U  0 E 538 129.7000000000001 634 174
+0 2 2 "0s" 0 0 0 193 0 0  586 129.7000000000001 1
+3
+LANG:31 30 ∏º¿∫ ∞ÌµÒ,24,-1,5,75,0,0,0,0,0
+LANG:10031 39 ÎßëÏùÄ Í≥†Îîï,-1,48,5,75,0,0,0,0,0,Bold
+LANG:1 25 Gulim,9,-1,5,50,0,0,0,0,0
+0 3
+LANG:31 6 ¡§ºˆ¿Â
+LANG:10031 7 Íµ¨ Î∂Ñ
+LANG:1 5 TREND
+0
+LAYER, 1 
+1
+LANG:31 0 
+0
+LAYER, 2 
+1
+LANG:31 0 
+0
+LAYER, 3 
+1
+LANG:31 0 
+0
+LAYER, 4 
+1
+LANG:31 0 
+0
+LAYER, 5 
+1
+LANG:31 0 
+0
+LAYER, 6 
+1
+LANG:31 0 
+0
+LAYER, 7 
+1
+LANG:31 0 
+0
+0

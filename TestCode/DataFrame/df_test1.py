@@ -2,10 +2,14 @@ import pandas as pd
 
 # 샘플 DataFrame 생성
 df = pd.DataFrame({
+    'Group': ['Mod1', "Mod1", "Mod2", "Mod2", "Mod2"],
     'A': [1, 2, 3, 4, 5],
-    'B': [10, 20, 30, 40, 50],
+    'Data': ["", "", "", "", ""],
     'C': [100, 200, 300, 400, 500]
 })
+
+# A가 3인  index 찾기
+
 
 print("Original DataFrame:")
 print(df)
