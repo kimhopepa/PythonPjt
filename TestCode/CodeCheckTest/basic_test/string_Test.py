@@ -12,3 +12,6 @@ if 'DebugTN' in str2 :
     print(True)
 else :
     print(False)
+
+str = 'string manager_dpname ="";  //ex: WCCOActrl_2  (A_SIT_ADMIN_MANAGER)'
+print(str.find('/'))

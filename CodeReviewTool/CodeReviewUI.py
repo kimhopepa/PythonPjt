@@ -181,8 +181,6 @@ class WindowClass(QMainWindow, main_form_class):
             print(self.selected_file_name == None)
             if self.selected_file_name is not None:
                 Logger.debug("UI_Export. file name = " + self.selected_file_name)
-                # 2. Export 파일 이름 생성
-                # 2.1 선택한 파일 이름 조회
 
 
                 format_time = datetime.now().strftime("%Y%m%d%H%M%S")

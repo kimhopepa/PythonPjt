@@ -120,8 +120,7 @@ int cfg_part_gen_count;
 // developed by : hanwha-convergence
 // brief        : Script Main Function
 //*******************************************************************************
-void main()
-{
+void main(){
 	try
 	{
 		init_lib_Commmon();	//Debug-Flag Initialize
@@ -2044,9 +2043,7 @@ int cx_check(dyn_string k_st_list, bool all_blackout, dyn_int step_list)
     int result = 0, dp_st_delaytm;
 	bool k_status_value;
 	string k_status_dp;
-	
-	try
-	{
+
 		if(dpGet(blackout_dp + cfg_comm_delaytime,dp_st_delaytm) == 0)
 		{
 			writeLog(g_script_name, "cx_check() - Comm Delaytime dpGet: OK", LV_INFO);
@@ -2103,6 +2100,7 @@ int cx_check(dyn_string k_st_list, bool all_blackout, dyn_int step_list)
 		}
 	
 		delay(0,100);
+		dpGet("Aa", aa);
 		
 		//전체 정전 상태
 		if(all_blackout == true)
@@ -2141,6 +2139,9 @@ int cx_check(dyn_string k_st_list, bool all_blackout, dyn_int step_list)
 		
 		if(isScriptActive == true)	
 		{
+			dpSetWait(blackout_dp + cfg_blackout_mode, IDX_MODE_LOCK, //LOCK MODE 전환
+						 blackout_dp + cfg_before_retry_genst, INIT_ZERO,
+						 blackout_dp + cfg_semi_popup_feedback, false)
 			if(dpSetWait(blackout_dp + cfg_blackout_mode, IDX_MODE_LOCK, //LOCK MODE 전환
 						 blackout_dp + cfg_before_retry_genst, INIT_ZERO,
 						 blackout_dp + cfg_semi_popup_feedback, false) == 0)
@@ -2154,13 +2155,7 @@ int cx_check(dyn_string k_st_list, bool all_blackout, dyn_int step_list)
                 return -1;
 			}
 		}
-	}
-	catch
-	{
-		update_user_alarm(manager_dpname, "Exception of cx_check(). Error = " + getLastException());
-        
-		result = -1;
-	}
+
     
 	return result;
 }

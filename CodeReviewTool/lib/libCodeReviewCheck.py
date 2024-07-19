@@ -93,6 +93,9 @@ ROW_CR_ITEM_UNNECESSARY_CODE = '불필요한 코드 지양'
 
 
 class CodeReviewCheck:
+    
+    function_body_list =[]
+    text_list = []
     # df_crc_info 컬럼 명 : 파일 이름 | 파일 Full Path
     df_crc_info = pd.DataFrame(columns=[COL_FILE_NAME, COL_FILE_PATH])
 
@@ -466,7 +469,7 @@ class CodeReviewCheck:
                     new_data = cr_result_df.loc[cr_result_df[COL_CR_ITEM] == cr_item].copy()            # item record 복사
                     cr_result_df = cr_result_df.drop(item_indx)                                         # item index 삭제
 
-                    # row_data 업데이트
+                    # 신규 추가 row_data 업데이트 -> DataFrame에 추가
                     new_data[COL_CR_LINE] = list_line
                     new_data[COL_CR_RESULT_DETAIL] = list_detail
                     CodeReviewCheck.df_crc_result = pd.concat([cr_result_df.loc[:item_indx],new_data, cr_result_df.loc[item_indx+1:]], ignore_index=True)
@@ -491,7 +494,7 @@ class CodeReviewCheck:
                         new_row = select_row.copy()
                         new_row.loc[:, COL_CR_RESULT] = ROW_CR_RESULT_NG
                         new_row.loc[:, COL_CR_LINE] = item[0]
-                        new_row.loc[:, COL_CR_RESULT_DETAIL] = item[1]
+                        new_row.loc[:, COL_CR_RESULT_DETAIL] = item[1].strip()
                         # 상위 부분, 새로운 행, 하위 부분 결합
                         upper_half = df.iloc[:item_index + 1]
                         lower_half = df.iloc[item_index + 1:]
@@ -502,13 +505,21 @@ class CodeReviewCheck:
 
             except Exception as e:
                 Logger.error("CodeReviewCheck.update_check_result - Exception : " + str(e))
+        
+        # lib 코드에서 코드 점검 시작
         @staticmethod
         def code_check_start( file_name : str , check_svr : bool) -> pd.DataFrame :
             try:
                 #1. Load Code File
                 file_path = CodeReviewCheck.CodeData.get_file_path(file_name)  # 파일 Full 경로 가져오기
                 text_code = CodeReviewCheck.CodeCheck.get_file_to_text(file_path)  # 파일 코드 불러와서 문자열 변수 저장
-                CodeReviewCheck.CodeCheck.save_to_file(str(text_code), "[Step0] code")
+                CodeReviewCheck.text_list = text_code.split("\n")
+
+                #문자열 '\n' 분리하여 리스트에 저장
+                CodeReviewCheck.CodeCheck.save_to_file(str(text_code), "[Step0] file_text")
+
+                #2. 함수 body 정보 분리하여 저장
+                CodeReviewCheck.function_body_list = CodeReviewCheck.CodeCheck.get_function_body(text_code)
 
                 # 모두 해당되는 코드 리뷰 항목
                 # CodeReviewCheck.CodeCheck.code_check_UnnecessaryCode(text_code, ROW_CR_ITEM_UNNECESSARY_CODE[CR_ITEM_IDX])
@@ -519,6 +530,7 @@ class CodeReviewCheck:
                     # SVR에서만 점검하는 코드 리뷰 항목
                     CodeReviewCheck.CodeCheck.code_check_version(text_code, ROW_CR_ITEM_VERSION[CR_ITEM_IDX])
                     CodeReviewCheck.CodeCheck.code_check_try_exception(text_code, ROW_CR_ITEM_TRY_EXCEPTION[CR_ITEM_IDX])
+                    CodeReviewCheck.CodeCheck.code_check_dp_exception(text_code, ROW_CR_ITEM_DP_EXCEPTION[CR_ITEM_IDX])
 
                     None
                 else:
@@ -552,7 +564,7 @@ class CodeReviewCheck:
 
                 # 1. 함수이름, Body 부분을 분리하여 Dictionary에 저장 : key -> Function 이름, value -> body
                 # 함수 이름을 -> Key 로 저장 | 함수 Body -> Value로 저장
-                code_dict = CodeReviewCheck.CodeCheck.extract_functions_from_code(new_text_code)
+                code_dict = CodeReviewCheck.CodeCheck.get_function_body(new_text_code)
                 CodeReviewCheck.CodeCheck.save_to_file("", "[Step2] Function&Body", code_dict)
 
                 # 2. Global 변수 저장 -> List 저장
@@ -606,12 +618,12 @@ class CodeReviewCheck:
         def code_check_hard_coding(cls, text_code : str, cr_item : str):
             try :
                 # 1 함수, body 정보 추출
-                function_list = cls.extract_functions_from_code(text_code)
-                CodeReviewCheck.CodeCheck.save_to_file(str(function_list), "[Step0] function_list")
+                # function_list = cls.extract_functions_from_code(text_code)
+                # CodeReviewCheck.CodeCheck.save_to_file(str(function_list), "[Step0] function_list")
 
                 # 2. body code 에서 HardCoding 부분 검출 및 결과 df_crc_result 업데이트
                 total_error_result = []
-                for item in function_list :
+                for item in CodeReviewCheck.function_body_list :
                     hard_coding_list = cls.get_hard_coding_check(item)
                     total_error_result = total_error_result + hard_coding_list
 
@@ -634,7 +646,7 @@ class CodeReviewCheck:
                 for line_code in body_code.split('\n') :
                     # Skip 대상이 아니고 대입 연산자 경우 하드 코딩이 있는 경우
                     if cls.check_skip_string(line_code) == False and cls.is_check_hard_coding_opeartion(line_code) == True:
-                        result_hard_coding.append([line_count+2, "하드 코딩으로 작성되었습니다. 함수 = %s, 코드 = %s" % (function_name, line_code )])
+                        result_hard_coding.append([line_count+2, "하드 코딩으로 작성되었습니다. 함수 = %s, 코드 = %s" % (function_name, line_code.strip() )])
                     line_count = line_count + 1
 
                 # 하드 코딩 패턴 2 : 함수 or 괄호 안에 하드 코딩이 설정 되어 있는 경우
@@ -648,7 +660,6 @@ class CodeReviewCheck:
         @classmethod
         def is_check_hard_coding_opeartion(cls, line_code:str) -> bool:
             try:
-                Logger.debug("CodeReviewCheck.is_check_hard_coding_opeartion")
                 r_pattern = re.compile(r'=\s*([^;]+)\s*;')  # [Pattern] 대입 연산자에서 우항 캡쳐
                 non_operaion_pattern = re.compile(r'[^\s\+\-\*/\%]+')  # [Pattern] 대입 연산자에서 우항 캡쳐
                 match = r_pattern.search(line_code)
@@ -700,7 +711,7 @@ class CodeReviewCheck:
                     if (cls.check_skip_string(original_line) == False): # skip 대상 있는지 확인
                         for operator_item in non_operators:
                             if cls.is_hard_coding_check(operator_item) == True: # 비연산자를 하나씩 하드코딩(문자열 or 상수) 되어 있는지 확인
-                                result.append((body_start_number + start_line + 1, "하드 코딩으로 작성되었습니다. 함수 = %s, 코드 = %s" % (function_name, original_line)))
+                                result.append((body_start_number + start_line + 1, "하드 코딩으로 작성되었습니다. 함수 = %s, 코드 = %s" % (function_name, original_line.strip())))
                                 break
                 return result
             except Exception as e:
@@ -725,20 +736,23 @@ class CodeReviewCheck:
         def code_check_try_exception(cls, text_code, cr_item:str):
             try:
                 # 1 함수, body 정보 추출
-                function_list = cls.extract_functions_from_code(text_code)
-
-
-                CodeReviewCheck.CodeCheck.save_to_file(str("\n".join(function_list)), "[Step0] code_check_try_exception")
+                # function_list = cls.extract_functions_from_code(text_code)
+                # save_text = ""
+                # for item in function_list :
+                #     save_text = save_text + str(item[0])  + "\n"
+                #
+                # CodeReviewCheck.CodeCheck.save_to_file(str(save_text), "[Step0] code_check_try_exception")
 
                 # 2. 함수의 body 코드를 전달하여 try, catch 설정 확인
                 # 설정 안된 함수의 경우 list에 저장 -> result_try_exception
                 result_try_exception = []
-                for item in function_list :
+                for item in CodeReviewCheck.function_body_list :
                     function_name = item[0]
                     body_code = item[1]
                     start_number = item[2]
+
                     if cls.is_try_exception(body_code) == False :
-                        result_try_exception.append([start_number, "try,Catch 예외 처리가 누락되었습니다.  함수 = %s"% (function_name )])
+                        result_try_exception.append([start_number, "try,Catch 예외 처리가 누락 되었습니다.  함수 = %s"% (function_name)])
 
                 # 3. 코드 리뷰 결과 Dataframe에 업데이트 -> CodeReviewCheck.df_crc_result
                 CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, result_try_exception, CodeReviewCheck.df_crc_result)
@@ -753,7 +767,7 @@ class CodeReviewCheck:
                 pattern = r'\s*try\s*\{.*?\}\s*(//.*\s*)?catch\s*\{.*?\}'
                 # 정규 표현식 컴파일
                 regex = re.compile(pattern, re.DOTALL)
-                #패턴이 텍스트에 있는지 확ㅇ긴
+                #패턴이 텍스트에 있는지 확인
                 match = regex.search(body_code)
                 if match is not None :
                     return True
@@ -765,10 +779,35 @@ class CodeReviewCheck:
 
         # [코드 표준] DP 함수 예외 처리 -> 공통
         @classmethod
-        def code_check_dp_exception(cls, text_code):
+        def code_check_dp_exception(cls, text_code : str,  cr_item : str):
             try:
-                None
+                # DP 함수 예외 처리 패턴 :
+                pattern = r'(?<!\S=)\bdp[A-Z][a-zA-Z0-9_]*\([^)]*\)(?!\s*=\S)'
+                total_error_result = []
 
+                for index, item in enumerate(CodeReviewCheck.function_body_list) :
+                    fnc_name = item[0]
+                    body_code = item[1]
+                    start_line = item[2]
+                    end_line = item[3]
+                    matches = re.finditer(pattern, body_code, re.MULTILINE | re.DOTALL)
+                    for match in matches :
+                        start, end = match.span()
+                        body_line_number = body_code[:start].count('\n')
+                        total_number = start_line + body_line_number
+                        line_code = match.group().strip()
+                        full_line_code = CodeReviewCheck.text_list[total_number-1]
+
+                        comment_pos = full_line_code.find('/')          # 주석 위치
+                        match_pos = full_line_code.find(line_code)      # matching 위치
+                        if comment_pos >= 0 and match_pos > comment_pos :
+                            Logger.info(f"이 코드는 주석 처리 되었습니다. 코드 = {line_code}, 위치 = {total_number}")
+                        else :
+                            detail_msg = f"DP 함수 예외처리가 되지 않았습니다. 함수 = {fnc_name}, Code = {line_code}"
+                            total_error_result = total_error_result + [[total_number, detail_msg]]
+
+                # 3. 코드 리뷰 결과 Dataframe에 업데이트 -> CodeReviewCheck.df_crc_result
+                CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
             except Exception as e:
                 Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
 
@@ -818,19 +857,22 @@ class CodeReviewCheck:
                 Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
 
         @classmethod
-        def extract_functions_from_code(cls, text):
+        def extract_functions_from_code2(cls, text):
             try:
                 # function_dict = {}
 
                 # 함수 이름과 본문을 찾는 정규 표현식
                 # 주석 제외, 타입, 함수, 괄호 매개변수, { } body 구분
                 pattern = r'(?<!/)\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\([^)]*\)\s*\{\n(.*?)\n\}'
+                # pattern = r'\b([a-zA-Z_][a-zA-Z0-9_]*)\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\([^)]*\)\s*\{\n(.*?)\n\}'
+                # pattern = r'\b([a-zA-Z_][a-zA-Z0-9_]*)\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\([^)]*\)\s*\{\n(.*?)\n\}'
+                # pattern = r'\b(?:[a-zA-Z_][a-zA-Z0-9_]*)\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\([^)]*\)\s*\{\n(.*?)\n\}'
 
                 # matches에서는 1번 캡처는 함수이름 2번 캠처는 body 부분입니다.
                 matches = re.finditer(pattern, text, re.DOTALL)
                 results = []
 
-                # (1)함수 이름, (2) BodyCode, (3) 함수 시작 라인 수, (4) 함수 종료 라인 수 정보를 리스트에 저장
+                # (1) 함수 이름, (2) BodyCode, (3) 함수 시작 라인 수, (4) 함수 종료 라인 수 정보를 리스트에 저장
                 for match in matches:
                     function_name = match.group(1)
                     function_body = match.group(2)
@@ -844,6 +886,96 @@ class CodeReviewCheck:
                 return results
             except Exception as e:
                 Logger.error("CodeReviewCheck.extract_functions_from_code - Exception : " + str(e))
+
+        # 함수 body 부분 추출 : body code, body start line, body end line
+        @classmethod
+        def get_body_info(cls, text):
+            try:
+                stack = []
+                result = []
+                line_number = 1
+                start_index = None
+                start_line = None
+
+                for i, char in enumerate(text):
+                    if char == '\n':
+                        line_number += 1
+                    elif char == '{':
+                        if start_index is None:
+                            start_index = i
+                            start_line = line_number
+                        stack.append((i, line_number))
+                    elif char == '}' and stack:
+                        start_pos, start_ln = stack.pop()
+                        if not stack:
+                            end_line = line_number
+                            result = result + [[text[start_index + 1:i], start_ln, end_line]]
+                            start_index = None
+                            start_line = None
+
+                return result
+            except Exception as e:
+                Logger.error("CodeReviewCheck.get_body_info - Exception : " + str(e))
+
+        @classmethod
+        def get_function_name(cls, text: str) -> str:
+            try :
+                # pattern = r'(?<!/)\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\('
+                pattern = r'(?<!/)\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\('
+
+                matches = re.finditer(pattern, text)
+                func_name = ""
+                for match in matches:
+                    func_name = match.group(1)
+                    match_start_pos = match.start()
+
+                    # 주석의 경우는 제외
+                    l_pos = text.find('/')
+                    if l_pos >= 0 and l_pos < match_start_pos:
+                        func_name = ""
+                    else :
+                        break
+
+                return str(func_name)
+            except Exception as e:
+                Logger.error("CodeReviewCheck.get_function_name - Exception : " + str(e))
+
+        @classmethod
+        def get_function_body(cls, text):
+            try:
+                function_info = []
+                code_line_number = 0
+
+                # 1. 먼저 body의 정보를 먼저 저장 : body_code, body_start_line, body_end_line
+                body_info = cls.get_body_info(text)
+                for index, item in enumerate(body_info):
+                    print(index, item[1], item[2])
+
+                # 2. function과 body를 분리하여 리스트에 저장 -> 2차원 배열 function 이름, body, start_line, end_line
+                end_line = 0
+                # for index, code_text in enumerate(code_texts) :
+                code_line_number = 0
+                for code_text in text.split('\n'):
+                    code_line_number = code_line_number + 1
+
+                    # 3. 정규식으로 함수이름 조회
+                    if code_line_number >= end_line:
+                        func_name = cls.get_function_name(code_text)
+
+                    if len(func_name) > 0:
+                        body_item = body_info.pop(0)
+                        body_code = body_item[0]
+                        start_line = body_item[1]
+                        end_line = body_item[2]
+
+                        # 함수 이름, 함수 body, 함수 body 시작 라인, 함수 body 마지막 라인
+                        function_info = function_info + [[func_name, body_code, start_line, end_line]]
+                        func_name = ""
+
+                return function_info
+            except Exception as e:
+                Logger.error("CodeReviewCheck.extract_functions_from_code - Exception : " + str(e))
+
 
         @classmethod
         def calculate_line_number(cls, text, index):

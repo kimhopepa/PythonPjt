@@ -5,25 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c03cf0c1-cf2f-40ec-aa2e-2536166b52a6" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/ClassTest/test_list.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/basic_test/basic_test1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/basic_test/string_Test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/check_hardcoding/hardcoding_main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/check_hardcoding/test_hardcoding3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/check_hardcoding/test_hardcoding4.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/check_hardcoding/test_hardcoding_function_condition.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/check_hardcoding/test_hc1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/check_try_exception/test_try_exception.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataFrame/dataframe_copy_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataFrame/df_index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_pattern3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_text.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/string_sample.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/dpfunction_pattern.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/function_pattern1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/function_pattern_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/function_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/lib_function_info.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/pattern_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI_Detail.ui" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI_Detail.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/Emergency_Blackout.ctl" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/Emergency_Blackout.ctl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/코드리뷰점검Tool_7월개발일정.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/코드리뷰점검Tool_7월개발일정.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeCheckTest/check_hardcoding/test_hardcoding2.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/check_hardcoding/test_hardcoding2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataFrame/df_test1.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataFrame/df_test1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeCheckTest/basic_test/string_Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/basic_test/string_Test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +45,11 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_HOME_DIR$/plugins/python-ce/helpers/typeshed/stdlib/typing.pyi" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Programs/Python/Python310/Lib/re.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/AppData/Local/Programs/Python/Python310/Lib/sre_parse.py" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -71,8 +73,8 @@
       <recent name="C:\Users\KIMJH\Documents\GitHub\PythonPjt\TestCode\FileTest" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test_try_exception">
-    <configuration name="dataframe_copy_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.dpfunction_pattern">
+    <configuration name="dpfunction_pattern" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -80,11 +82,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataFrame" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/test_pattern" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataFrame/dataframe_copy_test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/dpfunction_pattern.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -93,7 +95,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="hardcoding_main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="lib_function_info" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -101,11 +103,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/check_hardcoding" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/test_pattern" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/check_hardcoding/hardcoding_main.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\KIMJH\Documents\GitHub\PythonPjt\TestCode\CodeCheckTest\test_pattern\lib_function_info.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -135,6 +137,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="sample_pattern3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="testCode" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/SampleTest" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_pattern3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="string_Test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -156,7 +179,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_hc1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="string_sample" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -164,32 +187,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/check_hardcoding" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/SampleTest" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/check_hardcoding/test_hc1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test_try_exception" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="testCode" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/check_try_exception" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/check_try_exception/test_try_exception.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/SampleTest/string_sample.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -200,19 +202,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.test_hc1" />
-      <item itemvalue="Python.hardcoding_main" />
       <item itemvalue="Python.string_Test" />
-      <item itemvalue="Python.dataframe_copy_test" />
-      <item itemvalue="Python.test_try_exception" />
+      <item itemvalue="Python.string_sample" />
+      <item itemvalue="Python.dpfunction_pattern" />
+      <item itemvalue="Python.lib_function_info" />
+      <item itemvalue="Python.sample_pattern3" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test_try_exception" />
-        <item itemvalue="Python.dataframe_copy_test" />
-        <item itemvalue="Python.hardcoding_main" />
+        <item itemvalue="Python.dpfunction_pattern" />
+        <item itemvalue="Python.sample_pattern3" />
+        <item itemvalue="Python.lib_function_info" />
+        <item itemvalue="Python.string_sample" />
         <item itemvalue="Python.string_Test" />
-        <item itemvalue="Python.test_hc1" />
       </list>
     </recent_temporary>
   </component>
@@ -247,41 +249,26 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/CodeCheckTest/check_hardcoding/test_hc1.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/CodeCheckTest/test_pattern/lib_function_info.py</url>
+          <line>101</line>
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/CodeCheckTest/check_hardcoding/hardcoding_main.py</url>
-          <line>25</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/CodeCheckTest/check_hardcoding/hardcoding_main.py</url>
-          <line>89</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/CodeCheckTest/check_hardcoding/hardcoding_main.py</url>
-          <line>56</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/CodeCheckTest/test_pattern/lib_function_info.py</url>
+          <line>54</line>
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
       </breakpoints>
-      <default-breakpoints>
-        <breakpoint type="python-exception">
-          <properties notifyOnTerminate="true" exception="BaseException">
-            <option name="notifyOnTerminate" value="true" />
-          </properties>
-        </breakpoint>
-      </default-breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="bind_var" language="Python" />
-        <watch expression="i" language="Python" />
-        <watch expression="s" language="Python" />
-        <watch expression="query[start_index-1:i]" language="Python" />
-        <watch expression="match.group(1)" language="Python" />
+        <watch expression="func_name" language="Python" />
+        <watch expression="code_text" language="Python" />
+        <watch expression="code_line_number" language="Python" />
+        <watch expression="end_line" language="Python" />
+        <watch expression="text" language="Python" />
+        <watch expression="l_pos" language="Python" />
+        <watch expression="match_start_pos" language="Python" />
       </configuration>
     </watches-manager>
   </component>
