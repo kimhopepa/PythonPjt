@@ -420,15 +420,20 @@ class CodeReviewCheck:
         @staticmethod
         def get_file_to_text(file_path):
             try:
-                # 파일의 인코딩 확인
-                with open(file_path, 'rb') as file:
-                    raw_data = file.read()
-                    encoding = chardet.detect(raw_data)['encoding']
-
-                # 파일 읽기
-                with open(file_path, 'r', encoding=encoding) as file:
-                    file_text = file.read()
-                return file_text
+                # # 파일의 인코딩 확인
+                # with open(file_path, 'rb') as file:
+                #     raw_data = file.read()
+                #     encoding = chardet.detect(raw_data)['encoding']
+                #
+                # # 파일 읽기
+                # with open(file_path, 'r', encoding=encoding) as file:
+                #     file_text = file.read()
+                with open(file_path, 'rb') as f:
+                    raw_data = f.read()
+                    result = chardet.detect(raw_data)
+                    encoding = result['encoding']
+                    text = raw_data.decode(encoding)
+                return text
             except FileNotFoundError:
                 Logger.error("CodeReviewCheck.test_check_code - File Not found" + file_path)
             except Exception as e:
@@ -781,7 +786,8 @@ class CodeReviewCheck:
         @classmethod
         def code_check_dp_exception(cls, text_code : str,  cr_item : str):
             try:
-                # DP 함수 예외 처리 패턴 :
+                # DP 함수 예외 처리 패턴 : dp*로 시작 하는 함수에서 대입 연산자가 없는 패턴 찾기
+                # dp다음에는 대문자가 와야 하는 조건
                 pattern = r'(?<!\S=)\bdp[A-Z][a-zA-Z0-9_]*\([^)]*\)(?!\s*=\S)'
                 total_error_result = []
 

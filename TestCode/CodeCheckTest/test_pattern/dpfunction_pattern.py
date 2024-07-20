@@ -34,14 +34,6 @@ def extract_functions_with_lines(text):
 def find_non_assignment_functions(text, start_line):
     pattern = r'(?<!\S=)\bdp[A-Z][a-zA-Z0-9_]*\([^)]*\)(?!\s*=\S)'
     result = []
-    # 주석이 아닌 줄들로 구성된 텍스트를 생성
-    # lines = text.split('\n')
-    # code_lines = []
-    # for line in lines:
-    #     if not line.strip().startswith('//'):
-    #         code_lines.append(line)
-    # code_text = '\n'.join(code_lines)
-
 
     # 정규식 검색
     matches = re.finditer(pattern, text, re.MULTILINE | re.DOTALL)
