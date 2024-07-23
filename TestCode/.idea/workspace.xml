@@ -8,22 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c03cf0c1-cf2f-40ec-aa2e-2536166b52a6" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/SmartIO_STS.ctl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_dpGetdpSet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_pattern_string.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_pattern_string2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_test_getwhile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_test_while.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_test_while_block.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/block_pattern_1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/dpGetdpSet_pattern.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/while_pattern2_block.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/Emergency_Blackout.ctl" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/Emergency_Blackout.ctl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/코드리뷰점검Tool_7월개발일정.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/코드리뷰점검Tool_7월개발일정.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_dpGetdpSet2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeCheckTest/test_pattern/lib_function_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/lib_function_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeCheckTest/test_pattern/while_pattern.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/while_pattern.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +63,7 @@
       <recent name="C:\Users\KIMJH\Documents\GitHub\PythonPjt\TestCode\FileTest" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.dpGetdpSet_pattern">
+  <component name="RunManager" selected="Python.sample_dpGetdpSet2">
     <configuration name="block_pattern_1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -183,7 +169,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sample_test_while_block" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="sample_dpGetdpSet2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -195,7 +181,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_test_while_block.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_dpGetdpSet2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -229,18 +215,18 @@
       <item itemvalue="Python.sample_dpGetdpSet" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.block_pattern_1" />
-      <item itemvalue="Python.sample_test_while_block" />
       <item itemvalue="Python.while_pattern2_block" />
       <item itemvalue="Python.dpGetdpSet_pattern" />
       <item itemvalue="Python.lib_function_info" />
+      <item itemvalue="Python.sample_dpGetdpSet2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.sample_dpGetdpSet2" />
         <item itemvalue="Python.dpGetdpSet_pattern" />
         <item itemvalue="Python.while_pattern2_block" />
         <item itemvalue="Python.lib_function_info" />
         <item itemvalue="Python.block_pattern_1" />
-        <item itemvalue="Python.sample_test_while_block" />
       </list>
     </recent_temporary>
   </component>
