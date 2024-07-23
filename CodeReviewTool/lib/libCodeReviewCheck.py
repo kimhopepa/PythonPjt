@@ -420,14 +420,6 @@ class CodeReviewCheck:
         @staticmethod
         def get_file_to_text(file_path):
             try:
-                # # 파일의 인코딩 확인
-                # with open(file_path, 'rb') as file:
-                #     raw_data = file.read()
-                #     encoding = chardet.detect(raw_data)['encoding']
-                #
-                # # 파일 읽기
-                # with open(file_path, 'r', encoding=encoding) as file:
-                #     file_text = file.read()
                 with open(file_path, 'rb') as f:
                     raw_data = f.read()
                     result = chardet.detect(raw_data)
@@ -529,6 +521,9 @@ class CodeReviewCheck:
                 # 모두 해당되는 코드 리뷰 항목
                 # CodeReviewCheck.CodeCheck.code_check_UnnecessaryCode(text_code, ROW_CR_ITEM_UNNECESSARY_CODE[CR_ITEM_IDX])
                 CodeReviewCheck.CodeCheck.code_check_hard_coding(text_code, ROW_CR_ITEM_HARD_CODE[CR_ITEM_IDX])
+                CodeReviewCheck.CodeCheck.code_check_loop_delay(text_code, ROW_CR_ITEM_LOOP[CR_ITEM_IDX])
+                CodeReviewCheck.CodeCheck.code_check_eventminimize(text_code, ROW_CR_ITEM_EVENT_CHANGE[CR_ITEM_IDX])
+
                 # Code + 코드 리뷰 아이템 정보 전달 -> 코드 리뷰  진행 후 해당 DataFrame에 결과 저장하여 반환
                 if (check_svr == True):
                     Logger.info("CodeCheck.code_check_start(SVR)")
@@ -537,18 +532,9 @@ class CodeReviewCheck:
                     CodeReviewCheck.CodeCheck.code_check_try_exception(text_code, ROW_CR_ITEM_TRY_EXCEPTION[CR_ITEM_IDX])
                     CodeReviewCheck.CodeCheck.code_check_dp_exception(text_code, ROW_CR_ITEM_DP_EXCEPTION[CR_ITEM_IDX])
 
-                    None
                 else:
                     Logger.info("CodeCheck.code_check_start(CLI)")
                     # Client에서만 점검하는 코드 리뷰 항목
-                    None
-
-
-
-
-                # 1. 불필요한 코드 지양 : 스크립트 파일 + 체크 ITEM
-                # 2. 하드코딩 지양
-                #  결과
 
                 # return CodeReviewCheck.df_crc_result
             except Exception as e:
@@ -622,17 +608,15 @@ class CodeReviewCheck:
         @classmethod
         def code_check_hard_coding(cls, text_code : str, cr_item : str):
             try :
-                # 1 함수, body 정보 추출
-                # function_list = cls.extract_functions_from_code(text_code)
-                # CodeReviewCheck.CodeCheck.save_to_file(str(function_list), "[Step0] function_list")
+                Logger.info("CodeCheck - code_check_hard_coding start")
 
-                # 2. body code 에서 HardCoding 부분 검출 및 결과 df_crc_result 업데이트
+                # 1. body code 에서 HardCoding 부분 검출 및 결과 df_crc_result 업데이트
                 total_error_result = []
                 for item in CodeReviewCheck.function_body_list :
                     hard_coding_list = cls.get_hard_coding_check(item)
                     total_error_result = total_error_result + hard_coding_list
 
-                # 3. 코드 리뷰 결과 Dataframe에 업데이트 -> CodeReviewCheck.df_crc_result
+                # 2. 코드 리뷰 결과 Dataframe에 업데이트 -> CodeReviewCheck.df_crc_result
                 CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
             except Exception as e:
                 Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
@@ -828,22 +812,213 @@ class CodeReviewCheck:
 
         # [성능] Loop문 내 처리조건 확인
         @ classmethod
-        def code_check_loop_delay(cls, text_code):
+        def code_check_loop_delay(cls, text_code : str, cr_item : str):
             try:
-                None
+                Logger.info("CodeCheck - code_check_loop_delay start")
+                total_error_result = []
+                for index, item in enumerate(CodeReviewCheck.function_body_list) :
+                    fnc_name = item[0]
+                    body_code = item[1]
+                    start_line = item[2]
+                    end_line = item[3]
+                    while_delay_miss = True
+                    while_code = cls.get_while_code(body_code)
+                    detail_msg = ""
+                    if len(while_code) > 0 and cls.is_check_while_delay(while_code) == False :
+                        detail_msg = f"{fnc_name} 함수에서 while문 내 delay 처리가 누락되었습니다. "
+                        total_error_result = total_error_result + [[start_line, detail_msg]]
 
+                CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
             except Exception as e:
                 Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
+
+        # [성능] Loop문 내 처리조건 확인 -> Function의 Body 코드에서 while문 코드만 저장
+        @classmethod
+        def get_while_code(cls, body_code: str) -> str:
+
+            # 중첩된 중괄호를 처리하여 닫는 중괄호의 인덱스를 찾습니다.
+            def find_closing_brace_index(text, open_brace_index):
+                stack = 0
+                for index, char in enumerate(text[open_brace_index:], start=open_brace_index):
+                    if char == '{':
+                        stack += 1
+                    elif char == '}':
+                        stack -= 1
+                        if stack == 0:
+                            return index
+                return -1
+
+            pattern = r'while\s*\([^)]*\)\s*{'
+            match = re.search(pattern, body_code, re.DOTALL)
+
+            if not match:
+                return ""
+
+            start_index = match.end() - 1
+            end_index = find_closing_brace_index(body_code, start_index)
+
+            if end_index == -1:
+                return ""
+
+            while_block = body_code[start_index + 1:end_index]
+
+            return while_block
+
+        # [성능] Loop문 내 처리조건 확인 -> Function의 Body 코드에서 while문 코드만 저장
+        @classmethod
+        def is_check_while_delay(cls, text: str) -> bool:
+
+            # 중첩된 중괄호를 처리하여 닫는 중괄호 인덱스를 찾기
+            def find_closing_brace_index(text: str, open_brace_index: int) -> int:
+                stack = 0
+                for index, char in enumerate(text[open_brace_index:], start=open_brace_index):
+                    if char == '{':
+                        stack += 1
+                    elif char == '}':
+                        stack -= 1
+                        if stack == 0:
+                            return index
+                return -1
+
+            def contains_delay_pattern(text: str) -> bool:
+                def remove_comments(text):
+                    """
+                    주석을 제거하는 함수. 한 줄 주석과 여러 줄 주석을 모두 처리합니다.
+                    """
+                    # 한 줄 주석 제거
+                    text = re.sub(r'//.*', '', text)
+                    # 여러 줄 주석 제거
+                    text = re.sub(r'/\*.*?\*/', '', text, flags=re.DOTALL)
+                    return text
+
+                # 주석을 제거한 텍스트
+                text_without_comments = remove_comments(text)
+
+                # 정규식 패턴 정의 (주석 없이 delay*); 패턴을 찾음)
+                pattern = r'delay.*\);'
+
+                # 정규식 검색
+                match = re.search(pattern, text_without_comments)
+
+                return match is not None
+
+            result = False
+            pattern = re.compile(r'(\b\w+\b)\s*\{', re.DOTALL)
+            matches = list(pattern.finditer(text))
+
+            if not matches:
+                return False
+
+            # key = Block의 제목 , value = Block 코드의 내부(이중 블록 안의 내용은 삭제하여 저장)
+            main_block = "main"
+            block_dict = {}
+            blocks = []
+            last_index = 0
+
+            # 블록에서 delay 유/무를 판단
+            for match in matches:
+                block_name = match.group(1)
+                start_index = match.end() - 1
+
+                # { 시작으로 } index 찾기
+                end_index = find_closing_brace_index(text, start_index)
+
+                if end_index == -1:
+                    continue
+
+                # 블록 외부의 코드 추가
+                if last_index < match.start():
+                    external_code = text[last_index:match.start()].strip()
+                    if external_code:
+                        blocks.append(f"main {{ {external_code} }}")
+                        if contains_delay_pattern(external_code) == True:
+                            result = True
+
+                block_content = text[start_index + 1:end_index].strip()
+                if contains_delay_pattern(block_content) == True:
+                    result = True
+
+                last_index = end_index + 1
+
+            # 마지막 블록 이후의 코드 처리
+            if last_index < len(text):
+                remaining_content = text[last_index:].strip()
+                if remaining_content:
+                    if contains_delay_pattern(remaining_content) == True:
+                        result = True
+
+            return result
 
         # [성능] 이벤트 교환 횟수 최소화
         @ classmethod
-        def code_check_eventminimize(cls, text_code):
+        def code_check_eventminimize(cls, text_code:str, cr_item:str):
             try:
-                None
+                Logger.info("CodeCheck - code_check_eventminimize start")
+                total_error_result = []
+                for index, item in enumerate(CodeReviewCheck.function_body_list) :
+                    fnc_name = item[0]
+                    body_code = item[1]
+                    start_line = item[2]
+                    end_line = item[3]
+                    loop_error_list = cls.loop_pattern_check(body_code, start_line)
+                    for error_item in loop_error_list :
+                        detail_msg = f"{fnc_name} 함수에서 DP Function이 연속 처리되었습니다. Code = {error_item[0]}"
+                        total_error_result = total_error_result + [[error_item[1], detail_msg]]
 
+                CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
             except Exception as e:
                 Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
 
+        @classmethod
+        def loop_pattern_check(cls, body_code:str, start_line:int) -> list:
+            try:
+                # 정규식 패턴을 입력받아 입력 텍스트에 패턴이 있는지 확인하는 함수
+                def check_pattern(loop_block_code: str, pattern_text: str, ) -> bool:
+                    # 1. 정규식 패턴: dp로 시작하고 대문자 문자로 이어진 후 (로 끝나는 패턴
+                    # pattern = re.compile(r'(dp[A-Z]\w*\()', re.MULTILINE)
+                    pattern = re.compile(pattern_text, re.MULTILINE)
+                    matches = pattern.finditer(loop_block_code)
+                    found = False
+
+                    # 2. dp* 함수가 있는 경우 체크
+                    for match in matches:
+                        return  True
+                    else :
+                        return False
+
+                # 1. for문의 정규식 생성
+                pattern = re.compile(r'(for\s*\(.*?\)\s*\{[^}]*\})', re.DOTALL)
+                # 2. 정규식에 맞는 코드 매칭
+                matches = pattern.finditer(body_code)
+                # 3. 리턴할 데이터 리스트 저장(에러 반복문) : string, int -> result_list
+                result_list = []
+                lines = body_code.splitlines()
+
+                # 4. for문 패턴 매칭 동작
+                for match in matches:
+                    match_text = match.group(0)  # 캡쳐 되는 첫번째 그룹
+                    match_start = match.start()
+
+                    # Calculate line number
+                    line_number = body_code[:match_start].count('\n') + 1
+
+                    # for문 Block에 dp*패턴이 있는지 확인
+                    dp_function_pattern = r'(dp[A-Z]\w*\()'
+                    if check_pattern(match_text, dp_function_pattern) == True:
+
+                        # title 찾는 정규식
+                        title_match = re.match(r'(for\s*\(.*?\))', match_text)
+
+                        # loop문 title와 라인 number 리스트로 저장 -> result_list
+                        if title_match:
+                            title = title_match.group(0)
+                            result_list = result_list + [[title, start_line + line_number]]
+                        else:
+                            result_list = result_list + [[title_match, start_line + line_number]]
+                return result_list
+
+            except Exception as e:
+                Logger.error("CodeReviewCheck.loop_pattern_check - Exception : " + str(e))
         # [성능] 적절한 DP 함수 사용
         @ classmethod
         def code_check_callback(cls, text_code):
@@ -863,7 +1038,7 @@ class CodeReviewCheck:
                 Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
 
         @classmethod
-        def extract_functions_from_code2(cls, text):
+        def extract_functions_from_code2(cls, text:str) -> list:
             try:
                 # function_dict = {}
 
@@ -895,7 +1070,7 @@ class CodeReviewCheck:
 
         # 함수 body 부분 추출 : body code, body start line, body end line
         @classmethod
-        def get_body_info(cls, text):
+        def get_body_info(cls, text : str) -> list:
             try:
                 stack = []
                 result = []
@@ -949,13 +1124,14 @@ class CodeReviewCheck:
         @classmethod
         def get_function_body(cls, text):
             try:
+                Logger.info("CodeCheck - get_function_body start")
                 function_info = []
                 code_line_number = 0
 
                 # 1. 먼저 body의 정보를 먼저 저장 : body_code, body_start_line, body_end_line
                 body_info = cls.get_body_info(text)
-                for index, item in enumerate(body_info):
-                    print(index, item[1], item[2])
+                # for index, item in enumerate(body_info):
+                #     print(index, item[1], item[2])
 
                 # 2. function과 body를 분리하여 리스트에 저장 -> 2차원 배열 function 이름, body, start_line, end_line
                 end_line = 0

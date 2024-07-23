@@ -2159,3 +2159,29 @@ int cx_check(dyn_string k_st_list, bool all_blackout, dyn_int step_list)
     
 	return result;
 }
+
+
+void func_6(int a, int b)
+{
+	while(true)
+	{
+		
+		try
+		{
+			
+			if(test == true)
+			{
+			}
+		}
+		catch
+		{
+			
+		}
+		finnally
+		{
+			
+		}
+		
+	}
+
+}
