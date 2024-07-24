@@ -254,6 +254,7 @@ class WindowClass(QMainWindow, main_form_class):
             header = self.tableWidget.horizontalHeader()
             header.setDefaultAlignment(Qt.AlignCenter)
 
+
             # Apply style sheet to add horizontal line between header and data
             # self.tableWidget.setStyleSheet("QTableWidget::item:selected { background-color: #f27900; }")
             # self.tableWidget.setStyleSheet("QTableView::item { border-Top: 1px solid black; }")
@@ -273,6 +274,9 @@ class WindowClass(QMainWindow, main_form_class):
                 self.tableWidget.setColumnWidth(i, new_width)
 
             self.set_table_highlight()
+            # header.setSectionMovable(False)  # 컬럼 크기 변경 불가
+            header.setSectionResizeMode(QHeaderView.Fixed)
+
         except Exception as e:
             Logger.error("WindowClass.set_table_widget Exception " + str(e))
 
@@ -296,7 +300,7 @@ class WindowClass(QMainWindow, main_form_class):
                     self.tableWidget_File.setItem(i, j, item)
 
             header = self.tableWidget_File.horizontalHeader()
-            header.setSectionResizeMode(QHeaderView.Stretch)
+            header.setSectionResizeMode(QHeaderView.Stretch)    # 사이즈 설정
 
         except Exception as e:
             Logger.error("WindowClass.set_table_widget_file Exception " + str(e))
@@ -321,6 +325,7 @@ class WindowClass(QMainWindow, main_form_class):
                 values = data[key]
                 for row, value in enumerate(values):
                     item = QTableWidgetItem(str(value))  # 데이터를 문자열로 변환하여 QTableWidgetItem 생성
+
                     table_widget.setItem(row, col, item)
         except Exception as e:
             Logger.error("WindowClass.set_table_from_dict Exception " + str(e))
@@ -416,10 +421,13 @@ class WindowClass_Detail(QDialog, detail_form_class):
             self.tableWidget_detail.setHorizontalHeaderLabels(dt_data.columns)
             for i in range(dt_data.shape[0]):
                 for j in range(dt_data.shape[1]):
+
                     item = QTableWidgetItem(str(dt_data.iloc[i, j]))
                     if j != 1:  # 첫 번째 열의 경우에만 가운데 정렬로 설정
                         item.setTextAlignment(Qt.AlignCenter)
+                    item.setToolTip(str(dt_data.iloc[i, j]))
                     self.tableWidget_detail.setItem(i, j, item)
+
 
             self.tableWidget_detail.setStyleSheet("""
                     QTableWidget::item:selected { background-color: #f27900; }
@@ -434,6 +442,10 @@ class WindowClass_Detail(QDialog, detail_form_class):
             for i, ratio in enumerate(column_ratios):
                 new_width = (int)(total_width * ratio / total_ratio)
                 self.tableWidget_detail.setColumnWidth(i, new_width)
+                
+            # 크고 조절 안되거 설정
+            header = self.tableWidget_detail.horizontalHeader()
+            header.setSectionResizeMode(QHeaderView.Fixed)
         except Exception as e:
             Logger.error("WindowClass.set_table_widget_detail Exception" + str(e))
 

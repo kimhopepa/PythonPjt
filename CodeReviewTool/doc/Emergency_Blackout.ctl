@@ -1078,6 +1078,7 @@ void CB_blackout_condition(anytype index, string status_dp, bool status_value,
 		}
 		g_blackout_q_status_list[index] = status_value;	//Q단 상태 정보만 저장
 		writeLog(g_script_name, "CB_blackout_condition() - Blackout Q Status List Save", LV_DBG2);
+		delay(1);
 	}
 	catch
 	{

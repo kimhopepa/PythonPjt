@@ -512,17 +512,18 @@ class CodeReviewCheck:
                 text_code = CodeReviewCheck.CodeCheck.get_file_to_text(file_path)  # 파일 코드 불러와서 문자열 변수 저장
                 CodeReviewCheck.text_list = text_code.split("\n")
 
-                #문자열 '\n' 분리하여 리스트에 저장
+                # * 파일 저장
                 CodeReviewCheck.CodeCheck.save_to_file(str(text_code), "[Step0] file_text")
 
                 #2. 함수 body 정보 분리하여 저장
                 CodeReviewCheck.function_body_list = CodeReviewCheck.CodeCheck.get_function_body(text_code)
 
                 # 모두 해당되는 코드 리뷰 항목
-                # CodeReviewCheck.CodeCheck.code_check_UnnecessaryCode(text_code, ROW_CR_ITEM_UNNECESSARY_CODE[CR_ITEM_IDX])
+                CodeReviewCheck.CodeCheck.code_check_UnnecessaryCode(text_code, ROW_CR_ITEM_UNNECESSARY_CODE[CR_ITEM_IDX])
                 CodeReviewCheck.CodeCheck.code_check_hard_coding(text_code, ROW_CR_ITEM_HARD_CODE[CR_ITEM_IDX])
                 CodeReviewCheck.CodeCheck.code_check_loop_delay(text_code, ROW_CR_ITEM_LOOP[CR_ITEM_IDX])
                 CodeReviewCheck.CodeCheck.code_check_eventminimize(text_code, ROW_CR_ITEM_EVENT_CHANGE[CR_ITEM_IDX])
+                CodeReviewCheck.CodeCheck.code_check_callback(text_code, ROW_CR_ITEM_PROPER_DP_FCT[CR_ITEM_IDX])
 
                 # Code + 코드 리뷰 아이템 정보 전달 -> 코드 리뷰  진행 후 해당 DataFrame에 결과 저장하여 반환
                 if (check_svr == True):
@@ -544,19 +545,19 @@ class CodeReviewCheck:
         @classmethod
         def code_check_UnnecessaryCode(cls, text_code : str, cr_item : str) -> tuple:
             try:
-                Logger.debug("CodeCheck.code_check_UNUSED - Start")
-                result = ROW_CR_RESULT_OK
-                result_data = []
+                Logger.info("CodeCheck.code_check_UNUSED - Start")
+                # result = ROW_CR_RESULT_OK
+                # result_data = []
 
                 # 0. 주석 코드 삭제
-                new_text_code = CodeReviewCheck.CodeCheck.removed_comments(text_code)
-                CodeReviewCheck.CodeCheck.save_to_file(new_text_code, "[Step1] removed_comments")
+                # new_text_code = CodeReviewCheck.CodeCheck.removed_comments(text_code)
+                # CodeReviewCheck.CodeCheck.save_to_file(new_text_code, "[Step1] removed_comments")
 
 
                 # 1. 함수이름, Body 부분을 분리하여 Dictionary에 저장 : key -> Function 이름, value -> body
                 # 함수 이름을 -> Key 로 저장 | 함수 Body -> Value로 저장
-                code_dict = CodeReviewCheck.CodeCheck.get_function_body(new_text_code)
-                CodeReviewCheck.CodeCheck.save_to_file("", "[Step2] Function&Body", code_dict)
+                # code_dict = CodeReviewCheck.CodeCheck.get_function_body(new_text_code)
+                # CodeReviewCheck.CodeCheck.save_to_file("", "[Step2] Function&Body", code_dict)
 
                 # 2. Global 변수 저장 -> List 저장
                 global_vars = CodeReviewCheck.CodeCheck.extract_global_variables(new_text_code)
@@ -582,24 +583,29 @@ class CodeReviewCheck:
                 #1. 버전 이력 관리 변수 확인
                 version_variable_list = ["g_script_release_version", "g_script_release_date"]
                 check_result = True
+                detail_msg = ""
                 for list_item in version_variable_list :
-                    if CodeReviewCheck.CodeCheck.is_variable_used(text_code, list_item) :
-                        Logger.info("CodeReviewCheck.code_check_version - Check OK. " + list_item)
-                    else :
-                        check_result = False
-                        Logger.error("CodeReviewCheck.code_check_version - Check NG. " + list_item)
+                    return_code = cls.is_variable_used(text_code, list_item)
+                    # return_code = CodeReviewCheck.CodeCheck.is_variable_used(text_code, list_item)
 
-                ng_detail_msg = "스크립트 이력이 설정되어 있지 않습니다. (g_script_release_version, g_script_release_date)"
+                    if len(return_code) == 0 :
+                        Logger.error("CodeReviewCheck.code_check_version - Check NG. " + list_item)
+                        detail_msg = detail_msg + f"{list_item} 선언 되지 않았습니다. \n"
+                        check_result = False
+                    else :
+                        detail_msg = detail_msg + f"{list_item} 선언 되었습니다. \n"
+                        Logger.info("CodeReviewCheck.code_check_version - Check OK. " + list_item)
 
                 # DataTable 업데이트
                 if check_result == True :
                     CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT] = ROW_CR_RESULT_OK
-                    CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_LINE] = "-"
-                    CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT_DETAIL] = ""
+                    # CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_LINE] = "-"
                 if check_result == False :
                     CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT] = ROW_CR_RESULT_NG
-                    CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_LINE] = "-"
-                    CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT_DETAIL] = ng_detail_msg
+                    # CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_LINE] = "-"
+                    # CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT_DETAIL] = detail_msg
+                CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_LINE] = "-"
+                CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT_DETAIL] = detail_msg
 
             except Exception as e:
                 Logger.error("CodeReviewCheck.code_check_version - Exception : " + str(e))
@@ -710,7 +716,7 @@ class CodeReviewCheck:
         def check_skip_string(cls, input_text: str) -> bool:
             try:
                 # Skip 대상이 있는 경우 True로 반환
-                skip_list = ['Debug', 'dpConnect', 'writeLog', 'startThread', 'update_user_alarm', 'read_config', 'paCfg']
+                skip_list = ['Debug', 'dpConnect', 'writeLog', 'startThread', 'update_user_alarm', 'read_config', 'paCfg', 'for']
                 skip_check = False
                 skip_check = any(list_item in input_text for list_item in skip_list)
 
@@ -921,7 +927,7 @@ class CodeReviewCheck:
                 start_index = match.end() - 1
 
                 # { 시작으로 } index 찾기
-                end_index = find_closing_brace_index(text, start_index)
+                end_index = find_closing_brace_index(text, start_index)     # 중괄호 시작하는 패턴을 매칭하여 중괄호 닫는 index 찾기
 
                 if end_index == -1:
                     continue
@@ -1019,14 +1025,61 @@ class CodeReviewCheck:
 
             except Exception as e:
                 Logger.error("CodeReviewCheck.loop_pattern_check - Exception : " + str(e))
+
         # [성능] 적절한 DP 함수 사용
         @ classmethod
-        def code_check_callback(cls, text_code):
+        def code_check_callback(cls, text_code:str, cr_item:str):
             try:
-                None
-
+                connection_fnc_list = cls.get_dpconnect_list(text_code)
+                total_error_result = []
+                for function_item in CodeReviewCheck.function_body_list:
+                    fnc_name = function_item[0]
+                    body_code = function_item[1]
+                    start_line = function_item[2]
+                    end_line = function_item[3]
+                    for conn_function_item in connection_fnc_list :
+                        if fnc_name == conn_function_item :
+                            delay_pattern = r'delay\s*\(.*?\)\s*;'
+                            matches = re.findall(delay_pattern, body_code)
+                            # delay가 있는 경우에는 에러 내용 저장
+                            if bool(matches) == True :
+                                detail_msg = f"{fnc_name} Callback 함수에서 delay 삭제해야 합니다. Code = {str(matches)}"
+                                total_error_result = total_error_result + [[start_line, detail_msg]]
+                CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
             except Exception as e:
-                Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
+                Logger.error("CodeReviewCheck.code_check_callback - Exception : " + str(e))
+
+        # dpQueryConnect or dpConnect 사용하는 Connection 함수를 리스트에 저장 (중복 제거)
+        @classmethod
+        def get_dpconnect_list(cls, body_text: str) -> list:
+            try :
+                # connect Call 하는 코드에서 Connection 함수 이름을 리턴
+                def get_function_name(conncet_code_text: str) -> str:
+                    # dpConnect("", ...) 에서 첫번째 "" 문자열을 캡쳐
+                    match = re.search(r'"(.*?)"', conncet_code_text)
+                    if match:
+                        return match.group(1)
+                    else:
+                        return ""
+
+                result_list = []  # 함수에서 connect 함수만 저장하여 반환
+
+                # dp*Connect*(*); 패턴으로 코드 검색
+                pattern = r'dp\w*Connect\w*\s*\(\s*[\s\S]*?\s*\)\s*;'  # dp*Connect* 함수 패턴
+                matches = re.findall(pattern, body_text, re.DOTALL)  # re.DOTALL 옵션은
+
+                # dp*Connect*(*) 코드를 '\n' 제외하고 리스트에 저장
+                connect_pattern_list = [re.sub(r'\s+', ' ', match) for match in matches]        # 줄바꿈 문자 제거 후 결과 출력
+
+                # 코드에서 Callback하는 함수를 찾아서(get_function_name) 리스트에 저장
+                for item in connect_pattern_list:
+                    connect_function_name = get_function_name(item)
+                    if len(connect_function_name) > 0:
+                        result_list = result_list + [connect_function_name]
+
+                return result_list
+            except Exception as e:
+                Logger.error("CodeReviewCheck.get_dpconnect_function - Exception : " + str(e))
 
         # [성능] Raima DB 증가 방지
         @ classmethod
@@ -1158,7 +1211,6 @@ class CodeReviewCheck:
             except Exception as e:
                 Logger.error("CodeReviewCheck.extract_functions_from_code - Exception : " + str(e))
 
-
         @classmethod
         def calculate_line_number(cls, text, index):
             try :
@@ -1226,15 +1278,20 @@ class CodeReviewCheck:
 
         # 코드에서 변수 선언 확인
         @classmethod
-        def is_variable_used(cls, script_code : str, variable_name : str) -> bool:
+        def is_variable_used(cls, script_code : str, variable_name : str) -> str:
             try:
                 # \b : 단어 경계, escape : 특수문자 이스케이프 처리, \s* : 변수 이름 뒤 공백, (?:=|;|,) : "=",  ";", "," 문자 포함
                 pattern = re.compile(r'\b' + re.escape(variable_name) + r'\b\s*(?:=|;|,)')
 
+                matches = re.search(pattern, script_code)
+                if matches :
+                    return matches.group(0)
+                else :
+                    return ""
                 # Search for the pattern in the code
-                if re.search(pattern, script_code):
-                    return True
-                return False
+                # if re.search(pattern, script_code):
+                #     return True
+                # return False
 
             except Exception as e:
                 Logger.error("CodeReviewCheck.extract_global_variables - Exception : " + str(e))
