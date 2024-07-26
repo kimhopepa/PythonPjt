@@ -560,7 +560,7 @@ class CodeReviewCheck:
                 # CodeReviewCheck.CodeCheck.save_to_file("", "[Step2] Function&Body", code_dict)
 
                 # 2. Global 변수 저장 -> List 저장
-                global_vars = CodeReviewCheck.CodeCheck.extract_global_variables(new_text_code)
+                global_vars = CodeReviewCheck.CodeCheck.extract_global_variables(text_code)
                 CodeReviewCheck.CodeCheck.save_to_file(str(global_vars), "[Step3] GlobalVariable")
 
                 # 3. Global 변수 사용 체크

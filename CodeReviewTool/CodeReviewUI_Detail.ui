@@ -18,6 +18,9 @@
     <normaloff>hw_main_form.png</normaloff>hw_main_form.png</iconset>
   </property>
   <widget class="QTableWidget" name="tableWidget_detail">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>10</x>

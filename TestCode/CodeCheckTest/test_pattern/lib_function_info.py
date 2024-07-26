@@ -235,3 +235,10 @@ def get_function_body2(text : str) -> list:
             func_name = ""
 
     return function_info
+
+def is_check_pattern(pattern : str, check_test : str) -> bool :
+    compile_pattern = re.compile(pattern)
+    if compile_pattern.search(check_test) :
+        return True
+    else :
+        return False

@@ -113,6 +113,9 @@ class WindowClass(QMainWindow, main_form_class):
             if os.path.exists(self.folder_path):
                 file_dialog.setDirectory(self.folder_path)  # 마지막 파일 선택 경로
 
+            # file_dialog.setNameFilter("WinCCOA Files (*.ctl,*.pnl,*xml);; All Files (*.*)")
+            file_dialog.setNameFilter("WinCCOA Files (*.ctl *.pnl *xml);; All Files (*.*)")
+
             # 3. 선택한 파일 리스트 조회
             file_dialog.setFileMode(QFileDialog.ExistingFiles)  # 선택한 파일 리스트 조회
             if file_dialog.exec_() == QFileDialog.Accepted :
@@ -209,7 +212,7 @@ class WindowClass(QMainWindow, main_form_class):
         except Exception as e:
             Logger.error("WindowClass.UI_Export Exception" + str(e))
 
-    # table Widget 업데이트
+    # table Widget 의 하이라이트 설정 (row 색상 변경)
     def set_table_highlight(self):
         try:
             col_result_index = 2
@@ -231,6 +234,7 @@ class WindowClass(QMainWindow, main_form_class):
         except Exception as e:
             Logger.error("WindowClass.set_table_highlight Exception " + str(e))
 
+    # 코드 리뷰 항목 테이블 업데이트
     def set_table_widget(self, dt_data):
         try:
             Logger.debug("WindowClass.set_table_widget : \n" + str(dt_data))
@@ -280,6 +284,7 @@ class WindowClass(QMainWindow, main_form_class):
         except Exception as e:
             Logger.error("WindowClass.set_table_widget Exception " + str(e))
 
+    # 코드 리뷰 파일 리스트 업데이트
     def set_table_widget_file(self, df):
         try:
             Logger.debug("WindowClass.set_table_widget_file \n " + str(df))

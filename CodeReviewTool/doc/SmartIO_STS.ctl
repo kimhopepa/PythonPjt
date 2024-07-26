@@ -1,4 +1,4 @@
-//v1.0(2024.06.21)
+//v1.0(2024.07.24)
 //1. first version
 
 #uses "library_standard.ctl"
@@ -9,7 +9,7 @@
 string script_path;      //getPath(SCRIPTS_REL_PATH);
 string config_filename;
 const string g_script_release_version = "v1.0";
-const string g_script_release_date = "2024.06.21";
+const string g_script_release_date = "2024.07.24";
 const string g_script_name = "SmartIO_STS";
 string manager_dpname = ""; //ex: WCCOActrl_2  (A_SIT_ADMIN_MANAGER)
 
@@ -1030,7 +1030,7 @@ void main_sts_logic(dyn_string sts_taglist)
     g_map_stslamp[stslamp_dp] = STATUS_LAMP_OFF;
     g_map_rjlamp[rjlamp_dp] = STATUS_LAMP_OFF;
     g_map_rjelamp[rjelamp_dp] = STATUS_LAMP_OFF;
-    g_map_rslamp[rjelamp_dp] = STATUS_LAMP_OFF; 		// rs는 실제로 존재하지 않는 대상이므로 rj dp명칭으로 대체
+    g_map_rslamp[rjlamp_dp] = STATUS_LAMP_OFF; 		// rs는 실제로 존재하지 않는 대상이므로 rj dp명칭으로 대체
 	
 	g_map_bktime_flag[bktime_27_dp] = OFF_27;
 
