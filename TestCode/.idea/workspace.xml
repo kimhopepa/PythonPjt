@@ -8,16 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c03cf0c1-cf2f-40ec-aa2e-2536166b52a6" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_test_String.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/global_var_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI_Detail.ui" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI_Detail.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/SmartIO_STS.ctl" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/SmartIO_STS.ctl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/코드리뷰점검Tool_7월개발일정.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/코드리뷰점검Tool_7월개발일정.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_global.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_global.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeCheckTest/test_pattern/lib_function_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/lib_function_info.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
