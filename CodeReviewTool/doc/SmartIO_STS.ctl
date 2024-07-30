@@ -1813,3 +1813,8 @@ int q_append(dyn_string& append_q, string lamp_dpe_name)
 		return result;
 	}
 }
+
+void test_fnc()
+{
+	dpSet("test", false);
+}

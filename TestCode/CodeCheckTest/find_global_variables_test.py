@@ -24,6 +24,7 @@ def find_global_variables(code:str) -> list:
 # 예제 코드
 code = '''
 int a, b, c;
+string name = "test";
 anytype result_list1, result_list2;
 '''
 

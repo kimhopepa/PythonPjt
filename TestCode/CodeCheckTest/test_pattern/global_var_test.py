@@ -1,5 +1,6 @@
 import re
 import lib_function_info as lib
+
 def get_variables(code : str, start_line : int = 0) -> dict :
 
     # 변수 이름과 변수 초기화값을 리턴
@@ -159,16 +160,18 @@ if __name__ == '__main__':
         print(key, global_dict[key])
 
     fnc_list = lib.get_function_body2(text)
-    for item in fnc_list :
-        fnc_name = item[0]
-        body_code = item[1]
-        body_start_line = item[2]
-        local_dict = get_variables(body_code, body_start_line)
+    vars1 = get_variables()
+    print("vars1", vars1)
+    # for item in fnc_list :
+    #     fnc_name = item[0]
+    #     body_code = item[1]
+    #     body_start_line = item[2]
+    #     local_dict = get_variables(body_code, body_start_line)
         # print(body_code)
 
-        raima_up_list = check_raima(body_code, body_start_line, global_dict, local_dict)
-        # print("fnc_name start line = " + fnc_name, body_start_line)
-        # for index, key in enumerate(local_dict) :
-        #     print(fnc_name, f"[{key}]", local_dict[key])
+        # raima_up_list = check_raima(body_code, body_start_line, global_dict, local_dict)
+        # # print("fnc_name start line = " + fnc_name, body_start_line)
+        # # for index, key in enumerate(local_dict) :
+        # #     print(fnc_name, f"[{key}]", local_dict[key])
 
 

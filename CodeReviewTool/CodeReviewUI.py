@@ -377,6 +377,7 @@ class WindowClass(QMainWindow, main_form_class):
         try:
             self.selected_file_name = self.tableWidget_File.item(row, col).text()
             self.label_selected_file_name.setText(self.selected_file_name)
+            self.label_selected_file_name.setAlignment(Qt.AlignCenter)
 
             Logger.debug("on_cell_clicked_File : " + str(row) + ", " + str(col) + ", file name = " + self.selected_file_name)
 

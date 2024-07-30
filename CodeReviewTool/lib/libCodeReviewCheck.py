@@ -93,7 +93,7 @@ ROW_CR_ITEM_UNNECESSARY_CODE = '불필요한 코드 지양'
 
 
 class CodeReviewCheck:
-    
+
     function_body_list =[]
     text_list = []
     # df_crc_info 컬럼 명 : 파일 이름 | 파일 Full Path
@@ -502,7 +502,7 @@ class CodeReviewCheck:
 
             except Exception as e:
                 Logger.error("CodeReviewCheck.update_check_result - Exception : " + str(e))
-        
+
         # lib 코드에서 코드 점검 시작
         @staticmethod
         def code_check_start( file_name : str , check_svr : bool) -> pd.DataFrame :
@@ -543,38 +543,116 @@ class CodeReviewCheck:
 
         # [코드 표준] 불필요한 코드 지양 -> SVR
         @classmethod
-        def code_check_UnnecessaryCode(cls, text_code : str, cr_item : str) -> tuple:
+        def code_check_UnnecessaryCode(cls, text_code : str, cr_item : str) :
+            def remove_line_comments(code:str) -> str:
+                try:
+                    lines = code.splitlines()
+                    modified_lines = []
+                    for line in lines:
+                        # Remove comments starting with //
+                        if '//' in line:
+                            line = line.split('//')[0] + ' ' * len(line.split('//')[1])
+                        if '#' in line:
+                            line = line.split('#')[0] + ' ' * len(line.split('#')[1])
+                        modified_lines.append(line)
+
+                    return '\n'.join(modified_lines)
+                except Exception as e:
+                    Logger.error("CodeCheck.remove_line_comments - Exception : " + str(e))
+
+            def find_variable_usage(code: str, variable: str) -> bool:
+                try :
+                    # Use a word boundary to ensure exact match
+                    pattern = re.compile(r'\b' + re.escape(variable) + r'\b')
+                    matches = pattern.findall(code)
+                    return len(matches) > 1  # True if more than one occurrence (considering the declaration line)
+                except Exception as e:
+                    Logger.error("CodeReviewCheck.test_check_code - Exception : " + str(e))
+
             try:
                 Logger.info("CodeCheck.code_check_UNUSED - Start")
-                # result = ROW_CR_RESULT_OK
-                # result_data = []
+                # 1. 코드에서 주석 부분 제거 (공백으로 변경, 라인 수 유지 필요)
+                new_text_code = remove_line_comments(text_code)
 
-                # 0. 주석 코드 삭제
-                # new_text_code = CodeReviewCheck.CodeCheck.removed_comments(text_code)
-                # CodeReviewCheck.CodeCheck.save_to_file(new_text_code, "[Step1] removed_comments")
+                # 2. 전역 변수 찾기
+                global_vars = cls.get_variables(new_text_code)
 
+                # 3. 전역 변수 사용 되었는지 확인
+                total_error_result = []
+                for var_name, line in global_vars :
+                    used_flag = False
+                    for item in CodeReviewCheck.function_body_list:
+                        function_name = item[0]
+                        body_code = item[1]
+                        body_code = remove_line_comments(body_code)
+                        start_number = item[2]
 
-                # 1. 함수이름, Body 부분을 분리하여 Dictionary에 저장 : key -> Function 이름, value -> body
-                # 함수 이름을 -> Key 로 저장 | 함수 Body -> Value로 저장
-                # code_dict = CodeReviewCheck.CodeCheck.get_function_body(new_text_code)
-                # CodeReviewCheck.CodeCheck.save_to_file("", "[Step2] Function&Body", code_dict)
+                        # local_vars = cls.get_variables(body_code)
+                        #
+                        # # #3.1 지역 변수 사용 확인
+                        # for local_var_name, local_line in local_vars :
+                        #     if find_variable_usage(body_code, local_var_name ) == False :
+                        #         total_error_result = total_error_result + [[start_number + local_line, f"{function_name}함수의 {local_var_name} 변수가 사용 이력이 없습니다."]]
 
-                # 2. Global 변수 저장 -> List 저장
-                global_vars = CodeReviewCheck.CodeCheck.extract_global_variables(text_code)
-                CodeReviewCheck.CodeCheck.save_to_file(str(global_vars), "[Step3] GlobalVariable")
+                        #3.2 전역 변수 사용 확인
+                        if find_variable_usage(body_code, var_name) == True :
+                            Logger.debug(f"CodeCheck.code_check_UnnecessaryCode - Find OK. funtion = {function_name, start_number}, used_var = {var_name}" )
+                            used_flag = True
+                            continue
 
-                # 3. Global 변수 사용 체크
+                    if not used_flag:
+                        total_error_result = total_error_result + [[line, f"{var_name} 변수가 사용 이력이 없습니다."]]
 
+                CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
 
-
-                # 3-1. 미사용 변수 찾기
-                # 3-2. 미사용 함수 찾기
-
-
-                # [Result] 코드 리뷰 결과 DafaFrame 업데이트
-                return result, result_data
             except Exception as e:
                 Logger.error("CodeCheck.test_check_code - Exception : " + str(e))
+
+        # 전역 변수 리스트에 저장
+        @classmethod
+        def get_variables(cls, text_code : str) -> list:
+            try :
+                lines = text_code.splitlines()
+                global_vars = []
+                brace_depth = 0
+
+                for i, line in enumerate(lines):
+                    stripped_line = line.strip()
+
+                    # Update brace depth
+                    brace_depth += stripped_line.count('{')
+                    brace_depth -= stripped_line.count('}')
+
+                    if brace_depth == 0:  # We're not inside any function or block
+                        # Split the line at '=' and consider only the left side
+                        left_side = re.split(r'=', stripped_line, 1)[0]
+
+                        # Check for exclusion condition: single word without ',', '=', ';'
+                        if ',' not in left_side and '=' not in stripped_line and ';' not in stripped_line:
+                            continue
+
+                        # Further split by delimiters ',', ';' and process each part
+                        parts = re.split(r'[;,]', left_side)
+                        for part in parts:
+                            part = part.strip()
+                            # Ignore parts containing parentheses
+                            if '(' in part or ')' in part:
+                                continue
+                            if part:
+                                # Split by whitespace and take the last element as the variable name
+                                words = part.split()
+                                var_name = words[-1] if words else ''
+
+                                # Remove any trailing special characters and check if it's a valid identifier
+                                var_name = re.sub(r'[^a-zA-Z0-9_]', '', var_name)
+
+                                # Exclude numeric-only variables and ensure it starts with an alphabetic character
+                                if var_name and not var_name.isdigit() and re.match(r'^[a-zA-Z_]\w*$', var_name):
+                                    global_vars.append((var_name, i + 1))  # Store name and line number
+
+                return global_vars
+            except Exception as e:
+                Logger.error("CodeReviewCheck.get_variables - Exception : " + str(e))
 
         # [코드 표준] 스크립트 이력 관리 -> SVR
         @classmethod
@@ -693,7 +771,7 @@ class CodeReviewCheck:
 
                 # 2. body Code를 한 줄씩 저장
                 line_code = body_code.split('\n')
-                
+
                 # 3. 하드 코딩 부분 리스트에 저장하여 반환
                 result = []
                 for match in matches:
@@ -716,7 +794,7 @@ class CodeReviewCheck:
         def check_skip_string(cls, input_text: str) -> bool:
             try:
                 # Skip 대상이 있는 경우 True로 반환
-                skip_list = ['Debug', 'dpConnect', 'writeLog', 'startThread', 'update_user_alarm', 'read_config', 'paCfg', 'for']
+                skip_list = ['Debug', 'dpConnect', 'writeLog', 'startThread', 'update_user_alarm', 'read_config', 'paCfg', 'for', 'sprintf', 'FROM', 'WHERE']
                 skip_check = False
                 skip_check = any(list_item in input_text for list_item in skip_list)
 
@@ -778,7 +856,8 @@ class CodeReviewCheck:
             try:
                 # DP 함수 예외 처리 패턴 : dp*로 시작 하는 함수에서 대입 연산자가 없는 패턴 찾기
                 # dp다음에는 대문자가 와야 하는 조건
-                pattern = r'(?<!\S=)\bdp[A-Z][a-zA-Z0-9_]*\([^)]*\)(?!\s*=\S)'
+                # pattern = r'(?<!\S=)\bdp[A-Z][a-zA-Z0-9_]*\([^)]*\)(?!\s*=\S)'
+                pattern = r'(?<!\S=)\bdp[A-Z][a-zA-Z0-9_]*\([^)]*\)(?!\s*[\!=])'
                 total_error_result = []
 
                 for index, item in enumerate(CodeReviewCheck.function_body_list) :

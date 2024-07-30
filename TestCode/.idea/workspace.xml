@@ -8,7 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c03cf0c1-cf2f-40ec-aa2e-2536166b52a6" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/dpGetdpGet.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_nessory_code.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_nessory_code2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_nessory_code3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/2_nessory_code.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/SmartIO_STS.ctl" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/SmartIO_STS.ctl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/코드리뷰점검Tool_7월개발일정.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/코드리뷰점검Tool_7월개발일정.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeCheckTest/find_global_variables_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/find_global_variables_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeCheckTest/test_pattern/global_var_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/global_var_test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,8 +74,8 @@
       <recent name="C:\Users\KIMJH\Documents\GitHub\PythonPjt\TestCode\FileTest" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.global_var_test">
-    <configuration name="global_var_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.Requetst_Sample">
+    <configuration name="2_nessory_code" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -75,7 +87,49 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/global_var_test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/2_nessory_code.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Requetst_Sample" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="testCode" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RequestTest" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RequestTest/Requetst_Sample.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="dpGetdpGet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="testCode" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/SampleTest" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/SampleTest/dpGetdpGet.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -105,27 +159,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sample_connect_function" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="testCode" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/SampleTest" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_connect_function.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="sample_dpGetdpSet" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -147,7 +180,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sample_global" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="sample_nessory_code2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -159,7 +192,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_global.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_nessory_code2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -168,7 +201,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sample_test_String" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="sample_nessory_code3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -180,28 +213,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_test_String.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="while_pattern" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="testCode" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/test_pattern" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/while_pattern.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_nessory_code3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -213,19 +225,19 @@
     <list>
       <item itemvalue="Python.sample_dpGetdpSet" />
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.sample_connect_function" />
-      <item itemvalue="Python.sample_global" />
-      <item itemvalue="Python.global_var_test" />
-      <item itemvalue="Python.sample_test_String" />
-      <item itemvalue="Python.while_pattern" />
+      <item itemvalue="Python.2_nessory_code" />
+      <item itemvalue="Python.dpGetdpGet" />
+      <item itemvalue="Python.sample_nessory_code2" />
+      <item itemvalue="Python.sample_nessory_code3" />
+      <item itemvalue="Python.Requetst_Sample" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.global_var_test" />
-        <item itemvalue="Python.while_pattern" />
-        <item itemvalue="Python.sample_test_String" />
-        <item itemvalue="Python.sample_global" />
-        <item itemvalue="Python.sample_connect_function" />
+        <item itemvalue="Python.Requetst_Sample" />
+        <item itemvalue="Python.sample_nessory_code3" />
+        <item itemvalue="Python.sample_nessory_code2" />
+        <item itemvalue="Python.dpGetdpGet" />
+        <item itemvalue="Python.2_nessory_code" />
       </list>
     </recent_temporary>
   </component>
@@ -286,8 +298,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/CodeCheckTest/test_pattern/global_var_test.py</url>
-          <line>126</line>
+          <line>127</line>
           <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CodeCheckTest/test_pattern/2_nessory_code.py</url>
+          <line>122</line>
+          <option name="timeStamp" value="74" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
