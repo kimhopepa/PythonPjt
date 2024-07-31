@@ -45,10 +45,13 @@
     <enum>QAbstractScrollArea::AdjustIgnored</enum>
    </property>
    <property name="autoScroll">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="editTriggers">
     <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="dragDropMode">
+    <enum>QAbstractItemView::DragDrop</enum>
    </property>
    <property name="selectionMode">
     <enum>QAbstractItemView::SingleSelection</enum>

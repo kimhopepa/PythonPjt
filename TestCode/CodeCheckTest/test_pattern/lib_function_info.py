@@ -242,3 +242,13 @@ def is_check_pattern(pattern : str, check_test : str) -> bool :
         return True
     else :
         return False
+
+
+# 입력받은 패턴의 캡쳐를 문자열로 반환
+def get_pattern(text: str, pattern: str) -> str:
+    match = re.search(pattern, text)
+
+    if match:
+        return match.group(1)
+    else:
+        return text
