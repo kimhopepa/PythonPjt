@@ -8,12 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c03cf0c1-cf2f-40ec-aa2e-2536166b52a6" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/3_necessary_code.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI_Detail.ui" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI_Detail.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/코드리뷰점검Tool_7월개발일정.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/코드리뷰점검Tool_7월개발일정.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sampl_string.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_nessory_code3.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_nessory_code3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeCheckTest/test_pattern/lib_function_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/lib_function_info.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeCheckTest/test_pattern/2_nessory_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/2_nessory_code.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeCheckTest/test_pattern/3_necessary_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/3_necessary_code.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +67,7 @@
       <recent name="C:\Users\KIMJH\Documents\GitHub\PythonPjt\TestCode\FileTest" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.sample_nessory_code3">
+  <component name="RunManager" selected="Python.3_necessary_code">
     <configuration name="2_nessory_code" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -81,6 +81,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/2_nessory_code.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="3_necessary_code" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="testCode" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/test_pattern" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/3_necessary_code.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -110,27 +131,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="dpGetdpGet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="testCode" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/SampleTest" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/SampleTest/dpGetdpGet.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -152,6 +152,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="sampl_string" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="testCode" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/SampleTest" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/SampleTest/sampl_string.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="sample_dpGetdpSet" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -165,27 +186,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_dpGetdpSet.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="sample_nessory_code2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="testCode" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/SampleTest" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_nessory_code2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -219,18 +219,18 @@
       <item itemvalue="Python.sample_dpGetdpSet" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.2_nessory_code" />
-      <item itemvalue="Python.dpGetdpGet" />
-      <item itemvalue="Python.sample_nessory_code2" />
       <item itemvalue="Python.sample_nessory_code3" />
       <item itemvalue="Python.Requetst_Sample" />
+      <item itemvalue="Python.3_necessary_code" />
+      <item itemvalue="Python.sampl_string" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.3_necessary_code" />
         <item itemvalue="Python.sample_nessory_code3" />
-        <item itemvalue="Python.Requetst_Sample" />
-        <item itemvalue="Python.sample_nessory_code2" />
-        <item itemvalue="Python.dpGetdpGet" />
+        <item itemvalue="Python.sampl_string" />
         <item itemvalue="Python.2_nessory_code" />
+        <item itemvalue="Python.Requetst_Sample" />
       </list>
     </recent_temporary>
   </component>
@@ -273,11 +273,6 @@
           <url>file://$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_nessory_code3.py</url>
           <line>7</line>
           <option name="timeStamp" value="82" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_nessory_code3.py</url>
-          <line>27</line>
-          <option name="timeStamp" value="83" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

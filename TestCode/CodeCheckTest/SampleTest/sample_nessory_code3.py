@@ -10,7 +10,7 @@ def get_pattern(text : str, pattern : str) -> str :
     else :
         return text
 
-def get_varable_list(text:str, depth_number:int = -1) -> list:
+def get_varable_list(text:str, depth_number:int = 0) -> list:
 
     # 텍스트를 줄 단위로 분리
     lines = text.splitlines()
@@ -25,11 +25,11 @@ def get_varable_list(text:str, depth_number:int = -1) -> list:
         brace_depth -= line.count('}')
 
         # 설정한 depth보다 낮은 경우는 제외
-        if depth_number > brace_depth:
+        if brace_depth > depth_number :
             continue
 
         # 괄호가 포함된 줄은 제외
-        if re.search(r'\(.*?\)', line):
+        if re.search(r"[()]", line):
             continue
 
         # 콤마(,)와 세미콜론(;)이 포함된 줄만 결과에 추가
@@ -61,12 +61,16 @@ text = '''
 dpSet("test", false);
 dpGetValue("anotherTest");
 dpFunction("arg");
+func()
+{
 dpExample("example") = someValue;
 dpSetWait(all_sts_dp + cfg_stoptime_para, t) != 0;
 Another line without commas or semicolons
 Yet another line, with some text; and a semicolon;
-const string version = "test" ;
+
 int a, b, c ;
+}
+const string version = "test" ;
 '''
 
 # 함수 호출 및 결과 출력

@@ -449,7 +449,7 @@ class WindowClass_Detail(QDialog, detail_form_class):
                 new_width = (int)(total_width * ratio / total_ratio)
                 self.tableWidget_detail.setColumnWidth(i, new_width)
                 
-            # 크고 조절 안되거 설정
+            # 크기 조절 안되거 설정
             header = self.tableWidget_detail.horizontalHeader()
             header.setSectionResizeMode(QHeaderView.Fixed)
         except Exception as e:
