@@ -246,9 +246,31 @@ def is_check_pattern(pattern : str, check_test : str) -> bool :
 
 # 입력받은 패턴의 캡쳐를 문자열로 반환
 def get_pattern(text: str, pattern: str) -> str:
-    match = re.search(pattern, text)
+    match = re.search(pattern, text) # 첫번째 매칭만 찾을 때 search 사용
 
     if match:
         return match.group(1)
     else:
         return text
+
+def get_patterns(text: str, pattern: str, fnc_pos_line:int) -> list:
+    result_list = []
+    matches = re.finditer(pattern, text)    # 여러 매칭만 찾을 때 finditer 사용
+    for match in matches :
+        start_pos = match.start()
+        match_line_number = match.group(0).count('\n')
+        line_number = text.count('\n',0, start_pos) + fnc_pos_line + match_line_number
+        result_list = result_list + [[match.group(0).strip(),line_number]]
+
+    return result_list
+
+# 주석으로 공백으로 제거
+def remove_line_comments(code):
+    lines = code.splitlines()
+    modified_lines = []
+    for line in lines:
+        # Remove comments starting with //
+        if '/' in line:
+            line = line.split('/')[0] + ' ' * len(line.split('//')[1])
+        modified_lines.append(line)
+    return '\n'.join(modified_lines)

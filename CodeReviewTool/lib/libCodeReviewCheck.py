@@ -416,6 +416,20 @@ class CodeReviewCheck:
             except Exception as e:
                 Logger.error("CodeReviewCheck.test_check_code - Exception : " + str(e))
 
+        # 주석으로 공백으로 제거
+        @classmethod
+        def remove_line_comments(cls, code:str) -> str:
+            try:
+                lines = code.splitlines()
+                modified_lines = []
+                for line in lines:
+                    # Remove comments starting with /
+                    if '/' in line:
+                        line = line.split('/')[0] + ' ' * len(line.split('//')[1])
+                    modified_lines.append(line)
+                return '\n'.join(modified_lines)
+            except Exception as e:
+                Logger.error("CodeReviewCheck.remove_line_comments - Exception : " + str(e))
         # 파일을 읽어서 텍스트 반환
         @staticmethod
         def get_file_to_text(file_path):
@@ -507,6 +521,9 @@ class CodeReviewCheck:
         @staticmethod
         def code_check_start( file_name : str , check_svr : bool) -> pd.DataFrame :
             try:
+
+                # 해당 데이터 테터만 삭ㄱ제
+                CodeReviewCheck.CodeData.init_check_list()
                 #1. Load Code File
                 file_path = CodeReviewCheck.CodeData.get_file_path(file_name)  # 파일 Full 경로 가져오기
                 text_code = CodeReviewCheck.CodeCheck.get_file_to_text(file_path)  # 파일 코드 불러와서 문자열 변수 저장
@@ -855,36 +872,44 @@ class CodeReviewCheck:
         def code_check_dp_exception(cls, text_code : str,  cr_item : str):
             try:
                 # DP 함수 예외 처리 패턴 : dp*로 시작 하는 함수에서 대입 연산자가 없는 패턴 찾기
-                # dp다음에는 대문자가 와야 하는 조건
-                # pattern = r'(?<!\S=)\bdp[A-Z][a-zA-Z0-9_]*\([^)]*\)(?!\s*=\S)'
-                pattern = r'(?<!\S=)\bdp[A-Z][a-zA-Z0-9_]*\([^)]*\)(?!\s*[\!=])'
+                pattern = r'(?<![!=\s])\s*dp[a-zA-Z][a-zA-Z0-9_]*\([^)]*\)\s*(?![!=\s])'
                 total_error_result = []
 
-                for index, item in enumerate(CodeReviewCheck.function_body_list) :
+                for  item in CodeReviewCheck.function_body_list :
                     fnc_name = item[0]
                     body_code = item[1]
                     start_line = item[2]
-                    end_line = item[3]
-                    matches = re.finditer(pattern, body_code, re.MULTILINE | re.DOTALL)
-                    for match in matches :
-                        start, end = match.span()
-                        body_line_number = body_code[:start].count('\n')
-                        total_number = start_line + body_line_number
-                        line_code = match.group().strip()
-                        full_line_code = CodeReviewCheck.text_list[total_number-1]
-
-                        comment_pos = full_line_code.find('/')          # 주석 위치
-                        match_pos = full_line_code.find(line_code)      # matching 위치
-                        if comment_pos >= 0 and match_pos > comment_pos :
-                            Logger.info(f"이 코드는 주석 처리 되었습니다. 코드 = {line_code}, 위치 = {total_number}")
-                        else :
-                            detail_msg = f"DP 함수 예외처리가 되지 않았습니다. 함수 = {fnc_name}, Code = {line_code}"
-                            total_error_result = total_error_result + [[total_number, detail_msg]]
+                    # end_line = item[3]
+                    error_list = cls.get_pattern(body_code, pattern, start_line)
+                    for error_item in error_list :
+                        detail_msg = f"DP 함수 예외 처리가 되지 않았습니다. 함수 = {fnc_name}, Code = {error_item[1]}"
+                        total_error_result = total_error_result + [[error_item[0], detail_msg]]
 
                 # 3. 코드 리뷰 결과 Dataframe에 업데이트 -> CodeReviewCheck.df_crc_result
                 CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
             except Exception as e:
                 Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
+
+        @classmethod
+        def get_pattern(cls, text:str, pattern:str, function_line : int = 0) -> list:
+
+            result_list = []
+
+            try:
+                matches = re.finditer(pattern, text)
+
+                for match in matches :
+                    start_pos = match.start()
+                    match_text = match.group(0)
+                    match_line_count = match_text.count('\n')
+                    line_number = text.count('\n',0, start_pos) + function_line + match_line_count
+                    result_list = result_list + [[line_number, match_text.strip()]]
+
+            except Exception as e:
+                Logger.error("CodeReviewCheck.get_pattern - Exception : " + str(e))
+
+            return result_list
+
 
         # [성능] 스크립트 동작 Active 감시 적용
         @classmethod
@@ -907,7 +932,7 @@ class CodeReviewCheck:
                     start_line = item[2]
                     end_line = item[3]
                     while_delay_miss = True
-                    while_code = cls.get_while_code(body_code)
+                    while_code = cls.get_while_code(body_code)      # while문 코드를 확인하여 반환
                     detail_msg = ""
                     if len(while_code) > 0 and cls.is_check_while_delay(while_code) == False :
                         detail_msg = f"{fnc_name} 함수에서 while문 내 delay 처리가 누락되었습니다. "
@@ -994,9 +1019,7 @@ class CodeReviewCheck:
             if not matches:
                 return False
 
-            # key = Block의 제목 , value = Block 코드의 내부(이중 블록 안의 내용은 삭제하여 저장)
-            main_block = "main"
-            block_dict = {}
+            # key = Block의 제목 , value = Block 코드의 내부(이중 블록 안의 내용은 삭제 하여 저장)
             blocks = []
             last_index = 0
 
@@ -1018,10 +1041,10 @@ class CodeReviewCheck:
                         blocks.append(f"main {{ {external_code} }}")
                         if contains_delay_pattern(external_code) == True:
                             result = True
-
-                block_content = text[start_index + 1:end_index].strip()
-                if contains_delay_pattern(block_content) == True:
-                    result = True
+                #
+                # block_content = text[start_index + 1:end_index].strip()
+                # if contains_delay_pattern(block_content) == True:
+                #     result = True
 
                 last_index = end_index + 1
 
@@ -1057,7 +1080,7 @@ class CodeReviewCheck:
         @classmethod
         def loop_pattern_check(cls, body_code:str, start_line:int) -> list:
             try:
-                # 정규식 패턴을 입력받아 입력 텍스트에 패턴이 있는지 확인하는 함수
+                # 정규식 패턴을 입력 받아 입력 텍스트에 패턴이 있는지 확인하는 함수
                 def check_pattern(loop_block_code: str, pattern_text: str, ) -> bool:
                     # 1. 정규식 패턴: dp로 시작하고 대문자 문자로 이어진 후 (로 끝나는 패턴
                     # pattern = re.compile(r'(dp[A-Z]\w*\()', re.MULTILINE)
@@ -1258,7 +1281,9 @@ class CodeReviewCheck:
             try:
                 Logger.info("CodeCheck - get_function_body start")
                 function_info = []
-                code_line_number = 0
+
+                # 주석 코드는 공백으로 삭제
+                text = cls.remove_line_comments(text)
 
                 # 1. 먼저 body의 정보를 먼저 저장 : body_code, body_start_line, body_end_line
                 body_info = cls.get_body_info(text)
@@ -1276,7 +1301,7 @@ class CodeReviewCheck:
                     if code_line_number >= end_line:
                         func_name = cls.get_function_name(code_text)
 
-                    if len(func_name) > 0:
+                    if 0 < len(func_name):
                         body_item = body_info.pop(0)
                         body_code = body_item[0]
                         start_line = body_item[1]
