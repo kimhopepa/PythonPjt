@@ -10,6 +10,8 @@ if __name__ == '__main__':
     fnc_list = lib.get_function_body2(re_text)
     not_user_vars = []
 
+
+    # dp Function 예외 처리가 누락된 부분 찾는 패턴
     dp_function_pattern = r'(?<![!=\s])\s*dp[a-zA-Z][a-zA-Z0-9_]*\([^)]*\)\s*(?![!=\s])'
 
     for item in fnc_list :
