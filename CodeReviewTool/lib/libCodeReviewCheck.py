@@ -6,11 +6,11 @@ from lib.libLog import Logger
 # from PyQt5.QtWidgets import QApplication, QTableWidget, QTableWidgetItem
 from openpyxl import Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
-from openpyxl.styles import Alignment
+# from openpyxl.styles import Alignment
 from openpyxl.utils import get_column_letter
-from openpyxl.styles import Alignment, PatternFill
+# from openpyxl.styles import Alignment, PatternFill
 import pandas as pd
-from openpyxl import load_workbook
+# from openpyxl import load_workbook
 from openpyxl.styles import Alignment, PatternFill, Border, Side
 import re
 import chardet
@@ -165,8 +165,16 @@ class CodeReviewCheck:
         def get_tablewidget_detail_df(cr_item_name):
             try:
                 Logger.debug("CodeReviewCheck.get_tablewidget_detail_df Start")
-                return CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item_name,
+                # dt_data에 index 컬럼 추가
+                dt_data = CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item_name,
                                                          [COL_CR_ITEM, COL_CR_RESULT_DETAIL, COL_CR_LINE, COL_CR_RESULT]]
+                dt_data = dt_data.reset_index(drop=True)
+                dt_data.loc[:, "No"] = dt_data.index + 1
+                cols = ["No"] + [col for col in dt_data.columns if col != 'No']
+                dt_data = dt_data[cols]
+
+                return dt_data
+
             except Exception as e:
                 Logger.error("CodeReviewCheck.get_tablewidget_detail_df - Exception : " + str(e))
 
@@ -453,7 +461,7 @@ class CodeReviewCheck:
                 # 최대 열 너비 설정 (기본값: 50)
                 pd.set_option('display.max_colwidth', None)
 
-                # 생략 표시 비활성화
+                # 생략 표시 비활성화 <- pd.set_option 표시 옵션 제어
                 pd.set_option('display.max_rows', None)  # 모든 행 출력
                 pd.set_option('display.max_columns', None)  # 모든 열 출력
                 path = os.path.join(os.getcwd(), file_name + ".txt")
@@ -519,10 +527,11 @@ class CodeReviewCheck:
 
         # lib 코드에서 코드 점검 시작
         @staticmethod
-        def code_check_start( file_name : str , check_svr : bool) -> pd.DataFrame :
+        # def code_check_start( file_name : str , check_svr : bool) -> pd.DataFrame :
+        def code_check_start( file_name : str , check_svr : bool)  :
             try:
 
-                # 해당 데이터 테터만 삭ㄱ제
+                # 해당 데이터 테터만 삭제
                 CodeReviewCheck.CodeData.init_check_list()
                 #1. Load Code File
                 file_path = CodeReviewCheck.CodeData.get_file_path(file_name)  # 파일 Full 경로 가져오기
@@ -545,6 +554,7 @@ class CodeReviewCheck:
                 # Code + 코드 리뷰 아이템 정보 전달 -> 코드 리뷰  진행 후 해당 DataFrame에 결과 저장하여 반환
                 if (check_svr == True):
                     Logger.info("CodeCheck.code_check_start(SVR)")
+
                     # SVR에서만 점검하는 코드 리뷰 항목
                     CodeReviewCheck.CodeCheck.code_check_version(text_code, ROW_CR_ITEM_VERSION[CR_ITEM_IDX])
                     CodeReviewCheck.CodeCheck.code_check_try_exception(text_code, ROW_CR_ITEM_TRY_EXCEPTION[CR_ITEM_IDX])
@@ -588,6 +598,7 @@ class CodeReviewCheck:
 
             try:
                 Logger.info("CodeCheck.code_check_UNUSED - Start")
+
                 # 1. 코드에서 주석 부분 제거 (공백으로 변경, 라인 수 유지 필요)
                 new_text_code = remove_line_comments(text_code)
 
@@ -932,8 +943,15 @@ class CodeReviewCheck:
                     start_line = item[2]
                     end_line = item[3]
                     while_delay_miss = True
+                    
+                    #while문자열을 제외하고 내부에 있는 코드를 반환
                     while_code = cls.get_while_code(body_code)      # while문 코드를 확인하여 반환
                     detail_msg = ""
+
+                    if len(while_code) > 0 :
+                        print("##### loop_delay", fnc_name, while_code)
+                        # while문이 들어가 있는 코드가 함수가 load_config인 경우는 제외
+
                     if len(while_code) > 0 and cls.is_check_while_delay(while_code) == False :
                         detail_msg = f"{fnc_name} 함수에서 while문 내 delay 처리가 누락되었습니다. "
                         total_error_result = total_error_result + [[start_line, detail_msg]]
@@ -975,6 +993,7 @@ class CodeReviewCheck:
             return while_block
 
         # [성능] Loop문 내 처리조건 확인 -> Function의 Body 코드에서 while문 코드만 저장
+        # Flase -> 누락, True -> 확인
         @classmethod
         def is_check_while_delay(cls, text: str) -> bool:
 
@@ -990,6 +1009,7 @@ class CodeReviewCheck:
                             return index
                 return -1
 
+            # delay 패턴이 있는지 확인
             def contains_delay_pattern(text: str) -> bool:
                 def remove_comments(text):
                     """
@@ -1010,10 +1030,17 @@ class CodeReviewCheck:
                 # 정규식 검색
                 match = re.search(pattern, text_without_comments)
 
+                CodeReviewCheck.CodeCheck.save_to_file(str(text_without_comments), "[Test1] Delay Test")
+                # delay 최소값 확인 500ms
+                if match :
+                    CodeReviewCheck.CodeCheck.save_to_file(str(match.group()), "[Test2] Delay Test")
+
                 return match is not None
 
             result = False
-            pattern = re.compile(r'(\b\w+\b)\s*\{', re.DOTALL)
+            #pattern = re.compile(r'(\b\w+\b)\s*\{', re.DOTALL)
+            pattern = re.compile(r'([^\s].*?)\s*(?=\{)')
+
             matches = list(pattern.finditer(text))
 
             if not matches:
@@ -1026,6 +1053,7 @@ class CodeReviewCheck:
             # 블록에서 delay 유/무를 판단
             for match in matches:
                 block_name = match.group(1)
+                # block_name에 finnally를 찾아서 delay 있으면 OK
                 start_index = match.end() - 1
 
                 # { 시작으로 } index 찾기
@@ -1037,20 +1065,18 @@ class CodeReviewCheck:
                 # 블록 외부의 코드 추가
                 if last_index < match.start():
                     external_code = text[last_index:match.start()].strip()
+                    print("[external_block_code]\n", external_code)
                     if external_code:
                         blocks.append(f"main {{ {external_code} }}")
                         if contains_delay_pattern(external_code) == True:
                             result = True
-                #
-                # block_content = text[start_index + 1:end_index].strip()
-                # if contains_delay_pattern(block_content) == True:
-                #     result = True
 
                 last_index = end_index + 1
 
             # 마지막 블록 이후의 코드 처리
             if last_index < len(text):
                 remaining_content = text[last_index:].strip()
+                print("last block code", remaining_content)
                 if remaining_content:
                     if contains_delay_pattern(remaining_content) == True:
                         result = True
@@ -1096,8 +1122,10 @@ class CodeReviewCheck:
 
                 # 1. for문의 정규식 생성
                 pattern = re.compile(r'(for\s*\(.*?\)\s*\{[^}]*\})', re.DOTALL)
+
                 # 2. 정규식에 맞는 코드 매칭
                 matches = pattern.finditer(body_code)
+
                 # 3. 리턴할 데이터 리스트 저장(에러 반복문) : string, int -> result_list
                 result_list = []
                 lines = body_code.splitlines()

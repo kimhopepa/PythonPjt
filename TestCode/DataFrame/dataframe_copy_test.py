@@ -9,10 +9,21 @@ data = {
 df = pd.DataFrame(data)
 
 print("Original DataFrame:")
-print(df)
+# print(df)
+
+df["No"] = df.index + 1
+
+# print(df)
+
 
 # 중복된 'Name' 컬럼 값 제거
-df_unique = df.drop_duplicates(subset='Name', keep='first')
+df_unique = df.drop_duplicates(subset='Name', keep='first').reset_index(drop=True)
+df_unique.loc[:, "No"] = df_unique.index + 1
 
-print("\nDataFrame with unique 'Name' values:")
+cols = ['No'] + [col for col in df_unique.columns if col != 'No']
+df_unique = df_unique[cols]
+#
+# print("\nDataFrame with unique 'Name' values:")
 print(df_unique)
+
+

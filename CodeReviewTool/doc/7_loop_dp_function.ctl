@@ -58,7 +58,7 @@ void func_3(int a, int b)
 void func_5(int a, int b)
 {
 
-result = dpConnect("CB_reload",false, reload_dp);
+	result = dpConnect("CB_reload",false, reload_dp);
 	while(true)
 	{
 		
@@ -88,7 +88,7 @@ void func_6(int a, int b)
 	result = dpConnect("CB_reload",false, reload_dp);
 	while(true)
 	{
-		delay(10);
+		// delay(10);
 		try
 		{
 			delay(1);
@@ -102,7 +102,7 @@ void func_6(int a, int b)
 		}
 		finnally
 		{
-			delay(1);
+			// delay(1);
 		}
 		
 	}

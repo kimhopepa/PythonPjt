@@ -255,7 +255,7 @@ def is_check_while_delay(text : str) -> bool:
 
 if __name__ == '__main__':
 
-    path = r'C:\Users\KIMJH\Documents\GitHub\PythonPjt\CodeReviewTool\doc\7_loop_dp_function.txt'
+    path = r'C:\Users\KIMJH\Documents\GitHub\PythonPjt\CodeReviewTool\doc\7_loop_dp_function.ctl'
     text = lib.get_text_file(path)
     fnc_list = lib.get_function_body2(text)
     # print(text)

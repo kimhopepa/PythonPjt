@@ -8,10 +8,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c03cf0c1-cf2f-40ec-aa2e-2536166b52a6" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/FileTest/FileReadWrite.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/5_while_delay_pattern.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/match_findall.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/pattern_loop_delay.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataFrame/df_example1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FileTest/file_search.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FileTest/file_sorting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/7_loop_dp_function.ctl" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/7_loop_dp_function.ctl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/CodeReview_점검_Tool_개발계획서_rev05.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/CodeReview_점검_Tool_개발계획서_rev05.pptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/스크립트별Active동작조건 .drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/스크립트별Active동작조건 .drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeCheckTest/test_pattern/4_dp_exception_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/4_dp_exception_code.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileTest/FileReadTest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeCheckTest/test_pattern/while_pattern2_block.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/while_pattern2_block.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataFrame/dataframe_copy_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataFrame/dataframe_copy_test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,9 +63,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/4_dp_exception_code.py" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/4_dp_exception_code.py" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -65,28 +76,7 @@
       <recent name="C:\Users\KIMJH\Documents\GitHub\PythonPjt\TestCode\FileTest" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.FileReadWrite">
-    <configuration name="3_necessary_code" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="testCode" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/test_pattern" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/3_necessary_code.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.5_while_delay_pattern">
     <configuration name="4_dp_exception_code" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -108,28 +98,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="FileReadWrite" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="testCode" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/FileTest" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/FileTest/FileReadWrite.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="lib_function_info" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="5_while_delay_pattern" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -141,7 +110,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/lib_function_info.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/5_while_delay_pattern.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -171,6 +140,48 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="match_findall" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="testCode" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/test_pattern" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/match_findall.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pattern_loop_delay" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="testCode" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/test_pattern" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/pattern_loop_delay.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="sample_dpGetdpSet" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -192,7 +203,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sample_pattern3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="while_pattern2_block" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -200,11 +211,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/SampleTest" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/test_pattern" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_pattern3.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/while_pattern2_block.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -216,19 +227,19 @@
     <list>
       <item itemvalue="Python.sample_dpGetdpSet" />
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.3_necessary_code" />
+      <item itemvalue="Python.match_findall" />
+      <item itemvalue="Python.pattern_loop_delay" />
       <item itemvalue="Python.4_dp_exception_code" />
-      <item itemvalue="Python.lib_function_info" />
-      <item itemvalue="Python.sample_pattern3" />
-      <item itemvalue="Python.FileReadWrite" />
+      <item itemvalue="Python.5_while_delay_pattern" />
+      <item itemvalue="Python.while_pattern2_block" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.FileReadWrite" />
+        <item itemvalue="Python.5_while_delay_pattern" />
+        <item itemvalue="Python.while_pattern2_block" />
         <item itemvalue="Python.4_dp_exception_code" />
-        <item itemvalue="Python.lib_function_info" />
-        <item itemvalue="Python.sample_pattern3" />
-        <item itemvalue="Python.3_necessary_code" />
+        <item itemvalue="Python.pattern_loop_delay" />
+        <item itemvalue="Python.match_findall" />
       </list>
     </recent_temporary>
   </component>
@@ -272,6 +283,21 @@
           <line>7</line>
           <option name="timeStamp" value="82" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CodeCheckTest/test_pattern/while_pattern2_block.py</url>
+          <line>19</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CodeCheckTest/test_pattern/while_pattern2_block.py</url>
+          <line>189</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CodeCheckTest/test_pattern/5_while_delay_pattern.py</url>
+          <line>57</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -283,8 +309,7 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="line" language="Python" />
-        <watch expression="result" language="Python" />
+        <watch expression="matches" language="Python" />
       </configuration>
     </watches-manager>
   </component>

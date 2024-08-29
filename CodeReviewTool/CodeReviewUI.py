@@ -173,7 +173,6 @@ class WindowClass(QMainWindow, main_form_class):
             self.set_table_widget(df_result)
             # DataFrame 최종 데이터 저장
 
-
         except Exception as e:
             Logger.error("WindowClass.UI_Start Exception" + str(e))
 
@@ -419,21 +418,23 @@ class WindowClass_Detail(QDialog, detail_form_class):
         try:
             Logger.info("WindowClass_Detail set_table_widget_detail()")
 
+            print("test - dt_data", dt_data)
+
             # 1. 행, 열 크기 설정
             self.tableWidget_detail.setRowCount(dt_data.shape[0])
             self.tableWidget_detail.setColumnCount(dt_data.shape[1])
 
             # 2. 테이블 컬럼 이름 설정 : '코드 리뷰 항목' | '코드 리뷰 결과' | 'Line' | '상세 내용'
             self.tableWidget_detail.setHorizontalHeaderLabels(dt_data.columns)
+
             for i in range(dt_data.shape[0]):
                 for j in range(dt_data.shape[1]):
-
                     item = QTableWidgetItem(str(dt_data.iloc[i, j]))
-                    if j != 1:  # 첫 번째 열의 경우에만 가운데 정렬로 설정
+                    if j != 2:  # 첫 번째 열의 경우에만 가운데 정렬로 설정
                         item.setTextAlignment(Qt.AlignCenter)
+
                     item.setToolTip(str(dt_data.iloc[i, j]))
                     self.tableWidget_detail.setItem(i, j, item)
-
 
             self.tableWidget_detail.setStyleSheet("""
                     QTableWidget::item:selected { background-color: #f27900; }
@@ -441,7 +442,7 @@ class WindowClass_Detail(QDialog, detail_form_class):
                 """)
 
            # 크기 조절 정책 설정
-            column_ratios = [0.1, 0.7, 0.1, 0.1]  # 각 컬럼의 비율을 입력 하세요.
+            column_ratios = [0.1, 0.2, 0.4, 0.1]  # 각 컬럼의 비율을 입력 하세요.
             total_ratio = sum(column_ratios)
             total_width = self.tableWidget_detail.width()
 
