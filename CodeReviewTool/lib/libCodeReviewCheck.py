@@ -15,6 +15,8 @@ from openpyxl.styles import Alignment, PatternFill, Border, Side
 import re
 import chardet
 
+import inspect  # 현재 실행되고 있는 함수 이름 체크
+
 # from lib import libConfig
 # from enum import Enum
 # import traceback
@@ -29,6 +31,7 @@ COL_FILE_PATH = "파일 경로"
 COL_CR_CLASS = '분류'
 COL_CR_ITEM = '코드 리뷰 항목'
 COL_CR_RESULT = '코드 리뷰 결과'
+COL_CR_RESULT_CODE = 'Code'
 COL_CR_LINE = 'Line'
 COL_CR_RESULT_DETAIL = '상세 내용'
 COL_CR_YN = 'Y/N'
@@ -48,49 +51,33 @@ ROW_CR_CHECK_NONE = 'NONE'
 
 ROW_CR_CLASS_PERFORMANCE = '성능'
 ROW_CR_CLASS_DB = 'DB'
+ROW_CR_CLASS_QUERY = 'Query 검증'
 ROW_CR_CLASS_STANDARD = '코드 표준'
 
 # [성능]
 # COL_CR_CLASS(분류) | COL_CR_ITEM(코드 리뷰 항목) | COL_CR_RESULT(결과) | COL_CR_LINE(Line) | COL_CR_RESULT_DETAIL(상세 내용) | SVR/CLI
 CR_ITEM_IDX = 1
-ROW_CR_ITEM_ACTIVE = [ROW_CR_CLASS_PERFORMANCE, '서버 스크립트 Active 감시', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_SVR]
-ROW_CR_ITEM_LOOP = [ROW_CR_CLASS_PERFORMANCE, 'Loop문내 처리 조건',  '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
-ROW_CR_ITEM_EVENT_CHANGE = [ROW_CR_CLASS_PERFORMANCE, 'Event 교환 횟수 최소화', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
-ROW_CR_ITEM_PROPER_DP_FCT = [ROW_CR_CLASS_PERFORMANCE, '적절한 DP 처리 함수','', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_NONE]
-ROW_CR_ITEM_DP_QUERY_OPT = [ROW_CR_CLASS_PERFORMANCE, 'DP Query 최적화 구현', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_NONE]
-ROW_CR_ITEM_RAIMA_UP = [ROW_CR_CLASS_PERFORMANCE, 'RAIMA DB 증가','', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_ACTIVE = [ROW_CR_CLASS_PERFORMANCE, '서버 스크립트 Active 감시', '', '','', ROW_CR_RESULT_NONE, ROW_CR_CHECK_SVR]
+ROW_CR_ITEM_LOOP = [ROW_CR_CLASS_PERFORMANCE, 'Loop문내 처리 조건 확인',  '', '','', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_EVENT_CHANGE = [ROW_CR_CLASS_PERFORMANCE, 'Event 교환 횟수 최소화', '', '','', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_PROPER_DP_FCT = [ROW_CR_CLASS_PERFORMANCE, '적절한 DP 처리 함수','', '','', ROW_CR_RESULT_NONE, ROW_CR_CHECK_NONE]
+ROW_CR_ITEM_DP_QUERY_OPT = [ROW_CR_CLASS_PERFORMANCE, 'DP Query 최적화 구현', '', '', '',ROW_CR_RESULT_NONE, ROW_CR_CHECK_NONE]
+ROW_CR_ITEM_RAIMA_UP = [ROW_CR_CLASS_PERFORMANCE, 'RAIMA DB 증가','', '', '',ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
 
 # [DB]
-ROW_CR_ITEM_DB_BIND = [ROW_CR_CLASS_DB, 'DB Query 바인딩 처리', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
-ROW_CR_ITEM_DB_COMMENT = [ROW_CR_CLASS_DB, 'Query 주석 작성', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
-ROW_CR_ITEM_DB_EXCEPTION = [ROW_CR_CLASS_DB, 'DB Query 예외 처리', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+# ROW_CR_ITEM_DB_BIND = [ROW_CR_CLASS_DB, 'Query 정합성 검증 확인', '', '', '',ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+# ROW_CR_ITEM_DB_BIND = [ROW_CR_CLASS_DB, 'DB Query 바인딩 처리', '', '', '',ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+# ROW_CR_ITEM_DB_COMMENT = [ROW_CR_CLASS_DB, 'Query 주석 작성', '', '', '',ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+# ROW_CR_ITEM_DB_EXCEPTION = [ROW_CR_CLASS_DB, 'DB Query 예외 처리', '', '', '',ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_QUERY = [ROW_CR_CLASS_QUERY, 'Query 정합성 검증 확인', '', '', '',ROW_CR_RESULT_NONE, ROW_CR_CHECK_NONE]
 
 # [코드 표준]
-ROW_CR_ITEM_DP_EXCEPTION = [ROW_CR_CLASS_STANDARD, 'DP 함수 예외 처리', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_SVR]
-ROW_CR_ITEM_TRY_EXCEPTION = [ROW_CR_CLASS_STANDARD, 'Try/Catch 예외처리', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
-ROW_CR_ITEM_VERSION = [ROW_CR_CLASS_STANDARD, '스크립트 이력 관리', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_SVR]
-ROW_CR_ITEM_CONSTRAINTS = [ROW_CR_CLASS_STANDARD, '제약 조건 확인', R'', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_NONE]
-ROW_CR_ITEM_HARD_CODE = [ROW_CR_CLASS_STANDARD, '하드코딩 지양', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
-ROW_CR_ITEM_UNNECESSARY_CODE = [ROW_CR_CLASS_STANDARD, '불필요한 코드 지양', '', '', ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
-
-'''
-ROW_CR_ITEM_LOOP = 'Loop문내 처리 조건'
-ROW_CR_ITEM_EVENT_CHANGE = 'Event 교환 횟수 최소화'
-ROW_CR_ITEM_PROPER_DP_FCT = '적절한 DP 처리 함수'
-ROW_CR_ITEM_DP_QUERY_OPT = 'DP Query 최적화 구현'
-ROW_CR_ITEM_RAIMA_UP = 'RAIMA DB 증가'
-
-ROW_CR_ITEM_DB_BIND = 'DB Query 바인딩 처리'
-ROW_CR_ITEM_DB_COMMENT = 'Query 주석 작성'
-ROW_CR_ITEM_DB_EXCEPTION = 'DB Query 예외 처리'
-
-ROW_CR_ITEM_DP_EXCEPTION = 'DP 함수 예외 처리'
-ROW_CR_ITEM_TRY_EXCEPTION = 'Try/Catch 예외처리'
-ROW_CR_ITEM_VERSION = '스크립트 이력 관리'
-ROW_CR_ITEM_CONSTRAINTS = '제약 조건 확인'
-ROW_CR_ITEM_UNNECESSARY_CODE = '불필요한 코드 지양'
-'''
-
+ROW_CR_ITEM_DP_EXCEPTION = [ROW_CR_CLASS_STANDARD, 'DP 함수 예외 처리', '', '', '',ROW_CR_RESULT_NONE, ROW_CR_CHECK_SVR]
+ROW_CR_ITEM_TRY_EXCEPTION = [ROW_CR_CLASS_STANDARD, 'Try/Catch 예외 처리', '', '', '',ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_VERSION = [ROW_CR_CLASS_STANDARD, '이력 정보 작성 확인', '', '','', ROW_CR_RESULT_NONE, ROW_CR_CHECK_SVR]
+ROW_CR_ITEM_CONSTRAINTS = [ROW_CR_CLASS_STANDARD, '예상 못한 Logic 동작 확인', '', '', '',ROW_CR_RESULT_NONE, ROW_CR_CHECK_NONE]
+ROW_CR_ITEM_HARD_CODE = [ROW_CR_CLASS_STANDARD, '하드 코딩 금지', '', '', '',ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_UNNECESSARY_CODE = [ROW_CR_CLASS_STANDARD, '불필요한 코드 금지', '', '', '',ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
 
 class CodeReviewCheck:
 
@@ -99,9 +86,10 @@ class CodeReviewCheck:
     # df_crc_info 컬럼 명 : 파일 이름 | 파일 Full Path
     df_crc_info = pd.DataFrame(columns=[COL_FILE_NAME, COL_FILE_PATH])
 
-    # df_crc_result 컬럼 명 : 구분 | 코드 리뷰 항목 | 코드 리뷰 결과 | Line | 상세 내용 | YN
+    # df_crc_result 컬럼 명 : 구분 | 코드 리뷰 항목 | 코드 리뷰 결과 | Code | Line | 상세 내용 | YN
+    # df_crc_result 컬럼을 변경할 경우 ROW_CR_ITEM_ACTIVE~ ROW_CR_ITEM_UNNECESSARY_CODE 초기화 갑 수정 필요
     df_crc_result = pd.DataFrame(
-        columns=[COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT_DETAIL , COL_CR_LINE, COL_CR_RESULT, COL_CR_YN])
+        columns=[COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT_DETAIL , COL_CR_RESULT_CODE, COL_CR_LINE, COL_CR_RESULT, COL_CR_YN])
 
     # Data Table 처리 동작
     class CodeData:
@@ -115,14 +103,15 @@ class CodeReviewCheck:
                 CodeReviewCheck.df_crc_result.drop(CodeReviewCheck.df_crc_result.index, inplace=True)
 
                 #2. Data 기본 데이터로 저장
+                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_QUERY)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_ACTIVE)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_LOOP)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_EVENT_CHANGE)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_PROPER_DP_FCT)
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_DP_QUERY_OPT)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_RAIMA_UP)
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_DB_BIND)
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_DB_COMMENT)
+                # CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_DP_QUERY_OPT)
+                # CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_DB_BIND)
+                # CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_DB_COMMENT)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_DP_EXCEPTION)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_TRY_EXCEPTION)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_VERSION)
@@ -166,6 +155,7 @@ class CodeReviewCheck:
             try:
                 Logger.debug("CodeReviewCheck.get_tablewidget_detail_df Start")
                 # dt_data에 index 컬럼 추가
+                # 상세 내용 컬럼 순서 : 코드 리뷰 항목(COL_CR_ITEM) | 상세 내용(COL_CR_RESULT_DETAIL), Line(COL_CR_LINE),  코드 리뷰 결과(COL_CR_RESULT)
                 dt_data = CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item_name,
                                                          [COL_CR_ITEM, COL_CR_RESULT_DETAIL, COL_CR_LINE, COL_CR_RESULT]]
                 dt_data = dt_data.reset_index(drop=True)
@@ -285,6 +275,7 @@ class CodeReviewCheck:
                                      bottom=Side(style='thin'))
 
                 CodeReviewCheck.CodeUI.merge_cells_by_column(ws, 1)
+                CodeReviewCheck.CodeUI.merge_cells_by_column(ws, 2)
 
                 # 셀 정렬 및 스타일 적용
                 for row in ws.iter_rows():
@@ -300,7 +291,6 @@ class CodeReviewCheck:
                         cell.border = thin_border
 
                 # 각 열의 너비를 셀 내용에 맞게 자동 조정
-
                 for column_cells in ws.columns:
                     max_length = 0
                     column = column_cells[0].column_letter  # 열의 문자 (예: 'A', 'B', 'C')
@@ -398,9 +388,11 @@ class CodeReviewCheck:
         @classmethod
         def get_export_df(cls):
             try :
-                Logger.debug("CodeReviewCheck.get_export_df Call")
+                Logger.info("CodeReviewCheck.get_export_df Call")
+
+                # Export할 컬럼을 설정 : '분류', '코드 리뷰 항목', '코드 리뷰 결과', 'Code' ,'Line'
                 export_df = CodeReviewCheck.df_crc_result[
-                    [COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT, COL_CR_LINE, COL_CR_RESULT_DETAIL]]
+                    [COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT, COL_CR_LINE, COL_CR_RESULT_CODE, COL_CR_RESULT_DETAIL]]
                 return export_df
             except Exception as e:
                 Logger.error("CodeReviewCheck.set_column_width - Exception : " + str(e))
@@ -408,24 +400,9 @@ class CodeReviewCheck:
 
     # 코드 리뷰 검증 기능 구현 클래스
     class CodeCheck:
-        @classmethod
-        def removed_comments(cls, code):
-            try:
-                # 한 줄 주석 제거
-                code = re.sub(r'//.*', '', code)
 
-                # 여러 줄 주석 제거
-                code = re.sub(r'/\*.*?\*/', '', code, flags=re.DOTALL)
-
-                # 여러 줄 주석 내의 모든 행 삭제
-                code = re.sub(r'(/\*.*?\*/)', lambda x: '\n' * x.group(0).count('\n'), code, flags=re.DOTALL)
-
-                return code
-            except Exception as e:
-                Logger.error("CodeReviewCheck.test_check_code - Exception : " + str(e))
-
-        # 주석으로 공백으로 제거
-        @classmethod
+        # region 1.Code parsing을 위한 함수 모음
+        @classmethod     # 주석으로 공백으로 제거
         def remove_line_comments(cls, code:str) -> str:
             try:
                 lines = code.splitlines()
@@ -438,6 +415,58 @@ class CodeReviewCheck:
                 return '\n'.join(modified_lines)
             except Exception as e:
                 Logger.error("CodeReviewCheck.remove_line_comments - Exception : " + str(e))
+
+        # text의 시작 위치와 마지막 위치를 공백으로 변경 -> 필요 없는 코드를 삭제하는 경우 사용
+        @classmethod
+        def replace_with_spaces(cls, text: str, start_pos: int, end_pos: int) -> str:
+            try :
+                # 인덱스의 유효성 검사
+                if start_pos < 0:
+                    start = 0
+                if end_pos > len(text):
+                    end = len(text)
+                if start_pos >= end_pos:
+                    return text
+
+                # 현재 공백으로 만들 텍스트 길이 체크
+                length_to_replace = end_pos - start_pos
+
+                # 시작 index와 마지막 index사이의 코드를 공백으로 만듬 (체크시 필요 없는 코드)
+                replace_str = text[:start_pos] + ' ' * length_to_replace + text[end_pos:]
+                return replace_str
+
+            except Exception as e:
+                Logger.error("CodeReviewCheck.replace_with_spaces - Exception : " + str(e))
+
+        @classmethod
+        def is_check_pattern(cls, text: str, pattern : str) -> bool:
+            try :
+                # 정규식 패턴 정의 (주석 없이 delay*); 패턴을 찾음)
+                pattern = r'delay.*\);'
+
+                # 정규식 검색
+                match = re.search(pattern, text)
+                return match is not None
+            except Exception as e :
+                Logger.error("CodeReviewCheck.is_check_pattern - Exception : " + str(e))
+
+        @classmethod
+        def find_closing_brace_index(cls, text, open_brace_index):
+            try:
+                stack = 0
+                for index, char in enumerate(text[open_brace_index:], start=open_brace_index):
+                    if char == '{':
+                        stack += 1
+                    elif char == '}':
+                        stack -= 1
+                        if stack == 0:
+                            return index
+                return -1
+            except Exception as e:
+                Logger.error("CodeReviewCheck.find_closing_brace_index - Exception : " + str(e))
+        # endregion
+
+        # region 2. DataTable, 파일 등 공통으로 사용하는 함수 모음
         # 파일을 읽어서 텍스트 반환
         @staticmethod
         def get_file_to_text(file_path):
@@ -473,29 +502,6 @@ class CodeReviewCheck:
             except Exception as e:
                 Logger.error("CodeReviewCheck.CodeUI - Exception : " + str(e))
 
-        @classmethod
-        def update_result_df(cls, cr_item : str , check_result : str, check_detail : list ):
-            try:
-                Logger.debug("CodeCheck.update_result_df - Start")
-                cr_result_df = CodeReviewCheck.df_crc_result
-
-                # 코드 리뷰 점검 항목 결과 동작
-                for list_data in check_detail :
-                    list_line = list_data[0]
-                    list_detail = list_data[1]
-
-                    item_indx = cr_result_df.index[cr_result_df[COL_CR_ITEM] == cr_item].tolist()[0]    # item index 검색
-                    new_data = cr_result_df.loc[cr_result_df[COL_CR_ITEM] == cr_item].copy()            # item record 복사
-                    cr_result_df = cr_result_df.drop(item_indx)                                         # item index 삭제
-
-                    # 신규 추가 row_data 업데이트 -> DataFrame에 추가
-                    new_data[COL_CR_LINE] = list_line
-                    new_data[COL_CR_RESULT_DETAIL] = list_detail
-                    CodeReviewCheck.df_crc_result = pd.concat([cr_result_df.loc[:item_indx],new_data, cr_result_df.loc[item_indx+1:]], ignore_index=True)
-
-            except Exception as e:
-                Logger.error("CodeCheck.update_result_df - Exception : " + str(e))
-
         # Code Review 결과를 DataFrame에 업데이트 : List 정보를 입력받아 없으면 OK, 있으면 추가하면서 저장
         @classmethod
         def update_check_result(cls, review_item : str, review_result : list, df : pd.DataFrame) -> pd.DataFrame:
@@ -510,10 +516,12 @@ class CodeReviewCheck:
 
                     # Error List를 Dataframe에 저장
                     for item in review_result:
-                        new_row = select_row.copy()
-                        new_row.loc[:, COL_CR_RESULT] = ROW_CR_RESULT_NG
-                        new_row.loc[:, COL_CR_LINE] = item[0]
-                        new_row.loc[:, COL_CR_RESULT_DETAIL] = item[1].strip()
+                        new_row = select_row.copy()                             # ROW 정보를 새로 생성
+                        new_row.loc[:, COL_CR_RESULT] = ROW_CR_RESULT_NG        # NG 저장
+                        new_row.loc[:, COL_CR_LINE] = item[0]                   # 라인 위치 저장
+                        new_row.loc[:, COL_CR_RESULT_DETAIL] = item[1].strip()  # 상세 내용 저장
+                        # new_row.loc[:, COL_CR_RESULT_CODE] = item[2].strip()    # 코드 데이터를 저장 -> Excel 파일 저장할 때만 표시
+
                         # 상위 부분, 새로운 행, 하위 부분 결합
                         upper_half = df.iloc[:item_index + 1]
                         lower_half = df.iloc[item_index + 1:]
@@ -524,10 +532,10 @@ class CodeReviewCheck:
 
             except Exception as e:
                 Logger.error("CodeReviewCheck.update_check_result - Exception : " + str(e))
+        # endregion
 
         # lib 코드에서 코드 점검 시작
         @staticmethod
-        # def code_check_start( file_name : str , check_svr : bool) -> pd.DataFrame :
         def code_check_start( file_name : str , check_svr : bool)  :
             try:
 
@@ -545,20 +553,24 @@ class CodeReviewCheck:
                 CodeReviewCheck.function_body_list = CodeReviewCheck.CodeCheck.get_function_body(text_code)
 
                 # 모두 해당되는 코드 리뷰 항목
-                CodeReviewCheck.CodeCheck.code_check_UnnecessaryCode(text_code, ROW_CR_ITEM_UNNECESSARY_CODE[CR_ITEM_IDX])
+                CodeReviewCheck.CodeCheck.code_check_loop_delay(text_code, ROW_CR_ITEM_LOOP[CR_ITEM_IDX])                   # Loop문 내에 처리 조건
+                CodeReviewCheck.CodeCheck.code_check_eventminimize(text_code, ROW_CR_ITEM_EVENT_CHANGE[CR_ITEM_IDX])        # 이벤트 교환 횟수 최소화
+                CodeReviewCheck.CodeCheck.code_check_callback(text_code, ROW_CR_ITEM_PROPER_DP_FCT[CR_ITEM_IDX])            # 적절한 DP 처리 함수 사용
+                CodeReviewCheck.CodeCheck.code_check_UnnecessaryCode(text_code, ROW_CR_ITEM_UNNECESSARY_CODE[CR_ITEM_IDX])  #
                 CodeReviewCheck.CodeCheck.code_check_hard_coding(text_code, ROW_CR_ITEM_HARD_CODE[CR_ITEM_IDX])
-                CodeReviewCheck.CodeCheck.code_check_loop_delay(text_code, ROW_CR_ITEM_LOOP[CR_ITEM_IDX])
-                CodeReviewCheck.CodeCheck.code_check_eventminimize(text_code, ROW_CR_ITEM_EVENT_CHANGE[CR_ITEM_IDX])
-                CodeReviewCheck.CodeCheck.code_check_callback(text_code, ROW_CR_ITEM_PROPER_DP_FCT[CR_ITEM_IDX])
+
+
+
 
                 # Code + 코드 리뷰 아이템 정보 전달 -> 코드 리뷰  진행 후 해당 DataFrame에 결과 저장하여 반환
                 if (check_svr == True):
                     Logger.info("CodeCheck.code_check_start(SVR)")
 
                     # SVR에서만 점검하는 코드 리뷰 항목
-                    CodeReviewCheck.CodeCheck.code_check_version(text_code, ROW_CR_ITEM_VERSION[CR_ITEM_IDX])
-                    CodeReviewCheck.CodeCheck.code_check_try_exception(text_code, ROW_CR_ITEM_TRY_EXCEPTION[CR_ITEM_IDX])
-                    CodeReviewCheck.CodeCheck.code_check_dp_exception(text_code, ROW_CR_ITEM_DP_EXCEPTION[CR_ITEM_IDX])
+                    CodeReviewCheck.CodeCheck.code_check_dp_exception(text_code, ROW_CR_ITEM_DP_EXCEPTION[CR_ITEM_IDX])     # DP 함수 예외 처리
+                    CodeReviewCheck.CodeCheck.code_check_try_exception(text_code, ROW_CR_ITEM_TRY_EXCEPTION[CR_ITEM_IDX])   # try, Catch 예외 처리
+                    CodeReviewCheck.CodeCheck.code_check_version(text_code, ROW_CR_ITEM_VERSION[CR_ITEM_IDX])               # 버전 정보 작성 확인인
+
 
                 else:
                     Logger.info("CodeCheck.code_check_start(CLI)")
@@ -600,10 +612,10 @@ class CodeReviewCheck:
                 Logger.info("CodeCheck.code_check_UNUSED - Start")
 
                 # 1. 코드에서 주석 부분 제거 (공백으로 변경, 라인 수 유지 필요)
-                new_text_code = remove_line_comments(text_code)
+                # new_text_code = remove_line_comments(text_code)
 
                 # 2. 전역 변수 찾기
-                global_vars = cls.get_variables(new_text_code)
+                global_vars = cls.get_variables(text_code)
 
                 # 3. 전역 변수 사용 되었는지 확인
                 total_error_result = []
@@ -612,7 +624,7 @@ class CodeReviewCheck:
                     for item in CodeReviewCheck.function_body_list:
                         function_name = item[0]
                         body_code = item[1]
-                        body_code = remove_line_comments(body_code)
+                        # body_code = remove_line_comments(body_code)
                         start_number = item[2]
 
                         # local_vars = cls.get_variables(body_code)
@@ -705,11 +717,8 @@ class CodeReviewCheck:
                 # DataTable 업데이트
                 if check_result == True :
                     CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT] = ROW_CR_RESULT_OK
-                    # CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_LINE] = "-"
                 if check_result == False :
                     CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT] = ROW_CR_RESULT_NG
-                    # CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_LINE] = "-"
-                    # CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT_DETAIL] = detail_msg
                 CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_LINE] = "-"
                 CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT_DETAIL] = detail_msg
 
@@ -948,10 +957,6 @@ class CodeReviewCheck:
                     while_code = cls.get_while_code(body_code)      # while문 코드를 확인하여 반환
                     detail_msg = ""
 
-                    if len(while_code) > 0 :
-                        print("##### loop_delay", fnc_name, while_code)
-                        # while문이 들어가 있는 코드가 함수가 load_config인 경우는 제외
-
                     if len(while_code) > 0 and cls.is_check_while_delay(while_code) == False :
                         detail_msg = f"{fnc_name} 함수에서 while문 내 delay 처리가 누락되었습니다. "
                         total_error_result = total_error_result + [[start_line, detail_msg]]
@@ -964,124 +969,52 @@ class CodeReviewCheck:
         @classmethod
         def get_while_code(cls, body_code: str) -> str:
 
-            # 중첩된 중괄호를 처리하여 닫는 중괄호의 인덱스를 찾습니다.
-            def find_closing_brace_index(text, open_brace_index):
-                stack = 0
-                for index, char in enumerate(text[open_brace_index:], start=open_brace_index):
-                    if char == '{':
-                        stack += 1
-                    elif char == '}':
-                        stack -= 1
-                        if stack == 0:
-                            return index
-                return -1
+            try :
+                pattern = r'while\s*\([^)]*\)\s*{'
+                match = re.search(pattern, body_code, re.DOTALL)
+                while_block_code = ""
 
-            pattern = r'while\s*\([^)]*\)\s*{'
-            match = re.search(pattern, body_code, re.DOTALL)
+                if match:
+                    while_code_start_pos = match.end() - 1
+                    end_index = cls.find_closing_brace_index(body_code, while_code_start_pos)
+                    if end_index == -1:
+                        while_block_code = ""
+                    else:
+                        while_block_code = body_code[while_code_start_pos + 1: end_index]
 
-            if not match:
-                return ""
+                else:
+                    while_block_code = ""
 
-            start_index = match.end() - 1
-            end_index = find_closing_brace_index(body_code, start_index)
-
-            if end_index == -1:
-                return ""
-
-            while_block = body_code[start_index + 1:end_index]
-
-            return while_block
+                return while_block_code
+            except Exception as e:
+                Logger.error("CodeReviewCheck.get_while_code - Exception : " + str(e))
 
         # [성능] Loop문 내 처리조건 확인 -> Function의 Body 코드에서 while문 코드만 저장
         # Flase -> 누락, True -> 확인
         @classmethod
-        def is_check_while_delay(cls, text: str) -> bool:
+        def is_check_while_delay(cls, body_code: str) -> bool:
+            try :
+                check_keyward = "delay"
+                check_result = False
+                pattern = re.compile(r'([^\s].*?)\s*(?=\{)')  # "if() {" 을 찾는 패턴
+                matches = list(pattern.finditer(body_code))
 
-            # 중첩된 중괄호를 처리하여 닫는 중괄호 인덱스를 찾기
-            def find_closing_brace_index(text: str, open_brace_index: int) -> int:
-                stack = 0
-                for index, char in enumerate(text[open_brace_index:], start=open_brace_index):
-                    if char == '{':
-                        stack += 1
-                    elif char == '}':
-                        stack -= 1
-                        if stack == 0:
-                            return index
-                return -1
+                # while문 내에서 {}으로 설정되어 있는지 확인하여 내부 코드는 삭제
+                for match in matches:
+                    block_name = match.group(1)
 
-            # delay 패턴이 있는지 확인
-            def contains_delay_pattern(text: str) -> bool:
-                def remove_comments(text):
-                    """
-                    주석을 제거하는 함수. 한 줄 주석과 여러 줄 주석을 모두 처리합니다.
-                    """
-                    # 한 줄 주석 제거
-                    text = re.sub(r'//.*', '', text)
-                    # 여러 줄 주석 제거
-                    text = re.sub(r'/\*.*?\*/', '', text, flags=re.DOTALL)
-                    return text
+                    # block 조건문으로 판단하는 경우 코드는 제외
+                    if block_name not in "finally":
+                        block_start_pos = match.end()  # '{' 포함 시켜서 index 전달
+                        block_end_pos = cls.find_closing_brace_index(body_code, block_start_pos)  # 블록 마지막 위치를 반환
+                        body_code = cls.replace_with_spaces(body_code, block_start_pos + 1, block_end_pos)  # 블록 시작 위치와 마지막 위치 코드는 삭제 (시작위치는 '{' 제외하고 전달)
 
-                # 주석을 제거한 텍스트
-                text_without_comments = remove_comments(text)
+                if check_keyward in body_code:
+                    check_result = True
+                return check_result
 
-                # 정규식 패턴 정의 (주석 없이 delay*); 패턴을 찾음)
-                pattern = r'delay.*\);'
-
-                # 정규식 검색
-                match = re.search(pattern, text_without_comments)
-
-                CodeReviewCheck.CodeCheck.save_to_file(str(text_without_comments), "[Test1] Delay Test")
-                # delay 최소값 확인 500ms
-                if match :
-                    CodeReviewCheck.CodeCheck.save_to_file(str(match.group()), "[Test2] Delay Test")
-
-                return match is not None
-
-            result = False
-            #pattern = re.compile(r'(\b\w+\b)\s*\{', re.DOTALL)
-            pattern = re.compile(r'([^\s].*?)\s*(?=\{)')
-
-            matches = list(pattern.finditer(text))
-
-            if not matches:
-                return False
-
-            # key = Block의 제목 , value = Block 코드의 내부(이중 블록 안의 내용은 삭제 하여 저장)
-            blocks = []
-            last_index = 0
-
-            # 블록에서 delay 유/무를 판단
-            for match in matches:
-                block_name = match.group(1)
-                # block_name에 finnally를 찾아서 delay 있으면 OK
-                start_index = match.end() - 1
-
-                # { 시작으로 } index 찾기
-                end_index = find_closing_brace_index(text, start_index)     # 중괄호 시작하는 패턴을 매칭하여 중괄호 닫는 index 찾기
-
-                if end_index == -1:
-                    continue
-
-                # 블록 외부의 코드 추가
-                if last_index < match.start():
-                    external_code = text[last_index:match.start()].strip()
-                    print("[external_block_code]\n", external_code)
-                    if external_code:
-                        blocks.append(f"main {{ {external_code} }}")
-                        if contains_delay_pattern(external_code) == True:
-                            result = True
-
-                last_index = end_index + 1
-
-            # 마지막 블록 이후의 코드 처리
-            if last_index < len(text):
-                remaining_content = text[last_index:].strip()
-                print("last block code", remaining_content)
-                if remaining_content:
-                    if contains_delay_pattern(remaining_content) == True:
-                        result = True
-
-            return result
+            except Exception as e:
+                Logger.error("CodeReviewCheck.is_check_while_delay - Exception : " + str(e))
 
         # [성능] 이벤트 교환 횟수 최소화
         @ classmethod
@@ -1167,6 +1100,7 @@ class CodeReviewCheck:
                     body_code = function_item[1]
                     start_line = function_item[2]
                     end_line = function_item[3]
+
                     for conn_function_item in connection_fnc_list :
                         if fnc_name == conn_function_item :
                             delay_pattern = r'delay\s*\(.*?\)\s*;'

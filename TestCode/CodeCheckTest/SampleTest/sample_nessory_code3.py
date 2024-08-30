@@ -5,7 +5,7 @@ import re
 def get_pattern(text : str, pattern : str) -> str :
     match = re.search(pattern, text)
     
-    if match :
+   if match :
         return match.group(1)
     else :
         return text

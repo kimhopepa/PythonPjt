@@ -7,21 +7,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c03cf0c1-cf2f-40ec-aa2e-2536166b52a6" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/5_while_delay_pattern.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/match_findall.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/pattern_loop_delay.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataFrame/df_example1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileTest/file_search.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileTest/file_sorting.py" afterDir="false" />
+    <list default="true" id="c03cf0c1-cf2f-40ec-aa2e-2536166b52a6" name="변경" comment="ddd">
       <change beforePath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI_Detail.ui" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI_Detail.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/config.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/7_loop_dp_function.ctl" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/7_loop_dp_function.ctl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/CodeReview_점검_Tool_개발계획서_rev05.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/CodeReview_점검_Tool_개발계획서_rev05.pptx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/스크립트별Active동작조건 .drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/스크립트별Active동작조건 .drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeCheckTest/test_pattern/while_pattern2_block.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/while_pattern2_block.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataFrame/dataframe_copy_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataFrame/dataframe_copy_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_nessory_code3.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_nessory_code3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeCheckTest/test_pattern/5_while_delay_pattern.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/5_while_delay_pattern.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeCheckTest/test_pattern/lib_function_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/lib_function_info.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,6 +248,14 @@
       <option name="presentableId" value="Default" />
       <updated>1672910439255</updated>
     </task>
+    <task id="LOCAL-00001" summary="ddd">
+      <created>1724936904735</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1724936904735</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -269,34 +273,16 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/../.." />
     </ignored-roots>
+    <MESSAGE value="ddd" />
+    <option name="LAST_COMMIT_MESSAGE" value="ddd" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_nessory_code3.py</url>
-          <line>40</line>
-          <option name="timeStamp" value="81" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_nessory_code3.py</url>
-          <line>7</line>
-          <option name="timeStamp" value="82" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/CodeCheckTest/test_pattern/while_pattern2_block.py</url>
-          <line>19</line>
-          <option name="timeStamp" value="84" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/CodeCheckTest/test_pattern/while_pattern2_block.py</url>
-          <line>189</line>
-          <option name="timeStamp" value="85" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/CodeCheckTest/test_pattern/5_while_delay_pattern.py</url>
-          <line>57</line>
-          <option name="timeStamp" value="86" />
+          <line>83</line>
+          <option name="timeStamp" value="100" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -309,7 +295,9 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="matches" language="Python" />
+        <watch expression="block_start_pos" language="Python" />
+        <watch expression="block_end_pos" language="Python" />
+        <watch expression="body_code[block_start_pos:block_end_pos+1]" language="Python" />
       </configuration>
     </watches-manager>
   </component>

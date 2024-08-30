@@ -207,7 +207,7 @@ def get_function_name2( text: str) -> str:
 def get_function_body2(text : str) -> list:
     function_info = []
     code_line_number = 0
-
+    text = remove_line_comments(text)
     # 1. 먼저 body의 정보를 먼저 저장 : body_code, body_start_line, body_end_line
     body_info = get_body_info3(text)
     # for index, item in enumerate(body_info):
@@ -265,11 +265,11 @@ def get_patterns(text: str, pattern: str, fnc_pos_line:int) -> list:
     return result_list
 
 # 주석으로 공백으로 제거
-def remove_line_comments(code):
+def remove_line_comments(code : str) -> str:
     lines = code.splitlines()
     modified_lines = []
     for line in lines:
-        # Remove comments starting with //
+        # Remove comments starting with /
         if '/' in line:
             line = line.split('/')[0] + ' ' * len(line.split('//')[1])
         modified_lines.append(line)

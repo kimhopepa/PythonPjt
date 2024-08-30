@@ -55,7 +55,7 @@ void func_3(int a, int b)
 //	DebugTN("test func4()");
 //}
 
-void func_5(int a, int b)
+void func_5_ng(int a, int b)
 {
 
 	result = dpConnect("CB_reload",false, reload_dp);
@@ -68,13 +68,13 @@ void func_5(int a, int b)
 			{
 				dpSet();
 			}
+			delay(1);
 		}
 		catch
 		{
 			
 		}
-		
-		delay(1);
+
 	}
 
 }
@@ -86,12 +86,13 @@ void func_5(int a, int b)
 void func_6(int a, int b)
 {
 	result = dpConnect("CB_reload",false, reload_dp);
+	
 	while(true)
 	{
 		// delay(10);
 		try
 		{
-			delay(1);
+			//delay(1);
 			if(test == true)
 			{
 			}
@@ -102,11 +103,9 @@ void func_6(int a, int b)
 		}
 		finnally
 		{
-			// delay(1);
+			delay(1);
 		}
-		
 	}
-
 }
 
 void func_7(int a, int b)

@@ -179,8 +179,6 @@ class WindowClass(QMainWindow, main_form_class):
     # UI - Export 버튼
     def UI_Export(self):
         try:
-
-            print(self.selected_file_name == None)
             if self.selected_file_name is not None:
                 Logger.debug("UI_Export. file name = " + self.selected_file_name)
 
@@ -199,7 +197,6 @@ class WindowClass(QMainWindow, main_form_class):
                                                            options=options)
 
                 # 4. TableWidget 데이터 Dataframe 변환
-                print(file_path, file_type)
                 # export_df = CodeReviewCheck.CodeUI.get_df_to_tablewidget(self.tableWidget)
 
                 # 5. 엑셀 파일로 저장
@@ -418,8 +415,6 @@ class WindowClass_Detail(QDialog, detail_form_class):
         try:
             Logger.info("WindowClass_Detail set_table_widget_detail()")
 
-            print("test - dt_data", dt_data)
-
             # 1. 행, 열 크기 설정
             self.tableWidget_detail.setRowCount(dt_data.shape[0])
             self.tableWidget_detail.setColumnCount(dt_data.shape[1])
@@ -442,7 +437,7 @@ class WindowClass_Detail(QDialog, detail_form_class):
                 """)
 
            # 크기 조절 정책 설정
-            column_ratios = [0.1, 0.2, 0.4, 0.1]  # 각 컬럼의 비율을 입력 하세요.
+            column_ratios = [0.1, 0.2, 0.4, 0.1 ,0.1]  # 각 컬럼의 비율을 입력 하세요.
             total_ratio = sum(column_ratios)
             total_width = self.tableWidget_detail.width()
 

@@ -51,7 +51,7 @@
     <set>QAbstractItemView::NoEditTriggers</set>
    </property>
    <property name="dragDropMode">
-    <enum>QAbstractItemView::DragDrop</enum>
+    <enum>QAbstractItemView::NoDragDrop</enum>
    </property>
    <property name="selectionMode">
     <enum>QAbstractItemView::SingleSelection</enum>
