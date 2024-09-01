@@ -503,6 +503,7 @@ class CodeReviewCheck:
                 Logger.error("CodeReviewCheck.CodeUI - Exception : " + str(e))
 
         # Code Review 결과를 DataFrame에 업데이트 : List 정보를 입력받아 없으면 OK, 있으면 추가하면서 저장
+        # review_item = 코드 리뷰 항목, review_result = 코드 리뷰 결과("상세 내용", "라인", "코드")
         @classmethod
         def update_check_result(cls, review_item : str, review_result : list, df : pd.DataFrame) -> pd.DataFrame:
             try:
@@ -520,7 +521,7 @@ class CodeReviewCheck:
                         new_row.loc[:, COL_CR_RESULT] = ROW_CR_RESULT_NG        # NG 저장
                         new_row.loc[:, COL_CR_LINE] = item[0]                   # 라인 위치 저장
                         new_row.loc[:, COL_CR_RESULT_DETAIL] = item[1].strip()  # 상세 내용 저장
-                        # new_row.loc[:, COL_CR_RESULT_CODE] = item[2].strip()    # 코드 데이터를 저장 -> Excel 파일 저장할 때만 표시
+                        new_row.loc[:, COL_CR_RESULT_CODE] = item[2].strip()    # 코드 데이터를 저장 -> Excel 파일 저장할 때만 표시
 
                         # 상위 부분, 새로운 행, 하위 부분 결합
                         upper_half = df.iloc[:item_index + 1]
@@ -621,6 +622,7 @@ class CodeReviewCheck:
                 total_error_result = []
                 for var_name, line in global_vars :
                     used_flag = False
+                    body_code = ""
                     for item in CodeReviewCheck.function_body_list:
                         function_name = item[0]
                         body_code = item[1]
@@ -641,7 +643,7 @@ class CodeReviewCheck:
                             continue
 
                     if not used_flag:
-                        total_error_result = total_error_result + [[line, f"{var_name} 변수가 사용 이력이 없습니다."]]
+                        total_error_result = total_error_result + [[line, f"{var_name} 변수가 사용 이력이 없습니다.", ""]]
 
                 CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
 
@@ -721,6 +723,7 @@ class CodeReviewCheck:
                     CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT] = ROW_CR_RESULT_NG
                 CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_LINE] = "-"
                 CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT_DETAIL] = detail_msg
+                CodeReviewCheck.df_crc_result.loc[CodeReviewCheck.df_crc_result[COL_CR_ITEM] == cr_item, COL_CR_RESULT_CODE] = "-"
 
             except Exception as e:
                 Logger.error("CodeReviewCheck.code_check_version - Exception : " + str(e))
@@ -756,7 +759,8 @@ class CodeReviewCheck:
                 for line_code in body_code.split('\n') :
                     # Skip 대상이 아니고 대입 연산자 경우 하드 코딩이 있는 경우
                     if cls.check_skip_string(line_code) == False and cls.is_check_hard_coding_opeartion(line_code) == True:
-                        result_hard_coding.append([line_count+2, "하드 코딩으로 작성되었습니다. 함수 = %s, 코드 = %s" % (function_name, line_code.strip() )])
+                        # result_hard_coding.append([line_count+2, "하드 코딩으로 작성되었습니다. 함수 = %s, 코드 = %s" % (function_name, line_code.strip() )])
+                        result_hard_coding.append([line_count + 2, f"하드 코딩으로 작성되었습니다. 함수 = {function_name}", line_code.strip()])
                     line_count = line_count + 1
 
                 # 하드 코딩 패턴 2 : 함수 or 괄호 안에 하드 코딩이 설정 되어 있는 경우
@@ -862,7 +866,7 @@ class CodeReviewCheck:
                     start_number = item[2]
 
                     if cls.is_try_exception(body_code) == False :
-                        result_try_exception.append([start_number, "try,Catch 예외 처리가 누락 되었습니다.  함수 = %s"% (function_name)])
+                        result_try_exception.append([start_number, f"함수에 try,Catch 예외 처리가 누락 되었습니다.  함수 = {function_name}", ""])
 
                 # 3. 코드 리뷰 결과 Dataframe에 업데이트 -> CodeReviewCheck.df_crc_result
                 CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, result_try_exception, CodeReviewCheck.df_crc_result)
@@ -958,8 +962,8 @@ class CodeReviewCheck:
                     detail_msg = ""
 
                     if len(while_code) > 0 and cls.is_check_while_delay(while_code) == False :
-                        detail_msg = f"{fnc_name} 함수에서 while문 내 delay 처리가 누락되었습니다. "
-                        total_error_result = total_error_result + [[start_line, detail_msg]]
+                        detail_msg = f"while문 내에서 delay 코드가 작성되지 않았습니다. 함수 = {fnc_name}"
+                        total_error_result = total_error_result + [[start_line, detail_msg, ""]]
 
                 CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
             except Exception as e:
@@ -1029,8 +1033,8 @@ class CodeReviewCheck:
                     end_line = item[3]
                     loop_error_list = cls.loop_pattern_check(body_code, start_line)
                     for error_item in loop_error_list :
-                        detail_msg = f"{fnc_name} 함수에서 DP Function이 연속 처리되었습니다. Code = {error_item[0]}"
-                        total_error_result = total_error_result + [[error_item[1], detail_msg]]
+                        detail_msg = f"DP 함수가 반복적으로 처리 되었습니다. 함수 = {fnc_name} "
+                        total_error_result = total_error_result + [[error_item[1], detail_msg, error_item[0]]]
 
                 CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
             except Exception as e:
@@ -1107,8 +1111,8 @@ class CodeReviewCheck:
                             matches = re.findall(delay_pattern, body_code)
                             # delay가 있는 경우에는 에러 내용 저장
                             if bool(matches) == True :
-                                detail_msg = f"{fnc_name} Callback 함수에서 delay 삭제해야 합니다. Code = {str(matches)}"
-                                total_error_result = total_error_result + [[start_line, detail_msg]]
+                                detail_msg = f"Callback 함수에서 delay 코드가 존재합니다. 함수 = {fnc_name} "
+                                total_error_result = total_error_result + [[start_line, detail_msg, str(matches)]]
                 CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
             except Exception as e:
                 Logger.error("CodeReviewCheck.code_check_callback - Exception : " + str(e))

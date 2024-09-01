@@ -8,16 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c03cf0c1-cf2f-40ec-aa2e-2536166b52a6" name="변경" comment="ddd">
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI_Detail.ui" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI_Detail.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/7_loop_dp_function.ctl" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/7_loop_dp_function.ctl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/CodeReview_점검_Tool_개발계획서_rev05.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/CodeReview_점검_Tool_개발계획서_rev05.pptx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_nessory_code3.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/SampleTest/sample_nessory_code3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeCheckTest/test_pattern/5_while_delay_pattern.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/5_while_delay_pattern.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeCheckTest/test_pattern/lib_function_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/test_pattern/lib_function_info.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
