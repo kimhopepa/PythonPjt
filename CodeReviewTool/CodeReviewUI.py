@@ -404,14 +404,14 @@ class WindowClass_Detail(QDialog, detail_form_class):
             #2. 코드 리뷰 항목에 대한 결과 내용 테이블에 업데이트
             self.tableWidget_detail.clearContents()
             dt_data = CodeReviewCheck.CodeData.get_tablewidget_detail_df(self.cr_item)
-            self.set_table_widget_detail(dt_data)
+            self.set_table_widget_detail(dt_data, CodeReviewCheck.df_crc_result)
 
             super().exec()
 
         except Exception as e:
             Logger.error("WindowClass.exec Exception" + str(e))
 
-    def set_table_widget_detail(self, dt_data):
+    def set_table_widget_detail(self, dt_data, dt_full_data):
         try:
             Logger.info("WindowClass_Detail set_table_widget_detail()")
 
@@ -425,10 +425,16 @@ class WindowClass_Detail(QDialog, detail_form_class):
             for i in range(dt_data.shape[0]):
                 for j in range(dt_data.shape[1]):
                     item = QTableWidgetItem(str(dt_data.iloc[i, j]))
-                    if j != 2:  # 첫 번째 열의 경우에만 가운데 정렬로 설정
+                    if j != 2 :  # 첫 번째 열의 경우에만 가운데 정렬로 설정
                         item.setTextAlignment(Qt.AlignCenter)
 
-                    item.setToolTip(str(dt_data.iloc[i, j]))
+                    if j == 2 :  # 상세 내용의 케이스만 tool tip 적용
+                        tooltip_data = dt_data.iloc[i, j]
+                        code_data = CodeReviewCheck.CodeData.get_code_data(i)
+                        if(len(code_data) > 0 ) :
+                            code_data += "code = " + code_data
+                        item.setToolTip(code_data)        # 도우말 ToolTip - > 마우스 위치를 데이터 컬럼위치로 이동시 ToolTip 표시
+
                     self.tableWidget_detail.setItem(i, j, item)
 
             self.tableWidget_detail.setStyleSheet("""

@@ -8,7 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c03cf0c1-cf2f-40ec-aa2e-2536166b52a6" name="변경" comment="ddd">
+      <change afterPath="$PROJECT_DIR$/CodeCheckTest/check_hardcoding/for_hardcoding.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/excel_test/excel_width_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/CodeReview_점검_Tool_개발계획서_rev06.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/CodeReview_점검_Tool_개발계획서_rev06.pptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeCheckTest/basic_test/string_Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCheckTest/basic_test/string_Test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,28 +70,7 @@
       <recent name="C:\Users\KIMJH\Documents\GitHub\PythonPjt\TestCode\FileTest" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.5_while_delay_pattern">
-    <configuration name="4_dp_exception_code" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="testCode" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/test_pattern" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/4_dp_exception_code.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.for_hardcoding">
     <configuration name="5_while_delay_pattern" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -98,6 +84,69 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/5_while_delay_pattern.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="excel_width_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="testCode" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/excel_test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/excel_test/excel_width_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="for_hardcoding" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="testCode" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/check_hardcoding" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/check_hardcoding/for_hardcoding.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="hardcoding_main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="testCode" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/check_hardcoding" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/check_hardcoding/hardcoding_main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -127,48 +176,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="match_findall" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="testCode" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/test_pattern" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/match_findall.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pattern_loop_delay" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="testCode" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/test_pattern" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/pattern_loop_delay.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="sample_dpGetdpSet" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -190,7 +197,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="while_pattern2_block" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="string_Test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -198,11 +205,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/test_pattern" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/basic_test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/test_pattern/while_pattern2_block.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/basic_test/string_Test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -214,19 +221,19 @@
     <list>
       <item itemvalue="Python.sample_dpGetdpSet" />
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.match_findall" />
-      <item itemvalue="Python.pattern_loop_delay" />
-      <item itemvalue="Python.4_dp_exception_code" />
       <item itemvalue="Python.5_while_delay_pattern" />
-      <item itemvalue="Python.while_pattern2_block" />
+      <item itemvalue="Python.string_Test" />
+      <item itemvalue="Python.excel_width_test" />
+      <item itemvalue="Python.hardcoding_main" />
+      <item itemvalue="Python.for_hardcoding" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.for_hardcoding" />
+        <item itemvalue="Python.hardcoding_main" />
+        <item itemvalue="Python.excel_width_test" />
+        <item itemvalue="Python.string_Test" />
         <item itemvalue="Python.5_while_delay_pattern" />
-        <item itemvalue="Python.while_pattern2_block" />
-        <item itemvalue="Python.4_dp_exception_code" />
-        <item itemvalue="Python.pattern_loop_delay" />
-        <item itemvalue="Python.match_findall" />
       </list>
     </recent_temporary>
   </component>
@@ -274,6 +281,16 @@
           <url>file://$PROJECT_DIR$/CodeCheckTest/test_pattern/5_while_delay_pattern.py</url>
           <line>83</line>
           <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CodeCheckTest/check_hardcoding/for_hardcoding.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CodeCheckTest/check_hardcoding/for_hardcoding.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="102" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

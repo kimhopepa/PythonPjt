@@ -8,6 +8,7 @@ from openpyxl import Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
 # from openpyxl.styles import Alignment
 from openpyxl.utils import get_column_letter
+from openpyxl.styles import Font
 # from openpyxl.styles import Alignment, PatternFill
 import pandas as pd
 # from openpyxl import load_workbook
@@ -83,6 +84,7 @@ class CodeReviewCheck:
 
     function_body_list =[]
     text_list = []
+    hard_pass_functions = ['config']
     # df_crc_info 컬럼 명 : 파일 이름 | 파일 Full Path
     df_crc_info = pd.DataFrame(columns=[COL_FILE_NAME, COL_FILE_PATH])
 
@@ -216,6 +218,17 @@ class CodeReviewCheck:
             except Exception as e:
                 Logger.error("CodeReviewCheck.get_file_path - Exception : " + str(e))
 
+        # DataFrame에서 index의 CodeData를 조회
+        @staticmethod
+        def get_code_data(row_index : int) -> str :
+            try:
+                Logger.debug(f"CodeReviewCheck.get_code_data - {row_index}")
+                code_index = CodeReviewCheck.df_crc_result.columns.get_loc(COL_CR_RESULT_CODE)
+                code_data = CodeReviewCheck.df_crc_result.iloc[row_index, code_index]
+                return code_data
+            except Exception as e:
+                Logger.error("CodeReviewCheck.get_code_data - Exception : " + str(e))
+
 
     # UI 관련 동작 구현
     class CodeUI:
@@ -254,6 +267,39 @@ class CodeReviewCheck:
         # 엑셀 파일저장
         @staticmethod
         def excel_save(save_path, df_table):
+            # 엑셀 파일 width 비율 대로 크기 조절
+            def adjust_column_widths(ws, column_ratios, total_width) :
+                try:
+                    # 열 비율 검증
+                    if len(column_ratios) != len(list(ws.columns)):
+                        raise ValueError("열 비율의 개수와 열의 개수가 일치해야 합니다.")
+
+                    # # 각 열의 문자 정의
+                    columns = [cell[0].column_letter for cell in ws.columns]
+                    #
+                    # # 열 비율에 따른 너비 조정
+                    for column, ratio in zip(columns, column_ratios):
+                        adjusted_width = total_width * ratio
+                        ws.column_dimensions[column].width = adjusted_width
+                except Exception as e:
+                    Logger.error("CodeReviewCheck.excel_save.adjust_column_widths - Exception : " + str(e))
+                    
+            # 엑셀 파일 컬럼에 특정 text 색상 변경 : NG -> RED 변경
+            def change_text_color(ws, target_text, target_column, color="FF0000"):
+                try:
+                    """
+                    ws: 워크시트
+                    target_text: 변경할 텍스트
+                    target_column: 텍스트 색상을 변경할 컬럼 (예: 'B')
+                    color: 색상 코드 (기본값: 빨간색)
+                    """
+                    for row in ws.iter_rows():
+                        cell = row[ws[target_column + '1'].column - 1]  # 해당 열의 셀 가져오기
+                        if target_text in str(cell.value):
+                            cell.font = Font(color=color)
+                except Exception as e:
+                    Logger.error("CodeReviewCheck.excel_save.change_text_color - Exception : " + str(e))
+
             try:
                 Logger.debug("CodeReviewCheck - excel_save start")
                 # 1. 엑셀 워크북 생성
@@ -280,50 +326,23 @@ class CodeReviewCheck:
                 # 셀 정렬 및 스타일 적용
                 for row in ws.iter_rows():
                     for cell in row:
+                        # 첫번째 컬럼은 Gray 배경색으로 설정
                         if cell.row == 1:
                             cell.fill = gray_fill
-                        if(cell.column) == ws.max_column :
-                            cell.alignment = Alignment(horizontal='left', vertical='center')
-                        else:
                             cell.alignment = Alignment(horizontal='center', vertical='center')
+
+                        if(cell.column) <= 3 :
+                            cell.alignment = Alignment(horizontal='center', vertical='center')
+                        # if(cell.column) == ws.max_column :
+                        #     cell.alignment = Alignment(horizontal='left', vertical='center')
+                        # else:
+
 
                         # 모든 셀에 윤곽선 추가
                         cell.border = thin_border
-
-                # 각 열의 너비를 셀 내용에 맞게 자동 조정
-                for column_cells in ws.columns:
-                    max_length = 0
-                    column = column_cells[0].column_letter  # 열의 문자 (예: 'A', 'B', 'C')
-                    for cell in column_cells:
-                        try:
-                            if cell.value:
-                                max_length = max(max_length, len(str(cell.value)))
-                        except:
-                            pass
-
-                    adjusted_width = (max_length * 2 + 2)
-                    ws.column_dimensions[column].width = adjusted_width
-
-                # CodeReviewCheck.CodeUI.excel_merge_cell(ws, 'A2', 'A7')
-                # CodeReviewCheck.CodeUI.excel_merge_cell(ws, 'A8', 'A9')
-                # CodeReviewCheck.CodeUI.excel_merge_cell(ws, 'A10', 'A15')
-                #
-                # CodeReviewCheck.CodeUI.set_column_width(ws, 1, 20)
-                # CodeReviewCheck.CodeUI.set_column_width(ws, 2, 40)
-                # CodeReviewCheck.CodeUI.set_column_width(ws, 3, 30)
-
-                # 3-1 Cell 병합
-                # 병합할 셀 영역
-                # merge_range = 'A2:A7'
-                #
-                # # 병합된 셀의 값을 첫 번째 셀의 값으로 설정
-                # first_cell = ws['A2']
-                # value_to_merge = first_cell.value
-                # ws.merge_cells(merge_range)
-                #
-                # # 병합된 셀에 값 설정
-                # merged_cell = ws['A2']
-                # merged_cell.value = value_to_merge
+                column_ratios = [0.1, 0.2, 0.1, 0.4, 0.1, 0.6]  # 각 열의 비율 설정 ('분류', '코드 리뷰 항목' , '코드 리뷰 결과', '상세 내용', 'Line', 'Code')
+                adjust_column_widths(ws, column_ratios, 160)
+                change_text_color(ws,  "NG", target_column="C")
 
                 # 4. 엑셀 파일 저장
                 wb.save(save_path)
@@ -392,7 +411,7 @@ class CodeReviewCheck:
 
                 # Export할 컬럼을 설정 : '분류', '코드 리뷰 항목', '코드 리뷰 결과', 'Code' ,'Line'
                 export_df = CodeReviewCheck.df_crc_result[
-                    [COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT, COL_CR_LINE, COL_CR_RESULT_CODE, COL_CR_RESULT_DETAIL]]
+                    [COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT,  COL_CR_RESULT_DETAIL, COL_CR_LINE, COL_CR_RESULT_CODE]]
                 return export_df
             except Exception as e:
                 Logger.error("CodeReviewCheck.set_column_width - Exception : " + str(e))
@@ -754,9 +773,18 @@ class CodeReviewCheck:
                 start_number = function_info[2]
                 result_hard_coding = []   # Line 위치, 상세 내용
 
+                # hard_pass_functions
+                is_pass = any(item in function_name for item in CodeReviewCheck.hard_pass_functions)
+                if(is_pass) == True:
+                    Logger.info(f"CodeReviewCheck.get_hard_coding_check - This function({function_name}) is excluded from hard coding.")
+                    return result_hard_coding
+
                 # 하드 코딩 패턴 1 : 대입 연산자 하드 코딩 체크
                 line_count = start_number
                 for line_code in body_code.split('\n') :
+                    if cls.is_check_for_hardcoding(line_code) == True:
+                        result_hard_coding.append([line_count + 2, f"하드 코딩으로 작성되었습니다. 함수 = {function_name}", line_code.strip()])
+
                     # Skip 대상이 아니고 대입 연산자 경우 하드 코딩이 있는 경우
                     if cls.check_skip_string(line_code) == False and cls.is_check_hard_coding_opeartion(line_code) == True:
                         # result_hard_coding.append([line_count+2, "하드 코딩으로 작성되었습니다. 함수 = %s, 코드 = %s" % (function_name, line_code.strip() )])
@@ -770,6 +798,41 @@ class CodeReviewCheck:
                 return result_hard_coding
             except Exception as e :
                 Logger.error("CodeReviewCheck.get_hard_coding - Exception : " + str(e))
+
+        
+        # for문에 길이를 상수로 사용하는 경우 -> True 반환
+        @classmethod
+        def is_check_for_hardcoding(cls, code:str) -> bool:
+            # code에 숫자가 들어가는 경우 -> True 반환
+            def is_check_number(code: str) -> bool:
+                pattern = r"\b\d+(\.\d+)?\b"
+                match = re.search(pattern, code)
+
+                if match:
+                    return True
+                else:
+                    return False
+
+            try:
+
+                pattern =r"for\s*\(.*?\)"           # for문을 찾는 정규식 (\s* : 0개 이상의 공백 문자) | '.*?' :최소한의 문자만 매칭
+                match = re.search(pattern, code)
+
+                # text에 for문 확인
+                split_list = ""
+                if match :
+                    split_list = code.split(';')
+
+                    # for문에서 ';' 분리
+                    if len(split_list) == 3 :
+                        check_code = split_list[1]
+                        if is_check_number(check_code) :
+                            return True
+
+                return False
+
+            except Exception as e:
+                Logger.error("CodeReviewCheck.is_check_for_hardcoding - Exception : " + str(e))
 
         @classmethod
         def is_check_hard_coding_opeartion(cls, line_code:str) -> bool:
@@ -822,10 +885,11 @@ class CodeReviewCheck:
                     start_line = body_code.count('\n', 0, match.start()) + 1    # 매칭된 그룹의 시작 줄 번호를 계산
                     original_line = line_code[start_line - 1].strip()           # 원본 문자열을 포함하여 저장
 
-                    if (cls.check_skip_string(original_line) == False): # skip 대상 있는지 확인
+                    if cls.check_skip_string(original_line) == False: # skip 대상 있는지 확인
                         for operator_item in non_operators:
                             if cls.is_hard_coding_check(operator_item) == True: # 비연산자를 하나씩 하드코딩(문자열 or 상수) 되어 있는지 확인
-                                result.append((body_start_number + start_line + 1, "하드 코딩으로 작성되었습니다. 함수 = %s, 코드 = %s" % (function_name, original_line.strip())))
+                                # result.append((body_start_number + start_line + 1, "하드 코딩으로 작성되었습니다. 함수 = %s, 코드 = %s" % (function_name, original_line.strip())))
+                                result.append((body_start_number + start_line + 1, f"하드 코딩으로 작성되었습니다. 함수 = {function_name}", original_line.strip()))
                                 break
                 return result
             except Exception as e:
@@ -835,7 +899,7 @@ class CodeReviewCheck:
         def check_skip_string(cls, input_text: str) -> bool:
             try:
                 # Skip 대상이 있는 경우 True로 반환
-                skip_list = ['Debug', 'dpConnect', 'writeLog', 'startThread', 'update_user_alarm', 'read_config', 'paCfg', 'for', 'sprintf', 'FROM', 'WHERE']
+                skip_list = ['Debug', 'dpConnect', 'writeLog', 'startThread', 'update_user_alarm', 'config', 'paCfg', 'for', 'sprintf', 'FROM', 'WHERE', 'delay', '0', '-1']
                 skip_check = False
                 skip_check = any(list_item in input_text for list_item in skip_list)
 
@@ -906,8 +970,9 @@ class CodeReviewCheck:
                     # end_line = item[3]
                     error_list = cls.get_pattern(body_code, pattern, start_line)
                     for error_item in error_list :
-                        detail_msg = f"DP 함수 예외 처리가 되지 않았습니다. 함수 = {fnc_name}, Code = {error_item[1]}"
-                        total_error_result = total_error_result + [[error_item[0], detail_msg]]
+                        # detail_msg = f"DP 함수 예외 처리가 되지 않았습니다. 함수 = {fnc_name}, Code = {error_item[1]}"
+                        detail_msg = f"DP 함수 예외 처리가 되지 않았습니다. 함수 = {fnc_name}"
+                        total_error_result = total_error_result + [[error_item[0], detail_msg, item[1]]]
 
                 # 3. 코드 리뷰 결과 Dataframe에 업데이트 -> CodeReviewCheck.df_crc_result
                 CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
@@ -1222,6 +1287,8 @@ class CodeReviewCheck:
         @classmethod
         def get_function_name(cls, text: str) -> str:
             try :
+                if ";" in text :
+                    return ""
                 # pattern = r'(?<!/)\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\('
                 pattern = r'(?<!/)\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\('
 
@@ -1237,6 +1304,7 @@ class CodeReviewCheck:
                         func_name = ""
                     else :
                         break
+
 
                 return str(func_name)
             except Exception as e:
