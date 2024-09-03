@@ -1060,10 +1060,7 @@ int get_q_on(dyn_string& q_true_list, dyn_int& step_list)
 //*******************************************************************************
 
 
-void CB_blackout_condition(anytype index, string status_dp, bool status_value,
-							              string alarm27_a_dp, bool alarm27_a_value,
-						                  string alarm27_b_dp, bool alarm27_b_value)
-{
+void CB_blackout_condition(anytype index, string status_dp, bool status_value,							              string alarm27_a_dp, bool alarm27_a_value,						                  string alarm27_b_dp, bool alarm27_b_value){
 	try
 	{
 		if(status_value == true && alarm27_a_value == true && alarm27_b_value == true)

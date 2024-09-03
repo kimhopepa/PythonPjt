@@ -105,7 +105,7 @@ class CodeReviewCheck:
                 CodeReviewCheck.df_crc_result.drop(CodeReviewCheck.df_crc_result.index, inplace=True)
 
                 #2. Data 기본 데이터로 저장
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_QUERY)
+
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_ACTIVE)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_LOOP)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_EVENT_CHANGE)
@@ -120,6 +120,7 @@ class CodeReviewCheck:
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_CONSTRAINTS)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_HARD_CODE)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_UNNECESSARY_CODE)
+                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_QUERY)
 
             except Exception as e:
                 Logger.error("CodeReviewCheck.init_check_list - Exception : " + str(e))
@@ -428,7 +429,9 @@ class CodeReviewCheck:
                 modified_lines = []
                 for line in lines:
                     # Remove comments starting with /
-                    if '/' in line:
+                    line = line.strip()
+                    if line.startswith('/'):
+                    # if '/' in line:
                         line = line.split('/')[0] + ' ' * len(line.split('//')[1])
                     modified_lines.append(line)
                 return '\n'.join(modified_lines)
@@ -483,7 +486,30 @@ class CodeReviewCheck:
                 return -1
             except Exception as e:
                 Logger.error("CodeReviewCheck.find_closing_brace_index - Exception : " + str(e))
+
+        @classmethod
+        # text의 pos 위치를 받아서 그 라인의 text를 추출
+        def get_pos_LinText(cls, input_code: str, index: int) -> str:
+            try :
+                # 주어진 인덱스를 기준으로 앞쪽 \n 찾기
+                start_index = input_code.rfind('\n', 0, index)
+                # 주어진 인덱스를 기준으로 뒤쪽 \n 찾기
+                end_index = input_code.find('\n', index)
+                if start_index == -1:
+                    start_index = 0  # 텍스트의 시작점
+                else:
+                    start_index += 1  # '\n' 이후부터 시작하도록 조정
+
+                if end_index == -1:
+                    end_index = len(input_code)  # 텍스트의 끝까지
+
+                extract_text = input_code[start_index:end_index]
+                return extract_text
+            except Exception as e:
+                Logger.error("CodeReviewCheck.get_pos_LinText - Exception : " + str(e))
         # endregion
+
+
 
         # region 2. DataTable, 파일 등 공통으로 사용하는 함수 모음
         # 파일을 읽어서 텍스트 반환
@@ -576,8 +602,8 @@ class CodeReviewCheck:
                 CodeReviewCheck.CodeCheck.code_check_loop_delay(text_code, ROW_CR_ITEM_LOOP[CR_ITEM_IDX])                   # Loop문 내에 처리 조건
                 CodeReviewCheck.CodeCheck.code_check_eventminimize(text_code, ROW_CR_ITEM_EVENT_CHANGE[CR_ITEM_IDX])        # 이벤트 교환 횟수 최소화
                 CodeReviewCheck.CodeCheck.code_check_callback(text_code, ROW_CR_ITEM_PROPER_DP_FCT[CR_ITEM_IDX])            # 적절한 DP 처리 함수 사용
-                CodeReviewCheck.CodeCheck.code_check_UnnecessaryCode(text_code, ROW_CR_ITEM_UNNECESSARY_CODE[CR_ITEM_IDX])  #
-                CodeReviewCheck.CodeCheck.code_check_hard_coding(text_code, ROW_CR_ITEM_HARD_CODE[CR_ITEM_IDX])
+                CodeReviewCheck.CodeCheck.code_check_UnnecessaryCode(text_code, ROW_CR_ITEM_UNNECESSARY_CODE[CR_ITEM_IDX])  # 불필요한 코드 지양
+                CodeReviewCheck.CodeCheck.code_check_hard_coding(text_code, ROW_CR_ITEM_HARD_CODE[CR_ITEM_IDX])             # 하드 코드 지양
 
 
 
@@ -587,6 +613,7 @@ class CodeReviewCheck:
                     Logger.info("CodeCheck.code_check_start(SVR)")
 
                     # SVR에서만 점검하는 코드 리뷰 항목
+                    CodeReviewCheck.CodeCheck.code_check_active(text_code, ROW_CR_ITEM_ACTIVE[CR_ITEM_IDX])
                     CodeReviewCheck.CodeCheck.code_check_dp_exception(text_code, ROW_CR_ITEM_DP_EXCEPTION[CR_ITEM_IDX])     # DP 함수 예외 처리
                     CodeReviewCheck.CodeCheck.code_check_try_exception(text_code, ROW_CR_ITEM_TRY_EXCEPTION[CR_ITEM_IDX])   # try, Catch 예외 처리
                     CodeReviewCheck.CodeCheck.code_check_version(text_code, ROW_CR_ITEM_VERSION[CR_ITEM_IDX])               # 버전 정보 작성 확인인
@@ -624,7 +651,7 @@ class CodeReviewCheck:
                     # Use a word boundary to ensure exact match
                     pattern = re.compile(r'\b' + re.escape(variable) + r'\b')
                     matches = pattern.findall(code)
-                    return len(matches) > 1  # True if more than one occurrence (considering the declaration line)
+                    return len(matches) > 0  # True if more than one occurrence (considering the declaration line)
                 except Exception as e:
                     Logger.error("CodeReviewCheck.test_check_code - Exception : " + str(e))
 
@@ -635,6 +662,7 @@ class CodeReviewCheck:
                 # new_text_code = remove_line_comments(text_code)
 
                 # 2. 전역 변수 찾기
+                text_code= remove_line_comments(text_code)
                 global_vars = cls.get_variables(text_code)
 
                 # 3. 전역 변수 사용 되었는지 확인
@@ -659,9 +687,9 @@ class CodeReviewCheck:
                         if find_variable_usage(body_code, var_name) == True :
                             Logger.debug(f"CodeCheck.code_check_UnnecessaryCode - Find OK. funtion = {function_name, start_number}, used_var = {var_name}" )
                             used_flag = True
-                            continue
+                            break
 
-                    if not used_flag:
+                    if used_flag == False:
                         total_error_result = total_error_result + [[line, f"{var_name} 변수가 사용 이력이 없습니다.", ""]]
 
                 CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
@@ -729,10 +757,10 @@ class CodeReviewCheck:
 
                     if len(return_code) == 0 :
                         Logger.error("CodeReviewCheck.code_check_version - Check NG. " + list_item)
-                        detail_msg = detail_msg + f"{list_item} 선언 되지 않았습니다. \n"
+                        detail_msg = detail_msg + f"{list_item} 이력 정보가 누락되었습니다. \n"
                         check_result = False
                     else :
-                        detail_msg = detail_msg + f"{list_item} 선언 되었습니다. \n"
+                        detail_msg = detail_msg + f"{list_item} 이력 정보가 누락되었습니다. \n"
                         Logger.info("CodeReviewCheck.code_check_version - Check OK. " + list_item)
 
                 # DataTable 업데이트
@@ -783,12 +811,12 @@ class CodeReviewCheck:
                 line_count = start_number
                 for line_code in body_code.split('\n') :
                     if cls.is_check_for_hardcoding(line_code) == True:
-                        result_hard_coding.append([line_count + 2, f"하드 코딩으로 작성되었습니다. 함수 = {function_name}", line_code.strip()])
+                        result_hard_coding.append([line_count , f"하드 코딩(1)으로 작성되었습니다. 함수 = {function_name}", line_code.strip()])
 
                     # Skip 대상이 아니고 대입 연산자 경우 하드 코딩이 있는 경우
                     if cls.check_skip_string(line_code) == False and cls.is_check_hard_coding_opeartion(line_code) == True:
                         # result_hard_coding.append([line_count+2, "하드 코딩으로 작성되었습니다. 함수 = %s, 코드 = %s" % (function_name, line_code.strip() )])
-                        result_hard_coding.append([line_count + 2, f"하드 코딩으로 작성되었습니다. 함수 = {function_name}", line_code.strip()])
+                        result_hard_coding.append([line_count , f"하드 코딩(2)으로 작성되었습니다. 함수 = {function_name}", line_code.strip()])
                     line_count = line_count + 1
 
                 # 하드 코딩 패턴 2 : 함수 or 괄호 안에 하드 코딩이 설정 되어 있는 경우
@@ -882,27 +910,39 @@ class CodeReviewCheck:
                     # 공백이나 빈 인자도 포함하여 캡쳐
                     parts = re.split(r'\s*[\+\-\*/\%,]\s*', match.group(1))                         # 패턴에 따라서 분리
                     non_operators = [part.strip() for part in parts if part.strip() or part == ""]  # 분리된 패턴을 공백을 제거하여 리스트로 저장
-                    start_line = body_code.count('\n', 0, match.start()) + 1    # 매칭된 그룹의 시작 줄 번호를 계산
-                    original_line = line_code[start_line - 1].strip()           # 원본 문자열을 포함하여 저장
+                    start_line = body_code.count('\n', 0, match.start())        # 매칭된 그룹의 시작 줄 번호를 계산
+                    # original_line = line_code[start_line - 1].strip()           # 원본 문자열을 포함하여 저장
+                    original_line = line_code[start_line].strip()           # 원본 문자열을 포함하여 저장
 
                     if cls.check_skip_string(original_line) == False: # skip 대상 있는지 확인
                         for operator_item in non_operators:
                             if cls.is_hard_coding_check(operator_item) == True: # 비연산자를 하나씩 하드코딩(문자열 or 상수) 되어 있는지 확인
                                 # result.append((body_start_number + start_line + 1, "하드 코딩으로 작성되었습니다. 함수 = %s, 코드 = %s" % (function_name, original_line.strip())))
-                                result.append((body_start_number + start_line + 1, f"하드 코딩으로 작성되었습니다. 함수 = {function_name}", original_line.strip()))
+                                result.append((body_start_number + start_line , f"하드 코딩(3)으로 작성되었습니다. 함수 = {function_name}", original_line.strip()))
                                 break
                 return result
             except Exception as e:
                 Logger.error("CodeReviewCheck.is_check_hard_coding_blacket - Exception : " + str(e))
 
         @classmethod
-        def check_skip_string(cls, input_text: str) -> bool:
+        def check_skip_string(cls, input_code: str) -> bool:
             try:
                 # Skip 대상이 있는 경우 True로 반환
-                skip_list = ['Debug', 'dpConnect', 'writeLog', 'startThread', 'update_user_alarm', 'config', 'paCfg', 'for', 'sprintf', 'FROM', 'WHERE', 'delay', '0', '-1']
-                skip_check = False
-                skip_check = any(list_item in input_text for list_item in skip_list)
+                skip_list = ['Debug', 'dpConnect', 'dpQuery', 'writeLog', 'startThread', 'update_user_alarm', 'config', 'paCfg', 'for', 'sprintf', 'FROM', 'WHERE', 'delay', '0', '-1', 'false', 'true']
+                # skip_check = any(list_item in input_text for list_item in skip_list)
+                # skip_check = any(item in input_text for item in skip_list)
+                skip_check = any(item.lower() in input_code.lower() for item in skip_list)
 
+                return skip_check
+
+            except Exception as e:
+                Logger.error("CodeReviewCheck.check_skip_string - Exception : " + str(e))
+
+        @classmethod
+        def check_skip_item(cls, input_code:str, skip_list:list) -> bool:
+            try:
+                # Skip 대상이 있는 경우 True로 반환
+                skip_check = any(item.lower() in input_code.lower() for item in skip_list)
                 return skip_check
 
             except Exception as e:
@@ -972,7 +1012,7 @@ class CodeReviewCheck:
                     for error_item in error_list :
                         # detail_msg = f"DP 함수 예외 처리가 되지 않았습니다. 함수 = {fnc_name}, Code = {error_item[1]}"
                         detail_msg = f"DP 함수 예외 처리가 되지 않았습니다. 함수 = {fnc_name}"
-                        total_error_result = total_error_result + [[error_item[0], detail_msg, item[1]]]
+                        total_error_result = total_error_result + [[error_item[0], detail_msg, error_item[1]]]
 
                 # 3. 코드 리뷰 결과 Dataframe에 업데이트 -> CodeReviewCheck.df_crc_result
                 CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
@@ -986,9 +1026,16 @@ class CodeReviewCheck:
 
             try:
                 matches = re.finditer(pattern, text)
+                skip_item_list = ["writeLog", 'debug']
 
                 for match in matches :
                     start_pos = match.start()
+                    line_text =  cls.get_pos_LinText(text, start_pos)
+                    
+                    # DP 함수 예외 처리의 경우 log에 사용하는 경우 예외 처리
+                    if cls.check_skip_item( line_text, skip_item_list) == True:
+                        continue
+
                     match_text = match.group(0)
                     match_line_count = match_text.count('\n')
                     line_number = text.count('\n',0, start_pos) + function_line + match_line_count
@@ -1000,11 +1047,12 @@ class CodeReviewCheck:
             return result_list
 
 
+
         # [성능] 스크립트 동작 Active 감시 적용
         @classmethod
         def code_check_active(cls, text_code):
             try:
-                None
+                Logger.info("CodeReviewCheck.code_check_active - start")
 
             except Exception as e:
                 Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))

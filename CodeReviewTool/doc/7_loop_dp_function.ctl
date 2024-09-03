@@ -1,7 +1,7 @@
 const int define_dp_name = "master_dp"; //test
 void _Func1()
 {
-	DebugTN("test func1()");			
+	DebugTN("test func1");			
 	int dp_name ="test2.value.PVLAST";	//NG
 	dpSet(dp_name, false);		
 	dpSet(dp_name, 50);				//NG
@@ -12,7 +12,7 @@ void func2(int value)
 {
 	if(value > 50)					//NG
 	{	
-		DebugTN("test func2()");
+		DebugTN("test func2");
 		WriteLog("test");
 	}
 		//define_dp_name = 10;
@@ -26,7 +26,7 @@ void func2(int value)
 void func_3(int a, int b)
 {
 	dpQueryConnectSingle("cmd_update_AI", false, cfg_use_multi_instance, query, cfg_query_blocking_time);
-	DebugTN("test func3()");
+	DebugTN("test func");
 	Debug(123);
     writeLog("test");
     Thread(456);
