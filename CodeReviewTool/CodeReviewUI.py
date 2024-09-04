@@ -170,6 +170,7 @@ class WindowClass(QMainWindow, main_form_class):
             
             #3. 코드 리뷰 결과 UI 표시 데이터 가져오기 ->  결과 UI 업데이트
             df_result = CodeReviewCheck.CodeData.get_tablewidget_df()
+            CodeReviewCheck.CodeCheck.save_to_file(str(df_result), "[Step1] UI Data")
             self.set_table_widget(df_result)
             # DataFrame 최종 데이터 저장
 

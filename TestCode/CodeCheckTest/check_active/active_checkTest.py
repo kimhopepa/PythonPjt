@@ -7,7 +7,7 @@ void lock_mode_check_thread()
 	{
 		try
 		{
-		    if( isScriptActive== true)
+		    if( isScriptActive222 == true)
 			    writeLog(g_script_name, "lock_mode_check_thread()", LV_DBG2);
 			
             if(g_mode == IDX_MODE_LOCK)
@@ -35,11 +35,9 @@ void lock_mode_check_thread()
 def isCheckActive(text:str) -> bool :
     pattern = r'if\s*\(\s*isScriptActive\b'
     match = re.search(pattern, text)
-    if match :
-        return True
-    else :
-        return False
+    if not match :
+        print("Actvie 설정이 되지 않습니다.")
 
 
 if __name__ == '__main__':
-    print("isCheckActive", isCheckActive(text))
+    isCheckActive(text)
