@@ -117,7 +117,7 @@ class CodeReviewCheck:
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_DP_EXCEPTION)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_TRY_EXCEPTION)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_VERSION)
-                CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_CONSTRAINTS)
+                # CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_CONSTRAINTS)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_HARD_CODE)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_UNNECESSARY_CODE)
                 CodeReviewCheck.df_crc_result = CodeReviewCheck.CodeData.df_concat(CodeReviewCheck.df_crc_result, ROW_CR_ITEM_QUERY)
@@ -187,18 +187,22 @@ class CodeReviewCheck:
                 sort_list = [ROW_CR_ITEM_ACTIVE[CR_ITEM_IDX], ROW_CR_ITEM_LOOP[CR_ITEM_IDX], ROW_CR_ITEM_EVENT_CHANGE[CR_ITEM_IDX],
                              ROW_CR_ITEM_PROPER_DP_FCT[CR_ITEM_IDX], ROW_CR_ITEM_RAIMA_UP[CR_ITEM_IDX],
                              ROW_CR_ITEM_DP_EXCEPTION[CR_ITEM_IDX], ROW_CR_ITEM_TRY_EXCEPTION[CR_ITEM_IDX], ROW_CR_ITEM_VERSION[CR_ITEM_IDX],
-                             ROW_CR_ITEM_CONSTRAINTS[CR_ITEM_IDX], ROW_CR_ITEM_HARD_CODE[CR_ITEM_IDX], ROW_CR_ITEM_UNNECESSARY_CODE[CR_ITEM_IDX],
+                             ROW_CR_ITEM_HARD_CODE[CR_ITEM_IDX], ROW_CR_ITEM_UNNECESSARY_CODE[CR_ITEM_IDX],
                              ROW_CR_ITEM_QUERY[CR_ITEM_IDX]]
 
+                # 입력된 순서(sort_list)대로 grouping? 되어서 dataframe 위치 재조정
                 CodeReviewCheck.df_crc_result = sort_by_custom_order(CodeReviewCheck.df_crc_result, COL_CR_ITEM, sort_list)
 
+                #
                 duplicate_data = find_duplicates_with_counts(CodeReviewCheck.df_crc_result, COL_CR_ITEM)
 
-
-                
-
-
                 df_item_unique = CodeReviewCheck.df_crc_result.drop_duplicates(subset = COL_CR_ITEM, keep = 'first')[[COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT]]
+
+                # duplicate_data 시리즈 데이터에는 NG 대상이 1이상인 경우의 수량을 가지고 있음
+                for item, item_count in duplicate_data.items() :
+                    # COL_CR_ITEM('코드 리뷰 항목') 항목을 찾아서 NG 수량을 업데이터
+                    df_item_unique.loc[df_item_unique[COL_CR_ITEM] == item, COL_CR_RESULT] = f"NG ({item_count})"
+
                 return df_item_unique
                 # return CodeReviewCheck.df_crc_result[[COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT]]
             except Exception as e:
@@ -281,7 +285,6 @@ class CodeReviewCheck:
                 return code_data
             except Exception as e:
                 Logger.error("CodeReviewCheck.get_code_data - Exception : " + str(e))
-
 
     # UI 관련 동작 구현
     class CodeUI:
@@ -468,7 +471,6 @@ class CodeReviewCheck:
                 return export_df
             except Exception as e:
                 Logger.error("CodeReviewCheck.set_column_width - Exception : " + str(e))
-
 
     # 코드 리뷰 검증 기능 구현 클래스
     class CodeCheck:
@@ -1087,14 +1089,13 @@ class CodeReviewCheck:
 
             return result_list
 
-
-
         # [성능] 스크립트 동작 Active 감시 적용
         @classmethod
         def code_check_active(cls, text_code:str, cr_item : str):
             try:
                 Logger.info("CodeReviewCheck.code_check_active - start")
-                pattern = r'if\s*\(\s*isScriptActive\b'
+                pattern = r'if\s*\(\s*[\W]*\s*isScriptActive\b'
+
                 match = re.search(pattern, text_code)
                 # active 조건이 if문 사용 이력이 있나요?
                 if not match:
@@ -1201,6 +1202,7 @@ class CodeReviewCheck:
                     loop_error_list = cls.loop_pattern_check(body_code, start_line)
                     for error_item in loop_error_list :
                         detail_msg = f"DP 함수가 반복적으로 처리 되었습니다. 함수 : {fnc_name} "
+                        # "message", "Line"
                         total_error_result = total_error_result + [[error_item[1], detail_msg, error_item[0]]]
 
                 CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
@@ -1259,6 +1261,10 @@ class CodeReviewCheck:
 
             except Exception as e:
                 Logger.error("CodeReviewCheck.loop_pattern_check - Exception : " + str(e))
+
+        # @classmethod
+        # def continuous_function(cls, body_code:str, start_line:int) -> list:
+
 
         # [성능] 적절한 DP 함수 사용
         @ classmethod

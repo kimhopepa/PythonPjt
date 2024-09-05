@@ -219,7 +219,7 @@ class WindowClass(QMainWindow, main_form_class):
                     item2 = self.tableWidget.item(row, col_result_index-1)
                     item.setBackground(QBrush(QColor('#4097ED')))
                     item2.setBackground(QBrush(QColor('#4097ED')))
-                elif(item.text() == ROW_CR_RESULT_NG) :
+                elif(ROW_CR_RESULT_NG in item.text()) :
                     item2 = self.tableWidget.item(row, col_result_index - 1)
                     item.setBackground(QBrush(QColor('#FF5B36')))
                     item2.setBackground(QBrush(QColor('#FF5B36')))

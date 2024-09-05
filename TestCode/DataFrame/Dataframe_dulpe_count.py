@@ -36,3 +36,6 @@ if __name__ == '__main__':
 
     duplicate_data = find_duplicates_with_counts(df, "Class")
     print(type(duplicate_data), duplicate_data)
+
+    for index , value in duplicate_data.items():
+        print(index, value)
