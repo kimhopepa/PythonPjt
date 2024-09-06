@@ -1199,11 +1199,17 @@ class CodeReviewCheck:
                     body_code = item[1]
                     start_line = item[2]
                     end_line = item[3]
+                    
+                    # for문에서 dpGet 동작인 경우 확인
                     loop_error_list = cls.loop_pattern_check(body_code, start_line)
                     for error_item in loop_error_list :
                         detail_msg = f"DP 함수가 반복적으로 처리 되었습니다. 함수 : {fnc_name} "
-                        # "message", "Line"
+                        # "Line 위치", "Message", "
                         total_error_result = total_error_result + [[error_item[1], detail_msg, error_item[0]]]
+
+                    # dpGet이 연속으로 표시되는 경우
+
+
 
                 CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
             except Exception as e:
@@ -1263,7 +1269,7 @@ class CodeReviewCheck:
                 Logger.error("CodeReviewCheck.loop_pattern_check - Exception : " + str(e))
 
         # @classmethod
-        # def continuous_function(cls, body_code:str, start_line:int) -> list:
+        def continuous_function(cls, body_code:str, start_line:int) -> list:
 
 
         # [성능] 적절한 DP 함수 사용

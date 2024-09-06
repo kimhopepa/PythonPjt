@@ -43,4 +43,5 @@ exe = EXE(
     codesign_identity=None,
     entitlements_file=None,
 	icon='hw_main_form.ico',
+	version='version.txt',    # 버전 정보 설정
 )
