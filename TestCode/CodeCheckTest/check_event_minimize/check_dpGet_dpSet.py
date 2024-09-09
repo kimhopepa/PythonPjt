@@ -1,6 +1,4 @@
-
-text = '''
-		if (dpExists(cfg_alarm_ack_client))
+text = '''		if (dpExists(cfg_alarm_ack_client))
 		{
 			dpGet(cfg_alarm_ack_client, ack_client);
 			dpGet(cfg_alarm_ack_username, ack_username);
@@ -27,18 +25,24 @@ def find_consecutive_lines(text, search_string):
     consecutive_lines = []  # 연속된 문자열 위치를 저장할 리스트
     prev_line_number = None
 
-    for line_number, line in enumerate(lines, start=1):
-        line = line.strip()  # 줄 끝의 공백 제거
-        if prev_line_number is not None and search_string in line and search_string in lines[prev_line_number - 1]:
-            consecutive_lines.append((prev_line_number, line_number))
-        if search_string in line:
-            prev_line_number = line_number
-
+    for line_number, line_text in enumerate(lines, start=1):
+        # if prev_line_number is not None and search_string in line and search_string in lines[prev_line_number-1]:
+        if prev_line_number is not None :
+            consecutive_lines = check_functions( line_text, lines[prev_line_number-1], ["dpGet", "dpSet"])
+        prev_line_number = line_number
     return consecutive_lines
 
+def check_functions(current_text:str, prev_text:str, check_list:list):
+    for check_text in check_list :
+        if check_text in prev_text and check_text in current_text :
+            print("")
 
-# 예제 사용법
+if __name__ == '__main__':
 
-search_string = 'target_string'
-result_list = find_consecutive_lines(text, 'dpGet')
-print(result_list)
+    # 예제 사용법
+
+    search_string = 'target_string'
+    result_list = find_consecutive_lines(text, 'dpGet')
+    result_list = find_consecutive_lines(text, 'dpSet')
+    check_functions("","", ["test1", "test2"] );
+    print(result_list)

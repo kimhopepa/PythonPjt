@@ -667,7 +667,7 @@ class CodeReviewCheck:
                 CodeReviewCheck.function_body_list = CodeReviewCheck.CodeCheck.get_function_body(text_code)
 
                 # 모두 해당되는 코드 리뷰 항목
-                CodeReviewCheck.CodeCheck.code_check_loop_delay(text_code, ROW_CR_ITEM_LOOP[CR_ITEM_IDX])                   # Loop문 내에 처리 조건
+                CodeReviewCheck.CodeCheck.code_check_loop_delay( text_code, ROW_CR_ITEM_LOOP[CR_ITEM_IDX])                   # Loop문 내에 처리 조건
                 CodeReviewCheck.CodeCheck.code_check_eventminimize(text_code, ROW_CR_ITEM_EVENT_CHANGE[CR_ITEM_IDX])        # 이벤트 교환 횟수 최소화
                 CodeReviewCheck.CodeCheck.code_check_callback(text_code, ROW_CR_ITEM_PROPER_DP_FCT[CR_ITEM_IDX])            # 적절한 DP 처리 함수 사용
                 CodeReviewCheck.CodeCheck.code_check_UnnecessaryCode(text_code, ROW_CR_ITEM_UNNECESSARY_CODE[CR_ITEM_IDX])  # 불필요한 코드 지양
@@ -1208,6 +1208,7 @@ class CodeReviewCheck:
                         total_error_result = total_error_result + [[error_item[1], detail_msg, error_item[0]]]
 
                     # dpGet이 연속으로 표시되는 경우
+                    continuous_list = cls.continuous_function(body_code, start_line)
 
 
 
@@ -1268,9 +1269,28 @@ class CodeReviewCheck:
             except Exception as e:
                 Logger.error("CodeReviewCheck.loop_pattern_check - Exception : " + str(e))
 
-        # @classmethod
-        def continuous_function(cls, body_code:str, start_line:int) -> list:
 
+        @classmethod
+        def continuous_function(cls, body_code:str, start_line:int) -> list:
+            def check_repeat_function(line_text:str,  check_functions:list) :
+                for text in check_functions:
+
+            try :
+                continuous_list = []
+                lines = body_code.splitlines()  # 입력된 텍스트를 줄 단위로 나누기
+
+                prev_line_number = None
+                for line_number, line_text in enumerate(lines, start = 1) :
+                    if prev_line_number is not None
+
+                    print("continuous_function", line_number, line_text )
+
+                return continuous_list
+            except Exception as e:
+                Logger.error("CodeReviewCheck.continuous_function - Exception : " + str(e))
+
+        @classmethod
+        def repeat
 
         # [성능] 적절한 DP 함수 사용
         @ classmethod
