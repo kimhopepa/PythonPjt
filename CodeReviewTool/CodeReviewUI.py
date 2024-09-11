@@ -83,6 +83,13 @@ class WindowClass(QMainWindow, main_form_class):
             df_file = CodeReviewCheck.df_crc_info[[COL_FILE_NAME]]
             Logger.info("[config] 설정된 파일 리스트 \n" + str(df_file))
 
+            # 1-3. 코드 리뷰 점검 Tool에 예외 동작 케이스
+            CodeReviewCheck.CodeUI.save_config_data("Exception", CFG_KEY_HARD_CORD)
+            CodeReviewCheck.CodeUI.save_config_data("Exception", CFG_KEY_DP_EXCEPTION)
+
+            # print(hardCoding_exception_list)
+
+
             #2-1. Table Widget 삭제
             self.tableWidget_File.clearContents()
 

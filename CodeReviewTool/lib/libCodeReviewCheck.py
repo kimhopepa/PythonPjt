@@ -15,6 +15,8 @@ import pandas as pd
 from openpyxl.styles import Alignment, PatternFill, Border, Side
 import re
 import chardet
+from lib.libConfig import ConfigHandler
+ConfigHandler.load_config('config.ini')
 
 import inspect  # 현재 실행되고 있는 함수 이름 체크
 
@@ -79,6 +81,14 @@ ROW_CR_ITEM_VERSION = [ROW_CR_CLASS_STANDARD, '이력 정보 작성 확인', '',
 ROW_CR_ITEM_CONSTRAINTS = [ROW_CR_CLASS_STANDARD, '예상 못한 Logic 동작 확인', '', '', '',ROW_CR_RESULT_NONE, ROW_CR_CHECK_NONE]
 ROW_CR_ITEM_HARD_CODE = [ROW_CR_CLASS_STANDARD, '하드 코딩 금지', '', '', '',ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
 ROW_CR_ITEM_UNNECESSARY_CODE = [ROW_CR_CLASS_STANDARD, '불필요한 코드 금지', '', '', '',ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+ROW_CR_ITEM_IF_CONDITION_CODE = [ROW_CR_CLASS_STANDARD, '조건문 작성 기준 확인', '', '', '',ROW_CR_RESULT_NONE, ROW_CR_CHECK_ALL]
+
+CFG_KEY_HARD_CORD = "hard_code_list"
+CFG_KEY_DP_EXCEPTION = "dp_exception_list"
+
+# 예외 동작 키워드 config 파일에서 관리
+# config 파일 데이터 변수에 저장하여 관리 -> CFG_EXCEPTION_LIST
+CFG_EXCEPTION_LIST = {}
 
 class CodeReviewCheck:
 
@@ -294,7 +304,17 @@ class CodeReviewCheck:
         detail : Dicionary 데이터를 DataFrame 변수에 저장하여 반환
         return : 변경된 DataFrame을 반환
         '''
+        # config 파일 정보 메모리 저장
+        @staticmethod
+        def save_config_data(section_name : str, key_name : str):
+            try:
+                config_list = ConfigHandler.get_config_list(section_name, key_name)
+                CFG_EXCEPTION_LIST[key_name] = config_list
+                log_msg = f"save_config_data - 미사용 대상 config 설정 값 저장. section = {key_name}, value = {config_list}"
+                Logger.info(log_msg)
 
+            except Exception as e:
+                Logger.error("CodeUI.save_config_data Exception" + str(e))
         # 테이블 Widget 데이터 -> DafaFrame으로 변환
         @staticmethod
         def get_df_to_tablewidget(tb_widget):
@@ -858,7 +878,8 @@ class CodeReviewCheck:
                         result_hard_coding.append([line_count , f"하드 코딩(for)으로 작성되었습니다. 함수 : {function_name}", line_code.strip()])
 
                     # Skip 대상이 아니고 대입 연산자 경우 하드 코딩이 있는 경우
-                    if cls.check_skip_string(line_code) == False and cls.is_check_hard_coding_opeartion(line_code) == True:
+                    skip_list = CFG_EXCEPTION_LIST[CFG_KEY_HARD_CORD]
+                    if cls.check_skip_item(line_code, skip_list) == False and cls.is_check_hard_coding_opeartion(line_code) == True:
                         result_hard_coding.append([line_count , f"하드 코딩(operation)으로 작성되었습니다. 함수 : {function_name}", line_code.strip()])
                     line_count = line_count + 1
 
@@ -885,7 +906,6 @@ class CodeReviewCheck:
                     return False
 
             try:
-
                 pattern =r"for\s*\(.*?\)"           # for문을 찾는 정규식 (\s* : 0개 이상의 공백 문자) | '.*?' :최소한의 문자만 매칭
                 match = re.search(pattern, code)
 
@@ -957,7 +977,9 @@ class CodeReviewCheck:
                     # original_line = line_code[start_line - 1].strip()           # 원본 문자열을 포함하여 저장
                     original_line = line_code[start_line].strip()           # 원본 문자열을 포함하여 저장
 
-                    if cls.check_skip_string(original_line) == False: # skip 대상 있는지 확인
+                    # if cls.check_skip_string(original_line) == False: # skip 대상 있는지 확인
+                    skip_list = CFG_EXCEPTION_LIST[CFG_KEY_HARD_CORD]
+                    if cls.check_skip_item(original_line, skip_list) == False:  # skip 대상 있는지 확인
                         for operator_item in non_operators:
                             if cls.is_hard_coding_check(operator_item) == True: # 비연산자를 하나씩 하드코딩(문자열 or 상수) 되어 있는지 확인
                                 # result.append((body_start_number + start_line + 1, "하드 코딩으로 작성되었습니다. 함수 = %s, 코드 = %s" % (function_name, original_line.strip())))
@@ -968,18 +990,18 @@ class CodeReviewCheck:
                 Logger.error("CodeReviewCheck.is_check_hard_coding_blacket - Exception : " + str(e))
 
         @classmethod
-        def check_skip_string(cls, input_code: str) -> bool:
-            try:
-                # Skip 대상이 있는 경우 True로 반환
-                skip_list = ['Debug', 'dpConnect', 'dpQuery', 'writeLog', 'startThread', 'update_user_alarm', 'config', 'paCfg', 'for', 'sprintf', 'FROM', 'WHERE', 'delay', '0', '-1', 'false', 'true']
-                # skip_check = any(list_item in input_text for list_item in skip_list)
-                # skip_check = any(item in input_text for item in skip_list)
-                skip_check = any(item.lower() in input_code.lower() for item in skip_list)
-
-                return skip_check
-
-            except Exception as e:
-                Logger.error("CodeReviewCheck.check_skip_string - Exception : " + str(e))
+        # def check_skip_string(cls, input_code: str) -> bool:
+        #     try:
+        #         # Skip 대상이 있는 경우 True로 반환
+        #         skip_list = ['Debug', 'dpConnect', 'dpQuery', 'writeLog', 'startThread', 'update_user_alarm', 'config', 'paCfg', 'for', 'sprintf', 'FROM', 'WHERE', 'delay', '0', '-1', 'false', 'true', "query"]
+        #         # skip_check = any(list_item in input_text for list_item in skip_list)
+        #         # skip_check = any(item in input_text for item in skip_list)
+        #         skip_check = any(item.lower() in input_code.lower() for item in skip_list)
+        #
+        #         return skip_check
+        #
+        #     except Exception as e:
+        #         Logger.error("CodeReviewCheck.check_skip_string - Exception : " + str(e))
 
         @classmethod
         def check_skip_item(cls, input_code:str, skip_list:list) -> bool:
@@ -1069,7 +1091,9 @@ class CodeReviewCheck:
 
             try:
                 matches = re.finditer(pattern, text)
-                skip_item_list = ["writeLog", 'debug']
+                # skip_item_list = ["writeLog", 'debug']
+                # config.ini 파일에서 설정된 데이터를 조회
+                skip_item_list = CFG_EXCEPTION_LIST[CFG_KEY_DP_EXCEPTION]
 
                 for match in matches :
                     start_pos = match.start()
@@ -1203,19 +1227,20 @@ class CodeReviewCheck:
                     # for문에서 dpGet 동작인 경우 확인
                     loop_error_list = cls.loop_pattern_check(body_code, start_line)
                     for error_item in loop_error_list :
-                        detail_msg = f"DP 함수가 반복적으로 처리 되었습니다. 함수 : {fnc_name} "
-                        # "Line 위치", "Message", "
+                        detail_msg = f"DP 함수가 반복(for)적으로 처리 되었습니다. 함수 : {fnc_name} "
+                        # "Line 위치", "Message", "코드"
                         total_error_result = total_error_result + [[error_item[1], detail_msg, error_item[0]]]
 
                     # dpGet이 연속으로 표시되는 경우
-                    continuous_list = cls.continuous_function(body_code, start_line)
-
+                    continuous_list = cls.repeat_function_check(fnc_name, body_code, start_line)
+                    total_error_result = total_error_result + continuous_list
 
 
                 CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
             except Exception as e:
                 Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
 
+        # code_check_eventminimize 함수에서 사용
         @classmethod
         def loop_pattern_check(cls, body_code:str, start_line:int) -> list:
             try:
@@ -1269,28 +1294,42 @@ class CodeReviewCheck:
             except Exception as e:
                 Logger.error("CodeReviewCheck.loop_pattern_check - Exception : " + str(e))
 
-
+        # code_check_eventminimize 함수에서 사용
         @classmethod
-        def continuous_function(cls, body_code:str, start_line:int) -> list:
-            def check_repeat_function(line_text:str,  check_functions:list) :
-                for text in check_functions:
+        def repeat_function_check(cls, func_name:str, body_code:str, start_line:int) -> list:
+            def check_functions(current_text: str, prev_text: str, check_list: list) -> bool:
+                try:
+                    result_list = []
+                    # 1. 체크할 문자열 리스트 동작
+                    for check_text in check_list:
+                        # 2. 이전 라인, 현재 라인 연속으로 문자열 포함하는지 체크
+                        if check_text in prev_text and check_text in current_text:
+                            return True
+                except Exception as e:
+                    Logger.error("CodeReviewCheck.check_functions - Exception : " + str(e))
 
             try :
                 continuous_list = []
                 lines = body_code.splitlines()  # 입력된 텍스트를 줄 단위로 나누기
-
                 prev_line_number = None
+                
+                #1. 라인 별로 이전 라인, 현재 라인 텍스트 비교
                 for line_number, line_text in enumerate(lines, start = 1) :
-                    if prev_line_number is not None
+                    if prev_line_number is not None :
+                        if check_functions(line_text, lines[prev_line_number - 1], ["dpGet", "dpSet"]) == True:
+                            detail_msg = f"DP 함수가 반복적으로 처리 되었습니다. 함수 : {func_name} "
+                            # 라인수, message, Code
 
-                    print("continuous_function", line_number, line_text )
+                            continuous_list = continuous_list + [[line_number + start_line - 1, detail_msg, line_text]]
+
+                    prev_line_number = line_number
 
                 return continuous_list
             except Exception as e:
                 Logger.error("CodeReviewCheck.continuous_function - Exception : " + str(e))
 
         @classmethod
-        def repeat
+
 
         # [성능] 적절한 DP 함수 사용
         @ classmethod
