@@ -202,6 +202,12 @@ void func_7(int a, int b)
 	dyn_string dp_list;
 	dyn_anytype list;
 	
+	dynAppend(dp_list, dp_name);
+	dynAppend(dp_list, dp_name2);
+	
+	if(dpGet(dp_list, list) != 0)
+		DebugTN("dpGet Fail", dp_list);
+	
 	for(int i = 1 ; i <= dynlen(dp_list); i++)
 	{
 		dpGet(dp_list[i], list[i]);
@@ -213,5 +219,25 @@ void func_7(int a, int b)
 	{
 		dpSet(list[i], 0);
 	}
+
+}
+
+void func_7(int a, int b)
+{
+	string dp_name = "test1.pvlast" ; 
+	string dp_name2 = "test2.pvlast" ; 
+	float value;
+	dyn_string dp_list;
+	dyn_anytype list;
+	
+	dynAppend(dp_list, dp_name);
+	dynAppend(dp_list, dp_name2);
+	
+	if(dpGet(dp_list, list) != 0)
+		DebugTN("dpGet Fail", dp_list);
+	
+	// code...
+	if(dpSet(dp_list, list != 0)
+		DebugTN("dpSet Fail", dp_list);
 
 }
