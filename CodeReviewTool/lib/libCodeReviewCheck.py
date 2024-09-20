@@ -585,6 +585,7 @@ class CodeReviewCheck:
                 start_index = input_code.rfind('\n', 0, index)
                 # 주어진 인덱스를 기준으로 뒤쪽 \n 찾기
                 end_index = input_code.find('\n', index)
+
                 if start_index == -1:
                     start_index = 0  # 텍스트의 시작점
                 else:
@@ -687,7 +688,7 @@ class CodeReviewCheck:
                 CodeReviewCheck.function_body_list = CodeReviewCheck.CodeCheck.get_function_body(text_code)
 
                 # 모두 해당되는 코드 리뷰 항목
-                CodeReviewCheck.CodeCheck.code_check_loop_delay( text_code, ROW_CR_ITEM_LOOP[CR_ITEM_IDX])                   # Loop문 내에 처리 조건
+                CodeReviewCheck.CodeCheck.code_check_loop_delay( text_code, ROW_CR_ITEM_LOOP[CR_ITEM_IDX])                  # Loop문 내에 처리 조건
                 CodeReviewCheck.CodeCheck.code_check_eventminimize(text_code, ROW_CR_ITEM_EVENT_CHANGE[CR_ITEM_IDX])        # 이벤트 교환 횟수 최소화
                 CodeReviewCheck.CodeCheck.code_check_callback(text_code, ROW_CR_ITEM_PROPER_DP_FCT[CR_ITEM_IDX])            # 적절한 DP 처리 함수 사용
                 CodeReviewCheck.CodeCheck.code_check_UnnecessaryCode(text_code, ROW_CR_ITEM_UNNECESSARY_CODE[CR_ITEM_IDX])  # 불필요한 코드 지양
@@ -1097,10 +1098,11 @@ class CodeReviewCheck:
 
                 for match in matches :
                     start_pos = match.start()
-                    line_text =  cls.get_pos_LinText(text, start_pos)
+                    line_text =  cls.get_pos_LinText(text, start_pos + 1)
                     
                     # DP 함수 예외 처리의 경우 log에 사용하는 경우 예외 처리
                     if cls.check_skip_item( line_text, skip_item_list) == True:
+                        Logger.debug(f"code_check_dp_exception() - {line_text} , {skip_item_list} ")
                         continue
 
                     match_text = match.group(0)

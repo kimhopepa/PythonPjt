@@ -12,6 +12,9 @@ from lib.libConfig import ConfigHandler
 from lib.libLog import Logger
 from lib.libCodeReviewCheck import *
 
+import urllib.request
+from urllib.error import URLError, HTTPError
+
 # DEBUG 레벨의 로그를 출력하는 Logger.logger 인스턴스 생성
 
 # 1. ConfigHandler 클래스 초기화
@@ -59,13 +62,32 @@ class WindowClass(QMainWindow, main_form_class):
         self.tableWidget.cellDoubleClicked.connect(self.on_cell_double_clicked)
         self.tableWidget_File.cellClicked.connect(self.on_cell_clicked_File)
 
+    def checkinHWC(self):
+        try:
+            url_hwc_its = 'http://its.sithome.com/'
+            reponse = urllib.request.urlopen(url_hwc_its)
+            return True
+        except HTTPError as e :
+            Logger.error(f"HTTP Error 발생 : {e.code} - {e.reason}")
+        except URLError as e :
+            Logger.error(f"HTTP Error 발생 : {e.reason}")
+        return False
+
     # 클래스 UI 초기화
     def init_UI(self):
         try:
+            # 0. 사내에서만 실행되도록 체크 사항 : url 접속 확인->'http://its.sithome.com/'
+            if self.checkinHWC() == True:
+                Logger.info("사내에서 동작 확인")
+            else :
+                Logger.error("사외에서 실행 불가능 : ")
+                QMessageBox.information(self, "Warning", "사외에서 사용이 불가능합니다.")
+                exit()
             
             # 초기화 실행
             self.second_form = None
             self.selected_file_name = None
+            
             CodeReviewCheck.CodeData.init_check_list()
             
             # 1. config 파일 조회
@@ -189,7 +211,6 @@ class WindowClass(QMainWindow, main_form_class):
         try:
             if self.selected_file_name is not None:
                 Logger.debug("UI_Export. file name = " + self.selected_file_name)
-
 
                 format_time = datetime.now().strftime("%Y%m%d%H%M%S")
                 export_file_name = CodeReviewCheck.CodeData.get_remove_extension(self.selected_file_name)  # 파일 확장자에서 확장자 제거 -> get_remove_extension
@@ -387,7 +408,6 @@ class WindowClass(QMainWindow, main_form_class):
 
         except Exception as e :
             Logger.error("WindowClass.on_cell_double_clicked_File Exception " + str(e))
-
 
 # 6. Sub Fomr 화면 클래스 - Detail Form
 class WindowClass_Detail(QDialog, detail_form_class):
