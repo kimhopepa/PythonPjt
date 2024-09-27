@@ -32,10 +32,10 @@ def resource_path(relative_path):
 
 
 # 4. UI 파일 연결 -> 같은 경로에 위치
-Mainform = resource_path("CodeReviewUI.ui")
+Mainform = resource_path("CodeReviewCheck.ui")
 main_form_class = uic.loadUiType(Mainform)[0]
 
-Detailform = resource_path("CodeReviewUI_Detail.ui")
+Detailform = resource_path("CodeReviewCheck_Detail.ui")
 detail_form_class = uic.loadUiType(Detailform)[0]
 
 
@@ -106,6 +106,10 @@ class WindowClass(QMainWindow, main_form_class):
             Logger.info("[config] 설정된 파일 리스트 \n" + str(df_file))
 
             # 1-3. 코드 리뷰 점검 Tool에 예외 동작 케이스
+            #[Exception]
+            #hard_code_list = ["Debug", "dpConnect", "dpQuery", "writeLog", "startThread", "update_user_alarm", "config", "paCfg", "for", "sprintf", "FROM", "WHERE", "delay", "0", "-1", "false", "true", "query", "substr", "Exception"]
+            #dp_exception_list = ["Debug", "dpConnect", "dpQuery", "writeLog", "startThread", "update_user_alarm", "config", "paCfg", "for", "sprintf", "FROM", "WHERE", "delay", "0", "-1", "false", "true", "query", "substr", "Exception"]
+
             CodeReviewCheck.CodeUI.save_config_data("Exception", CFG_KEY_HARD_CORD)
             CodeReviewCheck.CodeUI.save_config_data("Exception", CFG_KEY_DP_EXCEPTION)
 

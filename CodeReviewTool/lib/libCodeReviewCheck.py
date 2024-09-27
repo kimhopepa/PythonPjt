@@ -1318,6 +1318,10 @@ class CodeReviewCheck:
                 #1. 라인 별로 이전 라인, 현재 라인 텍스트 비교
                 for line_number, line_text in enumerate(lines, start = 1) :
                     if prev_line_number is not None :
+                        skip_list = CFG_EXCEPTION_LIST[CFG_KEY_HARD_CORD]
+                        if cls.check_skip_item(line_text, skip_list) == True :
+                            continue
+
                         if check_functions(line_text, lines[prev_line_number - 1], ["dpGet", "dpSet"]) == True:
                             detail_msg = f"DP 함수가 반복적으로 처리 되었습니다. 함수 : {func_name} "
                             # 라인수, message, Code

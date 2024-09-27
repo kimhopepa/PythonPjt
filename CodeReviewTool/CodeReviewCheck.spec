@@ -3,10 +3,10 @@
 
 block_cipher = None
 
-added_files = [ ('CodeReviewUI.ui', '.'), ('CodeReviewUI_Detail.ui', '.'), ('folder_icon.png', '.'), ('hw_main_form.png', '.') ]
+added_files = [ ('CodeReviewCheck.ui', '.'), ('CodeReviewCheck_Detail.ui', '.'), ('folder_icon.png', '.'), ('hw_main_form.png', '.') ]
 
 a = Analysis(
-    ['CodeReviewUI.py'],
+    ['CodeReviewCheck.py'],
     pathex=['C:\\Users\\KIMJH\\Documents\\GitHub\\PythonPjt\\CodeReviewTool'],
     binaries=[],
     datas= added_files,
@@ -29,7 +29,7 @@ exe = EXE(
     a.zipfiles,
     a.datas,
     [],
-    name='CodeReviewUI',
+    name='CodeReviewCheck',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

@@ -76,3 +76,8 @@ SamplCode/lib/__pycache__/libLog.cpython-312.pyc
 *.xlsx
 >>>>>>> 05da52e535b8362704a49bfc66f6dd1d0bd6bee6
 *.txt
+/CodeReviewTool/dist/CodeReviewCheck.exe
+/CodeReviewTool/dist/코드리뷰점검Tool.zip
+/CodeReviewTool/dist/코드리뷰점검Tool_v1.0
+/CodeReviewTool/build
+/CodeReviewTool/dist
