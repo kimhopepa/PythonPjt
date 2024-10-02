@@ -14,10 +14,15 @@ from lib.libCodeReviewCheck import *
 
 import urllib.request
 from urllib.error import URLError, HTTPError
+from qt_material import apply_stylesheet
+
+# import qdarkstyle
 
 # DEBUG 레벨의 로그를 출력하는 Logger.logger 인스턴스 생성
 
 # 1. ConfigHandler 클래스 초기화
+
+
 ConfigHandler.load_config('config.ini')
 
 # 2. Logger 클래스 초기화
@@ -38,6 +43,16 @@ main_form_class = uic.loadUiType(Mainform)[0]
 Detailform = resource_path("CodeReviewCheck_Detail.ui")
 detail_form_class = uic.loadUiType(Detailform)[0]
 
+
+
+# class CustomDelegate(QStyledItemDelegate):
+#     def paint(self, painter, option, index):
+#         item_text = index.data()
+#         if item_text == 'OK':
+#             option.backgroundBrush = QBrush(QColor('#4097ED'))
+#         elif 'NG' in item_text:
+#             option.backgroundBrush = QBrush(QColor('#FF5B36'))
+#         super().paint(painter, option, index)
 
 # 5. Main Form 화면 클래스
 class WindowClass(QMainWindow, main_form_class):
@@ -92,7 +107,7 @@ class WindowClass(QMainWindow, main_form_class):
             
             # 1. config 파일 조회
             self.folder_path = ConfigHandler.config_dict["Path"]["last_path"]
-            self.radioButton_SVR.setChecked(True)
+            # self.radioButton_SVR.setChecked(True)
 
             # 1-1. 마지막 파일 경로 UI에 표시
             if os.path.exists(self.folder_path):
@@ -192,10 +207,11 @@ class WindowClass(QMainWindow, main_form_class):
 
             #1. 코드 리뷰 실행 정보 전달하여 실행
             # (1)파일 이름 (2) 코드 리뷰 모드(SVR OR CLI)
-            if self.radioButton_SVR.isChecked() :
-                check_svr = bool(ROW_CR_CHECK_SVR)
+            check_svr = True
+            if ".ctl" in self.selected_file_name :
+                check_svr = True
             else :
-                check_svr = bool(ROW_CR_CHECK_CLI)
+                check_svr = False
                 
             #2. 코드 리뷰 점검 실행
             CodeReviewCheck.CodeCheck.save_to_file(str(CodeReviewCheck.df_crc_result), "[Step0] df_crc_result")
@@ -244,22 +260,28 @@ class WindowClass(QMainWindow, main_form_class):
     # table Widget 의 하이라이트 설정 (row 색상 변경)
     def set_table_highlight(self):
         try:
+
             col_result_index = 2
             for row in range(self.tableWidget.rowCount()):
                 item = self.tableWidget.item(row, col_result_index)
                 if(item.text() == ROW_CR_RESULT_OK) :
+                    # item.setBackground(QBrush(QColor('#4097ED')))
+                    item.setData(Qt.ItemDataRole.BackgroundRole, QColor('#4097ED'))
                     item2 = self.tableWidget.item(row, col_result_index-1)
-                    item.setBackground(QBrush(QColor('#4097ED')))
-                    item2.setBackground(QBrush(QColor('#4097ED')))
+                    if item2 is not None :
+                        item2.setData(Qt.ItemDataRole.BackgroundRole, QColor('#4097ED'))
+                        # item2.setBackground(QBrush(QColor('#4097ED')))
                 elif(ROW_CR_RESULT_NG in item.text()) :
-                    item2 = self.tableWidget.item(row, col_result_index - 1)
-                    item.setBackground(QBrush(QColor('#FF5B36')))
-                    item2.setBackground(QBrush(QColor('#FF5B36')))
-                # else :
-                #     item2 = self.tableWidget.item(row, col_result_index - 1)
-                #     item.setBackground(QBrush(QColor('gray')))
-                #     item2.setBackground(QBrush(QColor('gray')))
+                    # item.setBackground(QBrush(QColor('#FF5B36')))
+                    item.setData(Qt.ItemDataRole.BackgroundRole, QColor('#FF5B36'))
+                    item2 = self.tableWidget.item(row, col_result_index-1)
+                    if item2 is not None :
+                        item2.setData(Qt.ItemDataRole.BackgroundRole, QColor('#FF5B36'))
+                        # item2.setBackground(QBrush(QColor('#FF5B36')))
+                        self.tableWidget.setItem(row, col_result_index-1, item2)
+                self.tableWidget.setItem(row, col_result_index, item)
 
+            self.tableWidget.viewport().update()
         except Exception as e:
             Logger.error("WindowClass.set_table_highlight Exception " + str(e))
 
@@ -279,14 +301,17 @@ class WindowClass(QMainWindow, main_form_class):
                 for j in range(dt_data.shape[1]):
                     item = QTableWidgetItem(str(dt_data.iloc[i, j]))
                     if j == 0 or j == 2:  # 첫 번째 열의 경우에만 가운데 정렬로 설정
-                        item.setTextAlignment(Qt.AlignCenter)
+                        # item.setTextAlignment(Qt.AlignCenter)
+                        # PyQt6에서는 다음과 같이 수정
+                        item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
+
                     self.tableWidget.setItem(i, j, item)
 
             # 3. Cell Merge
             self.set_table_merge(0)
             header = self.tableWidget.horizontalHeader()
-            header.setDefaultAlignment(Qt.AlignCenter)
-
+            # header.setDefaultAlignment(Qt.AlignCenter)
+            header.setDefaultAlignment(Qt.AlignmentFlag.AlignCenter)
 
             # Apply style sheet to add horizontal line between header and data
             # self.tableWidget.setStyleSheet("QTableWidget::item:selected { background-color: #f27900; }")
@@ -308,7 +333,10 @@ class WindowClass(QMainWindow, main_form_class):
 
             self.set_table_highlight()
             # header.setSectionMovable(False)  # 컬럼 크기 변경 불가
-            header.setSectionResizeMode(QHeaderView.Fixed)
+            # header.setSectionResizeMode(QHeaderView.Fixed)
+            header.setSectionResizeMode(QHeaderView.ResizeMode.Fixed)
+
+
 
         except Exception as e:
             Logger.error("WindowClass.set_table_widget Exception " + str(e))
@@ -334,7 +362,10 @@ class WindowClass(QMainWindow, main_form_class):
                     self.tableWidget_File.setItem(i, j, item)
 
             header = self.tableWidget_File.horizontalHeader()
-            header.setSectionResizeMode(QHeaderView.Stretch)    # 사이즈 설정
+            # header.setSectionResizeMode(QHeaderView.Stretch)    # 사이즈 설정
+            header.setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
+
+
 
         except Exception as e:
             Logger.error("WindowClass.set_table_widget_file Exception " + str(e))
@@ -406,7 +437,8 @@ class WindowClass(QMainWindow, main_form_class):
         try:
             self.selected_file_name = self.tableWidget_File.item(row, col).text()
             self.label_selected_file_name.setText(self.selected_file_name)
-            self.label_selected_file_name.setAlignment(Qt.AlignCenter)
+            # self.label_selected_file_name.setAlignment(Qt.AlignCenter)
+            self.label_selected_file_name.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
             Logger.debug("on_cell_clicked_File : " + str(row) + ", " + str(col) + ", file name = " + self.selected_file_name)
 
@@ -458,7 +490,8 @@ class WindowClass_Detail(QDialog, detail_form_class):
                 for j in range(dt_data.shape[1]):
                     item = QTableWidgetItem(str(dt_data.iloc[i, j]))
                     if j != 2 :  # 첫 번째 열의 경우에만 가운데 정렬로 설정
-                        item.setTextAlignment(Qt.AlignCenter)
+                        item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
+
 
                     if j == 2 :  # 상세 내용의 케이스만 tool tip 적용
                         tooltip_data = dt_data.iloc[i, j]
@@ -485,7 +518,8 @@ class WindowClass_Detail(QDialog, detail_form_class):
                 
             # 크기 조절 안되거 설정
             header = self.tableWidget_detail.horizontalHeader()
-            header.setSectionResizeMode(QHeaderView.Fixed)
+            # header.setSectionResizeMode(QHeaderView.Fixed)
+            header.setSectionResizeMode(QHeaderView.ResizeMode.Fixed)
         except Exception as e:
             Logger.error("WindowClass.set_table_widget_detail Exception" + str(e))
 
@@ -497,9 +531,21 @@ class WindowClass_Detail(QDialog, detail_form_class):
         except Exception as e:
             Logger.error("WindowClass.init_UI Exception" + str(e))
 
+
+def load_stylesheet(app):
+    with open("light_pink_500.qss", "r", encoding="utf-8") as f:
+        stylesheet = f.read()
+        app.setStyleSheet(stylesheet)
+
 # 5) 위에서 선언한 클래스를 실행 : QMainWindow 부모 클래스의 show 함수 실행
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+
+    apply_stylesheet(app, theme='light_pink.xml')  # 스타일 적용
+
+    # load_stylesheet(app)  # QSS 파일 로드
+
+    # app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyqt5'))
     # QApplication : 프로그램을 실행시켜주는 클래스
 
     # WindowClass의 인스턴스 생성
@@ -509,4 +555,4 @@ if __name__ == '__main__':
     myWindow.show()
 
     # 프로그램을 이벤트루프로 진입시키는(프로그램을 작동시키는) 코드
-    app.exec_()
+    app.exec()

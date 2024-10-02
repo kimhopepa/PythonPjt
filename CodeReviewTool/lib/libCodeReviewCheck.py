@@ -203,7 +203,7 @@ class CodeReviewCheck:
                 # 입력된 순서(sort_list)대로 grouping? 되어서 dataframe 위치 재조정
                 CodeReviewCheck.df_crc_result = sort_by_custom_order(CodeReviewCheck.df_crc_result, COL_CR_ITEM, sort_list)
 
-                #
+                # 중복 수량 체크
                 duplicate_data = find_duplicates_with_counts(CodeReviewCheck.df_crc_result, COL_CR_ITEM)
 
                 df_item_unique = CodeReviewCheck.df_crc_result.drop_duplicates(subset = COL_CR_ITEM, keep = 'first')[[COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT]]

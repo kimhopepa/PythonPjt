@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>872</width>
-    <height>511</height>
+    <height>483</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -25,6 +25,9 @@
   </property>
   <property name="autoFillBackground">
    <bool>true</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QLineEdit" name="lineEdit_Path">
    <property name="geometry">
@@ -88,7 +91,7 @@
    <property name="geometry">
     <rect>
      <x>770</x>
-     <y>470</y>
+     <y>450</y>
      <width>81</width>
      <height>31</height>
     </rect>
@@ -97,39 +100,13 @@
     <string extracomment="sdfasf">Export</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="radioButton_CLI">
-   <property name="geometry">
-    <rect>
-     <x>790</x>
-     <y>50</y>
-     <width>61</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Client</string>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="radioButton_SVR">
-   <property name="geometry">
-    <rect>
-     <x>720</x>
-     <y>50</y>
-     <width>61</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Script</string>
-   </property>
-  </widget>
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
      <x>190</x>
      <y>70</y>
      <width>661</width>
-     <height>391</height>
+     <height>371</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -175,7 +152,7 @@
      <x>20</x>
      <y>70</y>
      <width>161</width>
-     <height>391</height>
+     <height>371</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -222,9 +199,9 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>20</y>
+     <y>10</y>
      <width>56</width>
-     <height>12</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -234,9 +211,9 @@
   <widget class="QLabel" name="label_selected_file_name">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>40</x>
      <y>50</y>
-     <width>161</width>
+     <width>121</width>
      <height>20</height>
     </rect>
    </property>

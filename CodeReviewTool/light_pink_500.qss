@@ -1,0 +1,3 @@
+QTableWidget::item {
+    background-color: transparent;  /* 기본 배경색을 투명으로 설정 */
+}

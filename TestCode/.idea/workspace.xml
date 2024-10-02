@@ -8,10 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c03cf0c1-cf2f-40ec-aa2e-2536166b52a6" name="변경" comment="ddd">
-      <change afterPath="$PROJECT_DIR$/webTest/url_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewUI.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI_TEST/WindowClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/.idea/CodeReviewTool.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/.idea/CodeReviewTool.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewCheck.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewCheck.ui" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/CodeReviewCheck.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CodeReviewTool/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeReviewTool/doc/CodeReview_점검_Tool_개발계획서_rev08.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/doc/CodeReview_점검_Tool_개발계획서_rev08.pptx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeReviewTool/lib/libCodeReviewCheck.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -68,7 +69,7 @@
       <recent name="C:\Users\KIMJH\Documents\GitHub\PythonPjt\TestCode\FileTest" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.url_test">
+  <component name="RunManager" selected="Python.WindowClass">
     <configuration name="Dataframe_dulpe_count" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -90,7 +91,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="active_checkTest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="WindowClass" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="testCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -98,11 +99,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CodeCheckTest/check_active" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/UI_TEST" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeCheckTest/check_active/active_checkTest.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/UI_TEST/WindowClass.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -219,19 +220,19 @@
     <list>
       <item itemvalue="Python.sample_dpGetdpSet" />
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.active_checkTest" />
       <item itemvalue="Python.Dataframe_dulpe_count" />
       <item itemvalue="Python.dataframe_same_data" />
       <item itemvalue="Python.check_dpGet_dpSet" />
       <item itemvalue="Python.url_test" />
+      <item itemvalue="Python.WindowClass" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.WindowClass" />
         <item itemvalue="Python.url_test" />
         <item itemvalue="Python.check_dpGet_dpSet" />
         <item itemvalue="Python.dataframe_same_data" />
         <item itemvalue="Python.Dataframe_dulpe_count" />
-        <item itemvalue="Python.active_checkTest" />
       </list>
     </recent_temporary>
   </component>
