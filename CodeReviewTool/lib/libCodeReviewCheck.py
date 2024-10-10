@@ -41,6 +41,7 @@ COL_CR_YN = 'Y/N'
 
 ROW_CR_RESULT_OK = 'OK'
 ROW_CR_RESULT_NG = 'NG'
+ROW_CR_RESULT_CHECK = 'CHECK'
 ROW_CR_RESULT_NONE = 'N/A'
 
 ROW_CR_CHECK_ALL = 'ALL'
@@ -1279,7 +1280,8 @@ class CodeReviewCheck:
                     line_number = body_code[:match_start].count('\n') + 1
 
                     # for문 Block에 dp*패턴이 있는지 확인
-                    dp_function_pattern = r'(dp[A-Z]\w*\()'
+                    # dp_function_pattern = r'(dp[A-Z]\w*\()'
+                    dp_function_pattern = r'(dp(?:Get|Set)\w*\()'
                     if check_pattern(match_text, dp_function_pattern) == True:
 
                         # title 찾는 정규식
