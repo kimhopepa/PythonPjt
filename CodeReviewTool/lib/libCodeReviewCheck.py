@@ -212,7 +212,8 @@ class CodeReviewCheck:
                 # duplicate_data 시리즈 데이터에는 NG 대상이 1이상인 경우의 수량을 가지고 있음
                 for item, item_count in duplicate_data.items() :
                     # COL_CR_ITEM('코드 리뷰 항목') 항목을 찾아서 NG 수량을 업데이터
-                    df_item_unique.loc[df_item_unique[COL_CR_ITEM] == item, COL_CR_RESULT] = f"NG ({item_count})"
+                    result_msg = df_item_unique.loc[df_item_unique[COL_CR_ITEM] == item, COL_CR_RESULT].values[0]
+                    df_item_unique.loc[df_item_unique[COL_CR_ITEM] == item, COL_CR_RESULT] = f"{result_msg} ({item_count})"
 
                 return df_item_unique
                 # return CodeReviewCheck.df_crc_result[[COL_CR_CLASS, COL_CR_ITEM, COL_CR_RESULT]]
@@ -640,7 +641,8 @@ class CodeReviewCheck:
         # Code Review 결과를 DataFrame에 업데이트 : List 정보를 입력받아 없으면 OK, 있으면 추가하면서 저장
         # review_item = 코드 리뷰 항목, review_result = 코드 리뷰 결과("상세 내용", "라인", "코드")
         @classmethod
-        def update_check_result(cls, review_item : str, review_result : list, df : pd.DataFrame) -> pd.DataFrame:
+        def update_check_result(cls, review_item : str, review_result : list, df : pd.DataFrame,
+                                result_msg : str = ROW_CR_RESULT_NG) -> pd.DataFrame:
             try:
                 # 코드 리뷰 결과에 Error 확인 -> review_result에는 NG 대상만 저장
                 if len(review_result) == 0:
@@ -653,7 +655,7 @@ class CodeReviewCheck:
                     # Error List를 Dataframe에 저장
                     for item in review_result:
                         new_row = select_row.copy()                             # ROW 정보를 새로 생성
-                        new_row.loc[:, COL_CR_RESULT] = ROW_CR_RESULT_NG        # NG 저장
+                        new_row.loc[:, COL_CR_RESULT] = result_msg        # NG 저장
                         new_row.loc[:, COL_CR_LINE] = item[0]                   # 라인 위치 저장
                         new_row.loc[:, COL_CR_RESULT_DETAIL] = item[1].strip()  # 상세 내용 저장
                         new_row.loc[:, COL_CR_RESULT_CODE] = item[2].strip()    # 코드 데이터를 저장 -> Excel 파일 저장할 때만 표시
@@ -854,7 +856,7 @@ class CodeReviewCheck:
                     total_error_result = total_error_result + hard_coding_list
 
                 # 2. 코드 리뷰 결과 Dataframe에 업데이트 -> CodeReviewCheck.df_crc_result
-                CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
+                CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result, ROW_CR_RESULT_CHECK)
             except Exception as e:
                 Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
 
@@ -1239,7 +1241,7 @@ class CodeReviewCheck:
                     total_error_result = total_error_result + continuous_list
 
 
-                CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result)
+                CodeReviewCheck.df_crc_result = cls.update_check_result(cr_item, total_error_result, CodeReviewCheck.df_crc_result, ROW_CR_RESULT_CHECK)
             except Exception as e:
                 Logger.error("CodeReviewCheck.code_check_hardcoding - Exception : " + str(e))
 
