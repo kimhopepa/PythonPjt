@@ -127,9 +127,7 @@ class WindowClass(QMainWindow, main_form_class):
 
             CodeReviewCheck.CodeUI.save_config_data("Exception", CFG_KEY_HARD_CORD)
             CodeReviewCheck.CodeUI.save_config_data("Exception", CFG_KEY_DP_EXCEPTION)
-
-            # print(hardCoding_exception_list)
-
+            CodeReviewCheck.CodeUI.save_config_data("Exception", CFG_KEY_DP_UNNECESSARY)
 
             #2-1. Table Widget 삭제
             self.tableWidget_File.clearContents()

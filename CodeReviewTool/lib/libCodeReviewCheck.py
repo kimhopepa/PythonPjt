@@ -86,6 +86,7 @@ ROW_CR_ITEM_IF_CONDITION_CODE = [ROW_CR_CLASS_STANDARD, '조건문 작성 기준
 
 CFG_KEY_HARD_CORD = "hard_code_list"
 CFG_KEY_DP_EXCEPTION = "dp_exception_list"
+CFG_KEY_DP_UNNECESSARY = "unnecessaryCode_list"
 
 # 예외 동작 키워드 config 파일에서 관리
 # config 파일 데이터 변수에 저장하여 관리 -> CFG_EXCEPTION_LIST
@@ -753,6 +754,7 @@ class CodeReviewCheck:
 
                         #3.2 전역 변수 사용 확인
                         if find_variable_usage(body_code, var_name) == True :
+
                             Logger.debug(f"CodeCheck.code_check_UnnecessaryCode - Find OK. funtion = {function_name, start_number}, used_var = {var_name}" )
                             used_flag = True
                             break
