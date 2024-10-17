@@ -748,14 +748,19 @@ class CodeReviewCheck:
                         # local_vars = cls.get_variables(body_code)
                         #
                         # # #3.1 지역 변수 사용 확인
-                        # for local_var_name, local_line in local_vars :
+                        # for local_var_name, local_line in local_vars :sdfdd
                         #     if find_variable_usage(body_code, local_var_name ) == False :
                         #         total_error_result = total_error_result + [[start_number + local_line, f"{function_name}함수의 {local_var_name} 변수가 사용 이력이 없습니다."]]
 
                         #3.2 전역 변수 사용 확인
+                        variable_skip_list = CFG_EXCEPTION_LIST[CFG_KEY_DP_UNNECESSARY]
+                        #  and
                         if find_variable_usage(body_code, var_name) == True :
-
-                            Logger.debug(f"CodeCheck.code_check_UnnecessaryCode - Find OK. funtion = {function_name, start_number}, used_var = {var_name}" )
+                            if(cls.check_skip_item(var_name, variable_skip_list) == False ) :
+                                Logger.debug(f"Exception handling for unnecessary code.. funtion = {function_name, start_number}, used_var = {var_name}")
+                                break
+                            else :
+                                Logger.debug(f"CodeCheck.code_check_UnnecessaryCode - Find OK. funtion = {function_name, start_number}, used_var = {var_name}" )
                             used_flag = True
                             break
 
