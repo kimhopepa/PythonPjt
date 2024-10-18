@@ -1,7 +1,6 @@
 import os.path
 import json
 
-import pandas as pd
 from lib.libLog import Logger
 # from PyQt5.QtWidgets import QApplication, QTableWidget, QTableWidgetItem
 from openpyxl import Workbook
@@ -18,15 +17,6 @@ import chardet
 from lib.libConfig import ConfigHandler
 ConfigHandler.load_config('config.ini')
 
-import inspect  # 현재 실행되고 있는 함수 이름 체크
-
-# from lib import libConfig
-# from enum import Enum
-# import traceback
-# import openpyxl
-
-# config_handler = libConfig.ConfigHandler('config.ini')
-# Logger.logger = libLog.Logger.logger(config_level= config_handler.config_dict["system"]["log_level"])
 
 COL_FILE_NAME = "파일 이름"
 COL_FILE_PATH = "파일 경로"
@@ -750,19 +740,20 @@ class CodeReviewCheck:
                         # # #3.1 지역 변수 사용 확인
                         # for local_var_name, local_line in local_vars :sdfdd
                         #     if find_variable_usage(body_code, local_var_name ) == False :
-                        #         total_error_result = total_error_result + [[start_number + local_line, f"{function_name}함수의 {local_var_name} 변수가 사용 이력이 없습니다."]]
+                        #         total_error_result = total_error_result + [[`` start_number + local_line, f"{function_name}함수의 {local_var_name} 변수가 사용 이력이 없습니다."]]
 
                         #3.2 전역 변수 사용 확인
                         variable_skip_list = CFG_EXCEPTION_LIST[CFG_KEY_DP_UNNECESSARY]
-                        #  and
+                        
+                        # 미사용 예외 변수 항목 체크 ->
                         if find_variable_usage(body_code, var_name) == True :
-                            if(cls.check_skip_item(var_name, variable_skip_list) == False ) :
-                                Logger.debug(f"Exception handling for unnecessary code.. funtion = {function_name, start_number}, used_var = {var_name}")
-                                break
-                            else :
                                 Logger.debug(f"CodeCheck.code_check_UnnecessaryCode - Find OK. funtion = {function_name, start_number}, used_var = {var_name}" )
-                            used_flag = True
-                            break
+                                used_flag = True
+                                break
+                        elif cls.check_skip_item(var_name, variable_skip_list) == True:
+                                Logger.debug(f"Exception handling for unnecessary code.. funtion = {function_name, start_number}, used_var = {var_name}")
+                                used_flag = True
+                                break
 
                     if used_flag == False:
                         total_error_result = total_error_result + [[line, f"미사용 변수가 존재합니다. 변수 : {var_name}", ""]]
@@ -792,7 +783,7 @@ class CodeReviewCheck:
                         left_side = re.split(r'=', stripped_line, 1)[0]
 
                         # Check for exclusion condition: single word without ',', '=', ';'
-                        if ',' not in left_side and '=' not in stripped_line and ';' not in stripped_line:
+                        if ',' not in left_side and'=' not in stripped_line and ';' not in stripped_line and '.' not in stripped_line and '"' not in stripped_line:
                             continue
 
                         # Further split by delimiters ',', ';' and process each part
